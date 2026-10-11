@@ -43,6 +43,21 @@ class Register(Email):
     password: str | None = Field(default=None, min_length=12, max_length=128, repr=False)
 
 
+class JuryRegister(Input):
+    role: Literal["candidate", "employer"]
+    password: str = Field(min_length=12, max_length=128, repr=False)
+    consent: Literal[True]
+
+
+class JurySession(BaseModel):
+    id: str
+    role: Literal["candidate", "employer"]
+    label: str
+    email: str
+    csrf: str
+    demo: Literal[True]
+
+
 class PasswordLogin(Email):
     password: str = Field(min_length=1, max_length=128, repr=False)
 

@@ -176,6 +176,8 @@ function App() {
     [accounts, setAccounts] = useState<Account[]>([]),
     [accountsReady, setAccountsReady] = useState(false),
     [juryMode, setJuryMode] = useState<boolean | null>(null),
+    [authMode, setAuthMode] = useState<"local" | "shared-password" | "individual" | null>(null),
+    [copyStatus, setCopyStatus] = useState(""),
     [ready, setReady] = useState(false),
     [error, setError] = useState(""),
     [busy, setBusy] = useState(false);
@@ -184,9 +186,11 @@ function App() {
       const u = await api<Account>("/me");
       setCsrf(u.csrf || "");
       setUser(u);
+      setCopyStatus("");
     } catch {
       setUser(null);
       setCsrf("");
+      setCopyStatus("");
     } finally {
       setReady(true);
     }
@@ -198,7 +202,9 @@ function App() {
         if (!response.ok) throw new Error('Не удалось проверить режим стенда');
         const health = await response.json();
         if (!['local-demo', 'jury-demo'].includes(health.mode)) throw new Error('Неизвестный режим стенда');
+        if (!['local', 'shared-password', 'individual'].includes(health.auth_mode)) throw new Error('Неизвестный режим входа');
         setJuryMode(health.mode === 'jury-demo');
+        setAuthMode(health.auth_mode);
         if (health.mode === 'jury-demo') {
           setAccounts([]);
         } else {
@@ -230,6 +236,7 @@ function App() {
       await api("/auth/logout", "POST");
       setUser(null);
       setCsrf("");
+      setCopyStatus("");
     } catch (e) {
       setError((e as Error).message);
     } finally {
@@ -264,7 +271,29 @@ function App() {
           </button>
           {user ? (
             <>
-              <span>{user.label}</span>
+              <span>
+                {user.label}
+                {authMode === "individual" && user.email && (
+                  <small className="generated-login">Логин: {user.email}</small>
+                )}
+              </span>
+              {authMode === "individual" && user.email && (
+                <button
+                  type="button"
+                  onClick={() => {
+                    if (!navigator.clipboard) {
+                      setCopyStatus("Скопируйте логин вручную");
+                      return;
+                    }
+                    void navigator.clipboard.writeText(user.email || "").then(
+                      () => setCopyStatus("Логин скопирован"),
+                      () => setCopyStatus("Скопируйте логин вручную"),
+                    );
+                  }}
+                >
+                  Скопировать логин
+                </button>
+              )}
               <button disabled={busy} onClick={() => void logout()}>
                 Выйти
               </button>
@@ -279,10 +308,13 @@ function App() {
           <strong>{juryMode ? 'Тестовый стенд в России' : 'Локальная демонстрация'}</strong>
           <span>
             {juryMode
-              ? 'Только синтетические данные. Не вводите реальные ФИО, контакты и резюме. Доступ жюри — по паролю; почта и регистрация отключены. Оценка не является профессиональной аттестацией.'
+              ? authMode === "individual"
+                ? 'Создайте отдельный синтетический аккаунт. Не вводите реальные ФИО, контакты и резюме. Почта не используется. Оценка не является профессиональной аттестацией.'
+                : 'Только синтетические данные. Не вводите реальные ФИО, контакты и резюме. Доступ жюри — по паролю; почта и регистрация отключены. Оценка не является профессиональной аттестацией.'
               : 'Только синтетические данные. Почта и история ФСП — mock. Демо-оценка не является профессиональной аттестацией.'}
           </span>
         </div>
+        {copyStatus && <p role="status">{copyStatus}</p>}
         {error && (
           <p role="alert" className="error">
             {error}
@@ -464,10 +496,12 @@ function App() {
             )}
             <Auth
               blank={accountsReady && accounts.length === 0}
-              passwordOnly={juryMode !== false}
+              passwordOnly={authMode === "shared-password"}
+              individualRegistration={authMode === "individual"}
               onLogin={(u) => {
                 setCsrf(u.csrf || "");
                 setUser(u);
+                setCopyStatus("");
               }}
             />
           </>
@@ -490,13 +524,19 @@ function App() {
   );
 }
 
-function Auth({ onLogin, blank = false, passwordOnly = false }: { onLogin: (u: Account) => void; blank?: boolean; passwordOnly?: boolean }) {
+function Auth({ onLogin, blank = false, passwordOnly = false, individualRegistration = false }: {
+  onLogin: (u: Account) => void;
+  blank?: boolean;
+  passwordOnly?: boolean;
+  individualRegistration?: boolean;
+}) {
   const [tab, setTab] = useState("register"),
     [email, setEmail] = useState("new-candidate@example.invalid"),
     [label, setLabel] = useState("Демо-кандидат"),
     [role, setRole] = useState("candidate"),
     [consent, setConsent] = useState(false),
     [password, setPassword] = useState(""),
+    [passwordConfirmation, setPasswordConfirmation] = useState(""),
     [verification, setVerification] = useState(""),
     [message, setMessage] = useState(""),
     [error, setError] = useState(""),
@@ -508,7 +548,7 @@ function Auth({ onLogin, blank = false, passwordOnly = false }: { onLogin: (u: A
     Number(b.email === email) - Number(a.email === email) ||
     (b.expires_at || "").localeCompare(a.expires_at || ""),
   );
-  const activeTab = passwordOnly ? 'password' : tab;
+  const activeTab = passwordOnly ? 'password' : individualRegistration && tab !== "password" ? "jury-register" : tab;
   const mailPages = usePagedItems(orderedMails, 8);
   async function mailbox() {
     try {
@@ -524,6 +564,14 @@ function Auth({ onLogin, blank = false, passwordOnly = false }: { onLogin: (u: A
     setBusy(true);
     setError("");
     try {
+      if (activeTab === "jury-register") {
+        if (password !== passwordConfirmation) throw new Error("Пароли не совпадают");
+        const account = await api<Account>("/auth/jury-register", "POST", { role, password, consent });
+        setPassword("");
+        setPasswordConfirmation("");
+        onLogin(account);
+        return;
+      }
       if (activeTab === "password") {
         onLogin(await api("/auth/password-login", "POST", { email, password }));
         setPassword("");
@@ -569,15 +617,16 @@ function Auth({ onLogin, blank = false, passwordOnly = false }: { onLogin: (u: A
   return (
     <section className="auth">
       <h2 id="own-account" tabIndex={-1}>
-        {passwordOnly ? 'Парольный доступ жюри' : 'Свой тестовый аккаунт'}
+        {passwordOnly ? 'Парольный доступ жюри' : individualRegistration ? 'Индивидуальный тестовый аккаунт' : 'Свой тестовый аккаунт'}
       </h2>
       {!passwordOnly && <div className="tabs">
         <button
           aria-pressed={tab === "password"}
           onClick={() => setTab("password")}
         >
-          Вход с паролем
+          {individualRegistration ? "Войти" : "Вход с паролем"}
         </button>
+        {!individualRegistration && <>
         <button
           aria-pressed={tab === "register"}
           onClick={() => setTab("register")}
@@ -596,10 +645,18 @@ function Auth({ onLogin, blank = false, passwordOnly = false }: { onLogin: (u: A
         >
           Mock-почта
         </button>
+        </>}
+        {individualRegistration && (
+          <button aria-pressed={activeTab === "jury-register"} onClick={() => setTab("register")}>
+            Создать аккаунт
+          </button>
+        )}
       </div>}
       <p className="muted">
         {passwordOnly
           ? 'Тестовый стенд в России. Используйте выданный синтетический аккаунт и пароль. Регистрация и почта отключены. Не вводите реальные персональные данные.'
+          : individualRegistration
+            ? 'Стенд сам создаст синтетический логин. Сохраните его для повторного входа. Почта не требуется; не вводите данные реальных людей.'
           : 'Принимаются только адреса name@example.invalid. По умолчанию письма остаются в локальном ящике, доступном всем участникам этого стенда; SMTP требует отдельного включения администратором.'}
       </p>
       {error && (
@@ -657,7 +714,7 @@ function Auth({ onLogin, blank = false, passwordOnly = false }: { onLogin: (u: A
         </div>
       ) : (
         <form onSubmit={(e) => void send(e)} className="form-grid">
-          <label>
+          {activeTab !== "jury-register" && <label>
             Демонстрационная почта
             <input
               type="email"
@@ -666,8 +723,8 @@ function Auth({ onLogin, blank = false, passwordOnly = false }: { onLogin: (u: A
               value={email}
               onChange={(e) => setEmail(e.target.value)}
             />
-          </label>
-          {(activeTab === "register" || activeTab === "password") && (
+          </label>}
+          {(activeTab === "register" || activeTab === "password" || activeTab === "jury-register") && (
             <label>
               Пароль
               <input
@@ -678,7 +735,7 @@ function Auth({ onLogin, blank = false, passwordOnly = false }: { onLogin: (u: A
                 minLength={12}
                 maxLength={128}
                 autoComplete={
-                  activeTab === "register" ? "new-password" : "current-password"
+                  activeTab === "register" || activeTab === "jury-register" ? "new-password" : "current-password"
                 }
                 value={password}
                 onChange={(e) => setPassword(e.target.value)}
@@ -686,6 +743,21 @@ function Auth({ onLogin, blank = false, passwordOnly = false }: { onLogin: (u: A
               <span className="muted" id="password-hint">
                 От 12 символов; пароль не сохраняется в браузере.
               </span>
+            </label>
+          )}
+          {activeTab === "jury-register" && (
+            <label>
+              Повторите пароль
+              <input
+                type="password"
+                aria-label="Повторите пароль"
+                required
+                minLength={12}
+                maxLength={128}
+                autoComplete="new-password"
+                value={passwordConfirmation}
+                onChange={(e) => setPasswordConfirmation(e.target.value)}
+              />
             </label>
           )}
           {activeTab === "register" && (
@@ -719,9 +791,31 @@ function Auth({ onLogin, blank = false, passwordOnly = false }: { onLogin: (u: A
               </label>
             </>
           )}
+          {activeTab === "jury-register" && (
+            <>
+              <label>
+                Кабинет
+                <select value={role} onChange={(e) => setRole(e.target.value)}>
+                  <option value="candidate">Кандидат</option>
+                  <option value="employer">Работодатель</option>
+                </select>
+              </label>
+              <label className="check">
+                <input
+                  type="checkbox"
+                  checked={consent}
+                  required
+                  onChange={(e) => setConsent(e.target.checked)}
+                />
+                Использую только синтетические данные и не ввожу данные реальных людей
+              </label>
+            </>
+          )}
           <div className="full">
             <button className="primary" disabled={busy}>
-              {activeTab === "register"
+              {activeTab === "jury-register"
+                ? "Создать отдельный аккаунт"
+                : activeTab === "register"
                 ? "Создать тестовый аккаунт"
                 : activeTab === "password"
                   ? "Войти с паролем"

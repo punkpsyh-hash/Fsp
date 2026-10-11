@@ -5,7 +5,7 @@ import re
 
 from sqlalchemy import delete, select
 
-from .models import LoginSession, User
+from .models import Company, Contact, LoginSession, Mail, Profile, User
 from .security import password_hash, password_valid
 
 
@@ -15,6 +15,39 @@ BLOCKED_PATHS = frozenset({
     '/api/v1/candidate/resume-preview',
 })
 
+SEED_ACCOUNTS = {
+    'demo-candidate-a': ('candidate', 'demo-candidate-a@example.invalid'),
+    'demo-candidate-b': ('candidate', 'demo-candidate-b@example.invalid'),
+    'demo-candidate-c': ('candidate', 'demo-candidate-c@example.invalid'),
+    'demo-candidate-d': ('candidate', 'demo-candidate-d@example.invalid'),
+    'demo-candidate-e': ('candidate', 'demo-candidate-e@example.invalid'),
+    'demo-employer-x': ('employer', 'demo-employer-x@example.invalid'),
+    'demo-employer-y': ('employer', 'demo-employer-y@example.invalid'),
+}
+INDIVIDUAL_ID = re.compile(r'jury-[0-9a-f]{32}\Z')
+
+
+def _bounded_integer(name, default, minimum, maximum):
+    raw = os.environ.get(name, str(default))
+    try:
+        value = int(raw)
+    except ValueError as error:
+        raise RuntimeError(f'{name} должен быть целым числом') from error
+    if not minimum <= value <= maximum:
+        raise RuntimeError(f'{name} должен быть от {minimum} до {maximum}')
+    return value
+
+
+def _supported_password_hash(encoded):
+    """Проверить формат без подбора или раскрытия пароля."""
+    try:
+        algorithm, rounds, salt, digest = encoded.split('$')
+        return (algorithm == 'pbkdf2_sha256' and 600_000 <= int(rounds) <= 2_000_000
+                and bool(re.fullmatch(r'[0-9a-f]{32}', salt))
+                and bool(re.fullmatch(r'[0-9a-f]{64}', digest)))
+    except (AttributeError, TypeError, ValueError):
+        return False
+
 
 def configuration():
     mode = os.environ.get('FSP_JURY_MODE', '0')
@@ -22,6 +55,9 @@ def configuration():
         raise RuntimeError('FSP_JURY_MODE должен быть 0 или 1')
     if mode == '0':
         return None
+    individual = os.environ.get('FSP_JURY_INDIVIDUAL_REGISTRATION', '0')
+    if individual not in {'0', '1'}:
+        raise RuntimeError('FSP_JURY_INDIVIDUAL_REGISTRATION должен быть 0 или 1')
     required = ('FSP_JURY_PASSWORD', 'FSP_JURY_OPERATOR_NAME', 'FSP_JURY_OPERATOR_CONTACT')
     if any(not os.environ.get(key, '').strip() for key in required):
         raise RuntimeError('Для показа жюри нужны пароль и действительные сведения владельца')
@@ -43,6 +79,10 @@ def configuration():
         'password': password,
         'operator_name': os.environ['FSP_JURY_OPERATOR_NAME'].strip(),
         'operator_contact': os.environ['FSP_JURY_OPERATOR_CONTACT'].strip(),
+        'individual_registration': individual == '1',
+        'max_individual_accounts': _bounded_integer('FSP_JURY_MAX_INDIVIDUAL_ACCOUNTS', 200, 1, 200),
+        'registration_rate_limit': _bounded_integer('FSP_JURY_REGISTRATION_RATE_LIMIT', 5, 1, 60),
+        'auth_rate_limit': _bounded_integer('FSP_JURY_AUTH_RATE_LIMIT', 10, 1, 60),
     }
 
 
@@ -57,14 +97,40 @@ def prepare_accounts(factory, config):
     """Отдельная база: никакой конвертации реальных/произвольных аккаунтов."""
     with factory() as db:
         users = list(db.scalars(select(User)))
-        if not users or any(not user.demo_seed or not user.email.endswith('@example.invalid') for user in users):
+        seeded = {user.id: user for user in users if user.demo_seed}
+        if set(seeded) != set(SEED_ACCOUNTS) or any(
+                (user.role, user.email) != SEED_ACCOUNTS[user.id]
+                for user in seeded.values()):
             raise RuntimeError('Жюри требуется отдельная база только с исходными синтетическими аккаунтами')
-        for user in users:
-            if password_valid(config['password'], user.password_hash):
-                continue
-            user.password_hash = password_hash(config['password'])
-            # При смене пароля старые сессии не сохраняются.
-            db.execute(delete(LoginSession).where(LoginSession.user_id == user.id))
+        individuals = [user for user in users if not user.demo_seed]
+        if not config['individual_registration'] and individuals:
+            raise RuntimeError('Жюри требуется отдельная база только с исходными синтетическими аккаунтами')
+        if len(individuals) > config['max_individual_accounts']:
+            raise RuntimeError('Число индивидуальных аккаунтов превышает разрешённый предел')
+        if list(db.scalars(select(Mail))):
+            raise RuntimeError('В jury-контуре не должно быть записей mock-почты')
+        for user in individuals:
+            expected_email = user.id + '@example.invalid'
+            profile, company, contact = db.get(Profile, user.id), db.get(Company, user.id), db.get(Contact, user.id)
+            identity_ok = (INDIVIDUAL_ID.fullmatch(user.id) and user.email == expected_email
+                           and user.verified and user.role in {'candidate', 'employer'}
+                           and _supported_password_hash(user.password_hash)
+                           and 2 <= len(user.label) <= 120)
+            role_data_ok = ((user.role == 'candidate' and profile is not None and company is None
+                             and contact is not None and contact.value.endswith('@example.invalid'))
+                            or (user.role == 'employer' and company is not None and profile is None
+                                and contact is None and company.contact.endswith('@example.invalid')))
+            if not identity_ok or not role_data_ok:
+                raise RuntimeError('Жюри обнаружил некорректный индивидуальный синтетический аккаунт')
+        for user in seeded.values():
+            if config['individual_registration']:
+                # Общие опубликованные данные остаются наполнением стенда, но больше не являются аккаунтами входа.
+                user.password_hash = None
+                db.execute(delete(LoginSession).where(LoginSession.user_id == user.id))
+            elif not password_valid(config['password'], user.password_hash):
+                user.password_hash = password_hash(config['password'])
+                # При смене пароля старые сессии не сохраняются.
+                db.execute(delete(LoginSession).where(LoginSession.user_id == user.id))
         db.commit()
 
 
@@ -76,6 +142,14 @@ def policy_page(kind, config):
     )
     mode = ('<p>Это локальный стенд. Данный текст описывает демонстрацию и не является '
             'политикой неуказанного оператора публичного сервиса.</p>' if config is None else
+            '<p>Временный стенд команды «Студия 37» для проверки решения ЛЦТ 2026. '
+            'Каждый проверяющий создаёт отдельный синтетический аккаунт: сервер выдаёт '
+            'случайный логин в домене example.invalid, настоящая почта и имя не запрашиваются. '
+            'Общие seed-аккаунты недоступны для входа. Восстановления пароля по почте нет; '
+            'сохраните выданный логин и свой пароль. Стенд принимает не более '
+            + str(config['max_individual_accounts']) + ' индивидуальных аккаунтов. Не вводите свои ФИО, '
+            'контакты, резюме и сведения других людей.</p>'
+            if config['individual_registration'] else
             '<p>Временный стенд команды «Студия 37» для проверки решения ЛЦТ 2026. '
             'Доступ предоставляется проверяющим по паролю. Данные профилей синтетические; '
             'не вводите свои ФИО, контакты, резюме и сведения других людей.</p>')

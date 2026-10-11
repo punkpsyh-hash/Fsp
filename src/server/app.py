@@ -12,7 +12,7 @@ import os
 import secrets
 import subprocess
 import sys
-from collections import defaultdict, deque
+from collections import OrderedDict, defaultdict, deque
 from threading import Lock
 from time import monotonic
 from uuid import uuid4
@@ -48,6 +48,7 @@ ROOT = Path(__file__).resolve().parents[2]
 # Валидация (docs/30): погрешность формы около 12 баллов. Результат в пределах полосы от порога считается неубедительным.
 CONFIRMATION_BAND = float(os.environ.get("FSP_CONFIRMATION_BAND", "6"))
 CONFIRMATION_WINDOW = timedelta(hours=24)
+RATE_LIMIT_LEDGER_SIZE = 1024
 
 
 def hashed(value):
@@ -56,6 +57,18 @@ def hashed(value):
 
 def aware(value):
     return value.replace(tzinfo=timezone.utc) if value.tzinfo is None else value
+
+
+def _bounded_history(ledger, key):
+    history = ledger.get(key)
+    if history is None:
+        if len(ledger) >= RATE_LIMIT_LEDGER_SIZE:
+            ledger.popitem(last=False)
+        history = deque()
+        ledger[key] = history
+    else:
+        ledger.move_to_end(key)
+    return history
 
 
 def create_app(url=None, demo=None, seed=True):
@@ -77,8 +90,18 @@ def create_app(url=None, demo=None, seed=True):
         yield
         engine.dispose()
 
+    api_description = (
+        "Публичный конкурсный стенд с индивидуальными синтетическими аккаунтами без почты, ФИО и реальных контактов. "
+        "Это не официальный API ФСП и не контур для персональных данных."
+        if jury_config and jury_config['individual_registration'] else
+        "Ограниченный конкурсный стенд с готовыми синтетическими аккаунтами и парольным входом. "
+        "Это не официальный API ФСП и не контур для персональных данных."
+        if jury_config else
+        "Полный локальный mock-стенд: синтетические данные, локальная mock-почта и mock ФСП ID. "
+        "Это не официальный API ФСП и не публичный контур для персональных данных."
+    )
     app = FastAPI(title="ФСП · Карьерный профиль · конкурсный стенд", version="0.4.0", lifespan=lifespan,
-                  description="Работающий локальный API. Только синтетические данные; подтверждение адреса использует локальный mail sink; ФСП — явно обозначенный mock. Не официальный API ФСП.",
+                  description=api_description,
                   docs_url=None, openapi_url="/api/openapi.json", redoc_url=None,
                   responses={422: {"description": "Некорректные поля: code, message, request_id, details без исходных значений"}})
     app.state.engine, app.state.factory = engine, factory
@@ -88,29 +111,51 @@ def create_app(url=None, demo=None, seed=True):
     extra_hosts = [h.strip() for h in os.environ.get("FSP_ALLOWED_HOSTS", "").split(",") if h.strip()]
     extra_origins = {o.strip() for o in os.environ.get("FSP_ALLOWED_ORIGINS", "").split(",") if o.strip()}
     app.add_middleware(TrustedHostMiddleware, allowed_hosts=["127.0.0.1", "localhost", "testserver", "app", *extra_hosts])
-    auth_requests, auth_lock = defaultdict(deque), Lock()
+    auth_requests, auth_lock = OrderedDict(), Lock()
+    registration_requests, registration_rate_lock = OrderedDict(), Lock()
+    # Штатный entrypoint запускает один Uvicorn worker; lock делает проверку лимита и insert атомарными в процессе.
+    registration_create_lock = Lock()
     integrity_requests, integrity_lock = defaultdict(deque), Lock()
     # Предел попыток входа в минуту с одного адреса; повышается только для быстрых автоматических прогонов.
-    auth_limit = max(30, int(os.environ.get("FSP_AUTH_RATE_LIMIT", "30")))
+    auth_limit = (jury_config['auth_rate_limit'] if jury_config and jury_config['individual_registration']
+                  else max(30, int(os.environ.get("FSP_AUTH_RATE_LIMIT", "30"))))
 
     @app.middleware("http")
     async def boundary(request, call_next):
         request.state.request_id = str(uuid4())
         origin = request.headers.get("origin")
+        if (request.url.path.rstrip('/') == '/api/v1/auth/jury-register'
+                and not (jury_config and jury_config['individual_registration'])):
+            return JSONResponse({"code": "http_404", "message": "Индивидуальная регистрация недоступна",
+                                 "request_id": request.state.request_id}, status_code=404)
         if jury_config and jury.blocked(request.url.path):
             return JSONResponse({"code": "jury_mode", "message": "В показе жюри доступен только вход с паролем; регистрация, почта и загрузка резюме отключены", "request_id": request.state.request_id}, status_code=404)
         allowed = {f"http://{host}:{port}" for host in ("127.0.0.1", "localhost") for port in (8470, 18080, 5173)} | extra_origins
+        # Чужой Origin отклоняем до мутации rate-limit ledger: иначе чужая страница
+        # может исчерпать квоту посетителя или общего NAT простой POST-формой.
+        if request.method not in {"GET", "HEAD", "OPTIONS"} and origin and origin not in allowed:
+            return JSONResponse({"code": "origin_forbidden", "message": "Источник запроса не разрешён", "request_id": request.state.request_id}, status_code=403)
         if request.method == "POST" and request.url.path.startswith("/api/v1/auth/"):
             key = hashed(request.client.host if request.client else "local")
             current = monotonic()
             with auth_lock:
-                history = auth_requests[key]
+                history = _bounded_history(auth_requests, key)
                 while history and history[0] <= current-60: history.popleft()
                 if len(history) >= auth_limit:
                     return JSONResponse({"code":"rate_limit","message":"Слишком много попыток входа. Подождите минуту","request_id":request.state.request_id},status_code=429,headers={"Retry-After":"60"})
                 history.append(current)
-        if request.method not in {"GET", "HEAD", "OPTIONS"} and origin and origin not in allowed:
-            return JSONResponse({"code": "origin_forbidden", "message": "Источник запроса не разрешён", "request_id": request.state.request_id}, status_code=403)
+            if (jury_config and jury_config['individual_registration']
+                    and request.url.path.rstrip('/') == '/api/v1/auth/jury-register'):
+                with registration_rate_lock:
+                    # Ограничитель не должен бесконечно расти от случайных адресов сканеров.
+                    history = _bounded_history(registration_requests, key)
+                    while history and history[0] <= current - 3600:
+                        history.popleft()
+                    if len(history) >= jury_config['registration_rate_limit']:
+                        return JSONResponse({"code": "rate_limit", "message": "Слишком много регистраций. Повторите позже",
+                                             "request_id": request.state.request_id}, status_code=429,
+                                            headers={"Retry-After": "3600"})
+                    history.append(current)
         response = await call_next(request)
         response.headers["X-Request-ID"] = request.state.request_id
         response.headers["X-Content-Type-Options"] = "nosniff"
@@ -169,7 +214,8 @@ def create_app(url=None, demo=None, seed=True):
         db.add(LoginSession(token_hash=hashed(token), user_id=user.id, csrf=csrf, expires_at=now() + timedelta(hours=8)))
         db.commit()
         response.set_cookie("fsp_session", token, httponly=True, samesite="strict", max_age=8*3600, path="/api", secure=os.environ.get("FSP_COOKIE_SECURE") == "1")
-        return {"id": user.id, "role": user.role, "label": user.label, "csrf": csrf, "demo": True}
+        return {"id": user.id, "role": user.role, "label": user.label, "email": user.email,
+                "csrf": csrf, "demo": True}
 
     def own_profile(db, user):
         p = db.get(Profile, user.id)
@@ -214,7 +260,10 @@ def create_app(url=None, demo=None, seed=True):
     @app.get("/api/health", tags=["Состояние"])
     def health(db=Depends(db_session)):
         db.execute(text("SELECT 1"))
-        return {"status": "ok", "mode": "jury-demo" if jury_config else "local-demo", "version": "0.4.0"}
+        auth_mode = ("individual" if jury_config and jury_config['individual_registration']
+                     else "shared-password" if jury_config else "local")
+        return {"status": "ok", "mode": "jury-demo" if jury_config else "local-demo",
+                "auth_mode": auth_mode, "version": "0.4.0"}
 
     @app.get("/legal/privacy", response_class=HTMLResponse, include_in_schema=False)
     def privacy_policy():
@@ -260,6 +309,42 @@ def create_app(url=None, demo=None, seed=True):
             # Запись подтверждения уже сохранена; можно повторить запрос ссылки.
             return {"transport":"smtp","delivery":"failed","message":"SMTP недоступен. Проверьте локальную конфигурацию и запросите письмо повторно","demo":True}
 
+    @app.post("/api/v1/auth/jury-register", status_code=201, response_model=S.JurySession, tags=["Вход"])
+    def jury_register(body: S.JuryRegister, response: Response, request: Request, db=Depends(db_session)):
+        if not jury_config or not jury_config['individual_registration']:
+            raise HTTPException(404, "Индивидуальная регистрация недоступна")
+        with registration_create_lock:
+            old_token = request.cookies.get("fsp_session", "")
+            old_session = db.get(LoginSession, hashed(old_token)) if old_token else None
+            if old_session and aware(old_session.expires_at) > now():
+                raise HTTPException(409, "Сначала выйдите из текущего аккаунта")
+            count = db.scalar(select(func.count()).select_from(User).where(User.demo_seed.is_(False)))
+            if count >= jury_config['max_individual_accounts']:
+                raise HTTPException(429, "Лимит индивидуальных аккаунтов стенда исчерпан",
+                                    headers={"Retry-After": "3600"})
+            identifier = "jury-" + secrets.token_hex(16)
+            email = identifier + "@example.invalid"
+            suffix = identifier[-8:].upper()
+            label = ("Кандидат " if body.role == "candidate" else "Работодатель ") + suffix
+            user = User(id=identifier, email=email, role=body.role, label=label, verified=True,
+                        demo_seed=False, password_hash=password_hash(body.password))
+            try:
+                db.add(user)
+                db.flush()
+                if body.role == "candidate":
+                    db.add(Profile(user_id=identifier))
+                    db.add(Contact(user_id=identifier, value=email))
+                else:
+                    db.add(Company(user_id=identifier, name=label, contact=email,
+                                   description="Синтетическая компания индивидуального участника стенда."))
+                audit(db, user, "synthetic_demo_terms:v1", identifier)
+                db.flush()
+            except IntegrityError:
+                db.rollback()
+                raise HTTPException(503, "Не удалось создать синтетический аккаунт. Повторите запрос")
+            account = login(db, user, response, old_token)
+            return {**account, "email": email}
+
     @app.post("/api/v1/auth/register", status_code=201, tags=["Mock-идентификация"])
     def register(body: S.Register, db=Depends(db_session)):
         if db.scalar(select(User).where(User.email == body.email)):
@@ -286,7 +371,9 @@ def create_app(url=None, demo=None, seed=True):
         user=db.scalar(select(User).where(User.email==body.email))
         # Сопоставимое время для неизвестного адреса и неверного пароля.
         valid=password_valid(body.password,user.password_hash if user and user.password_hash else dummy_password)
-        if not user or not valid:raise HTTPException(401,"Неверный адрес или пароль")
+        if (not user or not valid or
+                (jury_config and jury_config['individual_registration'] and user.demo_seed)):
+            raise HTTPException(401,"Неверный адрес или пароль")
         if not user.verified:raise HTTPException(403,"Сначала подтвердите адрес")
         return login(db,user,response,request.cookies.get("fsp_session",""))
 

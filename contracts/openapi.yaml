@@ -1,9 +1,9 @@
 openapi: 3.1.0
 info:
   title: ФСП · Карьерный профиль · конкурсный стенд
-  description: Работающий локальный API. Только синтетические данные; подтверждение
-    адреса использует локальный mail sink; ФСП — явно обозначенный mock. Не официальный
-    API ФСП.
+  description: 'Полный локальный mock-стенд: синтетические данные, локальная mock-почта
+    и mock ФСП ID. Это не официальный API ФСП и не публичный контур для персональных
+    данных.'
   version: 0.4.0
 paths:
   /api/health:
@@ -124,6 +124,60 @@ paths:
             application/json:
               schema: &id002
                 $ref: '#/components/schemas/SessionView'
+        '422':
+          description: Некорректные поля
+          content:
+            application/json:
+              schema: *id001
+        '401':
+          description: Нет действующей сессии
+          content:
+            application/json:
+              schema: *id001
+        '403':
+          description: Роль, источник или CSRF не разрешены
+          content:
+            application/json:
+              schema: *id001
+        '404':
+          description: Запись отсутствует или не принадлежит пользователю
+          content:
+            application/json:
+              schema: *id001
+        '409':
+          description: Конфликт состояния, версии или срока
+          content:
+            application/json:
+              schema: *id001
+        '429':
+          description: Лимит запросов
+          content:
+            application/json:
+              schema: *id001
+        '503':
+          description: Компонент недоступен
+          content:
+            application/json:
+              schema: *id001
+  /api/v1/auth/jury-register:
+    post:
+      tags:
+      - Вход
+      summary: Jury Register
+      operationId: jury_register_api_v1_auth_jury_register_post
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/JuryRegister'
+        required: true
+      responses:
+        '201':
+          description: Successful Response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/JurySession'
         '422':
           description: Некорректные поля
           content:
@@ -6964,6 +7018,63 @@ components:
       - runtime_version
       - duration_ms
       title: JobResult
+    JuryRegister:
+      properties:
+        role:
+          type: string
+          enum:
+          - candidate
+          - employer
+          title: Role
+        password:
+          type: string
+          maxLength: 128
+          minLength: 12
+          title: Password
+        consent:
+          type: boolean
+          const: true
+          title: Consent
+      additionalProperties: false
+      type: object
+      required:
+      - role
+      - password
+      - consent
+      title: JuryRegister
+    JurySession:
+      properties:
+        id:
+          type: string
+          title: Id
+        role:
+          type: string
+          enum:
+          - candidate
+          - employer
+          title: Role
+        label:
+          type: string
+          title: Label
+        email:
+          type: string
+          title: Email
+        csrf:
+          type: string
+          title: Csrf
+        demo:
+          type: boolean
+          const: true
+          title: Demo
+      type: object
+      required:
+      - id
+      - role
+      - label
+      - email
+      - csrf
+      - demo
+      title: JurySession
     NeedInput:
       properties:
         specialization:

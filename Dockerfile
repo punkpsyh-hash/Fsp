@@ -27,7 +27,7 @@ FROM backend AS tools
 LABEL org.fsp.project="career-profile" org.fsp.component="tools"
 RUN pip install --no-cache-dir --only-binary=:all: python-docx==1.2.0 lxml==6.1.3
 COPY tests/ tests/
-COPY compose.yaml compose.runner-tcg.yaml compose.verify.yaml compose.isolated.yaml compose.llm.yaml compose.remote-llm.yaml compose.delivery.yaml compose.jury.yaml compose.jury-relay.yaml ./
+COPY compose.yaml compose.runner-tcg.yaml compose.verify.yaml compose.isolated.yaml compose.llm.yaml compose.remote-llm.yaml compose.delivery.yaml compose.jury.yaml compose.jury-relay.yaml compose.jury-public-demo.yaml compose.jury-individual.yaml ./
 COPY docker/model.Dockerfile docker/model.Dockerfile
 COPY docker/jury/ docker/jury/
 COPY scripts/ scripts/

@@ -88,6 +88,25 @@ def test_explicit_public_demo_override_preserves_internal_and_app_boundary():
     assert "basic_auth argon2id" in (ROOT / "docker/jury/Caddyfile.relay").read_text(encoding="utf-8")
 
 
+def test_individual_registration_is_an_explicit_bounded_override():
+    override = yaml.load((ROOT / "compose.jury-individual.yaml").read_text(encoding="utf-8"), Loader=ComposeLoader)
+    env = override["services"]["app"]["environment"]
+    assert env == {
+        "FSP_JURY_INDIVIDUAL_REGISTRATION": "1",
+        "FSP_JURY_MAX_INDIVIDUAL_ACCOUNTS": "200",
+        "FSP_JURY_REGISTRATION_RATE_LIMIT": "5",
+        "FSP_JURY_AUTH_RATE_LIMIT": "10",
+    }
+    base = load_compose()["services"]["app"]["environment"]
+    assert "FSP_JURY_INDIVIDUAL_REGISTRATION" not in base
+
+
+def test_tools_image_includes_public_and_individual_jury_overrides():
+    dockerfile = (ROOT / "Dockerfile").read_text(encoding="utf-8")
+    assert "compose.jury-public-demo.yaml" in dockerfile
+    assert "compose.jury-individual.yaml" in dockerfile
+
+
 def test_caddy_denies_internal_before_auth_and_exposes_only_policies():
     caddy = (ROOT / "docker/jury/Caddyfile").read_text(encoding="utf-8")
 

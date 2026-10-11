@@ -1,0 +1,8 @@
+# Явный opt-in: отдельные синтетические аккаунты без почты и общих логинов.
+services:
+  app:
+    environment:
+      FSP_JURY_INDIVIDUAL_REGISTRATION: "1"
+      FSP_JURY_MAX_INDIVIDUAL_ACCOUNTS: "200"
+      FSP_JURY_REGISTRATION_RATE_LIMIT: "5"
+      FSP_JURY_AUTH_RATE_LIMIT: "10"

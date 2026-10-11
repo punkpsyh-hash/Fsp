@@ -28,8 +28,16 @@ env_value() {
 }
 
 compose() {
+  local individual
+  individual="$(env_value FSP_JURY_INDIVIDUAL_REGISTRATION)"
+  local -a overrides=(-f compose.yaml -f compose.jury.yaml -f compose.jury-relay.yaml)
+  case "$individual" in
+    1) overrides+=(-f compose.jury-public-demo.yaml -f compose.jury-individual.yaml) ;;
+    ''|0) ;;
+    *) die 'FSP_JURY_INDIVIDUAL_REGISTRATION должен быть 0 или 1.' ;;
+  esac
   docker compose --project-name "$PROJECT_NAME" --env-file "$ENV_FILE" \
-    -f compose.yaml -f compose.jury.yaml -f compose.jury-relay.yaml "$@"
+    "${overrides[@]}" "$@"
 }
 
 require_relay_env() {
@@ -74,7 +82,16 @@ config_summary() {
 validate() {
   require_relay_env
   compose config --quiet
-  compose run --rm -T --no-deps edge caddy validate --config /etc/caddy/Caddyfile --adapter caddyfile
+  local caddyfile="$PWD/docker/jury/Caddyfile.relay"
+  if [[ "$(env_value FSP_JURY_INDIVIDUAL_REGISTRATION)" == '1' ]]; then
+    caddyfile="$PWD/docker/jury/Caddyfile.public-demo"
+  fi
+  # Отдельная проверка без Compose-сети: не занимает фиксированный IP работающего edge.
+  docker run --rm --network none --cap-drop ALL --security-opt no-new-privileges:true \
+    --mount "type=bind,src=$caddyfile,dst=/etc/caddy/Caddyfile,readonly" \
+    --env "FSP_JURY_BASIC_AUTH_USER=$(env_value FSP_JURY_BASIC_AUTH_USER)" \
+    --env "FSP_JURY_BASIC_AUTH_HASH=$(env_value FSP_JURY_BASIC_AUTH_HASH)" \
+    "$CADDY_IMAGE" caddy validate --config /etc/caddy/Caddyfile --adapter caddyfile
   compose build tunnel
 }
 
@@ -96,9 +113,13 @@ case "${1:-help}" in
   gate) gate ;;
   prepare)
     require_relay_env
+    if [[ "$(env_value FSP_JURY_INDIVIDUAL_REGISTRATION)" == '1' ]]; then
+      # Публичный edge не может запускаться обходным bootstrap-путём.
+      gate
+    fi
     validate
     compose up -d --build --wait --wait-timeout "${FSP_JURY_START_TIMEOUT:-900}" db app runner edge tunnel
-    printf 'Private relay подготовлен: NAS edge остаётся на loopback; публичный gate ещё не пройден.\n'
+    printf 'Relay подготовлен; индивидуальный публичный режим требует пройденного gate. NAS edge остаётся на loopback.\n'
     ;;
   start)
     gate
