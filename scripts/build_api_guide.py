@@ -240,7 +240,7 @@ def main():
         cover = [Spacer(1, 55), CheckedParagraph('<b>ФСП Карьерный профиль</b>', st['h1']),
                  CheckedParagraph('<b>Практическое руководство по локальному API</b>', st['h1']),
                  CheckedParagraph('11 октября 2026 года', st['note']),
-                 CheckedParagraph('87 путей / 100 операций. Описывается локальный API проекта. Все демонстрационные данные синтетические.', st['body']), PageBreak()]
+                 CheckedParagraph('88 путей / 101 операция. Описывается API проекта, включая отдельный режим показа жюри. Все демонстрационные данные синтетические.', st['body']), PageBreak()]
         return cover + body, stats
     story, statistics = with_cover()
     if not story:

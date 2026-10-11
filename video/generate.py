@@ -52,7 +52,7 @@ chapters.append({'number':'10','title':'Итог и доступ жюри','star
 outro_start=cursor
 nodes.append(f'<Series.Sequence name="Итог и доступ жюри" durationInFrames={{{frame(spec["outroSeconds"])}}} premountFor={{fps}}><Outro /></Series.Sequence>')
 cursor+=frame(spec['outroSeconds'])
-for a,b,text in [(0,8,'Профиль → Оценка → Категория → Подбор → Согласие → Контакт.'),(8,22,'GitHub: публичный github.com/punkpsyh-hash/Fsp, ветка main. Скачать ZIP или выполнить git clone; приглашение не требуется.'),(22,36,'Стенд: fsptest.kolesnikovny.ru. Отдельный пароль от владельца. Полный запуск — Docker и README.')]:
+for a,b,text in [(0,8,'Профиль → Оценка → Категория → Подбор → Согласие → Контакт.'),(8,22,'GitHub: публичный github.com/punkpsyh-hash/Fsp, ветка main. Скачать ZIP или выполнить git clone; приглашение не требуется.'),(22,36,'Стенд: fsptest.kolesnikovny.ru. Создайте свой тестовый аккаунт и сохраните выданный логин. Пароль задаёте вы. Полный запуск — Docker и README.')]:
     subtitles.append({'text':text,'startMs':round((outro_start/fps+a)*1000),'endMs':round((outro_start/fps+b)*1000),'timestampMs':None,'confidence':None})
 (root/'src/Root.tsx').write_text('''// Создано generate.py из storyboard.json. Клипы и подписи представлены отдельными JSX-узлами.
 import React from 'react';

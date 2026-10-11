@@ -1,0 +1,30 @@
+{
+  "source_pptx": {
+    "path": "D:/Codex/Temp/fsp-final-v3-20261011/presentation/source-before.pptx",
+    "sha256": "1ef21d556c24bdbda4a7d0a964ccb5b31041a8b432bc64900fed6587a51435c4",
+    "slide_count": 16,
+    "public_github_raw_match": true,
+    "public_github_raw_verification_source": "parent coordinator"
+  },
+  "user_pdf": {
+    "sha256": "c5d97019f9177ec138358fbdec1b204d136a67b6c24743e371bd6847c43a1bc5",
+    "page_count": 16,
+    "render_directory": "D:/Codex/Temp/fsp-final-v3-20261011/presentation/source-pdf"
+  },
+  "meaningful_content_changes_from_pdf": {
+    "1": "Название команды «Студия 37» и полное название задачи",
+    "2": "Логотип команды; полное имя капитана; бакалавр 09.03.01; 4 участника; техникум; Луховицы, Московская область",
+    "3": "Четыре фотографии, имена и роли без телефонов и Telegram",
+    "4": "Опыт совместного участия обучающихся и преподавателей; интерес к перспективному проекту"
+  },
+  "additional_confirmed_mode_changes": {
+    "11": "Индивидуальная синтетическая jury-регистрация, роль candidate/employer, свой пароль от 12 символов, серверный логин example.invalid; отличие от полного локального mock",
+    "16": "Самостоятельный вход без отдельного передаваемого пароля; тег lct-2026-jury-v3"
+  },
+  "unchanged_product_slides": [5, 6, 7, 8, 9, 10, 12, 13, 14, 15],
+  "comparison_note": "На страницах 7–9 PDF отличается масштабированием макета, но содержание совпадает с текущим PPTX; сохранена более новая текущая версия PPTX.",
+  "privacy": {
+    "phones_from_pdf_included": false,
+    "telegram_from_pdf_included": false
+  }
+}

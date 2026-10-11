@@ -32,6 +32,57 @@ Chromium, Firefox и WebKit. Её версии и условия сохране�
 [браузеры](release/2026-10-11-legal-submission/jury-public-browser.json)
 и [HTTP](release/2026-10-11-legal-submission/jury-public-http.json).
 
+## Индивидуальный режим жюри v3
+
+Текущая реализация отдельной синтетической регистрации прошла локальные
+проверки: полный SQLite-набор — 565 passed, 5 skipped и шесть
+пройденных подтестов за 469,91 с; адресный auth-набор — 141 passed, 3 skipped
+за 48,74 с; relay CLI — 6 passed. Независимый gate повторно выполнил 23
+auth-теста и проверки script/Compose со статусом passed.
+
+Регистрация включается только явным
+`FSP_JURY_INDIVIDUAL_REGISTRATION=1`, принимает роли `candidate`/`employer`,
+пароль 12–128 символов и `consent=true`, после чего сервер выдаёт случайный
+логин `jury-` + 32 hex + `@example.invalid`. Реальный email не запрашивается и
+письмо не отправляется. Пределы: 200 аккаунтов, 5 регистраций в час на
+фактический IP и 10 попыток аутентификации в минуту на IP. Профили ролей
+разделены правилами владения; прежние seed-пароли очищаются, их сессии
+отзываются.
+
+V3 активирован на внешнем домене: TLS health возвращает 200, статус `ok`,
+режим `jury-demo` и `auth_mode=individual`; NAS app-образ
+`sha256:316b49cf…` healthy. Исходный app commit —
+`da0281d95fccf9be579cb3de717da34394c1ef3e`, операторская правка relay —
+`be2109594ae453ae60050217eaf88c3fe0f8b314`.
+
+На отдельном Compose-проекте `fspjury-v3-check` с PostgreSQL 16.14 и tools-образом
+`sha256:08738c6f…` прошли 76 выбранных тестов, 0 skipped, за 362,16 с. Охват:
+три новых PostgreSQL-кейса ролей, отсутствия почты, отзыва seed-доступа,
+startup и конкурентного лимита плюс 73 выбранные проверки API, продукта,
+mailer и email policy. Это адресный PostgreSQL-набор v3, а не полный прогон
+всего серверного набора. Browser-матрица двух ролей в трёх движках и
+негативные HTTP-проверки выполнены после активации. Chromium, Firefox и WebKit
+прошли по одному candidate- и employer-потоку: создание двух аккаунтов через
+UI, выдача и копирование логина, reload с живой сессией, очистка полей пароля,
+logout/relogin и границы ролей. Анонимные `/me`, обычная регистрация, mail/mock,
+demo accounts и `/internal` закрыты ожидаемыми 401/404.
+
+Отдельные 10 HTTPS-проверок с системной TLS-валидацией подтвердили 200 landing
+и policy, 401 для анонимного кабинета и обоих старых shared credentials, 403
+для чужого Origin, 422 для лишнего email и 404 для internal/verify/FSP mock.
+После фактического restart app существующая candidate-сессия вернула `/me` 200
+с тем же ID; сохранённые candidate/employer пароли дали свежий вход с верными
+ролями. Cookie проверена как `Secure`, `HttpOnly`, `SameSite=Strict`.
+Receipts —
+[`registration-verification.json`](release/2026-10-11-jury-v3/registration-verification.json)
+и [независимая security-проверка](release/2026-10-11-jury-v3/security-review.md),
+[browser](release/2026-10-11-jury-v3/live-browser.json),
+[HTTPS](release/2026-10-11-jury-v3/live-http.json) и
+[restart](release/2026-10-11-jury-v3/restart-verification.json).
+
+Это приёмка заявленного конкурсного контура, а не полный pentest, проверка
+произвольной нагрузки или полный PostgreSQL-набор проекта.
+
 ## Оценка и изоляция
 
 [scenarios-v6](assessment-v6-results.json) проверяет 800 основных и 800
@@ -93,6 +144,22 @@ SHA-256, использует закреплённые локальные safete
 
 Готовы [семь пар PDF/Word](delivery/gost/README.md),
 [презентация](47-presentation.md) и [видео](62-video-guide.md).
+Презентация уточнена по предоставленному 16-страничному PDF: изменены только
+слайды 1–4, 11 и 16, добавлены подтверждённые имена, роли и фотографии команды;
+телефоны и Telegram исключены. Итоговый PPTX — 15 761 169 байт, SHA-256
+`736b021a6632fae1da4b6cf7aa1d6eab8412f486b6fd73d77fe036a35d09c9aa`;
+структурная проверка описана в
+[`presentation-validation.json`](release/2026-10-11-jury-v3/presentation-validation.json),
+а состав изменений и просмотр всех 16 слайдов — в
+[`presentation-content.json`](release/2026-10-11-jury-v3/presentation-content.json).
+
+Видео сохраняет экранную запись 9 октября, но его последние ~36 секунд
+пересобраны в Remotion с инструкцией индивидуального входа. Итог: 8118 кадров,
+324,72 с, 1920 × 1080, 25 fps, H.264, 17 997 441 байт, SHA-256
+`4dcc478981d347f5440c8a43b1c95284d03eed2ed64b5cbe7cce9bcc0894f990`.
+Новая концовка не является записью нового интерфейса регистрации. Проверка
+текущего файла —
+[`video-verification.json`](release/2026-10-11-jury-v3/video-verification.json).
 Состав письменных источников задаёт [manifest](document-set.json);
 лицензии и происхождение — [реестр](59-copyright-and-components.md).
 Полнота по оригиналу ТЗ и всем 17 письменным ответам описана в

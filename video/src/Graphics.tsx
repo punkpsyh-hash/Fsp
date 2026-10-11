@@ -86,8 +86,8 @@ export const Outro: React.FC = () => {
     </> : <>
       <div style={{fontSize:82,fontWeight:700,marginTop:55}}>Посмотреть. Скачать. Запустить.</div>
       <div style={{fontSize:43,color:'#ff799f',marginTop:50}}>https://fsptest.kolesnikovny.ru</div>
-      <div style={{fontSize:35,lineHeight:1.6,marginTop:40}}>Стенд жюри: отдельный пароль от владельца.<br/>Полный локальный запуск: Docker + инструкция в README.<br/>Модель Qwen подключается отдельно; базовый сценарий работает без неё.</div>
-      <div style={{fontSize:28,lineHeight:1.5,color:colors.muted,marginTop:48}}>Во внешнем показе отключены регистрация, почта, PDF-импорт и ФСП mock.<br/>Исходная запись: 9 октября. Монтаж и пояснения: 11 октября 2026.<br/>LLM и подключение к официальному ФСП API в этой записи не показаны.</div>
+      <div style={{fontSize:35,lineHeight:1.6,marginTop:40}}>Выберите роль и создайте свой тестовый аккаунт.<br/>Сохраните выданный логин; пароль задаёте вы.<br/>Полный локальный запуск: Docker + инструкция в README.</div>
+      <div style={{fontSize:28,lineHeight:1.5,color:colors.muted,marginTop:48}}>Используйте только вымышленные данные. Почта и PDF-импорт отключены.<br/>Исходная запись: 9 октября. Монтаж и пояснения: 11 октября 2026.<br/>LLM и подключение к официальному ФСП API в этой записи не показаны.</div>
     </>}
   </AbsoluteFill>;
 };

@@ -1,24 +1,24 @@
 {
   "source": "18-api-guide.md",
-  "source_sha256": "6fca4bb173e49b07a50672c38f5ec4a3cb1a7537da5597c5f161adb5775a6de9",
+  "source_sha256": "6c5231d4c850bd3874085eb6d49034065d93c74425825b5ab7315167f75b679a",
   "pdf": "api-guide.pdf",
-  "pdf_sha256": "821e01510bb06db7294d7e8dc9ad2cf63dfa7fd350ae1ac430cdef244c5dbab0",
-  "pdf_bytes": 244235,
-  "pages": 31,
+  "pdf_sha256": "07913b1e098fa9f730e2891edc9af52bca4a2652f1ee97b15b9bed8f196b1305",
+  "pdf_bytes": 246628,
+  "pages": 33,
   "invariant_pdf": true,
   "source_structure": {
-    "headings": 41,
+    "headings": 42,
     "code_blocks": 3,
     "tables": 29,
-    "operation_rows": 100
+    "operation_rows": 101
   },
   "checks": {
     "cyrillic_text_extractable": true,
     "byte_reproducibility_verified": true,
     "raw_code_fences_absent": true,
-    "operations_extractable": 100,
+    "operations_extractable": 101,
     "missing_operations": [],
-    "drawn_text_blocks": 486,
+    "drawn_text_blocks": 488,
     "flowable_bounds_valid": true,
     "overflow_blocks": 0,
     "page_size_pt": [

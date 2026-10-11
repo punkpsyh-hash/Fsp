@@ -20,23 +20,33 @@ cd fsp
 ./scripts/run.sh status
 ```
 
-Датированный комплект закреплён тегом `lct-2026-jury-v2`. Для точного воспроизведения
-после клонирования выполните `git checkout lct-2026-jury-v2`. Исходный ZIP того же
-тега доступен на [странице выпуска](https://github.com/punkpsyh-hash/Fsp/releases/tag/lct-2026-jury-v2).
+Целевой датированный комплект закрепляется тегом `lct-2026-jury-v3`. После его
+публикации для точного воспроизведения выполните `git checkout lct-2026-jury-v3`.
+Исходный ZIP доступен на [странице выпуска](https://github.com/punkpsyh-hash/Fsp/releases/tag/lct-2026-jury-v3).
+До появления тега и протокола v3 эти ссылки являются целевыми. Тег
+`lct-2026-jury-v2` остаётся неизменяемым историческим срезом.
 
 ## Материалы сдачи
 
 - [Ссылки по полям формы конкурса](60-jury-submission.md).
-- [Документация PDF](https://github.com/punkpsyh-hash/Fsp/releases/download/lct-2026-jury-v2/documentation.pdf).
-- [Презентация PowerPoint](https://github.com/punkpsyh-hash/Fsp/releases/download/lct-2026-jury-v2/fsp-lct-2026.pptx).
-- [Видео с пояснениями](https://github.com/punkpsyh-hash/Fsp/releases/download/lct-2026-jury-v2/demo-explained.mp4).
-- [Комплект PDF и Word](https://github.com/punkpsyh-hash/Fsp/releases/download/lct-2026-jury-v2/fsp-documents-gost.zip).
+- [Документация PDF](https://github.com/punkpsyh-hash/Fsp/releases/download/lct-2026-jury-v3/documentation.pdf).
+- [Презентация PowerPoint](https://github.com/punkpsyh-hash/Fsp/releases/download/lct-2026-jury-v3/fsp-lct-2026.pptx).
+- [Видео с пояснениями](https://github.com/punkpsyh-hash/Fsp/releases/download/lct-2026-jury-v3/demo-explained.mp4).
+- [Комплект PDF и Word](https://github.com/punkpsyh-hash/Fsp/releases/download/lct-2026-jury-v3/fsp-documents-gost.zip).
 
 Для проверки в браузере откройте [демо-стенд](https://fsptest.kolesnikovny.ru).
-Внешний Basic Auth снят по решению владельца; логины и общий пароль
-синтетических аккаунтов указаны в [порядке сдачи](60-jury-submission.md).
-Отдельная передача данных входа не нужна. Видео и самостоятельный локальный
-запуск остаются резервом; пароли NAS, VPS и базы данных для проверки не требуются.
+Внешний Basic Auth снят по решению владельца. В целевом v3 выберите роль,
+задайте собственный пароль 12–128 символов, подтвердите его и согласие. Сайт
+сразу выдаст синтетический логин `jury-…@example.invalid`: скопируйте и
+сохраните его для входа после выхода. Общих логинов и пароля нет, письмо не
+отправляется. Полный порядок — в [документе 60](60-jury-submission.md).
+Видео и самостоятельный локальный запуск остаются резервом; пароли NAS, VPS
+и базы данных для проверки не требуются.
+
+Индивидуальный v3 уже активирован: внешний TLS health подтверждает 200/`ok`,
+`jury-demo` и `auth_mode=individual`. Публикация тега и итоговый протокол ещё
+готовятся; выбранный PostgreSQL-набор прошёл 76/76, live browser — шесть
+потоков двух ролей в трёх движках, негативный HTTPS-набор — 10/10.
 
 ## История и условия использования
 

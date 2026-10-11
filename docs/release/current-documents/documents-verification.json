@@ -1,64 +1,58 @@
 {
   "status": "passed",
-  "generated_at": "2026-10-11T16:38:26.466194+00:00",
-  "scope": "Jury-v2: open demo without external Basic Auth, intentionally public synthetic application credentials; seven canonical document pairs rebuilt",
+  "generated_at": "2026-10-11T18:59:58.454953+00:00",
+  "scope": "Jury-v3 individual synthetic registration; revised team PPTX/video; seven canonical document pairs",
   "builder": {
     "image": "fspgost-tools@sha256:89c7735c492f49c65099ba71bb8509ff393deb4ae569137209e65df165e55f29",
     "network": "none",
     "manifest": "docs/document-set.json",
-    "manifest_sha256": "3206df61d5613b2b0ea5e1b12f538819d249138590ab74d2edb10283d3d0915f",
     "published_sources": 19,
     "output_pairs": 7
   },
   "source_sha256": {
-    "docs/00-status.md": "21a25b0f72b4b3722476afae081dc604ccec7e45eb3bf68e2b0190c1222439d2",
-    "docs/18-api-guide.md": "6fca4bb173e49b07a50672c38f5ec4a3cb1a7537da5597c5f161adb5775a6de9",
-    "docs/34-documentation.md": "ff8c87e0c9361645ea0839757e729c6a961aa5773f3ac73a23a2426e813c0315",
+    "docs/00-status.md": "438eb16e75807e566dec58c4231ba13a3be0bd16c1b642895e4a6bec8e5f85cf",
+    "docs/18-api-guide.md": "6c5231d4c850bd3874085eb6d49034065d93c74425825b5ab7315167f75b679a",
+    "docs/34-documentation.md": "6669c2c5d4979df5b283cb54c0b6f49e9609c80caccba7097be9ce6b5bed1b8f",
     "docs/44-deployment-and-operations.md": "5db7c5e0390ad0e00a82b6518f72d2bed28ef4e022a75de91ef8fc2f7704f66b",
     "docs/45-ai-answer-check-and-training-package.md": "76ca69307f67653d2cb8a75d939dd252396130b41edd23334b6af823038dc56d",
-    "docs/47-presentation.md": "e7b92540d9e2173687d20c0e8c7288574b87dab345fb1b3fbfd3e61a96414f12",
-    "docs/48-release-acceptance.md": "f29f8327b0a06a7fbf93f92032e8a36407c431689104bd2b248f91900b93870a",
-    "docs/50-completion-conformance.md": "ea60d3865e09e2034b28aef49c81b5bcd51c4a78d64b068b27c456dc97585907",
+    "docs/47-presentation.md": "39717d028a13b1afd58d70aad532d83ba609895d78610719fb1c02cf2d2fa6b9",
+    "docs/48-release-acceptance.md": "10df91cc155c8f5614c68865963ce7b9e87dcfa1fa8597fefaf613f23f14b3b7",
+    "docs/50-completion-conformance.md": "672bb5150db936c4b3f1d44e7f906d324512b4c448a3e4bf060a5d000462ac5e",
     "docs/53-self-deployment.md": "2cd8cc29b3e6c20dbc11911bbf84079622c4fa208f6bb8182285498dc7995383",
     "docs/54-self-deployment-acceptance.md": "26205dcc2d8e440500118e3f38ebadf40d3318c94f37d497a17c7aab9d333d7b",
     "docs/55-document-formatting.md": "5460c1ecf73d11636fbf551bf10c9a6cc762956d095ed83bad9b122976a30ddc",
-    "docs/56-technical-report.md": "8984a8f28a87e032bd939ff0ffcf36e80376a65a285d5b18202a8d8ae523da11",
+    "docs/56-technical-report.md": "77508a958192bad483a89c5145c2512c2a8cb9c13a88490a09f631e035143654",
     "docs/57-project-report.md": "5e27755efd626a19253b5f80cee7ff05644526d0d98289ae82805e730c5beff5",
-    "docs/58-legal-mail-and-privacy.md": "6ce7a2f4ef85a5ecbd71f5ace72a0af6fc9be40f083339766582622c04d8ff1a",
-    "docs/59-copyright-and-components.md": "7959a1634449100c1f79b3d328a73fd9b4c4677f81f71eaacf8cfd3f264f0ce4",
-    "docs/60-jury-submission.md": "12d90aec4b82924fe1ea6335d727420965e443926ed891725d86bedf020fce03",
-    "docs/61-temporary-domain-stand.md": "0458d7de3a501b2606e1fd9dd2dd26402b4d6ba3b4ab5685362a8c7fd1db1f99",
-    "docs/62-video-guide.md": "b7b97011867fe117bdab1a9138ad69eb381d6b88f7b27d0b1937ff9badce439e",
-    "docs/63-jury-github-access.md": "3952dc9b2259e48dbf70e42de7d7693f7f8a6f82b4a61c73b83a84ad97fc9b25"
-  },
-  "builder_source_sha256": {
-    "scripts/build_gost_docx.py": "4118ba461d0b4e3d0f983d90898fc2be56b03bb7b9c88c5d3c6475a9d9a56ef2",
-    "scripts/build_documentation.py": "46a6bcb71379c8c6a8510304820553a627b316a6298bf5f2999c2d789fc6538c",
-    "scripts/build_gost_bundle.py": "06586b3ca6d8f4cf4ac49f52c7689794741627b81117e0293320feb98adf9fa7"
+    "docs/58-legal-mail-and-privacy.md": "d87f2f47a901ec5c39e8014db5ca63def2c228420a117c637fd541073f250d70",
+    "docs/59-copyright-and-components.md": "65e5fb52ad16afcd0fe1bef3e6d48d82a2e6fc3c61f803d123ae5bc39f38e36f",
+    "docs/60-jury-submission.md": "f869251092083dd8742c6554544e7adbcf566dae0b803d836cc55e5ed238a789",
+    "docs/61-temporary-domain-stand.md": "71251f46a30e4ffea5b49ba2df58ce0393f07cccf6e9fa26064f7a202dc2a464",
+    "docs/62-video-guide.md": "11ae8577c22a989014492188280bd71eccd70b7f5a1f39bb3a3a57232bf1de35",
+    "docs/63-jury-github-access.md": "8fb18e5c16fee15153ef897d4afa60ace1d56c3e08f0547aa4c2e7a5d567af89"
   },
   "artifacts": {
     "pdf": [
       {
         "file": "docs/delivery/gost/all-documents.pdf",
-        "sha256": "09596bc1c5fa896950dcdc27c8973385d73ed8340ae15e973c20171d4e3d0f21",
-        "pages": 143,
+        "sha256": "80c432672f82ae920ea3f47f3df014b760d0071d1e29700c58813dd94334643d",
+        "pages": 151,
         "a4_all_pages": true,
-        "black_text_blocks": 5580,
+        "black_text_blocks": 5917,
         "nonblack_text_blocks": 0,
         "font_sizes_pt": [
           12.0,
           14.0,
           16.0
         ],
-        "figure_captions": 9,
+        "figure_captions": 10,
         "caption_numbers_unique": true
       },
       {
         "file": "docs/delivery/gost/api-guide.pdf",
-        "sha256": "821e01510bb06db7294d7e8dc9ad2cf63dfa7fd350ae1ac430cdef244c5dbab0",
-        "pages": 31,
+        "sha256": "07913b1e098fa9f730e2891edc9af52bca4a2652f1ee97b15b9bed8f196b1305",
+        "pages": 33,
         "a4_all_pages": true,
-        "black_text_blocks": 1358,
+        "black_text_blocks": 1384,
         "nonblack_text_blocks": 0,
         "font_sizes_pt": [
           12.0,
@@ -70,17 +64,17 @@
       },
       {
         "file": "docs/delivery/gost/documentation.pdf",
-        "sha256": "f2f108a5ce7d40920899b28b7de00ad3ea847db44524bfad208caf2bc9178e5b",
-        "pages": 56,
+        "sha256": "9da86ef30625e5f032821dd4b78ba7739c96f1d4def3901e34b655066915ea26",
+        "pages": 62,
         "a4_all_pages": true,
-        "black_text_blocks": 2200,
+        "black_text_blocks": 2424,
         "nonblack_text_blocks": 0,
         "font_sizes_pt": [
           12.0,
           14.0,
           16.0
         ],
-        "figure_captions": 5,
+        "figure_captions": 6,
         "caption_numbers_unique": true
       },
       {
@@ -100,37 +94,37 @@
       },
       {
         "file": "docs/delivery/gost/release-guide.pdf",
-        "sha256": "47dc50e37d8267dc506124b4eb36d704da817d570802d9ddf173e3ee22853184",
-        "pages": 91,
+        "sha256": "b0437837751818bfbae3557aa43a104cddbb3e14c672856a5aa9dd5d770bdcde",
+        "pages": 99,
         "a4_all_pages": true,
-        "black_text_blocks": 3322,
+        "black_text_blocks": 3636,
         "nonblack_text_blocks": 0,
         "font_sizes_pt": [
           12.0,
           14.0,
           16.0
         ],
-        "figure_captions": 7,
+        "figure_captions": 8,
         "caption_numbers_unique": true
       },
       {
         "file": "docs/delivery/gost/self-deployment-guide.pdf",
-        "sha256": "362fe5b8b93bd29049267aa6b6f7dcfb458ef76c5318e5c20568605909dc47bc",
-        "pages": 26,
+        "sha256": "8374a462557f43be7015316d5719f1a666730410845c88d10ac14a98d048cbc9",
+        "pages": 28,
         "a4_all_pages": true,
-        "black_text_blocks": 841,
+        "black_text_blocks": 929,
         "nonblack_text_blocks": 0,
         "font_sizes_pt": [
           12.0,
           14.0,
           16.0
         ],
-        "figure_captions": 2,
+        "figure_captions": 3,
         "caption_numbers_unique": true
       },
       {
         "file": "docs/delivery/gost/technical-report.pdf",
-        "sha256": "125bdfbbb739d20046b980a2d2dcca18927aeff0b1ef3b7a91bddd3d165e9336",
+        "sha256": "1640f320efb2fdfa7a7132e10380b32f03dd936de08652aa963128e3910496f8",
         "pages": 14,
         "a4_all_pages": true,
         "black_text_blocks": 395,
@@ -147,7 +141,7 @@
     "docx": [
       {
         "file": "docs/delivery/gost/all-documents.docx",
-        "sha256": "adeb23c18535a1e36e338f6b8657640348d80fa20d230c63da8bb4bbc62eb2e8",
+        "sha256": "a2c8bd134750aa22a937d3840e9adb36ace9b78ad4ed3fe51ffea960c4ad6764",
         "zip_valid": true,
         "black_text_explicit": true,
         "black_borders_verified": true,
@@ -160,12 +154,12 @@
           20
         ],
         "independent_unnumbered_cover_footer_configured": true,
-        "images": 9,
-        "figure_captions": 9
+        "images": 10,
+        "figure_captions": 10
       },
       {
         "file": "docs/delivery/gost/api-guide.docx",
-        "sha256": "aa3fe4527f6b2df8dac6da2bb7bd66183812ceb5a9dbf971cd459fcbf27bd969",
+        "sha256": "85521f2a8bcc15ec57811eb4b59a4402ae9012bba82109bd7dfcb784dfad1667",
         "zip_valid": true,
         "black_text_explicit": true,
         "black_borders_verified": true,
@@ -183,7 +177,7 @@
       },
       {
         "file": "docs/delivery/gost/documentation.docx",
-        "sha256": "3540d92e5450896ba51880c6a4b785c074127b8e9850d57f6cde38c0d010f38f",
+        "sha256": "f063dfcd8fbd578c1016cbdf8b73bd973f8169cde5144c9fdf0b1d06d908278b",
         "zip_valid": true,
         "black_text_explicit": true,
         "black_borders_verified": true,
@@ -196,12 +190,12 @@
           20
         ],
         "independent_unnumbered_cover_footer_configured": true,
-        "images": 5,
-        "figure_captions": 5
+        "images": 6,
+        "figure_captions": 6
       },
       {
         "file": "docs/delivery/gost/project-report.docx",
-        "sha256": "dffc6d01d47940d0889ad6e4d15b04e31c52088b6cd72147f0b9e19afa3e4130",
+        "sha256": "15a6b9e64dfaf722d90de5365ed800c389222fe0326a68601e9ed7be38d34bd0",
         "zip_valid": true,
         "black_text_explicit": true,
         "black_borders_verified": true,
@@ -219,7 +213,7 @@
       },
       {
         "file": "docs/delivery/gost/release-guide.docx",
-        "sha256": "c1b0d9a7c8e48ceb762035d7d2898955b739b4e0ca456be116547961f93a962a",
+        "sha256": "086b2b4b14cb8ae766119bd093c711a9e894484515c28873346c58c38921d811",
         "zip_valid": true,
         "black_text_explicit": true,
         "black_borders_verified": true,
@@ -232,12 +226,12 @@
           20
         ],
         "independent_unnumbered_cover_footer_configured": true,
-        "images": 7,
-        "figure_captions": 7
+        "images": 8,
+        "figure_captions": 8
       },
       {
         "file": "docs/delivery/gost/self-deployment-guide.docx",
-        "sha256": "1f3010824fdd2de8ed3d31b2c3d0d09cc168d61237e4d688bf026330ffe0650a",
+        "sha256": "bacf5133df6e680047150683a4d7e0b062a24d670f9bb7a422967d38ab8f49e2",
         "zip_valid": true,
         "black_text_explicit": true,
         "black_borders_verified": true,
@@ -250,12 +244,12 @@
           20
         ],
         "independent_unnumbered_cover_footer_configured": true,
-        "images": 2,
-        "figure_captions": 2
+        "images": 3,
+        "figure_captions": 3
       },
       {
         "file": "docs/delivery/gost/technical-report.docx",
-        "sha256": "01405e4c859981ba5f5de2cd5cce98835b4705a21b6b1242d2c7d3611b3f891a",
+        "sha256": "426a3bc9b0bcb0d896293c562af02d318324a9a18b41b9bb9b9702c9ab68fd73",
         "zip_valid": true,
         "black_text_explicit": true,
         "black_borders_verified": true,
@@ -275,35 +269,35 @@
     "docx_rendered": [
       {
         "file": "docs/delivery/gost/all-documents.docx",
-        "docx_sha256": "adeb23c18535a1e36e338f6b8657640348d80fa20d230c63da8bb4bbc62eb2e8",
-        "rendered_pdf_sha256": "66f2930ec9f78dc559349e427bf8d9aa468952361338ccfe9da2b3ef561c713a",
-        "pages": 141,
+        "docx_sha256": "a2c8bd134750aa22a937d3840e9adb36ace9b78ad4ed3fe51ffea960c4ad6764",
+        "rendered_pdf_sha256": "e3f19840a7b974134fa3df6dd457521775a51b5a677835d36d1f355bded32345",
+        "pages": 149,
         "first_page_number_hidden": true,
         "continuous_page_numbers_verified": true,
         "method": "LibreOffice PDF output: text below y=50 pt inspected on every page."
       },
       {
         "file": "docs/delivery/gost/api-guide.docx",
-        "docx_sha256": "aa3fe4527f6b2df8dac6da2bb7bd66183812ceb5a9dbf971cd459fcbf27bd969",
-        "rendered_pdf_sha256": "8a0297f2e2a9715686b294bf1e086171a403e908f27831e25dd17e249b17e515",
-        "pages": 31,
+        "docx_sha256": "85521f2a8bcc15ec57811eb4b59a4402ae9012bba82109bd7dfcb784dfad1667",
+        "rendered_pdf_sha256": "1a6b9b6f29d1d6892c0137a3af945650ddb8f2506831313a8382f66b86114a3d",
+        "pages": 32,
         "first_page_number_hidden": true,
         "continuous_page_numbers_verified": true,
         "method": "LibreOffice PDF output: text below y=50 pt inspected on every page."
       },
       {
         "file": "docs/delivery/gost/documentation.docx",
-        "docx_sha256": "3540d92e5450896ba51880c6a4b785c074127b8e9850d57f6cde38c0d010f38f",
-        "rendered_pdf_sha256": "b2575df347f1badd87113ce11964f3f5d72a4e9d01c3e54eae12c9fd6c1f616e",
-        "pages": 55,
+        "docx_sha256": "f063dfcd8fbd578c1016cbdf8b73bd973f8169cde5144c9fdf0b1d06d908278b",
+        "rendered_pdf_sha256": "45618f900da785151bf19c953fd5c8097fd3096b476fc2dd0f576c6fd0cb09fa",
+        "pages": 60,
         "first_page_number_hidden": true,
         "continuous_page_numbers_verified": true,
         "method": "LibreOffice PDF output: text below y=50 pt inspected on every page."
       },
       {
         "file": "docs/delivery/gost/project-report.docx",
-        "docx_sha256": "dffc6d01d47940d0889ad6e4d15b04e31c52088b6cd72147f0b9e19afa3e4130",
-        "rendered_pdf_sha256": "8d07dc20435e780300b16246162f9664dae46e3a3970946feb3dbe10a764270c",
+        "docx_sha256": "15a6b9e64dfaf722d90de5365ed800c389222fe0326a68601e9ed7be38d34bd0",
+        "rendered_pdf_sha256": "1f4ef896c013c0284135fc485bbd11364ef3b8074648429f80a716191518378e",
         "pages": 12,
         "first_page_number_hidden": true,
         "continuous_page_numbers_verified": true,
@@ -311,26 +305,26 @@
       },
       {
         "file": "docs/delivery/gost/release-guide.docx",
-        "docx_sha256": "c1b0d9a7c8e48ceb762035d7d2898955b739b4e0ca456be116547961f93a962a",
-        "rendered_pdf_sha256": "d519aa85a067d4d43cf1fde3caa48dfac1e697d7b6837546a94fef0bbd208f51",
-        "pages": 87,
+        "docx_sha256": "086b2b4b14cb8ae766119bd093c711a9e894484515c28873346c58c38921d811",
+        "rendered_pdf_sha256": "381b9b88be1eb116e869b6277d74b77db3a680e0869cba542fed96651020f422",
+        "pages": 94,
         "first_page_number_hidden": true,
         "continuous_page_numbers_verified": true,
         "method": "LibreOffice PDF output: text below y=50 pt inspected on every page."
       },
       {
         "file": "docs/delivery/gost/self-deployment-guide.docx",
-        "docx_sha256": "1f3010824fdd2de8ed3d31b2c3d0d09cc168d61237e4d688bf026330ffe0650a",
-        "rendered_pdf_sha256": "521e4c56aa6fdb4dae652b9fd9ea7d620f5c1f9eba407f937127f4ba3bd81b9c",
-        "pages": 24,
+        "docx_sha256": "bacf5133df6e680047150683a4d7e0b062a24d670f9bb7a422967d38ab8f49e2",
+        "rendered_pdf_sha256": "55897fec44de9d05a448ebe46a85d14424eed63e7910f228bc08e0472eaaa810",
+        "pages": 26,
         "first_page_number_hidden": true,
         "continuous_page_numbers_verified": true,
         "method": "LibreOffice PDF output: text below y=50 pt inspected on every page."
       },
       {
         "file": "docs/delivery/gost/technical-report.docx",
-        "docx_sha256": "01405e4c859981ba5f5de2cd5cce98835b4705a21b6b1242d2c7d3611b3f891a",
-        "rendered_pdf_sha256": "eccc7e47d0bc68661bc0d2a638f802e44321c6b1f05090d62293a5421178968e",
+        "docx_sha256": "426a3bc9b0bcb0d896293c562af02d318324a9a18b41b9bb9b9702c9ab68fd73",
+        "rendered_pdf_sha256": "ec19b17d38214ba1e5f16e13aa7c33503e0f54203494ddb847b8817e88d5f493",
         "pages": 13,
         "first_page_number_hidden": true,
         "continuous_page_numbers_verified": true,
@@ -341,175 +335,51 @@
   },
   "package": {
     "archive": "docs/delivery/fsp-documents-gost.zip",
-    "bytes": 29035405,
-    "sha256": "3418c7298ea203a9187851fd4c5f832cdefd453a797051ace76c0a7f5850dd94",
-    "entries": 113,
+    "bytes": 31162875,
+    "sha256": "a58a11b7b9c2436aec72df0f77677635c8503a352a55ba1901786675cee2c21c",
+    "entries": 114,
     "zip_valid": true,
     "all_entry_sha256_verified": true
   },
   "checks": {
-    "selected_document_tests": {
-      "passed": 23,
-      "skipped": 2,
-      "skip": "Docker CLI absent in tools image; direct official pinned Caddy validation performed on local Docker and NAS, merged Compose validated quietly"
+    "document_tests": {
+      "passed": 17
     },
-    "pdf_total_pages": 374,
-    "word_total_pages": 363,
-    "reportlab_text_bounds_verified": true
+    "pdf_total_pages": 400,
+    "word_total_pages": 386,
+    "all_a4_black_text_bounds_verified": true,
+    "continuous_word_page_numbers_verified": true,
+    "screenshots_with_captions": 6
   },
   "visual": {
-    "method": "Full Word pixel equality against previously inspected public bundle; all new body PNGs independently visually reviewed; selected new PDF sections visually inspected by root",
-    "word_full_pixel_identical_pages": 284,
-    "word_body_pixel_identical_pages": 0,
-    "word_new_body_pages_visually_reviewed": 79,
-    "word_all_pages_accounted_for": 363,
-    "pdf_current_public_sections_pages_visually_reviewed": 29,
-    "pdf_current_public_sections": [
-      {
-        "file": "docs/delivery/gost/documentation.pdf",
-        "page": 1
-      },
-      {
-        "file": "docs/delivery/gost/documentation.pdf",
-        "page": 3
-      },
-      {
-        "file": "docs/delivery/gost/documentation.pdf",
-        "page": 16
-      },
-      {
-        "file": "docs/delivery/gost/documentation.pdf",
-        "page": 39
-      },
-      {
-        "file": "docs/delivery/gost/documentation.pdf",
-        "page": 40
-      },
-      {
-        "file": "docs/delivery/gost/documentation.pdf",
-        "page": 41
-      },
-      {
-        "file": "docs/delivery/gost/documentation.pdf",
-        "page": 44
-      },
-      {
-        "file": "docs/delivery/gost/documentation.pdf",
-        "page": 54
-      },
-      {
-        "file": "docs/delivery/gost/documentation.pdf",
-        "page": 55
-      },
-      {
-        "file": "docs/delivery/gost/self-deployment-guide.pdf",
-        "page": 1
-      },
-      {
-        "file": "docs/delivery/gost/self-deployment-guide.pdf",
-        "page": 2
-      },
-      {
-        "file": "docs/delivery/gost/self-deployment-guide.pdf",
-        "page": 18
-      },
-      {
-        "file": "docs/delivery/gost/release-guide.pdf",
-        "page": 1
-      },
-      {
-        "file": "docs/delivery/gost/release-guide.pdf",
-        "page": 4
-      },
-      {
-        "file": "docs/delivery/gost/release-guide.pdf",
-        "page": 20
-      },
-      {
-        "file": "docs/delivery/gost/release-guide.pdf",
-        "page": 74
-      },
-      {
-        "file": "docs/delivery/gost/release-guide.pdf",
-        "page": 75
-      },
-      {
-        "file": "docs/delivery/gost/release-guide.pdf",
-        "page": 76
-      },
-      {
-        "file": "docs/delivery/gost/release-guide.pdf",
-        "page": 79
-      },
-      {
-        "file": "docs/delivery/gost/release-guide.pdf",
-        "page": 89
-      },
-      {
-        "file": "docs/delivery/gost/release-guide.pdf",
-        "page": 90
-      },
-      {
-        "file": "docs/delivery/gost/all-documents.pdf",
-        "page": 1
-      },
-      {
-        "file": "docs/delivery/gost/all-documents.pdf",
-        "page": 49
-      },
-      {
-        "file": "docs/delivery/gost/all-documents.pdf",
-        "page": 126
-      },
-      {
-        "file": "docs/delivery/gost/all-documents.pdf",
-        "page": 127
-      },
-      {
-        "file": "docs/delivery/gost/all-documents.pdf",
-        "page": 128
-      },
-      {
-        "file": "docs/delivery/gost/all-documents.pdf",
-        "page": 131
-      },
-      {
-        "file": "docs/delivery/gost/all-documents.pdf",
-        "page": 141
-      },
-      {
-        "file": "docs/delivery/gost/all-documents.pdf",
-        "page": 142
-      }
-    ],
-    "observations": [
-      {
-        "severity": "nonblocking_copy_note",
-        "paths": [
-          "D:/Codex/Temp/fsp-public-release-20261011/word-render-open-demo/all-documents/page-124.png",
-          "D:/Codex/Temp/fsp-public-release-20261011/word-render-open-demo/documentation/page-38.png",
-          "D:/Codex/Temp/fsp-public-release-20261011/word-render-open-demo/release-guide/page-70.png"
-        ],
-        "finding": "The new 64-character public application password is fully visible but wraps across two lines. The authoritative short submission PDF/TXT keeps it on one line, and the source docs/60 inline code preserves all characters."
-      },
-      {
-        "severity": "minor_formatting",
-        "paths": [
-          "D:/Codex/Temp/fsp-public-release-20261011/word-render-open-demo/all-documents/page-135.png",
-          "D:/Codex/Temp/fsp-public-release-20261011/word-render-open-demo/documentation/page-49.png",
-          "D:/Codex/Temp/fsp-public-release-20261011/word-render-open-demo/release-guide/page-81.png",
-          "D:/Codex/Temp/fsp-public-release-20261011/word-render-open-demo/self-deployment-guide/page-22.png"
-        ],
-        "finding": "The pinned-image index/digest paragraph has extreme justification and a comma stranded on its own line. Content remains visible."
-      },
-      {
-        "severity": "minor_formatting",
-        "paths": [
-          "D:/Codex/Temp/fsp-public-release-20261011/word-render-open-demo/release-guide/page-75.png"
-        ],
-        "finding": "The '/internal/*' bullet begins at the end of the preceding bullet's last line, reducing scanability."
-      }
-    ],
-    "limits": "Word rendered with LibreOffice, not native Microsoft Word. PDF visual review samples 29 of 374 pages; all PDF pages pass mechanical format checks. Public password is fully visible but wrapped in main PDF/Word; short submission PDF/TXT and GitHub inline code retain one-line copy. No new full server-security/psychometric calibration claim."
-  }
+    "method": "Existing inspected Word pixels reused only on exact full/body equality; every new body page reviewed. Contact sheets plus original-scale checks for dense tables/figures; late two Word/two PDF pages reviewed separately by coordinator.",
+    "word_full_pixel_identical_pages": 50,
+    "word_body_pixel_identical_pages": 102,
+    "word_new_body_pages_visually_reviewed": 234,
+    "word_all_pages_accounted_for": 386,
+    "pdf_sections_visually_reviewed": 147,
+    "late_changed_word_pages": 2,
+    "late_changed_pdf_pages": 2,
+    "late_pdf_unchanged_content_streams_and_font_image_resources_verified": true,
+    "findings": [],
+    "limits": "LibreOffice rendering, not native Microsoft Word. PDF visual review covers 147 selected sections of 400 pages; all 400 pages pass mechanical format checks. Synthetic demo does not establish production legal compliance, psychometric calibration or an external penetration test."
+  },
+  "raw_visual_receipt_sha256": [
+    {
+      "name": "v3-document-visual-api-deploy.json",
+      "sha256": "2a93bcd19e3d841023afd58225a5959c761a4e8d92d60efbcd660426dbd96217"
+    },
+    {
+      "name": "v3-document-visual-doc-release.json",
+      "sha256": "ed2a228399e0ed13f530a514ff1cf39246681b210a93bc200818c96a989c4c3a"
+    },
+    {
+      "name": "v3-document-visual-all.json",
+      "sha256": "4acd24513fcb649e6bff8f268a770f224aeef40bf4258e038db8543189c706de"
+    },
+    {
+      "name": "late-comparison.json",
+      "sha256": "436a9809968577030d2daa745dde260982a19b54287ff9ec327a2c13f9d6e792"
+    }
+  ]
 }

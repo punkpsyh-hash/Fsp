@@ -1,0 +1,57 @@
+{
+  "status": "passed",
+  "code_commit": "da0281d95fccf9be579cb3de717da34394c1ef3e",
+  "full_sqlite": {
+    "passed": 565,
+    "skipped": 5,
+    "subtests_passed": 6,
+    "seconds": 469.91
+  },
+  "selected_auth_api": {
+    "passed": 141,
+    "skipped": 3,
+    "seconds": 48.74,
+    "skip_reason": "Docker CLI unavailable inside tools container; pinned Caddy separately validated"
+  },
+  "relay_cli": {
+    "passed": 6
+  },
+  "independent_review": "security-review.md",
+  "postgresql": {
+    "passed": 76,
+    "skipped": 0,
+    "seconds": 362.16,
+    "version": "16.14",
+    "scope": [
+      "test_jury_individual_postgres.py:3",
+      "test_api.py",
+      "test_product.py",
+      "test_mailer.py",
+      "test_email_policy.py"
+    ],
+    "full_suite": false
+  },
+  "live_http": "live-http.json",
+  "live_browser": "live-browser.json",
+  "limits": {
+    "max_accounts": 200,
+    "registration_per_hour_per_ip": 5,
+    "password_auth_per_minute_per_ip": 10,
+    "session_hours": 8
+  },
+  "mail_identity_verified": false,
+  "real_smtp_enabled": false,
+  "local_email_confirmation_preserved": true,
+  "runtime_app_image": "sha256:316b49cf65e7d0c4e4ba0fa7b6df86cdbe00a1f6f84e88ca66e1e597e908e057",
+  "tested_tools_image": "sha256:08738c6f4b8be892d9e5f3dc1e0efde7b9c9761ec0445b1a902a558f1eedeed5",
+  "source_sha256": {
+    "src/server/app.py": "f70aefa12819cd8101a5517bc2cbc6b924cc67618afcd7ac5d0913ac9f8fa6c3",
+    "src/server/jury.py": "4570a3d3c6f6c8a68bc20891414d92628459e0fefe66f019dc2646f6c474075c",
+    "src/server/schemas.py": "2b0239267a08c51e068322838d610255cf401d84479e2a0b9001f8c39ce938be",
+    "web/src/main.tsx": "a4a63c6568b6e5826b407fab0fab68de4975ceff53f6ce6388e7582f082785e4",
+    "scripts/jury-relay-nas.sh": "16033b2cf06d88a39f612ce8b8a5916921a10b4dea99f6da3309a5730b736e45",
+    "compose.jury-individual.yaml": "5873ef4435697af8d2dffecd4d6d2c08391cfc8a1a91e782f20b68ae716c5b0c"
+  },
+  "runtime_checkout_commit": "be2109594ae453ae60050217eaf88c3fe0f8b314",
+  "restart_receipt": "restart-verification.json"
+}

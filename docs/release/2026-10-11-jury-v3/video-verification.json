@@ -1,0 +1,33 @@
+{
+  "status": "passed",
+  "checked_at": "2026-10-11T18:42:10.564853+00:00",
+  "method": "Last 900 frames rendered from updated Remotion Outro, concatenated with original first 7218 frames and re-encoded with FFmpeg H.264 CRF18; decoded frame count verified with ffprobe",
+  "file": "docs/delivery/demo-explained.mp4",
+  "sha256": "4dcc478981d347f5440c8a43b1c95284d03eed2ed64b5cbe7cce9bcc0894f990",
+  "bytes": 17997441,
+  "codec": "h264",
+  "width": 1920,
+  "height": 1080,
+  "fps": "25/1",
+  "decoded_frames": 8118,
+  "duration_seconds": 324.72,
+  "changed_frames": [
+    7218,
+    8117
+  ],
+  "captions": 50,
+  "chapters": 10,
+  "footage": "Historical full local synthetic product flow recorded 2026-10-09; no claim of a new recording of public registration",
+  "outro": "Individual synthetic registration, own password, save generated login, local Docker launch and public-demo limitations",
+  "visual_review": [
+    "local product action at 20 seconds",
+    "chapter title at 6.4 seconds",
+    "updated final scene at 321 seconds"
+  ],
+  "source_sha256": {
+    "video/src/Graphics.tsx": "1f7a1efa504fe1106e015f3c8e43621d880015e5ab465770940d65af6733efad",
+    "video/generate.py": "659f80e2ca29bb95b284bfeeb4db6048c820bb61cae3d0217e186bd6ee8a5f3c",
+    "docs/delivery/demo-explained.srt": "84c8dec8ecb88dcc7ff91164cb60004c56c812635d18cf670f12329cbd97eb10",
+    "docs/delivery/demo-explained.vtt": "18cb06c6f0697a39626ace27c4da9c519b78cb31a883aaabbc8debada66f332b"
+  }
+}

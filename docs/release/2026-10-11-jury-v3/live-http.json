@@ -1,0 +1,56 @@
+{
+  "status": "passed",
+  "checked_at": "2026-10-11T18:47:18.221179+00:00",
+  "target": "https://fsptest.kolesnikovny.ru",
+  "tls_verification": "default system CA verification; never disabled",
+  "auth_mode": "individual",
+  "checks": [
+    {
+      "name": "TLS and anonymous landing page",
+      "status": 200
+    },
+    {
+      "name": "Anonymous personal account denied",
+      "status": 401
+    },
+    {
+      "name": "Internal runner unavailable",
+      "status": 404
+    },
+    {
+      "name": "Blocked /api/v1/auth/verify",
+      "status": 404
+    },
+    {
+      "name": "Blocked /api/v1/auth/mock-fsp-id/token",
+      "status": 404
+    },
+    {
+      "name": "Foreign Origin rejected",
+      "status": 403
+    },
+    {
+      "name": "Real email/extra field rejected",
+      "status": 422
+    },
+    {
+      "name": "Legacy shared candidate credential revoked",
+      "status": 401
+    },
+    {
+      "name": "Legacy shared employer credential revoked",
+      "status": 401
+    },
+    {
+      "name": "Policy accessible",
+      "status": 200
+    }
+  ],
+  "headers": {
+    "X-Content-Type-Options": "nosniff",
+    "X-Frame-Options": "DENY",
+    "Referrer-Policy": "no-referrer",
+    "Strict-Transport-Security": "max-age=31536000"
+  },
+  "credentials_in_receipt": false
+}

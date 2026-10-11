@@ -1,0 +1,12 @@
+{
+  "status": "passed",
+  "existing_individual_session_survives_app_restart": true,
+  "candidate_password_preserved": true,
+  "employer_password_preserved": true,
+  "cookie_flags": [
+    "Secure",
+    "HttpOnly",
+    "SameSite=Strict"
+  ],
+  "private_credentials_published": false
+}

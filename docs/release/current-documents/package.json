@@ -1,8 +1,8 @@
 {
   "archive": "docs/delivery/fsp-documents-gost.zip",
-  "bytes": 29035405,
-  "sha256": "3418c7298ea203a9187851fd4c5f832cdefd453a797051ace76c0a7f5850dd94",
-  "entries": 113,
+  "bytes": 31162875,
+  "sha256": "a58a11b7b9c2436aec72df0f77677635c8503a352a55ba1901786675cee2c21c",
+  "entries": 114,
   "zip_valid": true,
   "all_entry_sha256_verified": true
 }

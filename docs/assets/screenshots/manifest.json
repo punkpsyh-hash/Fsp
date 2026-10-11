@@ -89,6 +89,20 @@
       "sources": [
         "docs/56-technical-report.md"
       ]
+    },
+    {
+      "id": "jury-registration",
+      "caption": "Создание отдельного синтетического аккаунта на стенде жюри",
+      "viewport": {
+        "width": 1192,
+        "height": 489
+      },
+      "source": "Внешний синтетический стенд fsptest.kolesnikovny.ru, Chromium; 11 октября 2026 года, до ввода пароля",
+      "path": "docs/assets/screenshots/jury-registration.png",
+      "sha256": "8f41cec9047dbce62ecd6310f7cda353845daef53fe4e58aeb524499a3f2819d",
+      "sources": [
+        "docs/61-temporary-domain-stand.md"
+      ]
     }
   ],
   "page_errors": [],
@@ -215,6 +229,20 @@
       ],
       "kind": "schematic",
       "sha256": "b0cfcba568fc025f411f996fc8a3ada5e60e98e4c64aede699c9b54c499e41c1"
+    },
+    {
+      "id": "jury-registration",
+      "caption": "Создание отдельного синтетического аккаунта на стенде жюри",
+      "viewport": {
+        "width": 1192,
+        "height": 489
+      },
+      "source": "Внешний синтетический стенд fsptest.kolesnikovny.ru, Chromium; 11 октября 2026 года, до ввода пароля",
+      "path": "docs/assets/screenshots/jury-registration.png",
+      "sha256": "8f41cec9047dbce62ecd6310f7cda353845daef53fe4e58aeb524499a3f2819d",
+      "sources": [
+        "docs/61-temporary-domain-stand.md"
+      ]
     }
   ]
 }

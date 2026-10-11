@@ -43,6 +43,15 @@ Content-Type: application/json
 
 {"email":"api-example@example.invalid","role":"candidate","label":"Синтетический кандидат","consent":true,"password":"{{password_placeholder}}"}
 
+### 06a. Индивидуальный jury-аккаунт; 201 JurySession + Set-Cookie
+# Только локальный opt-in стенд с FSP_JURY_INDIVIDUAL_REGISTRATION=1.
+# Не подставляйте опубликованный или общий пароль: каждый проверяющий задаёт свой.
+# Настоящие email и имя маршрут не принимает; логин example.invalid создаёт сервер.
+POST {{base}}/api/v1/auth/jury-register
+Content-Type: application/json
+
+{"role":"candidate","password":"{{password_placeholder}}","consent":true}
+
 ### 07. Только локальная demo-почта; 200 MailView[]
 GET {{base}}/api/v1/auth/mock-mail
 

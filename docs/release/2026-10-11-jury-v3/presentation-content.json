@@ -1,0 +1,118 @@
+{
+  "source_sha256": "1ef21d556c24bdbda4a7d0a964ccb5b31041a8b432bc64900fed6587a51435c4",
+  "final_sha256": "736b021a6632fae1da4b6cf7aa1d6eab8412f486b6fd73d77fe036a35d09c9aa",
+  "final_byte_count": 15761169,
+  "slide_count": 16,
+  "changed_slide_xml_numbers": [
+    1,
+    2,
+    3,
+    4,
+    11,
+    16
+  ],
+  "changed_common_parts": [
+    "ppt/notesSlides/notesSlide1.xml",
+    "ppt/notesSlides/notesSlide11.xml",
+    "ppt/notesSlides/notesSlide16.xml",
+    "ppt/notesSlides/notesSlide2.xml",
+    "ppt/notesSlides/notesSlide3.xml",
+    "ppt/notesSlides/notesSlide4.xml",
+    "ppt/slides/_rels/slide1.xml.rels",
+    "ppt/slides/_rels/slide11.xml.rels",
+    "ppt/slides/_rels/slide16.xml.rels",
+    "ppt/slides/_rels/slide2.xml.rels",
+    "ppt/slides/_rels/slide3.xml.rels",
+    "ppt/slides/_rels/slide4.xml.rels",
+    "ppt/slides/slide1.xml",
+    "ppt/slides/slide11.xml",
+    "ppt/slides/slide16.xml",
+    "ppt/slides/slide2.xml",
+    "ppt/slides/slide3.xml",
+    "ppt/slides/slide4.xml"
+  ],
+  "added_parts": [
+    "ppt/media/team-dmitry-vislyaev.png",
+    "ppt/media/team-egor-kruchinin.png",
+    "ppt/media/team-lev-pavlov.png",
+    "ppt/media/team-logo-studio37.png",
+    "ppt/media/team-nikita-kolesnikov.png"
+  ],
+  "removed_parts": [],
+  "unchanged_source_parts": 122,
+  "private_contact_tokens_found": [],
+  "required_text_missing": [],
+  "team_portrait_images": [
+    {
+      "id": "im/jetgv2hw",
+      "position": {
+        "left": 86,
+        "top": 170,
+        "width": 202,
+        "height": 180
+      },
+      "editable": true
+    },
+    {
+      "id": "im/4b6h0byl",
+      "position": {
+        "left": 393,
+        "top": 170,
+        "width": 202,
+        "height": 180
+      },
+      "editable": true
+    },
+    {
+      "id": "im/pcfi9gf6",
+      "position": {
+        "left": 700,
+        "top": 170,
+        "width": 202,
+        "height": 180
+      },
+      "editable": true
+    },
+    {
+      "id": "im/qx0vm50r",
+      "position": {
+        "left": 1007,
+        "top": 170,
+        "width": 202,
+        "height": 180
+      },
+      "editable": true
+    }
+  ],
+  "team_logo_images": [
+    {
+      "id": "im/mpcv2l0b",
+      "position": {
+        "left": 0,
+        "top": 35,
+        "width": 678,
+        "height": 312
+      },
+      "editable": true
+    }
+  ],
+  "separate_password_note_present": false,
+  "visual_reviewed_slide_numbers": [
+    1,
+    2,
+    3,
+    4,
+    5,
+    6,
+    7,
+    8,
+    9,
+    10,
+    11,
+    12,
+    13,
+    14,
+    15,
+    16
+  ]
+}

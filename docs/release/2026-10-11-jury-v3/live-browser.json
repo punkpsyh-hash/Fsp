@@ -1,0 +1,68 @@
+{
+  "version": 1,
+  "target": "https://fsptest.kolesnikovny.ru",
+  "completed_at": "2026-10-11T18:46:49.618Z",
+  "auth_mode": "individual",
+  "accounts_created_or_reused": 2,
+  "credentials_saved_separately": true,
+  "credentials_in_receipt": false,
+  "anonymous": {
+    "me_401": true,
+    "normal_register_404": true,
+    "mail_login_404": true,
+    "mock_mail_404": true,
+    "demo_accounts_404": true,
+    "internal_404": true
+  },
+  "registration_ui": {
+    "generated_login_visible": true,
+    "copy_action_confirmed": true,
+    "session_survives_reload": true,
+    "password_fields_cleared": true,
+    "empty_form_screenshot": "registration-empty.png"
+  },
+  "browsers": {
+    "chromium": {
+      "candidate": {
+        "login": true,
+        "logout": true,
+        "role_boundary": true,
+        "generated_login_visible": true
+      },
+      "employer": {
+        "login": true,
+        "logout": true,
+        "role_boundary": true,
+        "generated_login_visible": true
+      }
+    },
+    "firefox": {
+      "candidate": {
+        "login": true,
+        "logout": true,
+        "role_boundary": true,
+        "generated_login_visible": true
+      },
+      "employer": {
+        "login": true,
+        "logout": true,
+        "role_boundary": true,
+        "generated_login_visible": true
+      }
+    },
+    "webkit": {
+      "candidate": {
+        "login": true,
+        "logout": true,
+        "role_boundary": true,
+        "generated_login_visible": true
+      },
+      "employer": {
+        "login": true,
+        "logout": true,
+        "role_boundary": true,
+        "generated_login_visible": true
+      }
+    }
+  }
+}
