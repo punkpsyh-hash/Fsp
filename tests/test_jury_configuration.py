@@ -72,6 +72,22 @@ def test_jury_app_configuration_fails_closed():
     assert env["FSP_ALLOWED_ORIGINS"] == "https://${FSP_JURY_DOMAIN:?Set the public jury hostname}"
 
 
+def test_explicit_public_demo_override_preserves_internal_and_app_boundary():
+    override = yaml.load((ROOT / "compose.jury-public-demo.yaml").read_text(encoding="utf-8"), Loader=ComposeLoader)
+    assert override["services"] == {"edge": {"volumes": [
+        "./docker/jury/Caddyfile.public-demo:/etc/caddy/Caddyfile:ro",
+    ]}}
+    caddy = (ROOT / "docker/jury/Caddyfile.public-demo").read_text(encoding="utf-8")
+    assert caddy.index("respond @internal 404") < caddy.index("reverse_proxy app:8470")
+    assert "@internal path /internal /internal/*" in caddy
+    assert "trusted_proxies static 10.254.242.1" in caddy
+    assert "header_up X-Forwarded-Proto https" in caddy
+    assert "admin 127.0.0.1:2019" in caddy
+    assert "basic_auth" not in caddy
+    # Закрытый маршрут остаётся исходным режимом, открытый требует отдельного файла.
+    assert "basic_auth argon2id" in (ROOT / "docker/jury/Caddyfile.relay").read_text(encoding="utf-8")
+
+
 def test_caddy_denies_internal_before_auth_and_exposes_only_policies():
     caddy = (ROOT / "docker/jury/Caddyfile").read_text(encoding="utf-8")
 
@@ -109,8 +125,9 @@ def test_jury_script_requires_explicit_network_gate_and_scoped_reset():
 
 
 @pytest.mark.skipif(shutil.which("docker") is None, reason="требуется локальный Docker")
-def test_caddyfile_is_accepted_by_pinned_official_caddy():
-    caddyfile = (ROOT / "docker/jury/Caddyfile").resolve()
+@pytest.mark.parametrize("filename", ["Caddyfile", "Caddyfile.public-demo"])
+def test_caddyfile_is_accepted_by_pinned_official_caddy(filename):
+    caddyfile = (ROOT / "docker/jury" / filename).resolve()
     image = load_compose()["services"]["edge"]["image"]
     result = subprocess.run([
         "docker", "run", "--rm", "--network", "none",

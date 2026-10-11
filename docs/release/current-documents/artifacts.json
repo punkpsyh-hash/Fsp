@@ -2,10 +2,10 @@
   "pdf": [
     {
       "file": "docs/delivery/gost/all-documents.pdf",
-      "sha256": "fd6f198653a37c7a1e1f5a02df6029b454d7325d393170858e6bbef0cf035d57",
-      "pages": 141,
+      "sha256": "09596bc1c5fa896950dcdc27c8973385d73ed8340ae15e973c20171d4e3d0f21",
+      "pages": 143,
       "a4_all_pages": true,
-      "black_text_blocks": 5505,
+      "black_text_blocks": 5580,
       "nonblack_text_blocks": 0,
       "font_sizes_pt": [
         12.0,
@@ -32,10 +32,10 @@
     },
     {
       "file": "docs/delivery/gost/documentation.pdf",
-      "sha256": "3e5ea068a5345144543eb9d7fbeeaa8e347a699e628e9beaafbb5a41aee25003",
-      "pages": 53,
+      "sha256": "f2f108a5ce7d40920899b28b7de00ad3ea847db44524bfad208caf2bc9178e5b",
+      "pages": 56,
       "a4_all_pages": true,
-      "black_text_blocks": 2122,
+      "black_text_blocks": 2200,
       "nonblack_text_blocks": 0,
       "font_sizes_pt": [
         12.0,
@@ -62,10 +62,10 @@
     },
     {
       "file": "docs/delivery/gost/release-guide.pdf",
-      "sha256": "93ece8fc3cd3a4c017e9d31a6792d79525b5b8deea5cdb2dab27f869096a7747",
-      "pages": 89,
+      "sha256": "47dc50e37d8267dc506124b4eb36d704da817d570802d9ddf173e3ee22853184",
+      "pages": 91,
       "a4_all_pages": true,
-      "black_text_blocks": 3243,
+      "black_text_blocks": 3322,
       "nonblack_text_blocks": 0,
       "font_sizes_pt": [
         12.0,
@@ -77,10 +77,10 @@
     },
     {
       "file": "docs/delivery/gost/self-deployment-guide.pdf",
-      "sha256": "3093a6d0a974cb3432adfdc53febdedefd4c244800546b4d1263c6339e81b6f8",
-      "pages": 25,
+      "sha256": "362fe5b8b93bd29049267aa6b6f7dcfb458ef76c5318e5c20568605909dc47bc",
+      "pages": 26,
       "a4_all_pages": true,
-      "black_text_blocks": 805,
+      "black_text_blocks": 841,
       "nonblack_text_blocks": 0,
       "font_sizes_pt": [
         12.0,
@@ -109,7 +109,7 @@
   "docx": [
     {
       "file": "docs/delivery/gost/all-documents.docx",
-      "sha256": "074cbaee41c429e26cbfe03413a92ab33c276e26a896c0bbbab5470f13a22fab",
+      "sha256": "adeb23c18535a1e36e338f6b8657640348d80fa20d230c63da8bb4bbc62eb2e8",
       "zip_valid": true,
       "black_text_explicit": true,
       "black_borders_verified": true,
@@ -127,7 +127,7 @@
     },
     {
       "file": "docs/delivery/gost/api-guide.docx",
-      "sha256": "41d044917e7192b94784ad079eb83c9a96296acfc54b726a49947487404434bd",
+      "sha256": "aa3fe4527f6b2df8dac6da2bb7bd66183812ceb5a9dbf971cd459fcbf27bd969",
       "zip_valid": true,
       "black_text_explicit": true,
       "black_borders_verified": true,
@@ -145,7 +145,7 @@
     },
     {
       "file": "docs/delivery/gost/documentation.docx",
-      "sha256": "2ae43bdaec646521e6ad889dbf857bc1ae36393d242a898b7dba93e11ec3dbee",
+      "sha256": "3540d92e5450896ba51880c6a4b785c074127b8e9850d57f6cde38c0d010f38f",
       "zip_valid": true,
       "black_text_explicit": true,
       "black_borders_verified": true,
@@ -163,7 +163,7 @@
     },
     {
       "file": "docs/delivery/gost/project-report.docx",
-      "sha256": "4992a6f0ea5fd733f305251e91f5cc45d9da7cacac085dc3950a652a62ec7bf7",
+      "sha256": "dffc6d01d47940d0889ad6e4d15b04e31c52088b6cd72147f0b9e19afa3e4130",
       "zip_valid": true,
       "black_text_explicit": true,
       "black_borders_verified": true,
@@ -181,7 +181,7 @@
     },
     {
       "file": "docs/delivery/gost/release-guide.docx",
-      "sha256": "13da92bd87a870bb33ff150b2d68a8d6561472036705fe7502eb3030378d1a7b",
+      "sha256": "c1b0d9a7c8e48ceb762035d7d2898955b739b4e0ca456be116547961f93a962a",
       "zip_valid": true,
       "black_text_explicit": true,
       "black_borders_verified": true,
@@ -199,7 +199,7 @@
     },
     {
       "file": "docs/delivery/gost/self-deployment-guide.docx",
-      "sha256": "c25109dc4be67639469dd6394b23b4c8aecc1f57dc6b3724351eeb03f4c21bf0",
+      "sha256": "1f3010824fdd2de8ed3d31b2c3d0d09cc168d61237e4d688bf026330ffe0650a",
       "zip_valid": true,
       "black_text_explicit": true,
       "black_borders_verified": true,
@@ -217,7 +217,7 @@
     },
     {
       "file": "docs/delivery/gost/technical-report.docx",
-      "sha256": "99868217c2b35cb17be4e2cae360ad2b3928c1642396340cc67fb49d42a8443e",
+      "sha256": "01405e4c859981ba5f5de2cd5cce98835b4705a21b6b1242d2c7d3611b3f891a",
       "zip_valid": true,
       "black_text_explicit": true,
       "black_borders_verified": true,
@@ -237,17 +237,17 @@
   "docx_rendered": [
     {
       "file": "docs/delivery/gost/all-documents.docx",
-      "docx_sha256": "074cbaee41c429e26cbfe03413a92ab33c276e26a896c0bbbab5470f13a22fab",
-      "rendered_pdf_sha256": "2ca24e9d33b0bf3b62c02b0444627709df03e0b109a2e6443673f0ff00f2edf9",
-      "pages": 139,
+      "docx_sha256": "adeb23c18535a1e36e338f6b8657640348d80fa20d230c63da8bb4bbc62eb2e8",
+      "rendered_pdf_sha256": "66f2930ec9f78dc559349e427bf8d9aa468952361338ccfe9da2b3ef561c713a",
+      "pages": 141,
       "first_page_number_hidden": true,
       "continuous_page_numbers_verified": true,
       "method": "LibreOffice PDF output: text below y=50 pt inspected on every page."
     },
     {
       "file": "docs/delivery/gost/api-guide.docx",
-      "docx_sha256": "41d044917e7192b94784ad079eb83c9a96296acfc54b726a49947487404434bd",
-      "rendered_pdf_sha256": "a4dac717dee9b8408bebdf2bc5e356d5402d0a0a4e18422886baffbbb90574cd",
+      "docx_sha256": "aa3fe4527f6b2df8dac6da2bb7bd66183812ceb5a9dbf971cd459fcbf27bd969",
+      "rendered_pdf_sha256": "8a0297f2e2a9715686b294bf1e086171a403e908f27831e25dd17e249b17e515",
       "pages": 31,
       "first_page_number_hidden": true,
       "continuous_page_numbers_verified": true,
@@ -255,17 +255,17 @@
     },
     {
       "file": "docs/delivery/gost/documentation.docx",
-      "docx_sha256": "2ae43bdaec646521e6ad889dbf857bc1ae36393d242a898b7dba93e11ec3dbee",
-      "rendered_pdf_sha256": "0c35d81b19c949db9c43c508aaadea2e43be15929a4e91eca0f9db7729286b9e",
-      "pages": 53,
+      "docx_sha256": "3540d92e5450896ba51880c6a4b785c074127b8e9850d57f6cde38c0d010f38f",
+      "rendered_pdf_sha256": "b2575df347f1badd87113ce11964f3f5d72a4e9d01c3e54eae12c9fd6c1f616e",
+      "pages": 55,
       "first_page_number_hidden": true,
       "continuous_page_numbers_verified": true,
       "method": "LibreOffice PDF output: text below y=50 pt inspected on every page."
     },
     {
       "file": "docs/delivery/gost/project-report.docx",
-      "docx_sha256": "4992a6f0ea5fd733f305251e91f5cc45d9da7cacac085dc3950a652a62ec7bf7",
-      "rendered_pdf_sha256": "bcaa53f7e3a9fe4b9d8fe200ee5a693b52cacae5f1e8cdd76d55123b88c157bd",
+      "docx_sha256": "dffc6d01d47940d0889ad6e4d15b04e31c52088b6cd72147f0b9e19afa3e4130",
+      "rendered_pdf_sha256": "8d07dc20435e780300b16246162f9664dae46e3a3970946feb3dbe10a764270c",
       "pages": 12,
       "first_page_number_hidden": true,
       "continuous_page_numbers_verified": true,
@@ -273,26 +273,26 @@
     },
     {
       "file": "docs/delivery/gost/release-guide.docx",
-      "docx_sha256": "13da92bd87a870bb33ff150b2d68a8d6561472036705fe7502eb3030378d1a7b",
-      "rendered_pdf_sha256": "214b27b98d9af255d9c1391b1e622a677cda17ed83e15d8cf13ac9bd2c276c66",
-      "pages": 85,
+      "docx_sha256": "c1b0d9a7c8e48ceb762035d7d2898955b739b4e0ca456be116547961f93a962a",
+      "rendered_pdf_sha256": "d519aa85a067d4d43cf1fde3caa48dfac1e697d7b6837546a94fef0bbd208f51",
+      "pages": 87,
       "first_page_number_hidden": true,
       "continuous_page_numbers_verified": true,
       "method": "LibreOffice PDF output: text below y=50 pt inspected on every page."
     },
     {
       "file": "docs/delivery/gost/self-deployment-guide.docx",
-      "docx_sha256": "c25109dc4be67639469dd6394b23b4c8aecc1f57dc6b3724351eeb03f4c21bf0",
-      "rendered_pdf_sha256": "7b2a684c6f19622264dad2344bd63d343b38453dd7b7e8c2e3267a479765d271",
-      "pages": 23,
+      "docx_sha256": "1f3010824fdd2de8ed3d31b2c3d0d09cc168d61237e4d688bf026330ffe0650a",
+      "rendered_pdf_sha256": "521e4c56aa6fdb4dae652b9fd9ea7d620f5c1f9eba407f937127f4ba3bd81b9c",
+      "pages": 24,
       "first_page_number_hidden": true,
       "continuous_page_numbers_verified": true,
       "method": "LibreOffice PDF output: text below y=50 pt inspected on every page."
     },
     {
       "file": "docs/delivery/gost/technical-report.docx",
-      "docx_sha256": "99868217c2b35cb17be4e2cae360ad2b3928c1642396340cc67fb49d42a8443e",
-      "rendered_pdf_sha256": "7ba94518ddf84cc73bdb857cfcce7245b340a12d0c90e6c0871ea1f8300c0e11",
+      "docx_sha256": "01405e4c859981ba5f5de2cd5cce98835b4705a21b6b1242d2c7d3611b3f891a",
+      "rendered_pdf_sha256": "eccc7e47d0bc68661bc0d2a638f802e44321c6b1f05090d62293a5421178968e",
       "pages": 13,
       "first_page_number_hidden": true,
       "continuous_page_numbers_verified": true,

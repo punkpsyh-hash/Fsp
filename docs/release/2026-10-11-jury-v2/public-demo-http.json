@@ -1,0 +1,152 @@
+{
+  "result": "passed",
+  "origin": "https://fsptest.kolesnikovny.ru",
+  "execution": "Docker Python client on owner Windows workstation, external to VPS/NAS; default TLS CA verification enabled",
+  "credentials_logged": false,
+  "external_basic_auth_required": false,
+  "demo_credentials_intentionally_public": true,
+  "limits": "Scoped HTTP acceptance of existing synthetic runtime with new edge override; not full security audit",
+  "checks": [
+    {
+      "path": "/",
+      "method": "GET",
+      "expected": 200,
+      "actual": 200
+    },
+    {
+      "path": "/api/v1/me",
+      "method": "GET",
+      "expected": 401,
+      "actual": 401
+    },
+    {
+      "path": "/legal/privacy",
+      "method": "GET",
+      "expected": 200,
+      "actual": 200
+    },
+    {
+      "path": "/legal/recommendations",
+      "method": "GET",
+      "expected": 200,
+      "actual": 200
+    },
+    {
+      "path": "/internal",
+      "method": "GET",
+      "expected": 404,
+      "actual": 404
+    },
+    {
+      "path": "/internal/runner/claim",
+      "method": "GET",
+      "expected": 404,
+      "actual": 404
+    },
+    {
+      "path": "/api/health",
+      "method": "GET",
+      "expected": 200,
+      "actual": 200
+    },
+    {
+      "path": "/api/v1/auth/password-login",
+      "method": "POST",
+      "expected": 200,
+      "actual": 200
+    },
+    {
+      "path": "/api/v1/me",
+      "method": "GET",
+      "expected": 200,
+      "actual": 200
+    },
+    {
+      "path": "/api/v1/candidate/profile",
+      "method": "GET",
+      "expected": 200,
+      "actual": 200
+    },
+    {
+      "path": "/api/v1/candidate/profile.pdf",
+      "method": "GET",
+      "expected": 200,
+      "actual": 200
+    },
+    {
+      "path": "/api/v1/auth/logout",
+      "method": "POST",
+      "expected": 403,
+      "actual": 403
+    },
+    {
+      "path": "/api/v1/auth/logout",
+      "method": "POST",
+      "expected": 204,
+      "actual": 204
+    },
+    {
+      "path": "/api/v1/me",
+      "method": "GET",
+      "expected": 401,
+      "actual": 401
+    },
+    {
+      "path": "/api/v1/auth/password-login",
+      "method": "POST",
+      "expected": 200,
+      "actual": 200
+    },
+    {
+      "path": "/api/v1/me",
+      "method": "GET",
+      "expected": 200,
+      "actual": 200
+    },
+    {
+      "path": "/api/v1/company/shortlist",
+      "method": "GET",
+      "expected": 200,
+      "actual": 200
+    },
+    {
+      "path": "/api/v1/auth/logout",
+      "method": "POST",
+      "expected": 403,
+      "actual": 403
+    },
+    {
+      "path": "/api/v1/auth/logout",
+      "method": "POST",
+      "expected": 204,
+      "actual": 204
+    },
+    {
+      "path": "/api/v1/me",
+      "method": "GET",
+      "expected": 401,
+      "actual": 401
+    },
+    {
+      "path": "/api/v1/auth/register",
+      "method": "POST",
+      "expected": 404,
+      "actual": 404
+    },
+    {
+      "path": "/api/v1/candidate/resume-preview",
+      "method": "POST",
+      "expected": 404,
+      "actual": 404
+    },
+    {
+      "path": "/api/v1/auth/mock-fsp-id/authorize",
+      "method": "POST",
+      "expected": 404,
+      "actual": 404
+    }
+  ],
+  "operator_verified": true,
+  "cookie_secure_httponly_verified": true,
+  "csrf_and_logout_verified": true
+}

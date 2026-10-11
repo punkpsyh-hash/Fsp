@@ -1,0 +1,7 @@
+# Только по отдельному решению владельца: открытый показ синтетического демо.
+# Добавляется после compose.yaml, compose.jury.yaml и compose.jury-relay.yaml.
+# Вход в приложение сохраняется; инфраструктурные секреты не публикуются.
+services:
+  edge:
+    volumes: !override
+      - ./docker/jury/Caddyfile.public-demo:/etc/caddy/Caddyfile:ro

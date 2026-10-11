@@ -20,21 +20,23 @@ cd fsp
 ./scripts/run.sh status
 ```
 
-Датированный комплект закреплён тегом `lct-2026`. Для точного воспроизведения
-после клонирования выполните `git checkout lct-2026`. Исходный ZIP того же
-тега доступен на [странице выпуска](https://github.com/punkpsyh-hash/Fsp/releases/tag/lct-2026).
+Датированный комплект закреплён тегом `lct-2026-jury-v2`. Для точного воспроизведения
+после клонирования выполните `git checkout lct-2026-jury-v2`. Исходный ZIP того же
+тега доступен на [странице выпуска](https://github.com/punkpsyh-hash/Fsp/releases/tag/lct-2026-jury-v2).
 
 ## Материалы сдачи
 
 - [Ссылки по полям формы конкурса](60-jury-submission.md).
-- [Документация PDF](https://github.com/punkpsyh-hash/Fsp/releases/download/lct-2026/documentation.pdf).
-- [Презентация PowerPoint](https://github.com/punkpsyh-hash/Fsp/releases/download/lct-2026/fsp-lct-2026.pptx).
-- [Видео с пояснениями](https://github.com/punkpsyh-hash/Fsp/releases/download/lct-2026/demo-explained.mp4).
-- [Комплект PDF и Word](https://github.com/punkpsyh-hash/Fsp/releases/download/lct-2026/fsp-documents-gost.zip).
+- [Документация PDF](https://github.com/punkpsyh-hash/Fsp/releases/download/lct-2026-jury-v2/documentation.pdf).
+- [Презентация PowerPoint](https://github.com/punkpsyh-hash/Fsp/releases/download/lct-2026-jury-v2/fsp-lct-2026.pptx).
+- [Видео с пояснениями](https://github.com/punkpsyh-hash/Fsp/releases/download/lct-2026-jury-v2/demo-explained.mp4).
+- [Комплект PDF и Word](https://github.com/punkpsyh-hash/Fsp/releases/download/lct-2026-jury-v2/fsp-documents-gost.zip).
 
-Временный [HTTPS-стенд](https://fsptest.kolesnikovny.ru) сохраняет отдельный
-парольный доступ жюри. Владелец передаёт пароль защищённым каналом; GitHub,
-документы, видео и конкурсные слайды не содержат credentials.
+Для проверки в браузере откройте [демо-стенд](https://fsptest.kolesnikovny.ru).
+Внешний Basic Auth снят по решению владельца; логины и общий пароль
+синтетических аккаунтов указаны в [порядке сдачи](60-jury-submission.md).
+Отдельная передача данных входа не нужна. Видео и самостоятельный локальный
+запуск остаются резервом; пароли NAS, VPS и базы данных для проверки не требуются.
 
 ## История и условия использования
 

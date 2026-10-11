@@ -1,0 +1,25 @@
+{
+  "status": "passed",
+  "checked_at": "2026-10-11T16:37:24.899793+00:00",
+  "authorized_scope": "Owner explicitly chose open demo without external password and published synthetic account credentials in documentation",
+  "runtime_changes": [
+    "Only edge recreated with explicit compose.jury-public-demo.yaml override; Caddyfile.public-demo removes external Basic Auth and keeps internal/API boundary"
+  ],
+  "app_db_runner_tunnel_container_ids_unchanged": true,
+  "nas_merged_compose_config_quiet": "passed",
+  "pinned_caddy_validation_windows_docker_and_nas_network_none": "passed",
+  "configuration_sha256": {
+    "compose.jury-public-demo.yaml": "f8e78de0e2b6f4fcbee49d964484aac4411a7be21e96b1a35542078bac2244c5",
+    "docker/jury/Caddyfile.public-demo": "60ad6205bcc844a6406b997f8ff25a827cf413170fefe5009b096622240b8eb4"
+  },
+  "http_receipt": "public-demo-http.json",
+  "browser_receipt": "public-demo-browser.json",
+  "selected_tests": {
+    "passed": 23,
+    "skipped": 2,
+    "skip_reason": "Docker CLI absent in document-tools container; both Caddy formats validated via direct pinned image outside pytest"
+  },
+  "historical_security_tests": "Prior dated protocols unchanged; no new full application suite or independent penetration test claimed",
+  "infrastructure_credentials_published": false,
+  "synthetic_demo_password_published_by_owner_instruction": true
+}
