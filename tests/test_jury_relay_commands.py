@@ -67,6 +67,8 @@ def test_validation_does_not_attach_a_second_edge_to_the_running_network(tmp_pat
     calls = record.read_text(encoding="utf-8").split("END\n")
     caddy = next(call.splitlines() for call in calls if call.startswith("run\n"))
     assert caddy[caddy.index("--network") + 1] == "none"
+    assert caddy[caddy.index("--cap-drop") + 1] == "ALL"
+    assert caddy[caddy.index("--cap-add") + 1] == "NET_BIND_SERVICE"
     assert any("Caddyfile.public-demo" in value for value in caddy)
     assert not any(call.startswith("compose\n") and "\nrun\n" in call for call in calls)
 

@@ -87,7 +87,7 @@ validate() {
     caddyfile="$PWD/docker/jury/Caddyfile.public-demo"
   fi
   # Отдельная проверка без Compose-сети: не занимает фиксированный IP работающего edge.
-  docker run --rm --network none --cap-drop ALL --security-opt no-new-privileges:true \
+  docker run --rm --network none --cap-drop ALL --cap-add NET_BIND_SERVICE --security-opt no-new-privileges:true \
     --mount "type=bind,src=$caddyfile,dst=/etc/caddy/Caddyfile,readonly" \
     --env "FSP_JURY_BASIC_AUTH_USER=$(env_value FSP_JURY_BASIC_AUTH_USER)" \
     --env "FSP_JURY_BASIC_AUTH_HASH=$(env_value FSP_JURY_BASIC_AUTH_HASH)" \
