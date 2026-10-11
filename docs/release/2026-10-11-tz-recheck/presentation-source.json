@@ -1,0 +1,55 @@
+{
+  "generatedAt": "2026-10-11T11:27:06.528Z",
+  "output": "docs/delivery/fsp-lct-2026.pptx",
+  "outputSha256": "ab33df30ea1752b45c0872c5a18614ef46480d472bdb028b823eae03718453d1",
+  "outputBytes": 14021559,
+  "slideCount": 16,
+  "sourceTemplate": {
+    "localOnlyPath": "local-data/requirements/ЛЦТ_2026_Шаблон презентации ФСП.pptx",
+    "sha256": "d2506c0aeb4fca12b6febb242e7d4e7fafc6c4c50434d3b671fc9d7251eb7345",
+    "slideCount": 37,
+    "reusedSourceSlides": [
+      7,
+      8,
+      9,
+      10,
+      11,
+      24,
+      14,
+      14,
+      14,
+      17,
+      20,
+      16,
+      18,
+      25,
+      24,
+      18
+    ]
+  },
+  "templateFidelityGate": {
+    "status": "not_applicable",
+    "reason": "The approved source PPTX itself triggers duplicate_placeholder_identity when compared with itself; exact dimensions, imported masters/layouts/theme, fonts and full-slide renders were checked instead."
+  },
+  "teamReference": {
+    "localOnlyPath": "local-data/requirements/studio37-lct2026-team-presentation.pptx",
+    "sha256": "13478aaa8c5f8757ffb5b82d5807676e7aeed574518f1def1eb1dc06838f5a39",
+    "extractedFields": [
+      "participant name",
+      "team role"
+    ],
+    "excludedFields": [
+      "phone",
+      "messenger handle",
+      "photo",
+      "study/work details"
+    ]
+  },
+  "taskSource": {
+    "path": "requirements/ФСП спец. трек ТЗ.pdf",
+    "sha256": "a39ec8ccb300f4d06c7408b7ab13eff6f71610e86cc0e6d6650bc664f656eba1",
+    "pages": 9
+  },
+  "renderDirectory": "D:\\Codex\\Temp\\fsp-tz-recheck-20261011\\presentation\\final-slides",
+  "validationReceipt": "docs/release/2026-10-11-tz-recheck/presentation-validation.json"
+}

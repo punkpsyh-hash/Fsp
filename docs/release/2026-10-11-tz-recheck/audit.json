@@ -1,0 +1,226 @@
+{
+  "reviewed_at": "2026-10-11T11:42:23.547287+00:00",
+  "source_head": "95a387385dbb4f063265e47a0088c96e8fff2177",
+  "sources": [
+    {
+      "path": "requirements/ФСП спец. трек ТЗ.pdf",
+      "sha256": "a39ec8ccb300f4d06c7408b7ab13eff6f71610e86cc0e6d6650bc664f656eba1"
+    },
+    {
+      "path": "requirements/qa-written-fsp-2026.md",
+      "sha256": "055e09a2d2f1f7c0dec42e6eb5ab45cde3bd2ef2f8c4b91b9ba1d81c0aefa105"
+    }
+  ],
+  "tz_pages": 9,
+  "qa_answers": 17,
+  "requirements": [
+    {
+      "id": "TZ2-category",
+      "finding": "Специализация и подтверждённый тестом грейд; отсутствие автопонижения",
+      "evidence": [
+        "src/domain.py",
+        "tests/test_api.py",
+        "tests/test_product.py"
+      ],
+      "status": "supported_with_stated_scope"
+    },
+    {
+      "id": "TZ2-varied-assessment",
+      "finding": "Параметризованные формы и подтверждающая форма у порога",
+      "evidence": [
+        "src/server/assessment.py",
+        "tests/test_confirmation_stage.py",
+        "docs/assessment-v6-results.json"
+      ],
+      "status": "supported_with_stated_scope"
+    },
+    {
+      "id": "TZ2-grade-time",
+      "finding": "90 дней для повышения; добровольный переход ниже доступен сразу — документированное решение команды",
+      "evidence": [
+        "src/domain.py",
+        "tests/test_product.py"
+      ],
+      "status": "supported_with_stated_scope"
+    },
+    {
+      "id": "TZ2.1-profile",
+      "finding": "Ручной ввод, PDF-import/export, история, согласия и приватность",
+      "evidence": [
+        "tests/test_api.py",
+        "tests/test_product.py",
+        "docs/18-api-guide.md"
+      ],
+      "status": "supported_with_stated_scope"
+    },
+    {
+      "id": "TZ2.1-employer",
+      "finding": "Потребность компании, объяснимый поиск, фильтры и приглашение без обязательной вакансии",
+      "evidence": [
+        "src/domain.py",
+        "tests/test_live_flow.py",
+        "tests/test_product.py"
+      ],
+      "status": "supported_with_stated_scope"
+    },
+    {
+      "id": "TZ2.2-salary-contact",
+      "finding": "Обязательная зарплата RUB; контакт только после принятия либо собственного отклика",
+      "evidence": [
+        "tests/test_api.py",
+        "tests/test_live_flow.py"
+      ],
+      "status": "supported_with_stated_scope"
+    },
+    {
+      "id": "TZ2.2-email",
+      "finding": "Регистрация и подтверждение email работают в полном локальном контуре через mock-почту; реальная SMTP-доставка не настроена",
+      "evidence": [
+        "tests/test_api.py",
+        "tests/test_mailer.py",
+        "tests/test_live_flow.py"
+      ],
+      "status": "implemented_and_verified_with_mock_mail_only_real_smtp_not_configured"
+    },
+    {
+      "id": "TZ2.1-FSP",
+      "finding": "Разрешённый демонстрационный mock четырёх состояний; реального API/собственного client нет",
+      "evidence": [
+        "docs/17-fsp-integration-research.md",
+        "docs/31-fsp-id-mock.md"
+      ],
+      "status": "supported_with_stated_scope"
+    },
+    {
+      "id": "TZ3.3-demo",
+      "finding": "Полный путь локально; доступный по HTTPS jury-показ с тестовыми аккаунтами и отдельным доступом",
+      "evidence": [
+        "tests/test_live_flow.py",
+        "docs/60-jury-submission.md",
+        "docs/61-temporary-domain-stand.md"
+      ],
+      "status": "full_local_path_public_jury_mode_restricted"
+    },
+    {
+      "id": "TZ3.4-docs",
+      "finding": "Архитектура, тестирование, ранжирование, интеграционный план, OpenAPI, версии и Docker-развёртывание",
+      "evidence": [
+        "docs/document-set.json",
+        "docs/34-documentation.md",
+        "docs/53-self-deployment.md"
+      ],
+      "status": "supported_with_stated_scope"
+    },
+    {
+      "id": "TZ3.5-code",
+      "finding": "Читаемые исходники в закрытом GitHub; доступ жюри нужно фактически предоставить",
+      "evidence": [
+        "README.md",
+        "docs/60-jury-submission.md"
+      ],
+      "status": "private_source_available_judges_need_individual_access"
+    },
+    {
+      "id": "TZ3.5-browser-security",
+      "finding": "Браузерная матрица, VM-изоляция, технические меры приватности; не юридическая сертификация",
+      "evidence": [
+        "docs/release/2026-10-11-legal-submission/final-verification.json"
+      ],
+      "status": "supported_with_stated_scope"
+    },
+    {
+      "id": "PR.1-validation",
+      "finding": "Синтетическая валидация test–retest и разделяющей силы допустима; единый полный протокол 4×2",
+      "evidence": [
+        "docs/release/2026-10-11-tz-recheck/retest-validation-scenarios-v6.json"
+      ],
+      "status": "supported_with_stated_scope"
+    },
+    {
+      "id": "WA.1-categories",
+      "finding": "Реализованы четыре специализации и два грейда; минимум ответа — две специализации и два грейда",
+      "evidence": [
+        "docs/42-design-track-and-live-stand.md",
+        "docs/benchmark-results.json"
+      ],
+      "status": "supported_with_stated_scope"
+    },
+    {
+      "id": "TZ-optional",
+      "finding": "Вакансии, адресные короткие задания и практика реализованы; практика не повышает глобальный грейд",
+      "evidence": [
+        "tests/test_product.py",
+        "docs/25-skills-work-upgrade.md"
+      ],
+      "status": "supported_with_stated_scope"
+    }
+  ],
+  "independent_review": "qa-review-before-corrections.json",
+  "resolved_reporting_findings": [
+    "benchmark: hardcoded 600 corrected to actual sum 800",
+    "common scenarios-v6 retest rerun includes Design, all eight combinations; six historical results and three policies unchanged",
+    "PPTX slides 5/11/13/16 and document 47 now describe actual HTTPS jury stand and its limits"
+  ],
+  "fresh_verification": {
+    "benchmark_exit_code": 0,
+    "benchmark_forms": 800,
+    "retest_exit_code": 0,
+    "retest_combinations": 8,
+    "policy_specializations": 4,
+    "old_results_unchanged": true,
+    "changed_historical_combinations": [],
+    "changed_historical_policies": []
+  },
+  "product_code_changes": false,
+  "previous_backend_evidence": "../2026-10-11-legal-submission/final-verification.json",
+  "limitations": [
+    "Public jury mode intentionally disables registration, mail, PDF-import, FSP mock and LLM; full local path is separate.",
+    "No real SMTP delivery, official FSP integration, independent human calibration or production/legal certification is claimed.",
+    "Anti-cheating checks measure specific strategies and heuristics; they are not an absolute guarantee.",
+    "Private repository is allowed by the source-code requirement if judges receive actual access; URL alone is insufficient.",
+    "Judges must receive stand credentials and repository access; stand uptime during evaluation and 10-minute defense remain operational obligations."
+  ],
+  "conclusion": "Mandatory MVP and all 17 supplied answers are supported within the synthetic prototype scope. Reporting inaccuracies corrected; do not describe restricted public mode as the full registration/LLM contour.",
+  "presentation_content_check": "presentation-content-check.json",
+  "finished_at": "2026-10-11T11:44:57.636545+00:00",
+  "delivery": {
+    "pdf_documents": 7,
+    "word_documents": 7,
+    "pdf_pages": 632,
+    "word_rendered_pages": 598,
+    "pptx_slides": 16,
+    "archive": {
+      "archive": "docs/delivery/fsp-documents-gost.zip",
+      "bytes": 28996968,
+      "sha256": "da4ae3d671e480b7da5946348d7ca0406f6876a65d6183ccb331c07e0e7ae750",
+      "entries": 156,
+      "zip_valid": true,
+      "all_entry_sha256_verified": true
+    },
+    "presentation_sha256": "ab33df30ea1752b45c0872c5a18614ef46480d472bdb028b823eae03718453d1",
+    "changed_pages_visually_reviewed": {
+      "pdf_all_documents": [
+        196,
+        197,
+        200
+      ],
+      "word_all_documents": [
+        187,
+        188
+      ],
+      "pdf_release_guide": [
+        53
+      ],
+      "word_release_guide": [
+        47
+      ]
+    }
+  },
+  "evidence_sha256": {
+    "artifacts.json": "4015f0aa80cf25a316e4ddedd31a3c79ddb98c1d8c38f89967916f4db26f607d",
+    "package.json": "546cebfd8f5b624a965f1b59d9aa91232277ccba10d53229efb2367f695eb3f0",
+    "presentation-content-check.json": "42621345add1add31ef2af849205f6c4a64bdf0aed34d7bf918554c71192642c",
+    "retest-validation-scenarios-v6.json": "f77ce77ec5f9ccb42007749a1e4a01c6dc23cb0e5c1303a20b56d247b363cd35",
+    "qa-review-before-corrections.json": "85bce492e08b79befead06a6aee883b5a8f093d8cb83c67e15c35303d6210186"
+  }
+}

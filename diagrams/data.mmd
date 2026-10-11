@@ -1,0 +1,10 @@
+erDiagram
+  CANDIDATE ||--o{ ATTEMPT : completes
+  CANDIDATE ||--o{ EVIDENCE : owns
+  CANDIDATE ||--o{ CONSENT : grants
+  CANDIDATE ||--o{ INVITATION : receives
+  COMPANY ||--o{ INVITATION : sends
+  COMPANY ||--o{ HIRING_NEED : describes
+  INVITATION ||--o| CONTACT_GRANT : creates
+  CANDIDATE ||--o{ GRADE_EVENT : records
+  ASSESSMENT_VARIANT ||--o{ ATTEMPT : used_in

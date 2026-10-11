@@ -1,0 +1,17 @@
+flowchart LR
+    Resume["Анкета: declared_skills"] --> Declared["Заявленные технологии"]
+    Attempt["Пройденная попытка: сохранённая форма и результат"] --> Profile["Profile: категория и навыки демо-оценки"]
+    Attempt --> Evidence["skill_evidence: версия, дата, баллы"]
+    Profile --> Evidence
+    Bank["Завершённая практика неизменяемой версии"] --> Evidence
+    Declared --> Evidence
+    Evidence --> View["Разрешённая проекция профиля"]
+    Work["Задачи команды: team-work-v1"] --> Desired["Дополнение желательных навыков"]
+    Need["Потребность: категория, must, формат, бюджет"] --> Filter["Жёсткие фильтры"]
+    Profile --> Filter
+    Filter --> Rank["Ranking: 45 / 35 / 10 / 10"]
+    Desired --> Rank
+    Rank --> Snapshot["Исторический snapshot поиска"]
+    Profile --> Match["work_matches: покрытие навыков"]
+    Work --> Match
+    Match --> Snapshot

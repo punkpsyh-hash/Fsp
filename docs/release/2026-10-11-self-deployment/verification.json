@@ -1,0 +1,116 @@
+{
+  "date_utc": "2026-10-11T06:27:30.9761184Z",
+  "base_commit": "f786ae85edcfb4ba09c898028c519f023d019cfc",
+  "scope": "recipient setup; server/web/runner code unchanged",
+  "source_sha256": {
+    "compose.yaml": "0b57217045dcd51c93d1c4540f668985aada0c93af03eed0b33453a98d6363c2",
+    "compose.llm.yaml": "4f40fa1deb6f48c1e0cc2455f40d2a9c22de65e59dc685200f340569b8671dbf",
+    "scripts/run.sh": "5c31f97e49639953ad7f6f17ebe828dee93751e508b76d70978a669d442ed04d",
+    "scripts/init_env.py": "5c5689d0c47a1f4f0f6a4ee09192a8dcf4f28f674b63f229fc1942712e0d2814",
+    "scripts/check_stand.py": "162522effeb06197ac4eeb9a87a32b7d12c01f224da42577b7295ac1fad1e070",
+    "scripts/build_self_deployment_guide.py": "c38e260e6411a1eaaed0b1d2536e982536ddbce1b3b4df4020ad9131f230c955",
+    "ml/fetch_model.py": "d6b36234110b8864911b416a63813dcdc384a35370ba3bd0f454e58aa76424a7",
+    "ml/release/model-serving-v3-manifest.json": "13f08338ed29ecfb67852ab13cbc39999aa734883d41651ca3081ff8c971dbe2",
+    "tests/test_fetch_model.py": "c87b008ad322e2622a8b04b107309701cb37aae00627a58f8c8b1948a0d0242e",
+    "tests/test_stand_setup.py": "8e5d9d95f8e474425a42eff48e14dd9fca49ee83ca6a7aa157b0e2c564234618",
+    "tests/test_init_env.py": "5805bf79cb1fd5c21093e366c68f806cd76ccfbb49f4fe1732618318f8b47176",
+    "tests/test_runtime_configuration.py": "b49a65761971460386ef682bddef06671fcd7d69a6e077404d5ef43145c88e2d",
+    "docs/53-self-deployment.md": "1472a6f8d29ecc082fee3acfdf6bab498bad5eb033dfe57c00f75431be6a68fa",
+    "docs/54-self-deployment-acceptance.md": "6111a3a77f9643c5e2b9925f3b54d568d54eb8e635224afe57fb8a84882a2141"
+  },
+  "regression": {
+    "container": "fspdelivery-tools",
+    "tests": [
+      "test_fetch_model",
+      "test_local_model",
+      "test_llm",
+      "test_llm_socket",
+      "test_remote_model_configuration",
+      "test_runtime_configuration",
+      "test_stand_setup",
+      "test_init_env"
+    ],
+    "duration_seconds": 3.88,
+    "failed": 0,
+    "passed": 69,
+    "warnings": 1,
+    "network": "none"
+  },
+  "clean_clone": {
+    "host_ports_published": false,
+    "runner_image": "sha256:c3fdf0c8d2c726aea858e6e70cb74d7b454c58deda5d23b1cd026d6417f0c4c3",
+    "check_llm_without_model_exit": 1,
+    "local_subnet": "10.253.238.0/24",
+    "own_test_services_stopped": true,
+    "built": [
+      "frontend",
+      "backend",
+      "runtime",
+      "runner"
+    ],
+    "project": "fspselfdeploy",
+    "source": "local Git clone with reviewed working changes copied before commit",
+    "database": "new PostgreSQL volume",
+    "api_database": "ready",
+    "app_image": "sha256:5adff23d0b9fe381e86c28daf733a8d9ecf64c8b1e712dea7f40c7e1efb9873b",
+    "runner": "healthy",
+    "init_repeat_bytes_unchanged": true
+  },
+  "vm_smoke": {
+    "cases": [
+      "VM readiness",
+      "Python stdin",
+      "JavaScript stdin",
+      "SQLite query",
+      "CPU timeout",
+      "wrong answer"
+    ],
+    "boot_max_ms": 9277,
+    "cpu_seconds": 20,
+    "accelerator": "tcg",
+    "checks": 6,
+    "guest_memory_mib": 512,
+    "failed": 0,
+    "boot_median_ms": 9146
+  },
+  "model_download": {
+    "https_files_downloaded_and_sha_verified": 9,
+    "corrupted_local_shard_rejected": true,
+    "corrupted_sha256": "c98e31b30e994ecdf4e020eacd5a16bea2c1e9ca08befdc8173e7efad1c5b1f5",
+    "previous_corrupted_bytes_preserved_outside_git": true,
+    "restored_sha256": "75311d91bb08cf0b882913da464a1e722a31fb44db35208663487efb7a3d8ed6",
+    "source": "official huggingface.co pinned commit",
+    "offline_manifest_files_verified": 12,
+    "large_shards_redownloaded": 0
+  },
+  "real_gpu_check": {
+    "revision": "cdbee75f17c01a7cc42f958dc650907174af0554",
+    "generation_invoked": false,
+    "quantization": "nf4 cuda:0",
+    "wrong_key_rejected": true,
+    "api_health_stubbed_in_this_probe": true,
+    "model": "Qwen/Qwen3-4B-Instruct-2507",
+    "correct_key_accepted": true
+  },
+  "compose": {
+    "llm_with_tcg_valid": true,
+    "base_valid": true,
+    "blank_key_rejected": true
+  },
+  "pdf": {
+    "characters_outside_page": 0,
+    "bytes": 49249,
+    "sha256": "24da62b9d2a98042f95a4b382f054d96de1247b57664c13c75f25b45af4c9968",
+    "all_pages_rendered_and_visually_reviewed": true,
+    "pages": 7,
+    "path": "docs/delivery/self-deployment-guide.pdf"
+  },
+  "limits": [
+    "full new GPU Compose cold start not repeated",
+    "three large weights reused, not redownloaded",
+    "external model providers not exercised",
+    "recipient hardware not exercised",
+    "previous full 410/411 and 132 browser runs remain separate"
+  ],
+  "independent_review": "docs/release/2026-10-11-self-deployment/review.md"
+}

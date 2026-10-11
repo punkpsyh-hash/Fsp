@@ -1,0 +1,154 @@
+name: fsp
+services:
+  db:
+    image: postgres:16-alpine@sha256:e013e867e712fec275706a6c51c966f0bb0c93cfa8f51000f85a15f9865a28cb
+    environment:
+      POSTGRES_USER: fsp
+      POSTGRES_DB: fsp
+      POSTGRES_PASSWORD: ${FSP_DB_PASSWORD:?Run ./scripts/run.sh init first}
+    ports:
+      - "127.0.0.1:15432:5432"
+    volumes:
+      - fsp-db:/var/lib/postgresql/data
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -h 127.0.0.1 -U fsp -d fsp"]
+      interval: 5s
+      timeout: 3s
+      retries: 20
+      start_period: 120s
+    restart: unless-stopped
+  app:
+    image: fsp-app
+    build:
+      context: .
+      target: runtime
+    environment:
+      FSP_DEMO_MODE: "1"
+      FSP_DB_PASSWORD: ${FSP_DB_PASSWORD:?Run ./scripts/run.sh init first}
+      FSP_DB_HOST: db
+      FSP_DB_PORT: "5432"
+      FSP_RUNNER_TOKEN: ${FSP_RUNNER_TOKEN:?Run ./scripts/run.sh init first}
+      FSP_SMTP_HOST: ${FSP_SMTP_HOST:-}
+      FSP_SMTP_ENABLED: ${FSP_SMTP_ENABLED:-0}
+      FSP_SMTP_PORT: ${FSP_SMTP_PORT:-587}
+      FSP_SMTP_TLS: ${FSP_SMTP_TLS:-starttls}
+      FSP_SMTP_FROM: ${FSP_SMTP_FROM:-fsp@example.invalid}
+      FSP_SMTP_USER: ${FSP_SMTP_USER:-}
+      FSP_SMTP_PASSWORD: ${FSP_SMTP_PASSWORD:-}
+      FSP_DEMO_LOGIN: ${FSP_DEMO_LOGIN:-1}
+      FSP_MOCK_MAIL: ${FSP_MOCK_MAIL:-1}
+      FSP_ALLOWED_HOSTS: ${FSP_ALLOWED_HOSTS:-}
+      FSP_ALLOWED_ORIGINS: ${FSP_ALLOWED_ORIGINS:-}
+      FSP_COOKIE_SECURE: ${FSP_COOKIE_SECURE:-0}
+      FSP_INTEGRITY_ENFORCE: ${FSP_INTEGRITY_ENFORCE:-1}
+      FSP_CONFIRMATION_BAND: ${FSP_CONFIRMATION_BAND:-6}
+      FSP_REGISTRY_UNAVAILABLE: ${FSP_REGISTRY_UNAVAILABLE:-0}
+      FSP_LLM_PROVIDER: ${FSP_LLM_PROVIDER:-none}
+      FSP_LLM_BASE_URL: ${FSP_LLM_BASE_URL:-}
+      FSP_LLM_MODEL: ${FSP_LLM_MODEL:-}
+      FSP_LLM_API_KEY: ${FSP_LLM_API_KEY:-}
+      FSP_LLM_TIMEOUT: ${FSP_LLM_TIMEOUT:-8}
+      FSP_LLM_GENERATION_TIMEOUT: ${FSP_LLM_GENERATION_TIMEOUT:-100}
+      FSP_AUTH_RATE_LIMIT: ${FSP_AUTH_RATE_LIMIT:-30}
+    ports:
+      - "127.0.0.1:8470:8470"
+    depends_on:
+      db:
+        condition: service_healthy
+    read_only: true
+    tmpfs:
+      - /tmp:size=64m
+    cap_drop: [ALL]
+    security_opt: ["no-new-privileges:true"]
+    healthcheck:
+      test: ["CMD", "python", "-c", "import urllib.request; urllib.request.urlopen('http://127.0.0.1:8470/api/health', timeout=3)"]
+      interval: 10s
+      timeout: 5s
+      retries: 10
+    restart: unless-stopped
+    networks: [default, runner_net]
+  runner:
+    image: fsp-runner
+    platform: linux/amd64
+    build:
+      context: .
+      dockerfile: docker/runner.Dockerfile
+    environment:
+      FSP_RUNNER_BROKER_URL: http://app:8470
+      FSP_RUNNER_TOKEN: ${FSP_RUNNER_TOKEN:?Run ./scripts/run.sh init first}
+      FSP_RUNNER_ACCEL: ${FSP_RUNNER_ACCEL:-kvm}
+    devices: [/dev/kvm:/dev/kvm]
+    group_add: ["${FSP_KVM_GID:-108}"]
+    networks: [runner_net]
+    depends_on:
+      app:
+        condition: service_healthy
+    read_only: true
+    tmpfs: ["/tmp:size=1g,mode=1777"]
+    cap_drop: [ALL]
+    security_opt: ["no-new-privileges:true"]
+    mem_limit: 1g
+    cpus: 1
+    pids_limit: 64
+    healthcheck:
+      test: ["CMD", "python", "-c", "import pathlib,time; p=pathlib.Path('/tmp/fsp-runner-heartbeat'); assert p.exists() and time.time()-p.stat().st_mtime<900"]
+      interval: 10s
+      timeout: 3s
+      retries: 12
+      start_period: 120s
+    restart: unless-stopped
+  tools:
+    profiles: [tools]
+    image: fsp-tools
+    build:
+      context: .
+      target: tools
+    user: "${FSP_UID:-10001}:${FSP_GID:-10001}"
+    environment:
+      HOME: /tmp
+      FSP_DEMO_MODE: "1"
+      FSP_DB_HOST: db
+      FSP_DB_PORT: "5432"
+      FSP_DB_PASSWORD: ${FSP_DB_PASSWORD:?Run ./scripts/run.sh init first}
+    network_mode: service:app
+    depends_on:
+      app:
+        condition: service_healthy
+    volumes:
+      - ./docs:/app/docs
+      - ./contracts:/app/contracts
+    read_only: true
+    tmpfs:
+      - /tmp:size=512m,mode=1777
+    cap_drop: [ALL]
+    security_opt: ["no-new-privileges:true"]
+  browser:
+    profiles: [browser]
+    image: fsp-browser
+    build:
+      context: .
+      dockerfile: docker/browser.Dockerfile
+    user: "${FSP_UID:-10001}:${FSP_GID:-10001}"
+    environment:
+      HOME: /tmp
+      npm_config_cache: /tmp/npm-cache
+      FSP_TEST_OUTPUT: /app/web/artifacts/e2e
+      FSP_RECORDING_DIR: /app/web/artifacts/demo-recording
+    network_mode: service:app
+    depends_on:
+      app:
+        condition: service_healthy
+    volumes:
+      - ./web/test-results:/app/web/artifacts
+      - ./docs/delivery:/app/docs/delivery
+    read_only: true
+    shm_size: 256mb
+    tmpfs:
+      - /tmp:size=512m,mode=1777
+    cap_drop: [ALL]
+    security_opt: ["no-new-privileges:true"]
+volumes:
+  fsp-db:
+networks:
+  runner_net:
+    internal: true

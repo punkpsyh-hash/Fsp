@@ -1,0 +1,12 @@
+# Устанавливать обычным pip внутри отдельного venv на D, не через pip --target.
+# Закрепление предотвращает неявное обновление CUDA-колеса зависимостями PEFT.
+--extra-index-url https://download.pytorch.org/whl/cu128
+torch==2.7.1+cu128
+transformers==4.57.1
+peft==0.17.1
+accelerate==1.10.1
+huggingface-hub==0.35.3
+tokenizers==0.22.1
+safetensors==0.6.2
+pydantic==2.13.5
+httpx==0.28.1

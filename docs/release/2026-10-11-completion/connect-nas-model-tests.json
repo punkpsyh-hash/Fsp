@@ -1,0 +1,45 @@
+{
+  "generated_at": "2026-10-11T00:32:52.6765689Z",
+  "nas_contacted": false,
+  "key_read": false,
+  "powershell_ast": {
+    "ok": true,
+    "errors": []
+  },
+  "mocked_safety_scenarios": {
+    "exit_code": 0,
+    "output": [
+      "startup caught: SSH forward не запущен: remote port forwarding failed for listen path",
+      "6 mocked safety scenarios: OK"
+    ],
+    "count": 6,
+    "requires_cleanup_user_0_0": true
+  },
+  "linux_permission_precondition": {
+    "non_root_exit_code": 1,
+    "expected_nonzero": true,
+    "directory_mode": "0755",
+    "uid": "10001:10001",
+    "output_tail": [
+      "  File \"<string>\", line 1, in <module>",
+      "PermissionError: [Errno 13] Permission denied"
+    ]
+  },
+  "af_unix_container_scenarios": {
+    "exit_code": 0,
+    "output": [
+      "3 AF_UNIX cleanup scenarios: OK"
+    ],
+    "count": 3,
+    "image": "fspdev-tools",
+    "network": "none",
+    "user": "0:0",
+    "directory_mode": "0755"
+  },
+  "git_diff_check": {
+    "exit_code": 0,
+    "output": [
+      "warning: in the working copy of 'scripts/connect-nas-model.ps1', LF will be replaced by CRLF the next time Git touches it"
+    ]
+  }
+}

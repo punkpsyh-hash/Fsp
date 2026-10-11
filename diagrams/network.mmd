@@ -1,0 +1,6 @@
+flowchart TD
+  Browser["Интернет / браузер"] --> Proxy["Proxy · 443"]
+  Proxy --> API["API / Web / OIDC · private"]
+  API --> DB["DB · 5432 · private"]
+  API --> Worker["Sandbox VM · deny egress"]
+  Admin["Admin / backup · закрытый доступ"] --> DB

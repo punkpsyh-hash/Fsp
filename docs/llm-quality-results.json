@@ -1,0 +1,183 @@
+{
+ "date": "2026-10-10",
+ "model": "Qwen/Qwen3-4B-Instruct-2507",
+ "revision": "cdbee75f17c01a7cc42f958dc650907174af0554",
+ "decision": "base_model_without_adapter_with_solution_field_and_server_side_option_assembly",
+ "adapter_default_enabled": false,
+ "human_author_review_required": true,
+ "protocol": "3 набора по 24 случая (6 семейств × 4 типа), написаны автором до запусков; v5 — финальный одноразовый прогон; авторская AI-проверка, не независимая экспертиза",
+ "sets_sha256": {
+  "v3": {
+   "cases": "ae45858549eddb6fc592989a89de11f823e736d5a06a3c857a3e7f0044069bd4",
+   "checks": "04752f735ba71055d373201d081a058feb76cb424cfe771f0942cd29e403a1d5"
+  },
+  "v4": {
+   "cases": "6f6ccad7ea6cdb4051259bed31c9e417f468ad57e561076576407da73e7af731",
+   "checks": "b9cab8247b00162e4d433425c07879c07f56e931e489a5119d48b0c32bda5649"
+  },
+  "v5": {
+   "cases": "81475dd6b0b60a0ab6731ae862f4207db16f57321cb35d94d7008ad3276282cb",
+   "checks": "66fbcf8d830325ef794740fb6cc3b642d0de96d788199eac2331de5b8baba8af"
+  }
+ },
+ "runs": {
+  "v3_base_old_schema": {
+   "count": 24,
+   "structural_passes": 24,
+   "auto_checked": 12,
+   "auto_passes": 8,
+   "per_kind": {
+    "multiple_choice": [
+     6,
+     6
+    ],
+    "numeric": [
+     6,
+     6
+    ],
+    "open_response": [
+     6,
+     6
+    ],
+    "single_choice": [
+     6,
+     6
+    ]
+   },
+   "seconds": 608.3,
+   "profile": "base"
+  },
+  "v3_adapter_v1_no_solution": {
+   "count": 24,
+   "structural_passes": 24,
+   "auto_checked": 12,
+   "auto_passes": 5,
+   "per_kind": {
+    "multiple_choice": [
+     6,
+     6
+    ],
+    "numeric": [
+     6,
+     6
+    ],
+    "open_response": [
+     6,
+     6
+    ],
+    "single_choice": [
+     6,
+     6
+    ]
+   },
+   "seconds": 679.7,
+   "profile": "tuned"
+  },
+  "v3_adapter_v2_solution": {
+   "count": 24,
+   "structural_passes": 21,
+   "auto_checked": 12,
+   "auto_passes": 7,
+   "per_kind": {
+    "multiple_choice": [
+     3,
+     6
+    ],
+    "numeric": [
+     6,
+     6
+    ],
+    "open_response": [
+     6,
+     6
+    ],
+    "single_choice": [
+     6,
+     6
+    ]
+   },
+   "seconds": 1231.2,
+   "profile": "tuned"
+  },
+  "v3_base_solution_old_options_format": {
+   "count": 24,
+   "structural_passes": 24,
+   "auto_checked": 12,
+   "auto_passes": 11,
+   "per_kind": {
+    "multiple_choice": [
+     6,
+     6
+    ],
+    "numeric": [
+     6,
+     6
+    ],
+    "open_response": [
+     6,
+     6
+    ],
+    "single_choice": [
+     6,
+     6
+    ]
+   },
+   "seconds": 786.3,
+   "profile": "base"
+  },
+  "v5_final_base_solution_server_options": {
+   "count": 24,
+   "structural_passes": 23,
+   "auto_checked": 12,
+   "auto_passes": 12,
+   "per_kind": {
+    "multiple_choice": [
+     5,
+     6
+    ],
+    "numeric": [
+     6,
+     6
+    ],
+    "open_response": [
+     6,
+     6
+    ],
+    "single_choice": [
+     6,
+     6
+    ]
+   },
+   "seconds": 740.6,
+   "profile": "base"
+  }
+ },
+ "note_autocheck": "В записях v3 base_new и v4 автосверка single-вопросов была ошибочно пересчитана до исправления оценщика; для v5 использован ml/rescore.py (12/12). v4 выявил дефект формата вариантов (модель писала буквы) и не считается закрытым.",
+ "v5_manual_review": {
+  "reviewed_structural_pass_multiple_or_open": 11,
+  "with_errors": 2,
+  "errors": [
+   "js-filter-boolean-multiple: ложный признак «3 ложных значения»",
+   "http-cors-preflight-open: в рубрике 100 перечислены запросы 2, 3, 4 вместо 3, 4"
+  ],
+  "reviewer": "автор реализации (AI), не независимый эксперт"
+ },
+ "training": {
+  "v1": {
+   "examples": 7562,
+   "epochs": 2,
+   "seconds": 17896.8,
+   "peak_vram_gb": 6.05,
+   "val_loss": 0.0258,
+   "adapter_sha256": "a149f1554d0dad3d96dfdf98363a54fd761d86d40e95b6c04015142bc2a9fcaa"
+  },
+  "v2": {
+   "examples": 7552,
+   "epochs": 1,
+   "seconds": 8399.5,
+   "peak_vram_gb": 6.32,
+   "val_loss": 0.0225,
+   "adapter_sha256": "c2dbe597954a14f50bb30631988fab92d6a56e68cd3f279a2401f6e4c918099a"
+  }
+ }
+}

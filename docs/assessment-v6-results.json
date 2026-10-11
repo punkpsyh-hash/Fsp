@@ -1,0 +1,678 @@
+{
+  "type": "current_assessment_answer_transfer_diagnostic",
+  "blueprint_version": "scenarios-v6",
+  "method": {
+    "donor_seeds": [
+      0,
+      19
+    ],
+    "receiver_seeds": [
+      100,
+      199
+    ],
+    "donors_per_case": 20,
+    "receivers_per_case": 100,
+    "strategies": [
+      "literal",
+      "position"
+    ],
+    "literal": "Текст эталона переносится по private family, только если такой option есть у получателя.",
+    "position": "Индекс верного option донора переносится на option с тем же индексом у получателя.",
+    "confirmation_policy": {
+      "implementation": "src/server/app.py assessment submit stage 1/2",
+      "band_points": 6,
+      "thresholds": {
+        "junior": 70,
+        "middle": 80
+      },
+      "paired_confirmation_seed": "1000 + receiver_seed",
+      "decision": "Вне полосы проход подтверждается сразу; внутри полосы итог равен среднему двух форм и сравнивается с порогом.",
+      "scope": "Считается score-policy при чистом integrity; hold по сигналам прокторинга здесь не моделируется."
+    },
+    "content_check": "Private snapshot решён независимым oracle; candidate DTO содержит только id/skill/title/options."
+  },
+  "forms_total": 800,
+  "confirmation_forms_total": 800,
+  "matrices": [
+    {
+      "specialization": "backend",
+      "grade": "junior",
+      "forms": 100,
+      "distinct_forms": 100,
+      "questions": 12,
+      "per_skill": 4,
+      "independent_oracles": "passed",
+      "public_fields": [
+        "id",
+        "options",
+        "skill",
+        "title"
+      ]
+    },
+    {
+      "specialization": "backend",
+      "grade": "middle",
+      "forms": 100,
+      "distinct_forms": 100,
+      "questions": 12,
+      "per_skill": 4,
+      "independent_oracles": "passed",
+      "public_fields": [
+        "id",
+        "options",
+        "skill",
+        "title"
+      ]
+    },
+    {
+      "specialization": "frontend",
+      "grade": "junior",
+      "forms": 100,
+      "distinct_forms": 100,
+      "questions": 12,
+      "per_skill": 4,
+      "independent_oracles": "passed",
+      "public_fields": [
+        "id",
+        "options",
+        "skill",
+        "title"
+      ]
+    },
+    {
+      "specialization": "frontend",
+      "grade": "middle",
+      "forms": 100,
+      "distinct_forms": 100,
+      "questions": 12,
+      "per_skill": 4,
+      "independent_oracles": "passed",
+      "public_fields": [
+        "id",
+        "options",
+        "skill",
+        "title"
+      ]
+    },
+    {
+      "specialization": "qa",
+      "grade": "junior",
+      "forms": 100,
+      "distinct_forms": 100,
+      "questions": 12,
+      "per_skill": 4,
+      "independent_oracles": "passed",
+      "public_fields": [
+        "id",
+        "options",
+        "skill",
+        "title"
+      ]
+    },
+    {
+      "specialization": "qa",
+      "grade": "middle",
+      "forms": 100,
+      "distinct_forms": 100,
+      "questions": 12,
+      "per_skill": 4,
+      "independent_oracles": "passed",
+      "public_fields": [
+        "id",
+        "options",
+        "skill",
+        "title"
+      ]
+    },
+    {
+      "specialization": "design",
+      "grade": "junior",
+      "forms": 100,
+      "distinct_forms": 100,
+      "questions": 12,
+      "per_skill": 4,
+      "independent_oracles": "passed",
+      "public_fields": [
+        "id",
+        "options",
+        "skill",
+        "title"
+      ]
+    },
+    {
+      "specialization": "design",
+      "grade": "middle",
+      "forms": 100,
+      "distinct_forms": 100,
+      "questions": 12,
+      "per_skill": 4,
+      "independent_oracles": "passed",
+      "public_fields": [
+        "id",
+        "options",
+        "skill",
+        "title"
+      ]
+    }
+  ],
+  "transfer": {
+    "pairs_total": 32000,
+    "passes_total": 4,
+    "immediate_confirmations_total": 0,
+    "confirmed_after_second_total": 0,
+    "policy_confirmations_total": 0,
+    "results": [
+      {
+        "specialization": "backend",
+        "grade": "junior",
+        "strategy": "literal",
+        "pairs": 2000,
+        "passes": 0,
+        "immediate_confirmations": 0,
+        "borderline_pairs": 0,
+        "confirmed_after_second": 0,
+        "policy_confirmations": 0,
+        "minimum_score": 0.0,
+        "maximum_score": 33.33,
+        "mean_score": 10.64,
+        "passing_pairs": [],
+        "second_form_pairs": [],
+        "confirmation_pairs": []
+      },
+      {
+        "specialization": "backend",
+        "grade": "junior",
+        "strategy": "position",
+        "pairs": 2000,
+        "passes": 2,
+        "immediate_confirmations": 0,
+        "borderline_pairs": 5,
+        "confirmed_after_second": 0,
+        "policy_confirmations": 0,
+        "minimum_score": 0.0,
+        "maximum_score": 75.0,
+        "mean_score": 25.05,
+        "passing_pairs": [
+          {
+            "donor_seed": 3,
+            "receiver_seed": 169,
+            "score": 75.0
+          },
+          {
+            "donor_seed": 15,
+            "receiver_seed": 182,
+            "score": 75.0
+          }
+        ],
+        "second_form_pairs": [
+          {
+            "donor_seed": 2,
+            "receiver_seed": 166,
+            "confirmation_seed": 1166,
+            "stage_scores": [
+              66.67,
+              8.33
+            ],
+            "combined_score": 37.5,
+            "confirmed": false
+          },
+          {
+            "donor_seed": 3,
+            "receiver_seed": 169,
+            "confirmation_seed": 1169,
+            "stage_scores": [
+              75.0,
+              16.67
+            ],
+            "combined_score": 45.84,
+            "confirmed": false
+          },
+          {
+            "donor_seed": 12,
+            "receiver_seed": 144,
+            "confirmation_seed": 1144,
+            "stage_scores": [
+              66.67,
+              41.67
+            ],
+            "combined_score": 54.17,
+            "confirmed": false
+          },
+          {
+            "donor_seed": 13,
+            "receiver_seed": 188,
+            "confirmation_seed": 1188,
+            "stage_scores": [
+              66.67,
+              16.67
+            ],
+            "combined_score": 41.67,
+            "confirmed": false
+          },
+          {
+            "donor_seed": 15,
+            "receiver_seed": 182,
+            "confirmation_seed": 1182,
+            "stage_scores": [
+              75.0,
+              8.33
+            ],
+            "combined_score": 41.66,
+            "confirmed": false
+          }
+        ],
+        "confirmation_pairs": []
+      },
+      {
+        "specialization": "backend",
+        "grade": "middle",
+        "strategy": "literal",
+        "pairs": 2000,
+        "passes": 0,
+        "immediate_confirmations": 0,
+        "borderline_pairs": 0,
+        "confirmed_after_second": 0,
+        "policy_confirmations": 0,
+        "minimum_score": 0.0,
+        "maximum_score": 33.33,
+        "mean_score": 5.37,
+        "passing_pairs": [],
+        "second_form_pairs": [],
+        "confirmation_pairs": []
+      },
+      {
+        "specialization": "backend",
+        "grade": "middle",
+        "strategy": "position",
+        "pairs": 2000,
+        "passes": 0,
+        "immediate_confirmations": 0,
+        "borderline_pairs": 1,
+        "confirmed_after_second": 0,
+        "policy_confirmations": 0,
+        "minimum_score": 0.0,
+        "maximum_score": 75.0,
+        "mean_score": 25.3,
+        "passing_pairs": [],
+        "second_form_pairs": [
+          {
+            "donor_seed": 10,
+            "receiver_seed": 125,
+            "confirmation_seed": 1125,
+            "stage_scores": [
+              75.0,
+              33.33
+            ],
+            "combined_score": 54.16,
+            "confirmed": false
+          }
+        ],
+        "confirmation_pairs": []
+      },
+      {
+        "specialization": "frontend",
+        "grade": "junior",
+        "strategy": "literal",
+        "pairs": 2000,
+        "passes": 0,
+        "immediate_confirmations": 0,
+        "borderline_pairs": 0,
+        "confirmed_after_second": 0,
+        "policy_confirmations": 0,
+        "minimum_score": 0.0,
+        "maximum_score": 41.67,
+        "mean_score": 13.55,
+        "passing_pairs": [],
+        "second_form_pairs": [],
+        "confirmation_pairs": []
+      },
+      {
+        "specialization": "frontend",
+        "grade": "junior",
+        "strategy": "position",
+        "pairs": 2000,
+        "passes": 0,
+        "immediate_confirmations": 0,
+        "borderline_pairs": 5,
+        "confirmed_after_second": 0,
+        "policy_confirmations": 0,
+        "minimum_score": 0.0,
+        "maximum_score": 66.67,
+        "mean_score": 25.29,
+        "passing_pairs": [],
+        "second_form_pairs": [
+          {
+            "donor_seed": 3,
+            "receiver_seed": 169,
+            "confirmation_seed": 1169,
+            "stage_scores": [
+              66.67,
+              25.0
+            ],
+            "combined_score": 45.84,
+            "confirmed": false
+          },
+          {
+            "donor_seed": 6,
+            "receiver_seed": 169,
+            "confirmation_seed": 1169,
+            "stage_scores": [
+              66.67,
+              8.33
+            ],
+            "combined_score": 37.5,
+            "confirmed": false
+          },
+          {
+            "donor_seed": 7,
+            "receiver_seed": 111,
+            "confirmation_seed": 1111,
+            "stage_scores": [
+              66.67,
+              25.0
+            ],
+            "combined_score": 45.84,
+            "confirmed": false
+          },
+          {
+            "donor_seed": 15,
+            "receiver_seed": 154,
+            "confirmation_seed": 1154,
+            "stage_scores": [
+              66.67,
+              25.0
+            ],
+            "combined_score": 45.84,
+            "confirmed": false
+          },
+          {
+            "donor_seed": 17,
+            "receiver_seed": 181,
+            "confirmation_seed": 1181,
+            "stage_scores": [
+              66.67,
+              41.67
+            ],
+            "combined_score": 54.17,
+            "confirmed": false
+          }
+        ],
+        "confirmation_pairs": []
+      },
+      {
+        "specialization": "frontend",
+        "grade": "middle",
+        "strategy": "literal",
+        "pairs": 2000,
+        "passes": 0,
+        "immediate_confirmations": 0,
+        "borderline_pairs": 0,
+        "confirmed_after_second": 0,
+        "policy_confirmations": 0,
+        "minimum_score": 0.0,
+        "maximum_score": 41.67,
+        "mean_score": 8.38,
+        "passing_pairs": [],
+        "second_form_pairs": [],
+        "confirmation_pairs": []
+      },
+      {
+        "specialization": "frontend",
+        "grade": "middle",
+        "strategy": "position",
+        "pairs": 2000,
+        "passes": 0,
+        "immediate_confirmations": 0,
+        "borderline_pairs": 0,
+        "confirmed_after_second": 0,
+        "policy_confirmations": 0,
+        "minimum_score": 0.0,
+        "maximum_score": 66.67,
+        "mean_score": 25.06,
+        "passing_pairs": [],
+        "second_form_pairs": [],
+        "confirmation_pairs": []
+      },
+      {
+        "specialization": "qa",
+        "grade": "junior",
+        "strategy": "literal",
+        "pairs": 2000,
+        "passes": 0,
+        "immediate_confirmations": 0,
+        "borderline_pairs": 0,
+        "confirmed_after_second": 0,
+        "policy_confirmations": 0,
+        "minimum_score": 0.0,
+        "maximum_score": 33.33,
+        "mean_score": 10.6,
+        "passing_pairs": [],
+        "second_form_pairs": [],
+        "confirmation_pairs": []
+      },
+      {
+        "specialization": "qa",
+        "grade": "junior",
+        "strategy": "position",
+        "pairs": 2000,
+        "passes": 0,
+        "immediate_confirmations": 0,
+        "borderline_pairs": 2,
+        "confirmed_after_second": 0,
+        "policy_confirmations": 0,
+        "minimum_score": 0.0,
+        "maximum_score": 66.67,
+        "mean_score": 24.97,
+        "passing_pairs": [],
+        "second_form_pairs": [
+          {
+            "donor_seed": 3,
+            "receiver_seed": 169,
+            "confirmation_seed": 1169,
+            "stage_scores": [
+              66.67,
+              16.67
+            ],
+            "combined_score": 41.67,
+            "confirmed": false
+          },
+          {
+            "donor_seed": 9,
+            "receiver_seed": 154,
+            "confirmation_seed": 1154,
+            "stage_scores": [
+              66.67,
+              16.67
+            ],
+            "combined_score": 41.67,
+            "confirmed": false
+          }
+        ],
+        "confirmation_pairs": []
+      },
+      {
+        "specialization": "qa",
+        "grade": "middle",
+        "strategy": "literal",
+        "pairs": 2000,
+        "passes": 0,
+        "immediate_confirmations": 0,
+        "borderline_pairs": 0,
+        "confirmed_after_second": 0,
+        "policy_confirmations": 0,
+        "minimum_score": 0.0,
+        "maximum_score": 33.33,
+        "mean_score": 5.23,
+        "passing_pairs": [],
+        "second_form_pairs": [],
+        "confirmation_pairs": []
+      },
+      {
+        "specialization": "qa",
+        "grade": "middle",
+        "strategy": "position",
+        "pairs": 2000,
+        "passes": 0,
+        "immediate_confirmations": 0,
+        "borderline_pairs": 1,
+        "confirmed_after_second": 0,
+        "policy_confirmations": 0,
+        "minimum_score": 0.0,
+        "maximum_score": 75.0,
+        "mean_score": 25.26,
+        "passing_pairs": [],
+        "second_form_pairs": [
+          {
+            "donor_seed": 19,
+            "receiver_seed": 145,
+            "confirmation_seed": 1145,
+            "stage_scores": [
+              75.0,
+              8.33
+            ],
+            "combined_score": 41.66,
+            "confirmed": false
+          }
+        ],
+        "confirmation_pairs": []
+      },
+      {
+        "specialization": "design",
+        "grade": "junior",
+        "strategy": "literal",
+        "pairs": 2000,
+        "passes": 0,
+        "immediate_confirmations": 0,
+        "borderline_pairs": 0,
+        "confirmed_after_second": 0,
+        "policy_confirmations": 0,
+        "minimum_score": 0.0,
+        "maximum_score": 50.0,
+        "mean_score": 8.92,
+        "passing_pairs": [],
+        "second_form_pairs": [],
+        "confirmation_pairs": []
+      },
+      {
+        "specialization": "design",
+        "grade": "junior",
+        "strategy": "position",
+        "pairs": 2000,
+        "passes": 2,
+        "immediate_confirmations": 0,
+        "borderline_pairs": 4,
+        "confirmed_after_second": 0,
+        "policy_confirmations": 0,
+        "minimum_score": 0.0,
+        "maximum_score": 75.0,
+        "mean_score": 24.84,
+        "passing_pairs": [
+          {
+            "donor_seed": 3,
+            "receiver_seed": 159,
+            "score": 75.0
+          },
+          {
+            "donor_seed": 5,
+            "receiver_seed": 182,
+            "score": 75.0
+          }
+        ],
+        "second_form_pairs": [
+          {
+            "donor_seed": 3,
+            "receiver_seed": 159,
+            "confirmation_seed": 1159,
+            "stage_scores": [
+              75.0,
+              25.0
+            ],
+            "combined_score": 50.0,
+            "confirmed": false
+          },
+          {
+            "donor_seed": 5,
+            "receiver_seed": 182,
+            "confirmation_seed": 1182,
+            "stage_scores": [
+              75.0,
+              33.33
+            ],
+            "combined_score": 54.16,
+            "confirmed": false
+          },
+          {
+            "donor_seed": 15,
+            "receiver_seed": 194,
+            "confirmation_seed": 1194,
+            "stage_scores": [
+              66.67,
+              16.67
+            ],
+            "combined_score": 41.67,
+            "confirmed": false
+          },
+          {
+            "donor_seed": 19,
+            "receiver_seed": 141,
+            "confirmation_seed": 1141,
+            "stage_scores": [
+              66.67,
+              25.0
+            ],
+            "combined_score": 45.84,
+            "confirmed": false
+          }
+        ],
+        "confirmation_pairs": []
+      },
+      {
+        "specialization": "design",
+        "grade": "middle",
+        "strategy": "literal",
+        "pairs": 2000,
+        "passes": 0,
+        "immediate_confirmations": 0,
+        "borderline_pairs": 0,
+        "confirmed_after_second": 0,
+        "policy_confirmations": 0,
+        "minimum_score": 0.0,
+        "maximum_score": 41.67,
+        "mean_score": 5.32,
+        "passing_pairs": [],
+        "second_form_pairs": [],
+        "confirmation_pairs": []
+      },
+      {
+        "specialization": "design",
+        "grade": "middle",
+        "strategy": "position",
+        "pairs": 2000,
+        "passes": 0,
+        "immediate_confirmations": 0,
+        "borderline_pairs": 0,
+        "confirmed_after_second": 0,
+        "policy_confirmations": 0,
+        "minimum_score": 0.0,
+        "maximum_score": 66.67,
+        "mean_score": 24.88,
+        "passing_pairs": [],
+        "second_form_pairs": [],
+        "confirmation_pairs": []
+      }
+    ]
+  },
+  "source_sha256": {
+    "src/server/app.py": "61690a2c62d81bae2bb076334055b41489cdf9a876a2290e0d4425b162fd4aeb",
+    "src/server/assessment.py": "4a48f4b3f590ea73e93884009ba74971d7039ec9fc951b8ac3c952a0e81035d2",
+    "src/server/assessment_scenarios.py": "d55352bab4521636db94501c8a17cfca46414cceb4f85e81bedc03aaac3ed09f",
+    "tests/test_assessment_scenarios.py": "0353eca30d35fb59f5bf31960191605d8dde304fc9d71bbf72905df92aca4ab5",
+    "scripts/verify_assessment_current.py": "9ffa5f0b9fbee3e2da3618b3bb2cb4d7bcff5745f0209f47d95f560f4987b0ae"
+  },
+  "limitations": [
+    "Конечная детерминированная выборка seed; отсутствие прохода не является универсальной гарантией.",
+    "Проверяются только literal и position key transfer, не общий алгоритм решения, LLM, человек или второе устройство.",
+    "Independent oracle подтверждает вычисление эталона, но не профессиональную сложность, Junior/Middle и психометрическую калибровку.",
+    "Полные формы могут различаться, хотя отдельные семейства и сценарии повторяются; item-bank exposure измеряется отдельно."
+  ]
+}

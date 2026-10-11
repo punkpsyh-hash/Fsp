@@ -1,0 +1,27 @@
+# Отдельный локальный стенд рядом с прежним проектом NAS; свои образы, база и loopback-порты.
+name: fspdelivery
+services:
+  db:
+    ports: !override ["127.0.0.1:15433:5432"]
+    healthcheck:
+      start_period: 120s
+  app:
+    image: fspdelivery-app
+    ports: !override ["127.0.0.1:8471:8470"]
+    environment:
+      FSP_ALLOWED_ORIGINS: ${FSP_ALLOWED_ORIGINS:-http://127.0.0.1:8471,http://localhost:8471}
+  runner:
+    image: fspdelivery-runner
+  tools:
+    image: fspdelivery-tools
+  browser:
+    image: fspdelivery-browser
+networks:
+  default:
+    ipam:
+      config:
+        - subnet: ${FSP_DELIVERY_SUBNET:-10.254.240.0/24}
+  runner_net:
+    ipam:
+      config:
+        - subnet: ${FSP_DELIVERY_RUNNER_SUBNET:-10.254.241.0/24}

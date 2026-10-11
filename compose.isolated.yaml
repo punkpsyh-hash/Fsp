@@ -1,0 +1,21 @@
+# Изолированный проект для проверок на хосте, где уже работает стенд fsp: другое имя проекта, образы и тома,
+# без публикации портов хоста (браузерные проверки ходят к app внутри общего сетевого пространства).
+#   COMPOSE_FILE=compose.yaml:compose.isolated.yaml ./scripts/run.sh verify
+name: fspdev
+services:
+  db:
+    ports: !reset []
+  app:
+    image: fspdev-app
+    ports: !reset []
+    environment:
+      # Только проверки: много входов подряд с одного адреса (боевое значение по умолчанию — 30).
+      FSP_AUTH_RATE_LIMIT: "500"
+      # Автоматические UX-прогоны быстрые; strict режим проверяется отдельными API-тестами.
+      FSP_INTEGRITY_ENFORCE: "0"
+  runner:
+    image: fspdev-runner
+  tools:
+    image: fspdev-tools
+  browser:
+    image: fspdev-browser

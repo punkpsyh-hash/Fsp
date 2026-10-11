@@ -1,0 +1,149 @@
+{
+  "schema_version": 1,
+  "generated_at": "2026-10-11T13:04:35+03:00",
+  "result": "passed",
+  "scope": "Independent public-browser verification of the live temporary jury stand, including the production proxy path and one authorized synthetic VM execution.",
+  "target": {
+    "url": "https://fsptest.kolesnikovny.ru",
+    "public_network": true,
+    "hosts_override": false,
+    "tls_errors_ignored": false,
+    "application_or_deployment_changed_by_reviewer": false
+  },
+  "reviewer_independence": {
+    "product_source_authored_by_reviewer": false,
+    "product_source_modified_by_reviewer": false,
+    "test_harness_location": "D:/Codex/Temp/fsp-jury-public-browser",
+    "evidence_file_only_project_change": true
+  },
+  "secrets": {
+    "source": "D:/Codex/Temp/fsp-legal-submission/external-access.env mounted read-only inside the browser container",
+    "printed": false,
+    "stored_in_evidence": false,
+    "screenshots_created": false,
+    "playwright_trace_created": false
+  },
+  "source": {
+    "git_head_at_test_time": "b1292084c1afde9abff8e174c20fa83126bf4258",
+    "git_branch_at_test_time": "codex/local-llm-workspace",
+    "sha256": {
+      "web/src/main.tsx": "a9fa06fea976fbba7dbcf1055b83ffd1fe995300ac310460933990eff8f979d4",
+      "src/server/jury.py": "a901ca26b6028ebb45c8203e509fec54bdd930258391010c62348333b75fd2bd",
+      "src/server/app.py": "7a4f5fe37084135dc2c3def6f9346dbd068c505c4274bf3ae05e911674946188",
+      "compose.jury-relay.yaml": "611088ca8bc985065a51c77f4f01d120ab59119e069f19a4ae5ac81ff13db7d5",
+      "docker/jury/Caddyfile.relay": "8593006ec7e02ad54b7e7534b355bdc2aab50194104de6047e9bfb6aba152524",
+      "docker/jury/nginx-vps.conf": "2b442ad66c80683e45d764149517fa26fe766b952a1178f66f120427db519961"
+    }
+  },
+  "browser_runtime": {
+    "image": "fsp-browser@sha256:281a8464aeb01f3b1669dd7e8384d8bb36a0177b1e1b45c340aa3ed43995d170",
+    "playwright": "1.63.0",
+    "headless": true,
+    "workers": 1
+  },
+  "tls": {
+    "validation": "Chromium, Firefox, and WebKit accepted the public certificate with their default trust settings.",
+    "subject": "CN=fsptest.kolesnikovny.ru",
+    "issuer": "C=US, O=Let's Encrypt, CN=YE1",
+    "not_before_utc": "2026-10-11T08:50:07Z",
+    "not_after_utc": "2027-01-09T08:50:06Z",
+    "sha256_fingerprint": "BC:09:24:50:AD:8A:09:38:2B:38:46:CE:52:47:8C:E6:52:01:59:12:EE:1B:23:25:1E:97:BF:42:15:63:18:2E"
+  },
+  "playwright": {
+    "summary": {
+      "tests": 12,
+      "passed": 10,
+      "failed": 0,
+      "skipped": 2,
+      "duration_seconds": 80.6
+    },
+    "skip_reason": "The single authorized VM execution ran in Chromium. The identical test was intentionally skipped in Firefox and WebKit to avoid duplicate jobs; their public TLS and UI flows were still exercised.",
+    "matrix": {
+      "chromium": {
+        "tls_edge_legal": "passed",
+        "candidate": "passed",
+        "employer": "passed",
+        "runner": "passed"
+      },
+      "firefox": {
+        "tls_edge_legal": "passed",
+        "candidate": "passed",
+        "employer": "passed",
+        "runner": "not_repeated"
+      },
+      "webkit": {
+        "tls_edge_legal": "passed",
+        "candidate": "passed",
+        "employer": "passed",
+        "runner": "not_repeated"
+      }
+    }
+  },
+  "edge_and_legal": {
+    "root_with_invalid_basic_auth_status_all_engines": 401,
+    "legal_pages_without_valid_basic_auth": {
+      "/legal/privacy": 200,
+      "/legal/recommendations": 200
+    },
+    "operator_name_visible_all_engines": "Колесников Никита Юрьевич",
+    "operator_contact_visible_all_engines": "inbox@nkolesnikov.ru"
+  },
+  "candidate": {
+    "synthetic_account": "demo-candidate-b@example.invalid",
+    "password_login_all_engines": "passed",
+    "profile_visible_all_engines": true,
+    "pdf_import_input_count_all_engines": 0,
+    "synthetic_profile_pdf_link_visible_all_engines": true,
+    "available_practice_banks_all_engines": 2,
+    "candidate_banks_http_status_all_engines": 200,
+    "logout_all_engines": "passed",
+    "page_errors": 0,
+    "unexpected_http_errors": 0,
+    "unexpected_failed_requests": 0,
+    "transport_note": "Chromium reported the completed logout navigation request as aborted after the UI had returned to the password form; Firefox and WebKit did not. This event was recorded separately and was not an application failure."
+  },
+  "employer": {
+    "synthetic_account": "demo-employer-x@example.invalid",
+    "password_login_all_engines": "passed",
+    "candidate_search_visible_all_engines": true,
+    "skills_work_catalog_http_status_all_engines": 200,
+    "company_search_create_http_status_all_engines": 201,
+    "needs_visible_all_engines": true,
+    "task_bank_catalog_visible_all_engines": true,
+    "logout_all_engines": "passed",
+    "page_errors": 0,
+    "unexpected_http_errors": 0,
+    "unexpected_failed_requests": 0,
+    "transport_note": "Chromium reported the completed logout navigation request as aborted after the UI had returned to the password form; Firefox and WebKit did not."
+  },
+  "authorized_vm_execution": {
+    "performed": true,
+    "synthetic_account": "demo-candidate-b@example.invalid",
+    "source_kind": "benign constant-output Python source",
+    "source_stored_in_evidence": false,
+    "public_bank_count": 2,
+    "language": "python",
+    "job_status": "completed",
+    "execution_status": "wrong_answer",
+    "wrong_answer_expected_for_constant_source": true,
+    "passed_tests": 0,
+    "total_tests": 3,
+    "runtime_version": "Python 3.12.13; Linux 6.12.111+deb13-amd64; kvm",
+    "duration_ms": 8647,
+    "private_expected_data_exposed": false,
+    "leakage_checks": [
+      "Public bank payload contained no hidden_tests key.",
+      "Public bank payload contained no answer_key key.",
+      "Public job payload contained no expected data or hidden_tests."
+    ]
+  },
+  "synthetic_mutations": [
+    "Candidate B obtained or reused an in-progress attempt for the published platform bank and submitted one idempotent constant-source code job.",
+    "Employer X created synthetic search snapshots through the normal search form during the three browser runs."
+  ],
+  "limitations": [
+    "This is a bounded browser and execution smoke, not a new load test or full regression suite.",
+    "No real personal data was entered; all actions used seeded synthetic accounts and content.",
+    "The reviewer did not inspect or modify NAS, VPS, DNS, nginx, Caddy, SSH, router, or application configuration during this run."
+  ]
+}

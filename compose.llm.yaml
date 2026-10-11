@@ -1,0 +1,53 @@
+# Дополнение к compose.yaml: локальная GPU-модель для генерации заданий и подсказок проверки.
+#   docker compose -f compose.yaml -f compose.llm.yaml up -d --build
+# Нужны: NVIDIA GPU ≥ 6 ГБ VRAM, NVIDIA Container Toolkit, веса модели и manifest (docs/53, ml/fetch_model.py).
+# Сеть llm_net внутренняя: порт модели наружу не публикуется, доступ только у контейнера app.
+name: fsp
+services:
+  model:
+    image: fsp-model
+    build:
+      context: .
+      dockerfile: docker/model.Dockerfile
+    environment:
+      FSP_LOCAL_MODEL_API_KEY: ${FSP_LOCAL_MODEL_API_KEY:?Run ./scripts/run.sh init first}
+      FSP_LOCAL_ADAPTER_PATH: ${FSP_LOCAL_ADAPTER_PATH:-}
+      FSP_LOCAL_ADAPTER_MANIFEST: ${FSP_LOCAL_ADAPTER_MANIFEST:-}
+      FSP_LOCAL_MODEL_WARMUP: ${FSP_LOCAL_MODEL_WARMUP:-1}
+    volumes:
+      - ${FSP_MODEL_DIR:-./ml/models/qwen3-4b-instruct-2507-serving-v3}:/model:ro
+      - ${FSP_MODEL_MANIFEST:-./ml/release/model-serving-v3-manifest.json}:/model-manifest.json:ro
+      - fsp-model-cache:/gpu-cache
+      - fsp-model-diagnostics:/diagnostics
+    deploy:
+      resources:
+        reservations:
+          devices:
+            - {driver: nvidia, count: 1, capabilities: [gpu]}
+    read_only: true
+    tmpfs: ["/tmp:size=1g"]
+    cap_drop: [ALL]
+    security_opt: ["no-new-privileges:true"]
+    mem_limit: 12g
+    pids_limit: 256
+    logging: {driver: none}
+    restart: "no"
+    networks: [llm_net]
+  app:
+    depends_on:
+      model:
+        condition: service_healthy
+    environment:
+      FSP_LLM_PROVIDER: openai-compatible
+      FSP_LLM_BASE_URL: http://model:8001/v1
+      FSP_LLM_MODEL: Qwen/Qwen3-4B-Instruct-2507
+      FSP_LLM_API_KEY: ${FSP_LOCAL_MODEL_API_KEY:?Run ./scripts/run.sh init first}
+      FSP_LLM_TIMEOUT: ${FSP_LLM_TIMEOUT:-100}
+      FSP_LLM_GENERATION_TIMEOUT: ${FSP_LLM_GENERATION_TIMEOUT:-120}
+    networks: [default, runner_net, llm_net]
+volumes:
+  fsp-model-cache:
+  fsp-model-diagnostics:
+networks:
+  llm_net:
+    internal: true

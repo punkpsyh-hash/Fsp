@@ -1,0 +1,7 @@
+# Та же VM-граница без KVM; медленнее, применимо к обычному CI/несовместимому хосту.
+services:
+  runner:
+    devices: !override []
+    group_add: !override []
+    environment:
+      FSP_RUNNER_ACCEL: tcg

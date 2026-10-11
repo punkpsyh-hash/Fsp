@@ -1,0 +1,116 @@
+{
+  "formatting_source": "docs/55-document-formatting.md",
+  "published_sources": [
+    "docs/00-status.md",
+    "docs/18-api-guide.md",
+    "docs/34-documentation.md",
+    "docs/44-deployment-and-operations.md",
+    "docs/45-ai-answer-check-and-training-package.md",
+    "docs/47-presentation.md",
+    "docs/48-release-acceptance.md",
+    "docs/50-completion-conformance.md",
+    "docs/53-self-deployment.md",
+    "docs/54-self-deployment-acceptance.md",
+    "docs/55-document-formatting.md",
+    "docs/56-technical-report.md",
+    "docs/57-project-report.md",
+    "docs/58-legal-mail-and-privacy.md",
+    "docs/59-copyright-and-components.md",
+    "docs/60-jury-submission.md",
+    "docs/61-temporary-domain-stand.md",
+    "docs/62-video-guide.md",
+    "docs/63-jury-github-access.md"
+  ],
+  "documents": [
+    {
+      "id": "self-deployment-guide",
+      "title": "Инструкция по самостоятельному развёртыванию",
+      "sources": [
+        "docs/53-self-deployment.md",
+        "docs/54-self-deployment-acceptance.md",
+        "docs/61-temporary-domain-stand.md"
+      ]
+    },
+    {
+      "id": "release-guide",
+      "title": "Руководство выпуска",
+      "sources": [
+        "docs/00-status.md",
+        "docs/34-documentation.md",
+        "docs/44-deployment-and-operations.md",
+        "docs/45-ai-answer-check-and-training-package.md",
+        "docs/47-presentation.md",
+        "docs/48-release-acceptance.md",
+        "docs/50-completion-conformance.md",
+        "docs/53-self-deployment.md",
+        "docs/54-self-deployment-acceptance.md",
+        "docs/58-legal-mail-and-privacy.md",
+        "docs/59-copyright-and-components.md",
+        "docs/60-jury-submission.md",
+        "docs/61-temporary-domain-stand.md",
+        "docs/62-video-guide.md",
+        "docs/63-jury-github-access.md"
+      ]
+    },
+    {
+      "id": "api-guide",
+      "title": "Практическое руководство по локальному API",
+      "sources": [
+        "docs/18-api-guide.md"
+      ]
+    },
+    {
+      "id": "documentation",
+      "title": "Сопроводительная документация решения",
+      "sources": [
+        "docs/34-documentation.md",
+        "docs/50-completion-conformance.md",
+        "docs/58-legal-mail-and-privacy.md",
+        "docs/59-copyright-and-components.md",
+        "docs/60-jury-submission.md",
+        "docs/61-temporary-domain-stand.md",
+        "docs/62-video-guide.md",
+        "docs/63-jury-github-access.md"
+      ]
+    },
+    {
+      "id": "technical-report",
+      "title": "Технический отчёт текущей реализации",
+      "sources": [
+        "docs/56-technical-report.md"
+      ]
+    },
+    {
+      "id": "project-report",
+      "title": "Проектный отчёт",
+      "sources": [
+        "docs/57-project-report.md"
+      ]
+    },
+    {
+      "id": "all-documents",
+      "title": "Актуальный комплект документации",
+      "sources": [
+        "docs/00-status.md",
+        "docs/18-api-guide.md",
+        "docs/34-documentation.md",
+        "docs/44-deployment-and-operations.md",
+        "docs/45-ai-answer-check-and-training-package.md",
+        "docs/47-presentation.md",
+        "docs/48-release-acceptance.md",
+        "docs/50-completion-conformance.md",
+        "docs/53-self-deployment.md",
+        "docs/54-self-deployment-acceptance.md",
+        "docs/55-document-formatting.md",
+        "docs/56-technical-report.md",
+        "docs/57-project-report.md",
+        "docs/58-legal-mail-and-privacy.md",
+        "docs/59-copyright-and-components.md",
+        "docs/60-jury-submission.md",
+        "docs/61-temporary-domain-stand.md",
+        "docs/62-video-guide.md",
+        "docs/63-jury-github-access.md"
+      ]
+    }
+  ]
+}

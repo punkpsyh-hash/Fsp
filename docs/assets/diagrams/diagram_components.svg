@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE svg
+  PUBLIC '-//W3C//DTD SVG 1.0//EN'
+  'http://www.w3.org/TR/2001/REC-SVG-20010904/DTD/svg10.dtd'>
+<svg width="467.71653543307093" height="420" preserveAspectRatio="xMinYMin meet" viewBox="0 0 467 420" xmlns="http://www.w3.org/2000/svg" version="1.0" fill-rule="evenodd" xmlns:xlink="http://www.w3.org/1999/xlink">
+	<title>...</title>
+	<desc>...</desc>
+	<clipPath id="clip">
+		<rect x="0" y="0" width="467.71653543307093" height="420"/>
+	</clipPath>
+	<g id="group" transform="scale(1,-1) translate(0,-420)" style="clip-path: url(#clip)">
+		<g transform="">
+			<rect x="0" y="320" width="126" height="82" style="stroke: rgb(0%,0%,0%); stroke-linecap: butt; stroke-width: 0.8; fill: rgb(94%,94%,94%); fill-rule: evenodd;"/>
+			<text x="6" y="386" style="font-family: GostSerifBold; font-size: 12px;fill: rgb(0%,0%,0%); stroke:none;" transform="translate(0,772) scale(1,-1)">Браузер</text>
+			<text x="6" y="371" style="font-family: GostSerif; font-size: 12px;fill: rgb(0%,0%,0%); stroke:none;" transform="translate(0,742) scale(1,-1)">React 19, TypeScript</text>
+			<text x="6" y="356" style="font-family: GostSerif; font-size: 12px;fill: rgb(0%,0%,0%); stroke:none;" transform="translate(0,712) scale(1,-1)">Два кабинета</text>
+			<text x="6" y="341" style="font-family: GostSerif; font-size: 12px;fill: rgb(0%,0%,0%); stroke:none;" transform="translate(0,682) scale(1,-1)">Мониторинг теста</text>
+			<rect x="150" y="210" width="170" height="192" style="stroke: rgb(0%,0%,0%); stroke-linecap: butt; stroke-width: 0.8; fill: rgb(94%,94%,94%); fill-rule: evenodd;"/>
+			<text x="156" y="386" style="font-family: GostSerifBold; font-size: 12px;fill: rgb(0%,0%,0%); stroke:none;" transform="translate(0,772) scale(1,-1)">API: FastAPI</text>
+			<text x="156" y="371" style="font-family: GostSerif; font-size: 12px;fill: rgb(0%,0%,0%); stroke:none;" transform="translate(0,742) scale(1,-1)">Сессии и профили</text>
+			<text x="156" y="356" style="font-family: GostSerif; font-size: 12px;fill: rgb(0%,0%,0%); stroke:none;" transform="translate(0,712) scale(1,-1)">Оценка теста</text>
+			<text x="156" y="341" style="font-family: GostSerif; font-size: 12px;fill: rgb(0%,0%,0%); stroke:none;" transform="translate(0,682) scale(1,-1)">Подбор и объяснение</text>
+			<text x="156" y="326" style="font-family: GostSerif; font-size: 12px;fill: rgb(0%,0%,0%); stroke:none;" transform="translate(0,652) scale(1,-1)">Приглашения</text>
+			<text x="156" y="311" style="font-family: GostSerif; font-size: 12px;fill: rgb(0%,0%,0%); stroke:none;" transform="translate(0,622) scale(1,-1)">Доступ к контакту</text>
+			<text x="156" y="296" style="font-family: GostSerif; font-size: 12px;fill: rgb(0%,0%,0%); stroke:none;" transform="translate(0,592) scale(1,-1)">mock ФСП ID</text>
+			<text x="156" y="281" style="font-family: GostSerif; font-size: 12px;fill: rgb(0%,0%,0%); stroke:none;" transform="translate(0,562) scale(1,-1)">OIDC + PKCE</text>
+			<text x="156" y="266" style="font-family: GostSerif; font-size: 12px;fill: rgb(0%,0%,0%); stroke:none;" transform="translate(0,532) scale(1,-1)">ИИ-помощник</text>
+			<rect x="346" y="320" width="121" height="82" style="stroke: rgb(0%,0%,0%); stroke-linecap: butt; stroke-width: 0.8; fill: rgb(94%,94%,94%); fill-rule: evenodd;"/>
+			<text x="352" y="386" style="font-family: GostSerifBold; font-size: 12px;fill: rgb(0%,0%,0%); stroke:none;" transform="translate(0,772) scale(1,-1)">База данных</text>
+			<text x="352" y="371" style="font-family: GostSerif; font-size: 12px;fill: rgb(0%,0%,0%); stroke:none;" transform="translate(0,742) scale(1,-1)">PostgreSQL 16</text>
+			<text x="352" y="356" style="font-family: GostSerif; font-size: 12px;fill: rgb(0%,0%,0%); stroke:none;" transform="translate(0,712) scale(1,-1)">SQLite</text>
+			<text x="352" y="341" style="font-family: GostSerif; font-size: 12px;fill: rgb(0%,0%,0%); stroke:none;" transform="translate(0,682) scale(1,-1)">Alembic</text>
+			<rect x="346" y="210" width="121" height="82" style="stroke: rgb(0%,0%,0%); stroke-linecap: butt; stroke-width: 0.8; fill: rgb(94%,94%,94%); fill-rule: evenodd;"/>
+			<text x="352" y="276" style="font-family: GostSerifBold; font-size: 12px;fill: rgb(0%,0%,0%); stroke:none;" transform="translate(0,552) scale(1,-1)">VM-раннер</text>
+			<text x="352" y="261" style="font-family: GostSerif; font-size: 12px;fill: rgb(0%,0%,0%); stroke:none;" transform="translate(0,522) scale(1,-1)">Python, JS, SQL</text>
+			<text x="352" y="246" style="font-family: GostSerif; font-size: 12px;fill: rgb(0%,0%,0%); stroke:none;" transform="translate(0,492) scale(1,-1)">Одноразовые VM</text>
+			<text x="352" y="231" style="font-family: GostSerif; font-size: 12px;fill: rgb(0%,0%,0%); stroke:none;" transform="translate(0,462) scale(1,-1)">Без сети</text>
+			<rect x="346" y="100" width="121" height="82" style="stroke: rgb(0%,0%,0%); stroke-linecap: butt; stroke-width: 0.8; fill: rgb(94%,94%,94%); fill-rule: evenodd;"/>
+			<text x="352" y="166" style="font-family: GostSerifBold; font-size: 12px;fill: rgb(0%,0%,0%); stroke:none;" transform="translate(0,332) scale(1,-1)">Почта</text>
+			<text x="352" y="151" style="font-family: GostSerif; font-size: 12px;fill: rgb(0%,0%,0%); stroke:none;" transform="translate(0,302) scale(1,-1)">SMTP (TLS)</text>
+			<text x="352" y="136" style="font-family: GostSerif; font-size: 12px;fill: rgb(0%,0%,0%); stroke:none;" transform="translate(0,272) scale(1,-1)">Или локальная</text>
+			<text x="352" y="121" style="font-family: GostSerif; font-size: 12px;fill: rgb(0%,0%,0%); stroke:none;" transform="translate(0,242) scale(1,-1)">demo-почта</text>
+			<rect x="150" y="100" width="170" height="82" style="stroke: rgb(0%,0%,0%); stroke-linecap: butt; stroke-width: 0.8; fill: rgb(94%,94%,94%); fill-rule: evenodd;"/>
+			<text x="156" y="166" style="font-family: GostSerifBold; font-size: 12px;fill: rgb(0%,0%,0%); stroke:none;" transform="translate(0,332) scale(1,-1)">LLM-сервер</text>
+			<text x="156" y="151" style="font-family: GostSerif; font-size: 12px;fill: rgb(0%,0%,0%); stroke:none;" transform="translate(0,302) scale(1,-1)">OpenAI-совместимый</text>
+			<text x="156" y="136" style="font-family: GostSerif; font-size: 12px;fill: rgb(0%,0%,0%); stroke:none;" transform="translate(0,272) scale(1,-1)">Локальный или HTTPS</text>
+			<text x="156" y="121" style="font-family: GostSerif; font-size: 12px;fill: rgb(0%,0%,0%); stroke:none;" transform="translate(0,242) scale(1,-1)">По умолчанию выключен</text>
+			<rect x="0" y="210" width="126" height="82" style="stroke: rgb(0%,0%,0%); stroke-linecap: butt; stroke-width: 0.8; fill: rgb(94%,94%,94%); fill-rule: evenodd;"/>
+			<text x="6" y="276" style="font-family: GostSerifBold; font-size: 12px;fill: rgb(0%,0%,0%); stroke:none;" transform="translate(0,552) scale(1,-1)">Реестр ФСП</text>
+			<text x="6" y="261" style="font-family: GostSerif; font-size: 12px;fill: rgb(0%,0%,0%); stroke:none;" transform="translate(0,522) scale(1,-1)">Сейчас: demo-реестр</text>
+			<text x="6" y="246" style="font-family: GostSerif; font-size: 12px;fill: rgb(0%,0%,0%); stroke:none;" transform="translate(0,492) scale(1,-1)">План: клиент</text>
+			<text x="6" y="231" style="font-family: GostSerif; font-size: 12px;fill: rgb(0%,0%,0%); stroke:none;" transform="translate(0,462) scale(1,-1)">ФСП ID</text>
+			<path d="M 126,361 L 150,361 Z" style="stroke: rgb(0%,0%,0%); stroke-linecap: butt; stroke-width: 0.9;"/>
+			<polygon points="150 361, 145.8552 362.7524, 145.8552 359.2476" style="stroke: rgb(0%,0%,0%); stroke-linecap: butt; stroke-width: 1; fill: rgb(0%,0%,0%); fill-rule: evenodd;"/>
+			<path d="M 320,361 L 346,361 Z" style="stroke: rgb(0%,0%,0%); stroke-linecap: butt; stroke-width: 0.9;"/>
+			<polygon points="346 361, 341.8552 362.7524, 341.8552 359.2476" style="stroke: rgb(0%,0%,0%); stroke-linecap: butt; stroke-width: 1; fill: rgb(0%,0%,0%); fill-rule: evenodd;"/>
+			<path d="M 320,300 L 346,251 Z" style="stroke: rgb(0%,0%,0%); stroke-linecap: butt; stroke-width: 0.9;"/>
+			<polygon points="346 251, 345.6052 255.4827, 342.5093 253.8399" style="stroke: rgb(0%,0%,0%); stroke-linecap: butt; stroke-width: 1; fill: rgb(0%,0%,0%); fill-rule: evenodd;"/>
+			<path d="M 320,270 L 346,141 Z" style="stroke: rgb(0%,0%,0%); stroke-linecap: butt; stroke-width: 0.9;"/>
+			<polygon points="346 141, 346.8989 145.4093, 343.4632 144.7168" style="stroke: rgb(0%,0%,0%); stroke-linecap: butt; stroke-width: 1; fill: rgb(0%,0%,0%); fill-rule: evenodd;"/>
+			<path d="M 235,210 L 235,182 Z" style="stroke: rgb(0%,0%,0%); stroke-linecap: butt; stroke-width: 0.9;"/>
+			<polygon points="235 182, 236.7524 186.1448, 233.2476 186.1448" style="stroke: rgb(0%,0%,0%); stroke-linecap: butt; stroke-width: 1; fill: rgb(0%,0%,0%); fill-rule: evenodd;"/>
+			<path d="M 150,251 L 126,251 Z" style="stroke: rgb(0%,0%,0%); stroke-linecap: butt; stroke-width: 0.9;"/>
+			<polygon points="126 251, 130.1448 249.2476, 130.1448 252.7524" style="stroke: rgb(0%,0%,0%); stroke-linecap: butt; stroke-width: 1; fill: rgb(0%,0%,0%); fill-rule: evenodd;"/>
+			<text x="0" y="62" style="font-family: GostSerif; font-size: 12px;fill: rgb(0%,0%,0%); stroke:none;" transform="translate(0,124) scale(1,-1)">Стрелки показывают направление вызова.</text>
+			<text x="0" y="44" style="font-family: GostSerif; font-size: 12px;fill: rgb(0%,0%,0%); stroke:none;" transform="translate(0,88) scale(1,-1)">API не запускает пользовательский код.</text>
+			<text x="0" y="26" style="font-family: GostSerif; font-size: 12px;fill: rgb(0%,0%,0%); stroke:none;" transform="translate(0,52) scale(1,-1)">Для запуска кода используется отдельный VM-раннер.</text>
+		</g>
+	</g>
+</svg>

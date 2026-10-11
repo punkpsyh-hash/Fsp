@@ -1,0 +1,24 @@
+{
+  "name": "fsp-demo-video",
+  "version": "1.0.0",
+  "private": true,
+  "license": "UNLICENSED",
+  "description": "Поясняющий монтаж записи ФСП на синтетических данных",
+  "scripts": {
+    "studio": "remotion studio src/index.ts --no-open --port=3307",
+    "check": "tsc --noEmit",
+    "render": "remotion render src/index.ts FspDemo /out/demo-explained.mp4 --browser-executable=/ms-playwright/chromium-1243/chrome-linux64/chrome --concurrency=2 --codec=h264 --crf=20 --pixel-format=yuv420p --log=error"
+  },
+  "dependencies": {
+    "@remotion/captions": "4.0.534",
+    "@remotion/cli": "4.0.534",
+    "react": "19.2.3",
+    "react-dom": "19.2.3",
+    "remotion": "4.0.534"
+  },
+  "devDependencies": {
+    "@types/react": "19.2.7",
+    "@types/react-dom": "19.2.3",
+    "typescript": "5.9.3"
+  }
+}

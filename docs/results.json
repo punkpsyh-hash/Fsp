@@ -1,0 +1,69 @@
+{
+  "type": "synthetic_regression_fixture",
+  "query_count": 1,
+  "candidate_count": 6,
+  "expected_order": [
+    "c01",
+    "c02",
+    "c03"
+  ],
+  "actual_order": [
+    "c01",
+    "c02",
+    "c03"
+  ],
+  "passed": true,
+  "python": "3.12.13",
+  "rows": [
+    {
+      "id": "c01",
+      "score": 87.3,
+      "matched": [
+        "python",
+        "sql"
+      ],
+      "missing": [],
+      "fsp_bonus": 0,
+      "components": {
+        "assessment": 42.3,
+        "skills": 35.0,
+        "fsp": 0,
+        "freshness": 10
+      }
+    },
+    {
+      "id": "c02",
+      "score": 86.0,
+      "matched": [
+        "python",
+        "sql"
+      ],
+      "missing": [],
+      "fsp_bonus": 8.0,
+      "components": {
+        "assessment": 36.0,
+        "skills": 35.0,
+        "fsp": 8.0,
+        "freshness": 7.0
+      }
+    },
+    {
+      "id": "c03",
+      "score": 80.25,
+      "matched": [
+        "python"
+      ],
+      "missing": [
+        "sql"
+      ],
+      "fsp_bonus": 10,
+      "components": {
+        "assessment": 42.75,
+        "skills": 17.5,
+        "fsp": 10,
+        "freshness": 10
+      }
+    }
+  ],
+  "limitation": "Hand-authored fixture; not independent expert validation, precision estimate or evidence of hiring outcomes."
+}

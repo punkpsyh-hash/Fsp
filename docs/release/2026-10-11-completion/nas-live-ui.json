@@ -1,0 +1,26 @@
+{
+  "status": "passed",
+  "base_url": "http://127.0.0.1:8470",
+  "kind": "actual_NAS_UI_no_mock",
+  "checks": [
+    "real_demo_login",
+    "employer_banks_navigation",
+    "actual_live_probe_bank_visible",
+    "no_page_errors",
+    "responsive_widths"
+  ],
+  "viewports": [
+    {
+      "width": 320,
+      "scroll_width": 320
+    },
+    {
+      "width": 768,
+      "scroll_width": 768
+    },
+    {
+      "width": 1440,
+      "scroll_width": 1440
+    }
+  ]
+}

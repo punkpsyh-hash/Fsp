@@ -1,0 +1,361 @@
+{
+  "type": "internal_synthetic_benchmark",
+  "ranking": {
+    "profiles": 30,
+    "needs": 10,
+    "algorithm_version": "weighted-v1",
+    "method": "Внутренняя ручная разметка синтетических пар до запуска ranking. 3 — полный практический набор навыков, 2 — сильное совпадение основных, 1 — допустимая частичная релевантность. Самостоятельные оценки не рассчитываются формулой ranking. Эксперты и реальные пользователи не участвовали.",
+    "precision_at_3": 1.0,
+    "ndcg_at_3": 0.952848,
+    "filter_violations": 0,
+    "cases": [
+      {
+        "need": "B-J-primary",
+        "ranking": [
+          "B02",
+          "B01",
+          "B03"
+        ],
+        "precision_at_3": 1.0,
+        "ndcg_at_3": 0.842828,
+        "filter_violations": [],
+        "labels": {
+          "B01": 3,
+          "B02": 2,
+          "B03": 1
+        }
+      },
+      {
+        "need": "B-J-data",
+        "ranking": [
+          "B04",
+          "B01",
+          "B02"
+        ],
+        "precision_at_3": 1.0,
+        "ndcg_at_3": 1.0,
+        "filter_violations": [],
+        "labels": {
+          "B01": 2,
+          "B02": 1,
+          "B04": 3
+        }
+      },
+      {
+        "need": "B-M-primary",
+        "ranking": [
+          "B05",
+          "B07",
+          "B06"
+        ],
+        "precision_at_3": 1.0,
+        "ndcg_at_3": 1.0,
+        "filter_violations": [],
+        "labels": {
+          "B05": 3,
+          "B06": 1,
+          "B07": 2
+        }
+      },
+      {
+        "need": "B-M-office",
+        "ranking": [
+          "B06"
+        ],
+        "precision_at_3": 1.0,
+        "ndcg_at_3": 1.0,
+        "filter_violations": [],
+        "labels": {
+          "B06": 3
+        }
+      },
+      {
+        "need": "F-J-primary",
+        "ranking": [
+          "F02",
+          "F01",
+          "F03"
+        ],
+        "precision_at_3": 1.0,
+        "ndcg_at_3": 0.842828,
+        "filter_violations": [],
+        "labels": {
+          "F01": 3,
+          "F02": 2,
+          "F03": 1
+        }
+      },
+      {
+        "need": "F-J-markup",
+        "ranking": [
+          "F04",
+          "F02"
+        ],
+        "precision_at_3": 1.0,
+        "ndcg_at_3": 1.0,
+        "filter_violations": [],
+        "labels": {
+          "F02": 1,
+          "F04": 3
+        }
+      },
+      {
+        "need": "F-M-primary",
+        "ranking": [
+          "F05",
+          "F07",
+          "F06"
+        ],
+        "precision_at_3": 1.0,
+        "ndcg_at_3": 1.0,
+        "filter_violations": [],
+        "labels": {
+          "F05": 3,
+          "F06": 1,
+          "F07": 2
+        }
+      },
+      {
+        "need": "Q-J-primary",
+        "ranking": [
+          "Q02",
+          "Q01",
+          "Q03"
+        ],
+        "precision_at_3": 1.0,
+        "ndcg_at_3": 0.842828,
+        "filter_violations": [],
+        "labels": {
+          "Q01": 3,
+          "Q02": 2,
+          "Q03": 1
+        }
+      },
+      {
+        "need": "Q-J-data",
+        "ranking": [
+          "Q04",
+          "Q01",
+          "Q02"
+        ],
+        "precision_at_3": 1.0,
+        "ndcg_at_3": 1.0,
+        "filter_violations": [],
+        "labels": {
+          "Q01": 2,
+          "Q02": 1,
+          "Q04": 3
+        }
+      },
+      {
+        "need": "Q-M-primary",
+        "ranking": [
+          "Q05",
+          "Q07",
+          "Q06"
+        ],
+        "precision_at_3": 1.0,
+        "ndcg_at_3": 1.0,
+        "filter_violations": [],
+        "labels": {
+          "Q05": 3,
+          "Q06": 1,
+          "Q07": 2
+        }
+      }
+    ]
+  },
+  "assessment": {
+    "version": "scenarios-v6",
+    "forms": 800,
+    "matrix_checks": [
+      {
+        "specialization": "backend",
+        "grade": "junior",
+        "forms": 100,
+        "distinct_forms": 100,
+        "questions_per_form": 12,
+        "questions_per_skill": 4,
+        "family_counts": {
+          "http-conditional-write": 100,
+          "py-selection": 100,
+          "sql-aggregate-data": 100,
+          "py-default": 100,
+          "http-contact-revoke": 100,
+          "py-copy": 100,
+          "py-errors": 100,
+          "http-object-scope": 100,
+          "sql-left-data": 100,
+          "sql-order-data": 100,
+          "http-idempotency-trace": 100,
+          "sql-null-data": 100
+        },
+        "correct_and_wrong_extremes_pass": true
+      },
+      {
+        "specialization": "backend",
+        "grade": "middle",
+        "forms": 100,
+        "distinct_forms": 100,
+        "questions_per_form": 12,
+        "questions_per_skill": 4,
+        "family_counts": {
+          "http-conditional-write": 100,
+          "py-selection": 100,
+          "sql-aggregate-data": 100,
+          "py-default": 100,
+          "http-contact-revoke": 100,
+          "py-copy": 100,
+          "py-errors": 100,
+          "http-object-scope": 100,
+          "sql-left-data": 100,
+          "sql-order-data": 100,
+          "http-idempotency-trace": 100,
+          "sql-null-data": 100
+        },
+        "correct_and_wrong_extremes_pass": true
+      },
+      {
+        "specialization": "frontend",
+        "grade": "junior",
+        "forms": 100,
+        "distinct_forms": 100,
+        "questions_per_form": 12,
+        "questions_per_skill": 4,
+        "family_counts": {
+          "http-conditional-write": 100,
+          "js-selection": 100,
+          "html-accessible-name": 100,
+          "js-state": 100,
+          "http-contact-revoke": 100,
+          "js-race": 100,
+          "js-fallback": 100,
+          "http-object-scope": 100,
+          "html-broken-label": 100,
+          "html-native-action": 100,
+          "http-idempotency-trace": 100,
+          "html-tab-order": 100
+        },
+        "correct_and_wrong_extremes_pass": true
+      },
+      {
+        "specialization": "frontend",
+        "grade": "middle",
+        "forms": 100,
+        "distinct_forms": 100,
+        "questions_per_form": 12,
+        "questions_per_skill": 4,
+        "family_counts": {
+          "http-conditional-write": 100,
+          "js-selection": 100,
+          "html-accessible-name": 100,
+          "js-state": 100,
+          "http-contact-revoke": 100,
+          "js-race": 100,
+          "js-fallback": 100,
+          "http-object-scope": 100,
+          "html-broken-label": 100,
+          "html-native-action": 100,
+          "http-idempotency-trace": 100,
+          "html-tab-order": 100
+        },
+        "correct_and_wrong_extremes_pass": true
+      },
+      {
+        "specialization": "qa",
+        "grade": "junior",
+        "forms": 100,
+        "distinct_forms": 100,
+        "questions_per_form": 12,
+        "questions_per_skill": 4,
+        "family_counts": {
+          "http-conditional-write": 100,
+          "qa-boundary-set": 100,
+          "sql-aggregate-data": 100,
+          "qa-role-matrix": 100,
+          "http-contact-revoke": 100,
+          "qa-transition-trace": 100,
+          "qa-input-contract": 100,
+          "http-object-scope": 100,
+          "sql-left-data": 100,
+          "sql-order-data": 100,
+          "http-idempotency-trace": 100,
+          "sql-null-data": 100
+        },
+        "correct_and_wrong_extremes_pass": true
+      },
+      {
+        "specialization": "qa",
+        "grade": "middle",
+        "forms": 100,
+        "distinct_forms": 100,
+        "questions_per_form": 12,
+        "questions_per_skill": 4,
+        "family_counts": {
+          "http-conditional-write": 100,
+          "qa-boundary-set": 100,
+          "sql-aggregate-data": 100,
+          "qa-role-matrix": 100,
+          "http-contact-revoke": 100,
+          "qa-transition-trace": 100,
+          "qa-input-contract": 100,
+          "http-object-scope": 100,
+          "sql-left-data": 100,
+          "sql-order-data": 100,
+          "http-idempotency-trace": 100,
+          "sql-null-data": 100
+        },
+        "correct_and_wrong_extremes_pass": true
+      },
+      {
+        "specialization": "design",
+        "grade": "junior",
+        "forms": 100,
+        "distinct_forms": 100,
+        "questions_per_form": 12,
+        "questions_per_skill": 4,
+        "family_counts": {
+          "html-broken-label": 100,
+          "ux-sus": 100,
+          "ui-grid": 100,
+          "ux-funnel": 100,
+          "html-accessible-name": 100,
+          "ux-fitts": 100,
+          "ux-heuristic": 100,
+          "html-native-action": 100,
+          "ui-type-scale": 100,
+          "ui-touch-target": 100,
+          "html-tab-order": 100,
+          "ui-contrast": 100
+        },
+        "correct_and_wrong_extremes_pass": true
+      },
+      {
+        "specialization": "design",
+        "grade": "middle",
+        "forms": 100,
+        "distinct_forms": 100,
+        "questions_per_form": 12,
+        "questions_per_skill": 4,
+        "family_counts": {
+          "html-broken-label": 100,
+          "ux-sus": 100,
+          "ui-grid": 100,
+          "ux-funnel": 100,
+          "html-accessible-name": 100,
+          "ux-fitts": 100,
+          "ux-heuristic": 100,
+          "html-native-action": 100,
+          "ui-type-scale": 100,
+          "ui-touch-target": 100,
+          "html-tab-order": 100,
+          "ui-contrast": 100
+        },
+        "correct_and_wrong_extremes_pass": true
+      }
+    ],
+    "limitation": "Техническая воспроизводимость и равная матрица. Экспертная калибровка сложности, различимость кандидатов и устойчивость к внешней помощи не доказаны."
+  },
+  "human_pilot": false,
+  "limitation": "Малый внутренний synthetic benchmark, разметка команды. Не независимая экспертная оценка, профессиональная сертификация или качество реального найма."
+}

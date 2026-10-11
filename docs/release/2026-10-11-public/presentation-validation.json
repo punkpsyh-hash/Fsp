@@ -1,0 +1,153 @@
+{
+  "schemaVersion": "presentation-finalization.v1",
+  "finalSha256": "1ef21d556c24bdbda4a7d0a964ccb5b31041a8b432bc64900fed6587a51435c4",
+  "byteCount": 14022275,
+  "packageIntegrity": {
+    "chart_count": 0,
+    "claim_boundary": "Structural package checks only; no slide text, notes, formulas, chart values, or native PowerPoint execution were inspected.",
+    "finding_count": 0,
+    "findings": [],
+    "notes_parts_skipped": 16,
+    "relationship_part_count": 59,
+    "slide_count": 16,
+    "status": "pass",
+    "exitCode": 0,
+    "findingCount": 0,
+    "warnings": []
+  },
+  "presentationLayout": {
+    "finding_count": 0,
+    "findings": [],
+    "font_policy": {
+      "checked_text_script_count": 190,
+      "native_font_rendering_verified": false,
+      "observed_font_families": [
+        "Montserrat"
+      ],
+      "observed_font_use_counts": {
+        "Montserrat": 190
+      },
+      "passed": true,
+      "performed": true
+    },
+    "slide_count": 16,
+    "slide_size_in": [
+      13.3333,
+      7.5
+    ],
+    "warning_count": 1,
+    "warnings": [
+      {
+        "kind": "object_outside_slide_boundary",
+        "object_id": "2",
+        "object_kind": "sp",
+        "slide": 1
+      }
+    ],
+    "exitCode": 0,
+    "findingCount": 0,
+    "fontPolicy": {
+      "checked_text_script_count": 190,
+      "native_font_rendering_verified": false,
+      "observed_font_families": [
+        "Montserrat"
+      ],
+      "observed_font_use_counts": {
+        "Montserrat": 190
+      },
+      "passed": true,
+      "performed": true
+    }
+  },
+  "fontSelection": {
+    "basis": "reference",
+    "approvedFamilies": [
+      "Montserrat"
+    ],
+    "scriptFonts": {},
+    "referenceSha256": "1567ee08046d9c6da0bc9baa73e5a46abbb3004229253a1a140521d1db2758a4",
+    "referenceFontsVerifiedInEncodedText": true,
+    "checked_text_script_count": 190,
+    "native_font_rendering_verified": false,
+    "observed_font_families": [
+      "Montserrat"
+    ],
+    "observed_font_use_counts": {
+      "Montserrat": 190
+    },
+    "passed": true,
+    "performed": true
+  },
+  "firstPartyImport": {
+    "performed": true,
+    "passed": true,
+    "slideCount": 16,
+    "sha256": "1ef21d556c24bdbda4a7d0a964ccb5b31041a8b432bc64900fed6587a51435c4",
+    "runtimeNodeModules": "Bundled primary-runtime node modules",
+    "nodeExecutable": "Bundled primary-runtime Node.js"
+  },
+  "nativeTableArithmetic": {
+    "performed": true,
+    "checked_column_count": 0,
+    "checks": [],
+    "claim_boundary": "Displayed-value arithmetic with rounding tolerance; not source-data verification.",
+    "eligible_table_count": 0,
+    "finding_count": 0,
+    "findings": [],
+    "native_table_count": 0,
+    "passed": true,
+    "schema_version": "presentation-native-table-arithmetic.v1",
+    "skipped_tables": [],
+    "slide_count": 16,
+    "warning_count": 0,
+    "warnings": []
+  },
+  "nativeChartTitles": {
+    "performed": true,
+    "checks": [],
+    "finding_count": 0,
+    "findings": [],
+    "native_chart_count": 0,
+    "native_powerpoint_verified": false,
+    "passed": true,
+    "presentation_sha256": "1ef21d556c24bdbda4a7d0a964ccb5b31041a8b432bc64900fed6587a51435c4",
+    "schema_version": "presentation-native-chart-titles.v1",
+    "slide_count": 16,
+    "source_text_emitted": false,
+    "unresolved_linked_title_count": 0
+  },
+  "sourceDerivedPolicyFlags": [
+    "--expected-slide-size-emu",
+    "12192000,6858000",
+    "--validate-bullet-geometry",
+    "--validate-heading-fit",
+    "--cover-role",
+    "none",
+    "--expected-slide-count",
+    "16",
+    "--approved-font-family",
+    "Montserrat"
+  ],
+  "nativeChartValidation": {
+    "detectedOwnerSlides": [],
+    "detectedChartCount": 0,
+    "targetApplication": null,
+    "sourceChartOwnersExplicitlyDeclared": false,
+    "validatorRan": false,
+    "passed": true
+  },
+  "package_preservation": {
+    "authoring": "Artifact Tool exact textbox + notes edits; original package retained for template fidelity",
+    "changed_parts": [
+      "ppt/slides/slide16.xml",
+      "ppt/notesSlides/notesSlide16.xml"
+    ],
+    "unchanged_parts": 138,
+    "candidate_sha256": "1ef21d556c24bdbda4a7d0a964ccb5b31041a8b432bc64900fed6587a51435c4"
+  },
+  "visual": {
+    "all_16_final_slides_rendered": true,
+    "slide_16_actual_final_render_inspected": true,
+    "native_powerpoint_rendering_verified": false
+  }
+}

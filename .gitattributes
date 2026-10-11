@@ -1,0 +1,23 @@
+# Сгенерированные материалы проверяются их инструментами, а не как текстовый diff.
+*.pdf binary
+*.png binary
+*.mp4 binary
+*.webm binary
+*.rar binary
+*.zip binary
+*.docx binary
+*.pptx binary
+# JSON допускает Windows CRLF; пробелы и табуляция по-прежнему проверяются.
+*.json whitespace=trailing-space,space-before-tab,cr-at-eol
+# Оригинальный текст OFL сохраняется побайтно, включая пробелы издателя.
+resources/fonts/Tinos-OFL.txt -whitespace
+resources/fonts/JetBrainsMono-OFL.txt -whitespace
+# Копии лицензий издателей сохраняются побайтно вместе с их переводами строк.
+resources/licenses/third-party/** -text -whitespace
+# Linux-контейнеры должны получать shell-скрипты с LF и после checkout в Windows.
+*.sh text eol=lf
+*.py text eol=lf
+Dockerfile text eol=lf
+*.Dockerfile text eol=lf
+*.yaml text eol=lf
+*.ps1 text eol=crlf

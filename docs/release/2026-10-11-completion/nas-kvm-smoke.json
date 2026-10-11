@@ -1,0 +1,74 @@
+{
+  "summary": {
+    "checks": 6,
+    "failed": 0,
+    "accelerator": "kvm",
+    "versions": {
+      "python": "Python 3.12.13",
+      "javascript": "Node v22.23.3",
+      "sql": "SQLite 3.46.1",
+      "kernel": "6.12.111+deb13-amd64",
+      "debian_packages": {
+        "busybox-static": "1:1.37.0-6+b9",
+        "cpio": "2.15+dfsg-2",
+        "libc6:amd64": "2.41-12+deb13u3",
+        "libsqlite3-0:amd64": "3.46.1-7+deb13u1",
+        "libstdc++6:amd64": "14.2.0-19",
+        "linux-image-amd64": "6.12.111-1"
+      },
+      "official_sources": {
+        "debian_packages": "https://www.debian.org/distrib/packages",
+        "linux": "https://tracker.debian.org/pkg/linux",
+        "qemu": "https://sources.debian.org/src/qemu/",
+        "node": "https://nodejs.org/download/release/v22.23.3/",
+        "python": "https://www.python.org/downloads/release/python-31213/"
+      }
+    },
+    "boot_ms_median": 4397,
+    "boot_ms_max": 5107,
+    "guest_memory_mib": 512,
+    "cpu_seconds": 2,
+    "output_bytes": 65536,
+    "max_pids_per_uid": 16,
+    "sha256": {
+      "vmlinuz": "6d8a7f745280cc06a6d2877c932f4dfa9079b694eb4227b61b27232642340794",
+      "initramfs.cpio.gz": "e409c55ca7a8076a586f20723ead45109795890d70b2576f273dc4484894ee90"
+    }
+  },
+  "checks": [
+    {
+      "name": "KVM/TCG real VM readiness",
+      "status": "passed",
+      "duration_ms": 3839,
+      "boot_ms": 3781
+    },
+    {
+      "name": "Python stdin",
+      "status": "passed",
+      "duration_ms": 4608,
+      "boot_ms": 4560
+    },
+    {
+      "name": "JavaScript stdin",
+      "status": "passed",
+      "duration_ms": 4491,
+      "boot_ms": 4397
+    },
+    {
+      "name": "SQLite query",
+      "status": "passed",
+      "duration_ms": 4345,
+      "boot_ms": 4093
+    },
+    {
+      "name": "Python CPU timeout",
+      "status": "passed",
+      "duration_ms": 7179,
+      "boot_ms": 5107
+    },
+    {
+      "name": "wrong answer",
+      "status": "passed"
+    }
+  ]
+}

@@ -1,0 +1,33 @@
+{
+  "schema_version": "fsp-ranking-benchmark-v1",
+  "method": "Внутренняя ручная разметка синтетических пар до запуска ranking. 3 — полный практический набор навыков, 2 — сильное совпадение основных, 1 — допустимая частичная релевантность. Самостоятельные оценки не рассчитываются формулой ranking. Эксперты и реальные пользователи не участвовали.",
+  "profile_templates": [
+    {"suffix":"01","grade":"junior","skills":[0,1,2],"test_score":85,"fsp_signal":0,"freshness":0.9,"published":true,"formats":["remote"],"salary_min":120000},
+    {"suffix":"02","grade":"junior","skills":[0,1],"test_score":95,"fsp_signal":1,"freshness":0.8,"published":true,"formats":["remote","office"],"salary_min":150000},
+    {"suffix":"03","grade":"junior","skills":[0],"test_score":75,"fsp_signal":0.9,"freshness":0.4,"published":true,"formats":["remote"],"salary_min":100000},
+    {"suffix":"04","grade":"junior","skills":[1,2],"test_score":90,"fsp_signal":0,"freshness":1,"published":true,"formats":["remote","office"],"salary_min":110000},
+    {"suffix":"05","grade":"middle","skills":[0,1,2],"test_score":90,"fsp_signal":0.2,"freshness":1,"published":true,"formats":["remote","hybrid"],"salary_min":170000},
+    {"suffix":"06","grade":"middle","skills":[0,2],"test_score":84,"fsp_signal":0,"freshness":0.9,"published":true,"formats":["remote","office"],"salary_min":160000},
+    {"suffix":"07","grade":"middle","skills":[0,1],"test_score":80,"fsp_signal":0.5,"freshness":0.8,"published":true,"formats":["remote"],"salary_min":140000},
+    {"suffix":"08","grade":"junior","skills":[0,1,2],"test_score":99,"fsp_signal":1,"freshness":1,"published":false,"formats":["remote"],"salary_min":100000},
+    {"suffix":"09","grade":null,"skills":[0,1,2],"test_score":99,"fsp_signal":1,"freshness":1,"published":true,"formats":["remote"],"salary_min":100000},
+    {"suffix":"10","grade":"junior","skills":[0,1,2],"test_score":98,"fsp_signal":1,"freshness":1,"published":true,"formats":["remote"],"salary_min":300000}
+  ],
+  "specializations": [
+    {"id":"backend","prefix":"B","skills":["python","sql","http"]},
+    {"id":"frontend","prefix":"F","skills":["javascript","html","http"]},
+    {"id":"qa","prefix":"Q","skills":["testing","sql","http"]}
+  ],
+  "needs": [
+    {"id":"B-J-primary","specialization":"backend","grade":"junior","must":["python"],"desired":["sql","http"],"salary_to":180000,"format":"remote","labels":{"B01":3,"B02":2,"B03":1}},
+    {"id":"B-J-data","specialization":"backend","grade":"junior","must":["sql"],"desired":["http"],"salary_to":180000,"format":"remote","labels":{"B01":2,"B02":1,"B04":3}},
+    {"id":"B-M-primary","specialization":"backend","grade":"middle","must":["python"],"desired":["sql","http"],"salary_to":180000,"format":"remote","labels":{"B05":3,"B06":1,"B07":2}},
+    {"id":"B-M-office","specialization":"backend","grade":"middle","must":["python"],"desired":["http"],"salary_to":180000,"format":"office","labels":{"B06":3}},
+    {"id":"F-J-primary","specialization":"frontend","grade":"junior","must":["javascript"],"desired":["html","http"],"salary_to":180000,"format":"remote","labels":{"F01":3,"F02":2,"F03":1}},
+    {"id":"F-J-markup","specialization":"frontend","grade":"junior","must":["html"],"desired":["http"],"salary_to":180000,"format":"office","labels":{"F02":1,"F04":3}},
+    {"id":"F-M-primary","specialization":"frontend","grade":"middle","must":["javascript"],"desired":["html","http"],"salary_to":180000,"format":"remote","labels":{"F05":3,"F06":1,"F07":2}},
+    {"id":"Q-J-primary","specialization":"qa","grade":"junior","must":["testing"],"desired":["sql","http"],"salary_to":180000,"format":"remote","labels":{"Q01":3,"Q02":2,"Q03":1}},
+    {"id":"Q-J-data","specialization":"qa","grade":"junior","must":["sql"],"desired":["http"],"salary_to":180000,"format":"remote","labels":{"Q01":2,"Q02":1,"Q04":3}},
+    {"id":"Q-M-primary","specialization":"qa","grade":"middle","must":["testing"],"desired":["sql","http"],"salary_to":180000,"format":"remote","labels":{"Q05":3,"Q06":1,"Q07":2}}
+  ]
+}

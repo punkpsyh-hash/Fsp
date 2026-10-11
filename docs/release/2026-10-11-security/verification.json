@@ -1,0 +1,169 @@
+{
+  "generated_at": "2026-10-11T14:30:28.676046+00:00",
+  "source_base": "ce35bb46d9cedbaf3b01e871a771fe58ca77a924",
+  "source_sha256": {
+    "src/server/banks.py": "0138ea8eaac040b327ca1edd60c136b75580fbf4b247f46d82e013086e9ac127",
+    "src/server/schemas.py": "9cb27672a5794677cd64bb778db2cac30364ad701b3cd112667cdbbddb1ad002",
+    "tests/test_bank_import_availability.py": "5fd92b15e26068c88daefcb329d409d43aff5cfdcfa3e75e40ff2cec799c19ce",
+    "tests/test_email_policy.py": "a8391f0c37202d9188a67aed9fbe5f91f4215fd61fdc2f6dc3fdced7cca8b529",
+    "tests/test_jury_configuration.py": "f18f579164427073e9e5f18f9d58a17e51d1c2b6d5ba4aacccb262eafe773dda",
+    "contracts/openapi.yaml": "2da98159078dc5d9d79b40c31ae6802c471c6fe1657d6d827f657f21f4aaf48a",
+    "ml/evaluate_local_model.py": "f80cad91be58db9a9a182d9ec06ffbadc966bab58b67c6756a7b66d3ac3ee2e2"
+  },
+  "scan_id": "dcea0826-d06f-4b5d-9755-cfa312f56ddf",
+  "source_review": {
+    "fully_read_technical_files": 164,
+    "method": "Independent full-file offline review; source search alone not counted as full review."
+  },
+  "confirmed_baseline_findings": [
+    {
+      "cwe": "CWE-400",
+      "severity": "medium",
+      "root": "src/server/banks.py:285",
+      "summary": "Synchronous bank import blocks single API event loop",
+      "patch": "threadpool; 2 active parses; 10 new imports/min/owner; bounded ledger; worker finally releases slot; cancellation shield",
+      "state": "fixed_tested_committed_pushed_and_deployed_to_jury"
+    }
+  ],
+  "tests": {
+    "sqlite_full": {
+      "passed": 531,
+      "skipped": 4,
+      "subtests_passed": 6,
+      "collected": 535,
+      "seconds": 436.22,
+      "log_sha256": "99d8640957328d15a55886856e16bb2b06cf1edcb7f6a6918cd0bb03e8ccc30f"
+    },
+    "postgres_full": {
+      "passed": 532,
+      "skipped": 3,
+      "subtests_passed": 6,
+      "collected": 535,
+      "seconds": 488.12,
+      "log_sha256": "2e4acff1001661e0537022ae09ac56bc0a08d36db337e27ed9f6a69b379c425f"
+    },
+    "final_security_subset": {
+      "passed": 56,
+      "skipped": 1,
+      "seconds": 4.61,
+      "log_sha256": "f243d473d2f20fd4515013e824fe7a1051813c1bde29eb02628a43851af1f237"
+    },
+    "node_oracle": {
+      "passed": 3,
+      "seconds": 10.74,
+      "cases_compared": 4800,
+      "log_sha256": "f2f482b31bf502aeefba85419f6f8fd49adc43a32090519d980fb210c70e74c2"
+    },
+    "caddy_validation": {
+      "passed": 2,
+      "method": "Pinned official Caddy, network none, no published ports; required NET_BIND_SERVICE file capability allowed"
+    },
+    "current_collection": 538,
+    "composition_note": "Full 535-test runs preceded final rejection of leading/trailing ASCII controls in Email. Final stricter Email and 3 new recipient cases were verified in the 56-test subset. Results are separate runs, not a full final 538-test run.",
+    "skip_reasons": {
+      "sqlite_only": "PostgreSQL concurrent locking requires PostgreSQL run",
+      "shared": [
+        "Docker CLI absent inside tools: 2 Caddy checks independently validated",
+        "Node absent inside backend tools: oracle separately run in Node-enabled Docker"
+      ]
+    },
+    "no_live_dos_attempt": true
+  },
+  "email_policy": {
+    "allowed": [
+      "example.invalid"
+    ],
+    "ascii_only": true,
+    "all_real_domains_rejected": true,
+    "smtp_validation_before_connect": true,
+    "jury_registration_and_mail_disabled": true,
+    "legal_limit": "Domain filter alone does not establish legal compliance; .ru does not prove provider control/location."
+  },
+  "dependency_advisories": {
+    "database": "OSV",
+    "queried": 412,
+    "query_timestamp": "2026-10-11T13:52:14.733653+00:00",
+    "raw_report_sha256": "78e2f97c08365b37d5cd62ec5cf52f247c014819f89d29059b52578d4a6240cd",
+    "matched_packages": [
+      {
+        "name": "accelerate",
+        "version": "1.10.1",
+        "ecosystem": "PyPI",
+        "advisories": [
+          "GHSA-4j2p-28q2-5m79",
+          "PYSEC-2026-3804"
+        ]
+      },
+      {
+        "name": "torch",
+        "version": "2.7.1+cu128",
+        "ecosystem": "PyPI",
+        "advisories": [
+          "GHSA-887c-mr87-cxwp",
+          "GHSA-qfhq-4f3w-5fph",
+          "GHSA-rrmf-rvhw-rf47",
+          "GHSA-vgrw-7cvw-pwgx",
+          "PYSEC-2025-203",
+          "PYSEC-2025-204",
+          "PYSEC-2025-206",
+          "PYSEC-2026-139",
+          "PYSEC-2026-1970",
+          "PYSEC-2026-2286"
+        ]
+      },
+      {
+        "name": "transformers",
+        "version": "4.57.1",
+        "ecosystem": "PyPI",
+        "advisories": [
+          "GHSA-29pf-2h5f-8g72",
+          "GHSA-69w3-r845-3855",
+          "GHSA-fgcw-684q-jj6r",
+          "GHSA-x9r9-c232-4q39",
+          "GHSA-xrqw-3rrv-vx5w",
+          "PYSEC-2025-217",
+          "PYSEC-2025-218",
+          "PYSEC-2026-2288",
+          "PYSEC-2026-2289",
+          "PYSEC-2026-2290",
+          "PYSEC-2026-3929",
+          "PYSEC-2026-4174"
+        ]
+      }
+    ],
+    "reachability": "Production model is pinned, complete manifest/SHA verified, offline, use_safetensors/local_files_only/trust_remote_code=False. No attacker model/config upload route established. Internal dependency call graphs and compatible GPU upgrades not verified. Advisories remain dependency debt.",
+    "reference": "https://google.github.io/osv.dev/api/"
+  },
+  "public_history": {
+    "commits": 73,
+    "unique_blobs": 1442,
+    "confirmed_working_secrets_found": 0,
+    "scope": "Available local refs only; typed secret patterns and structured document metadata/text; no full OCR of raster/video",
+    "exclude_from_clean_release": [
+      "requirements/assets/брендбук.rar"
+    ],
+    "original_history_preserved": true,
+    "public_release_published": false,
+    "user_choice": "Pending choice of Fsp-release snapshot, preserving Fsp private"
+  },
+  "assessment_limit": "Source includes demo bank and Backend title solver; 4800 cases cross-checked. Seed/options randomization does not prevent automated solving. Not independently calibrated certification; private real assessment bank required.",
+  "deployment": {
+    "status": "passed",
+    "source_revision": "c2c8faf0ea456c73c8bf4d4bd980224ef05e9c30",
+    "target": "fspjury app only; existing DB, runner, edge and tunnel preserved",
+    "origin": "https://fsptest.kolesnikovny.ru",
+    "source_sha256_verified": true,
+    "external_http_steps_passed": 22,
+    "tls_default_ca_verification": true,
+    "runtime_receipt": "jury-runtime-security.json",
+    "http_receipt": "jury-public-http.json",
+    "secrets_logged": false
+  },
+  "limitations": [
+    "No complete third-party library source audit",
+    "No real-user/PDn operation authorized",
+    "No full OCR",
+    "Statical source review and finite tests do not prove absence of vulnerabilities"
+  ],
+  "patch_revision": "c2c8faf0ea456c73c8bf4d4bd980224ef05e9c30"
+}

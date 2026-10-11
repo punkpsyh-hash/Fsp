@@ -1,0 +1,323 @@
+{
+  "$defs": {
+    "CodeCase": {
+      "additionalProperties": false,
+      "properties": {
+        "input": {
+          "default": "",
+          "maxLength": 16000,
+          "title": "Input",
+          "type": "string"
+        },
+        "output": {
+          "default": "",
+          "maxLength": 16000,
+          "title": "Output",
+          "type": "string"
+        },
+        "setup": {
+          "default": "",
+          "maxLength": 32000,
+          "title": "Setup",
+          "type": "string"
+        }
+      },
+      "title": "CodeCase",
+      "type": "object"
+    },
+    "Option": {
+      "additionalProperties": false,
+      "properties": {
+        "id": {
+          "pattern": "^[A-Za-z0-9_-]{1,80}$",
+          "title": "Id",
+          "type": "string"
+        },
+        "text": {
+          "maxLength": 2000,
+          "minLength": 1,
+          "title": "Text",
+          "type": "string"
+        }
+      },
+      "required": [
+        "id",
+        "text"
+      ],
+      "title": "Option",
+      "type": "object"
+    },
+    "RuntimeLimits": {
+      "additionalProperties": false,
+      "properties": {
+        "wall_seconds": {
+          "default": 3,
+          "maximum": 3,
+          "minimum": 1,
+          "title": "Wall Seconds",
+          "type": "integer"
+        },
+        "memory_mb": {
+          "const": 512,
+          "default": 512,
+          "title": "Memory Mb",
+          "type": "integer"
+        }
+      },
+      "title": "RuntimeLimits",
+      "type": "object"
+    },
+    "Task": {
+      "additionalProperties": false,
+      "properties": {
+        "id": {
+          "pattern": "^[A-Za-z0-9_-]{1,80}$",
+          "title": "Id",
+          "type": "string"
+        },
+        "type": {
+          "enum": [
+            "single_choice",
+            "multiple_choice",
+            "numeric",
+            "open_response",
+            "code"
+          ],
+          "title": "Type",
+          "type": "string"
+        },
+        "title": {
+          "default": "",
+          "maxLength": 120,
+          "title": "Title",
+          "type": "string"
+        },
+        "prompt": {
+          "default": "",
+          "maxLength": 12000,
+          "title": "Prompt",
+          "type": "string"
+        },
+        "skills": {
+          "items": {
+            "enum": [
+              "python",
+              "sql",
+              "javascript",
+              "html",
+              "testing",
+              "http"
+            ],
+            "type": "string"
+          },
+          "maxItems": 6,
+          "title": "Skills",
+          "type": "array"
+        },
+        "family": {
+          "default": "",
+          "maxLength": 80,
+          "title": "Family",
+          "type": "string"
+        },
+        "weight": {
+          "default": 1,
+          "exclusiveMinimum": 0,
+          "maximum": 100,
+          "title": "Weight",
+          "type": "number"
+        },
+        "expected_minutes": {
+          "default": 5,
+          "maximum": 120,
+          "minimum": 1,
+          "title": "Expected Minutes",
+          "type": "integer"
+        },
+        "options": {
+          "items": {
+            "$ref": "#/$defs/Option"
+          },
+          "maxItems": 20,
+          "title": "Options",
+          "type": "array"
+        },
+        "answer_key": {
+          "items": {
+            "type": "string"
+          },
+          "maxItems": 20,
+          "title": "Answer Key",
+          "type": "array"
+        },
+        "partial_credit": {
+          "default": false,
+          "title": "Partial Credit",
+          "type": "boolean"
+        },
+        "numeric_answer": {
+          "anyOf": [
+            {
+              "type": "number"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Numeric Answer"
+        },
+        "absolute_tolerance": {
+          "default": 0,
+          "maximum": 1000000,
+          "minimum": 0,
+          "title": "Absolute Tolerance",
+          "type": "number"
+        },
+        "relative_tolerance": {
+          "default": 0,
+          "maximum": 1,
+          "minimum": 0,
+          "title": "Relative Tolerance",
+          "type": "number"
+        },
+        "unit": {
+          "default": "",
+          "maxLength": 40,
+          "title": "Unit",
+          "type": "string"
+        },
+        "rubric": {
+          "default": "",
+          "maxLength": 4000,
+          "title": "Rubric",
+          "type": "string"
+        },
+        "answer_limit": {
+          "default": 4000,
+          "maximum": 16000,
+          "minimum": 1,
+          "title": "Answer Limit",
+          "type": "integer"
+        },
+        "language": {
+          "anyOf": [
+            {
+              "enum": [
+                "python",
+                "javascript",
+                "sql"
+              ],
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Language"
+        },
+        "starter_code": {
+          "default": "",
+          "maxLength": 32000,
+          "title": "Starter Code",
+          "type": "string"
+        },
+        "examples": {
+          "items": {
+            "$ref": "#/$defs/CodeCase"
+          },
+          "maxItems": 5,
+          "title": "Examples",
+          "type": "array"
+        },
+        "hidden_tests": {
+          "items": {
+            "$ref": "#/$defs/CodeCase"
+          },
+          "maxItems": 10,
+          "title": "Hidden Tests",
+          "type": "array"
+        },
+        "runtime_limits": {
+          "$ref": "#/$defs/RuntimeLimits"
+        }
+      },
+      "required": [
+        "id",
+        "type"
+      ],
+      "title": "Task",
+      "type": "object"
+    }
+  },
+  "additionalProperties": false,
+  "properties": {
+    "title": {
+      "maxLength": 120,
+      "minLength": 2,
+      "title": "Title",
+      "type": "string"
+    },
+    "specialization": {
+      "default": "backend",
+      "enum": [
+        "backend",
+        "frontend",
+        "qa"
+      ],
+      "title": "Specialization",
+      "type": "string"
+    },
+    "grade": {
+      "default": "junior",
+      "enum": [
+        "junior",
+        "middle"
+      ],
+      "title": "Grade",
+      "type": "string"
+    },
+    "time_limit_minutes": {
+      "default": 60,
+      "maximum": 240,
+      "minimum": 1,
+      "title": "Time Limit Minutes",
+      "type": "integer"
+    },
+    "tasks": {
+      "items": {
+        "$ref": "#/$defs/Task"
+      },
+      "maxItems": 100,
+      "title": "Tasks",
+      "type": "array"
+    },
+    "schema_version": {
+      "const": "fsp-bank-v1",
+      "default": "fsp-bank-v1",
+      "title": "Schema Version",
+      "type": "string"
+    },
+    "external_id": {
+      "pattern": "^[A-Za-z0-9_-]{1,120}$",
+      "title": "External Id",
+      "type": "string"
+    },
+    "scope": {
+      "default": "employer",
+      "enum": [
+        "employer",
+        "platform"
+      ],
+      "title": "Scope",
+      "type": "string"
+    }
+  },
+  "required": [
+    "title",
+    "external_id"
+  ],
+  "title": "BankDocument",
+  "type": "object"
+}

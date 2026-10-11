@@ -1,0 +1,57 @@
+{
+  "fps": 25,
+  "durationFrames": 8118,
+  "durationSeconds": 324.72,
+  "chapters": [
+    {
+      "number": "01",
+      "title": "Профиль кандидата",
+      "startSeconds": 6.0
+    },
+    {
+      "number": "02",
+      "title": "Оценка навыков",
+      "startSeconds": 20.4
+    },
+    {
+      "number": "03",
+      "title": "Короткие задания",
+      "startSeconds": 71.28
+    },
+    {
+      "number": "04",
+      "title": "Подбор под задачи",
+      "startSeconds": 79.68
+    },
+    {
+      "number": "05",
+      "title": "Согласие на контакт",
+      "startSeconds": 93.36
+    },
+    {
+      "number": "06",
+      "title": "Отклик на вакансию",
+      "startSeconds": 136.76
+    },
+    {
+      "number": "07",
+      "title": "Конструктор и импорт",
+      "startSeconds": 174.16
+    },
+    {
+      "number": "08",
+      "title": "Практика в VM",
+      "startSeconds": 206.56
+    },
+    {
+      "number": "09",
+      "title": "Защита попытки и генератор: схемы правил",
+      "startSeconds": 268.72
+    },
+    {
+      "number": "10",
+      "title": "Итог и доступ жюри",
+      "startSeconds": 288.72
+    }
+  ]
+}

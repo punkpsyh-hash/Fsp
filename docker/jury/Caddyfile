@@ -1,0 +1,33 @@
+{
+	admin 127.0.0.1:2019
+}
+
+{$FSP_JURY_DOMAIN} {
+	header {
+		-Server
+		Strict-Transport-Security "max-age=31536000"
+		X-Content-Type-Options "nosniff"
+		Referrer-Policy "no-referrer"
+		X-Frame-Options "DENY"
+		Permissions-Policy "camera=(), geolocation=(), microphone=()"
+	}
+
+	encode zstd gzip
+
+	# Порядок route намеренный: внутренний API никогда не проходит к приложению;
+	# политика оператора видна до Basic Auth; всё остальное закрыто вторым паролем.
+	route {
+		@internal path /internal /internal/*
+		respond @internal 404
+
+		@legal path /legal/privacy /legal/recommendations
+		handle @legal {
+			reverse_proxy app:8470
+		}
+
+		basic_auth argon2id "FSP jury preview" {
+			{env.FSP_JURY_BASIC_AUTH_USER} {env.FSP_JURY_BASIC_AUTH_HASH}
+		}
+		reverse_proxy app:8470
+	}
+}

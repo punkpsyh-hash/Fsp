@@ -1,0 +1,303 @@
+{
+  "pdf": [
+    {
+      "file": "docs/delivery/gost/all-documents.pdf",
+      "sha256": "fd6f198653a37c7a1e1f5a02df6029b454d7325d393170858e6bbef0cf035d57",
+      "pages": 141,
+      "a4_all_pages": true,
+      "black_text_blocks": 5505,
+      "nonblack_text_blocks": 0,
+      "font_sizes_pt": [
+        12.0,
+        14.0,
+        16.0
+      ],
+      "figure_captions": 9,
+      "caption_numbers_unique": true
+    },
+    {
+      "file": "docs/delivery/gost/api-guide.pdf",
+      "sha256": "821e01510bb06db7294d7e8dc9ad2cf63dfa7fd350ae1ac430cdef244c5dbab0",
+      "pages": 31,
+      "a4_all_pages": true,
+      "black_text_blocks": 1358,
+      "nonblack_text_blocks": 0,
+      "font_sizes_pt": [
+        12.0,
+        14.0,
+        16.0
+      ],
+      "figure_captions": 1,
+      "caption_numbers_unique": true
+    },
+    {
+      "file": "docs/delivery/gost/documentation.pdf",
+      "sha256": "3e5ea068a5345144543eb9d7fbeeaa8e347a699e628e9beaafbb5a41aee25003",
+      "pages": 53,
+      "a4_all_pages": true,
+      "black_text_blocks": 2122,
+      "nonblack_text_blocks": 0,
+      "font_sizes_pt": [
+        12.0,
+        14.0,
+        16.0
+      ],
+      "figure_captions": 5,
+      "caption_numbers_unique": true
+    },
+    {
+      "file": "docs/delivery/gost/project-report.pdf",
+      "sha256": "88a7f44fc44e4b8651edc29656b39533fa2bf8f53aba6a6bc6a12e5dfc16ccc0",
+      "pages": 13,
+      "a4_all_pages": true,
+      "black_text_blocks": 340,
+      "nonblack_text_blocks": 0,
+      "font_sizes_pt": [
+        12.0,
+        14.0,
+        16.0
+      ],
+      "figure_captions": 3,
+      "caption_numbers_unique": true
+    },
+    {
+      "file": "docs/delivery/gost/release-guide.pdf",
+      "sha256": "93ece8fc3cd3a4c017e9d31a6792d79525b5b8deea5cdb2dab27f869096a7747",
+      "pages": 89,
+      "a4_all_pages": true,
+      "black_text_blocks": 3243,
+      "nonblack_text_blocks": 0,
+      "font_sizes_pt": [
+        12.0,
+        14.0,
+        16.0
+      ],
+      "figure_captions": 7,
+      "caption_numbers_unique": true
+    },
+    {
+      "file": "docs/delivery/gost/self-deployment-guide.pdf",
+      "sha256": "3093a6d0a974cb3432adfdc53febdedefd4c244800546b4d1263c6339e81b6f8",
+      "pages": 25,
+      "a4_all_pages": true,
+      "black_text_blocks": 805,
+      "nonblack_text_blocks": 0,
+      "font_sizes_pt": [
+        12.0,
+        14.0,
+        16.0
+      ],
+      "figure_captions": 2,
+      "caption_numbers_unique": true
+    },
+    {
+      "file": "docs/delivery/gost/technical-report.pdf",
+      "sha256": "125bdfbbb739d20046b980a2d2dcca18927aeff0b1ef3b7a91bddd3d165e9336",
+      "pages": 14,
+      "a4_all_pages": true,
+      "black_text_blocks": 395,
+      "nonblack_text_blocks": 0,
+      "font_sizes_pt": [
+        12.0,
+        14.0,
+        16.0
+      ],
+      "figure_captions": 3,
+      "caption_numbers_unique": true
+    }
+  ],
+  "docx": [
+    {
+      "file": "docs/delivery/gost/all-documents.docx",
+      "sha256": "074cbaee41c429e26cbfe03413a92ab33c276e26a896c0bbbab5470f13a22fab",
+      "zip_valid": true,
+      "black_text_explicit": true,
+      "black_borders_verified": true,
+      "normal_font_pt": 14,
+      "normal_line_spacing": 1.5,
+      "margins_mm": [
+        30,
+        15,
+        20,
+        20
+      ],
+      "independent_unnumbered_cover_footer_configured": true,
+      "images": 9,
+      "figure_captions": 9
+    },
+    {
+      "file": "docs/delivery/gost/api-guide.docx",
+      "sha256": "41d044917e7192b94784ad079eb83c9a96296acfc54b726a49947487404434bd",
+      "zip_valid": true,
+      "black_text_explicit": true,
+      "black_borders_verified": true,
+      "normal_font_pt": 14,
+      "normal_line_spacing": 1.5,
+      "margins_mm": [
+        30,
+        15,
+        20,
+        20
+      ],
+      "independent_unnumbered_cover_footer_configured": true,
+      "images": 1,
+      "figure_captions": 1
+    },
+    {
+      "file": "docs/delivery/gost/documentation.docx",
+      "sha256": "2ae43bdaec646521e6ad889dbf857bc1ae36393d242a898b7dba93e11ec3dbee",
+      "zip_valid": true,
+      "black_text_explicit": true,
+      "black_borders_verified": true,
+      "normal_font_pt": 14,
+      "normal_line_spacing": 1.5,
+      "margins_mm": [
+        30,
+        15,
+        20,
+        20
+      ],
+      "independent_unnumbered_cover_footer_configured": true,
+      "images": 5,
+      "figure_captions": 5
+    },
+    {
+      "file": "docs/delivery/gost/project-report.docx",
+      "sha256": "4992a6f0ea5fd733f305251e91f5cc45d9da7cacac085dc3950a652a62ec7bf7",
+      "zip_valid": true,
+      "black_text_explicit": true,
+      "black_borders_verified": true,
+      "normal_font_pt": 14,
+      "normal_line_spacing": 1.5,
+      "margins_mm": [
+        30,
+        15,
+        20,
+        20
+      ],
+      "independent_unnumbered_cover_footer_configured": true,
+      "images": 3,
+      "figure_captions": 3
+    },
+    {
+      "file": "docs/delivery/gost/release-guide.docx",
+      "sha256": "13da92bd87a870bb33ff150b2d68a8d6561472036705fe7502eb3030378d1a7b",
+      "zip_valid": true,
+      "black_text_explicit": true,
+      "black_borders_verified": true,
+      "normal_font_pt": 14,
+      "normal_line_spacing": 1.5,
+      "margins_mm": [
+        30,
+        15,
+        20,
+        20
+      ],
+      "independent_unnumbered_cover_footer_configured": true,
+      "images": 7,
+      "figure_captions": 7
+    },
+    {
+      "file": "docs/delivery/gost/self-deployment-guide.docx",
+      "sha256": "c25109dc4be67639469dd6394b23b4c8aecc1f57dc6b3724351eeb03f4c21bf0",
+      "zip_valid": true,
+      "black_text_explicit": true,
+      "black_borders_verified": true,
+      "normal_font_pt": 14,
+      "normal_line_spacing": 1.5,
+      "margins_mm": [
+        30,
+        15,
+        20,
+        20
+      ],
+      "independent_unnumbered_cover_footer_configured": true,
+      "images": 2,
+      "figure_captions": 2
+    },
+    {
+      "file": "docs/delivery/gost/technical-report.docx",
+      "sha256": "99868217c2b35cb17be4e2cae360ad2b3928c1642396340cc67fb49d42a8443e",
+      "zip_valid": true,
+      "black_text_explicit": true,
+      "black_borders_verified": true,
+      "normal_font_pt": 14,
+      "normal_line_spacing": 1.5,
+      "margins_mm": [
+        30,
+        15,
+        20,
+        20
+      ],
+      "independent_unnumbered_cover_footer_configured": true,
+      "images": 3,
+      "figure_captions": 3
+    }
+  ],
+  "docx_rendered": [
+    {
+      "file": "docs/delivery/gost/all-documents.docx",
+      "docx_sha256": "074cbaee41c429e26cbfe03413a92ab33c276e26a896c0bbbab5470f13a22fab",
+      "rendered_pdf_sha256": "2ca24e9d33b0bf3b62c02b0444627709df03e0b109a2e6443673f0ff00f2edf9",
+      "pages": 139,
+      "first_page_number_hidden": true,
+      "continuous_page_numbers_verified": true,
+      "method": "LibreOffice PDF output: text below y=50 pt inspected on every page."
+    },
+    {
+      "file": "docs/delivery/gost/api-guide.docx",
+      "docx_sha256": "41d044917e7192b94784ad079eb83c9a96296acfc54b726a49947487404434bd",
+      "rendered_pdf_sha256": "a4dac717dee9b8408bebdf2bc5e356d5402d0a0a4e18422886baffbbb90574cd",
+      "pages": 31,
+      "first_page_number_hidden": true,
+      "continuous_page_numbers_verified": true,
+      "method": "LibreOffice PDF output: text below y=50 pt inspected on every page."
+    },
+    {
+      "file": "docs/delivery/gost/documentation.docx",
+      "docx_sha256": "2ae43bdaec646521e6ad889dbf857bc1ae36393d242a898b7dba93e11ec3dbee",
+      "rendered_pdf_sha256": "0c35d81b19c949db9c43c508aaadea2e43be15929a4e91eca0f9db7729286b9e",
+      "pages": 53,
+      "first_page_number_hidden": true,
+      "continuous_page_numbers_verified": true,
+      "method": "LibreOffice PDF output: text below y=50 pt inspected on every page."
+    },
+    {
+      "file": "docs/delivery/gost/project-report.docx",
+      "docx_sha256": "4992a6f0ea5fd733f305251e91f5cc45d9da7cacac085dc3950a652a62ec7bf7",
+      "rendered_pdf_sha256": "bcaa53f7e3a9fe4b9d8fe200ee5a693b52cacae5f1e8cdd76d55123b88c157bd",
+      "pages": 12,
+      "first_page_number_hidden": true,
+      "continuous_page_numbers_verified": true,
+      "method": "LibreOffice PDF output: text below y=50 pt inspected on every page."
+    },
+    {
+      "file": "docs/delivery/gost/release-guide.docx",
+      "docx_sha256": "13da92bd87a870bb33ff150b2d68a8d6561472036705fe7502eb3030378d1a7b",
+      "rendered_pdf_sha256": "214b27b98d9af255d9c1391b1e622a677cda17ed83e15d8cf13ac9bd2c276c66",
+      "pages": 85,
+      "first_page_number_hidden": true,
+      "continuous_page_numbers_verified": true,
+      "method": "LibreOffice PDF output: text below y=50 pt inspected on every page."
+    },
+    {
+      "file": "docs/delivery/gost/self-deployment-guide.docx",
+      "docx_sha256": "c25109dc4be67639469dd6394b23b4c8aecc1f57dc6b3724351eeb03f4c21bf0",
+      "rendered_pdf_sha256": "7b2a684c6f19622264dad2344bd63d343b38453dd7b7e8c2e3267a479765d271",
+      "pages": 23,
+      "first_page_number_hidden": true,
+      "continuous_page_numbers_verified": true,
+      "method": "LibreOffice PDF output: text below y=50 pt inspected on every page."
+    },
+    {
+      "file": "docs/delivery/gost/technical-report.docx",
+      "docx_sha256": "99868217c2b35cb17be4e2cae360ad2b3928c1642396340cc67fb49d42a8443e",
+      "rendered_pdf_sha256": "7ba94518ddf84cc73bdb857cfcce7245b340a12d0c90e6c0871ea1f8300c0e11",
+      "pages": 13,
+      "first_page_number_hidden": true,
+      "continuous_page_numbers_verified": true,
+      "method": "LibreOffice PDF output: text below y=50 pt inspected on every page."
+    }
+  ],
+  "screen_sha256_verified": 6
+}

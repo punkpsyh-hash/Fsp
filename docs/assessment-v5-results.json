@@ -1,0 +1,201 @@
+{
+  "blueprint_version": "scenarios-v5",
+  "historical": {
+    "forms": 2448,
+    "byte_equality": true,
+    "round_public_evaluate_equal": true,
+    "baseline_commit": "0311fe3937c8096a065c001bb69f642cc36fbe61",
+    "baseline_source_sha256": "8ccfb98ed50206b03225452aa5943bb451bcec6cc67a2ee337e28389d71277e1"
+  },
+  "forms_total": 600,
+  "matrices": [
+    {
+      "specialization": "backend",
+      "grade": "junior",
+      "forms": 100,
+      "distinct_forms": 100,
+      "questions": 12,
+      "per_skill": 4,
+      "independent_oracles": "passed"
+    },
+    {
+      "specialization": "backend",
+      "grade": "middle",
+      "forms": 100,
+      "distinct_forms": 100,
+      "questions": 12,
+      "per_skill": 4,
+      "independent_oracles": "passed"
+    },
+    {
+      "specialization": "frontend",
+      "grade": "junior",
+      "forms": 100,
+      "distinct_forms": 100,
+      "questions": 12,
+      "per_skill": 4,
+      "independent_oracles": "passed"
+    },
+    {
+      "specialization": "frontend",
+      "grade": "middle",
+      "forms": 100,
+      "distinct_forms": 100,
+      "questions": 12,
+      "per_skill": 4,
+      "independent_oracles": "passed"
+    },
+    {
+      "specialization": "qa",
+      "grade": "junior",
+      "forms": 100,
+      "distinct_forms": 100,
+      "questions": 12,
+      "per_skill": 4,
+      "independent_oracles": "passed"
+    },
+    {
+      "specialization": "qa",
+      "grade": "middle",
+      "forms": 100,
+      "distinct_forms": 100,
+      "questions": 12,
+      "per_skill": 4,
+      "independent_oracles": "passed"
+    }
+  ],
+  "transfer": {
+    "version": "scenarios-v5",
+    "donor_seeds": [
+      0,
+      19
+    ],
+    "receiver_seeds": [
+      100,
+      199
+    ],
+    "results": [
+      {
+        "specialization": "backend",
+        "grade": "junior",
+        "strategy": "literal",
+        "pairs": 2000,
+        "passes": 0,
+        "maximum_score": 41.67,
+        "mean_score": 15.12
+      },
+      {
+        "specialization": "backend",
+        "grade": "junior",
+        "strategy": "position",
+        "pairs": 2000,
+        "passes": 1,
+        "maximum_score": 75.0,
+        "mean_score": 24.97
+      },
+      {
+        "specialization": "backend",
+        "grade": "middle",
+        "strategy": "literal",
+        "pairs": 2000,
+        "passes": 0,
+        "maximum_score": 33.33,
+        "mean_score": 9.1
+      },
+      {
+        "specialization": "backend",
+        "grade": "middle",
+        "strategy": "position",
+        "pairs": 2000,
+        "passes": 0,
+        "maximum_score": 75.0,
+        "mean_score": 25.15
+      },
+      {
+        "specialization": "frontend",
+        "grade": "junior",
+        "strategy": "literal",
+        "pairs": 2000,
+        "passes": 0,
+        "maximum_score": 50.0,
+        "mean_score": 18.49
+      },
+      {
+        "specialization": "frontend",
+        "grade": "junior",
+        "strategy": "position",
+        "pairs": 2000,
+        "passes": 2,
+        "maximum_score": 75.0,
+        "mean_score": 24.71
+      },
+      {
+        "specialization": "frontend",
+        "grade": "middle",
+        "strategy": "literal",
+        "pairs": 2000,
+        "passes": 0,
+        "maximum_score": 50.0,
+        "mean_score": 13.79
+      },
+      {
+        "specialization": "frontend",
+        "grade": "middle",
+        "strategy": "position",
+        "pairs": 2000,
+        "passes": 0,
+        "maximum_score": 75.0,
+        "mean_score": 25.25
+      },
+      {
+        "specialization": "qa",
+        "grade": "junior",
+        "strategy": "literal",
+        "pairs": 2000,
+        "passes": 0,
+        "maximum_score": 41.67,
+        "mean_score": 15.1
+      },
+      {
+        "specialization": "qa",
+        "grade": "junior",
+        "strategy": "position",
+        "pairs": 2000,
+        "passes": 0,
+        "maximum_score": 66.67,
+        "mean_score": 24.97
+      },
+      {
+        "specialization": "qa",
+        "grade": "middle",
+        "strategy": "literal",
+        "pairs": 2000,
+        "passes": 0,
+        "maximum_score": 33.33,
+        "mean_score": 8.98
+      },
+      {
+        "specialization": "qa",
+        "grade": "middle",
+        "strategy": "position",
+        "pairs": 2000,
+        "passes": 0,
+        "maximum_score": 75.0,
+        "mean_score": 25.23
+      }
+    ],
+    "limitation": "Конечная синтетическая диагностика копирования ответов; не защита от решателя, не человеческий пилот и не калибровка сложности."
+  },
+  "source_sha256": {
+    "src/server/assessment.py": "e140c2ef22146e51237543c261f257ae3aaab6dd002c06bba21375cb3b30b0f8",
+    "src/server/assessment_scenarios.py": "0b2b517f4405f8203e6275fb734df82f56c92f8b9355a2ded38e72aa83b6859c",
+    "src/server/assessment_feedback.py": "05b4ea37c88a7e438ccfac71bd597116c06073e1db14ab1196f7749d9040a7a2",
+    "tests/test_assessment_scenarios.py": "d4bab11cce5fab3e2e43ea9dce3f1c429e28d3434dcd2bd34e6f79d102eaa5cc",
+    "web/scripts/scenario-oracle.mjs": "dbd6e90801c8d7962b73b43ce5ca8c13fdff64de4bb94f69aaa2546910e37a02"
+  },
+  "limitations": [
+    "Конечные синтетические выборки, без независимого профессионального пилота.",
+    "Совпадение вычислений не подтверждает равную сложность или пригодность порогов.",
+    "Перенос позиций вариантов имеет редкие проходы; универсальная защита от внешней помощи не заявляется."
+  ]
+}

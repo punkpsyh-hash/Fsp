@@ -1,0 +1,18 @@
+{
+  "generated_at": "2026-10-11T13:10:53.872355+03:00",
+  "role": "coordinator manual visual inspection plus mechanical verification",
+  "pdf_documents": 7,
+  "pdf_pages": 632,
+  "word_documents": 7,
+  "word_rendered_pages": 598,
+  "all_word_page_numbers_mechanically_verified": true,
+  "manual_scope": [
+    "Final Word representative pages in each of all seven books",
+    "Final relay and external acceptance sections in all-documents, documentation and deployment guide",
+    "Screenshots, figure captions, tables and technical architecture in project/technical reports",
+    "PDF representative pages and presentation contact sheets inspected during preceding artifact verification"
+  ],
+  "manual_all_pages_claimed": false,
+  "result": "passed",
+  "artifact_receipt_sha256": "334bb51c63400ea105accefc5b03c5fd0084e7b5443c528c3f9b34343367a481"
+}

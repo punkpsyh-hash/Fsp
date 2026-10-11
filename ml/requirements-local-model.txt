@@ -1,0 +1,4 @@
+# Добавлять в существующее D-backed pilot-venv с Torch 2.7.1+cu128 и Transformers 4.57.1.
+# Обычный pip install внутри venv, без --target/--upgrade и без переустановки Torch.
+lm-format-enforcer==0.11.3
+bitsandbytes==0.50.0

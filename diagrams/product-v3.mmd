@@ -1,0 +1,12 @@
+flowchart LR
+    Browser["React / TypeScript: два кабинета"] --> API["FastAPI: роли, CSRF, ownership"]
+    API --> DB[("PostgreSQL: профиль, компания, потребности, вакансии, отклики, формы, аудит")]
+    API --> Grade["Версионные семейства: 3 направления × 2 грейда"]
+    API --> Ranking["Подтверждённая категория / explainable ranking"]
+    API --> Grants["Контакт: accepted invitation / active application / revoke"]
+    API --> PDF["PDF из разрешённой проекции"]
+    API --> Parser["Изолированный процесс PDF preview: размер / CPU / timeout"]
+    API --> Mail["Локальная почта / настроечный SMTP TLS"]
+    API --> Mock["ФСП ID / 4 состояния / local-mock"]
+    API --> Tasks["Периодические задачи: company rubric / feedback / activity"]
+    Alembic["Alembic: миграции без удаления данных"] --> DB

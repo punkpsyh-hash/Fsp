@@ -1,0 +1,12 @@
+**
+!video/
+!video/package.json
+!video/package-lock.json
+!video/tsconfig.json
+!video/src/
+!video/src/**
+!docs/
+!docs/delivery/
+!docs/delivery/demo-final.mp4
+!resources/
+!resources/DejaVuSans.ttf

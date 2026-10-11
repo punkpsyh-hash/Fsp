@@ -1,0 +1,9 @@
+flowchart LR
+    Browser["Браузер: React / TypeScript"] -->|"HTTP loopback / SSH-туннель"| API["FastAPI: роли, CSRF, владение"]
+    API --> Domain["Существующие правила ranking / grade"]
+    API --> DB[("PostgreSQL 16: профили, попытки, приглашения, аудит")]
+    API --> PDF["PDF разрешённой проекции"]
+    API --> Mock["Локальные mock: identity / почта / ФСП"]
+    Migration["Alembic"] --> DB
+    Test["pytest / Playwright"] -.-> API
+    API -. "не подключено" .-> External["Внешнее API ФСП / OIDC / SMTP"]

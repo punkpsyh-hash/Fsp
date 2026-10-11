@@ -1,0 +1,16 @@
+{
+  "windows_ui_forward_verified": false,
+  "nas_database_port": "127.0.0.1:15433",
+  "nas_project": "/Volume1/projects/Fsp-llm-workspace",
+  "branch": "codex/local-llm-workspace",
+  "runtime_config_commit": "58105a25a921f80a46a736b32847a36bc025740e",
+  "main_stand_recreated": false,
+  "application_code_unchanged_since_verified_source": true,
+  "gpu_model_port": "127.0.0.1:18001",
+  "integrity_enforce": true,
+  "private_repository": "punkpsyh-hash/Fsp",
+  "nas_app_port": "127.0.0.1:8471",
+  "date": "2026-10-11T00:45:31.1273185Z",
+  "application_source_commit": "e6d025ce25912039ffeabad5931e356035c2fe9c",
+  "compose_project": "fspdelivery"
+}

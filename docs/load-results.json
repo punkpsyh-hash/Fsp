@@ -1,0 +1,22 @@
+{
+  "type": "local_synthetic_load",
+  "concurrency": 30,
+  "requests": 90,
+  "elapsed_seconds": 0.77,
+  "errors": 0,
+  "operations": {
+    "search": {
+      "requests": 45,
+      "p50_ms": 281.62,
+      "p95_ms": 387.12,
+      "max_ms": 454.8
+    },
+    "profile": {
+      "requests": 45,
+      "p50_ms": 148.41,
+      "p95_ms": 239.13,
+      "max_ms": 250.68
+    }
+  },
+  "limitation": "Один локальный сценарий, одна синтетическая учётная запись. Не human pilot, не испытание реальных ПДн или распределённой нагрузки."
+}

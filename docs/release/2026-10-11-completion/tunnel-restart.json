@@ -1,0 +1,18 @@
+{
+  "status": "passed",
+  "ssh_process_alive": true,
+  "source_commit": "58105a2",
+  "model_ready": true,
+  "phase": "stop_unlink_start_status",
+  "date": "2026-10-11T00:38:41.1648854Z",
+  "ownership_receipt_used": true,
+  "model_verification": {
+    "identity_verified": true,
+    "model": "Qwen/Qwen3-4B-Instruct-2507",
+    "revision": "cdbee75f17c01a7cc42f958dc650907174af0554",
+    "unauthorized_status": 401,
+    "authorized_status": 422,
+    "authenticated_access": true
+  },
+  "remote_socket_absent_after_stop": true
+}

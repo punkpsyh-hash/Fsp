@@ -1,0 +1,14 @@
+{
+  "cases": 4800,
+  "failed": 0,
+  "node": "v22.23.3",
+  "versions": [
+    "scenarios-v5",
+    "scenarios-v6"
+  ],
+  "grades": [
+    "junior",
+    "middle"
+  ],
+  "seeds_per_grade": 100
+}

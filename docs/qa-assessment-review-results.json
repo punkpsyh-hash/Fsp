@@ -1,0 +1,135 @@
+{
+  "type": "assessment_answer_transfer_diagnostic",
+  "blueprint_version": "families-v3",
+  "source_sha256": "2aaeecdb3d37abc419a47bb63749b8bd353976d19cca5651425ab1dd62e3379e",
+  "forms_total": 600,
+  "transfer_pairs_total": 594,
+  "cases": [
+    {
+      "specialization": "backend",
+      "grade": "junior",
+      "forms": 100,
+      "questions_per_form": 12,
+      "constant_answer_question_ids_in_sample": [
+        "1-http-retry",
+        "2-http-retry"
+      ],
+      "constant_answer_questions": 2,
+      "donor_seed": 0,
+      "target_seed_range_inclusive": [
+        1,
+        99
+      ],
+      "transferred_score_min": 16.67,
+      "transferred_score_max": 75.0,
+      "transferred_score_mean": 27.44,
+      "transferred_passes": 1
+    },
+    {
+      "specialization": "backend",
+      "grade": "middle",
+      "forms": 100,
+      "questions_per_form": 12,
+      "constant_answer_question_ids_in_sample": [
+        "1-http-retry",
+        "1-python-state",
+        "2-http-retry",
+        "2-python-state"
+      ],
+      "constant_answer_questions": 4,
+      "donor_seed": 0,
+      "target_seed_range_inclusive": [
+        1,
+        99
+      ],
+      "transferred_score_min": 33.33,
+      "transferred_score_max": 83.33,
+      "transferred_score_mean": 40.07,
+      "transferred_passes": 1
+    },
+    {
+      "specialization": "frontend",
+      "grade": "junior",
+      "forms": 100,
+      "questions_per_form": 12,
+      "constant_answer_question_ids_in_sample": [
+        "1-http-retry",
+        "2-http-retry"
+      ],
+      "constant_answer_questions": 2,
+      "donor_seed": 0,
+      "target_seed_range_inclusive": [
+        1,
+        99
+      ],
+      "transferred_score_min": 16.67,
+      "transferred_score_max": 83.33,
+      "transferred_score_mean": 24.5,
+      "transferred_passes": 1
+    },
+    {
+      "specialization": "frontend",
+      "grade": "middle",
+      "forms": 100,
+      "questions_per_form": 12,
+      "constant_answer_question_ids_in_sample": [
+        "1-http-retry",
+        "2-http-retry"
+      ],
+      "constant_answer_questions": 2,
+      "donor_seed": 0,
+      "target_seed_range_inclusive": [
+        1,
+        99
+      ],
+      "transferred_score_min": 16.67,
+      "transferred_score_max": 83.33,
+      "transferred_score_mean": 25.0,
+      "transferred_passes": 1
+    },
+    {
+      "specialization": "qa",
+      "grade": "junior",
+      "forms": 100,
+      "questions_per_form": 12,
+      "constant_answer_question_ids_in_sample": [
+        "1-http-retry",
+        "2-http-retry"
+      ],
+      "constant_answer_questions": 2,
+      "donor_seed": 0,
+      "target_seed_range_inclusive": [
+        1,
+        99
+      ],
+      "transferred_score_min": 16.67,
+      "transferred_score_max": 75.0,
+      "transferred_score_mean": 25.09,
+      "transferred_passes": 1
+    },
+    {
+      "specialization": "qa",
+      "grade": "middle",
+      "forms": 100,
+      "questions_per_form": 12,
+      "constant_answer_question_ids_in_sample": [
+        "1-http-retry",
+        "1-test-boundaries",
+        "2-http-retry",
+        "2-test-boundaries"
+      ],
+      "constant_answer_questions": 4,
+      "donor_seed": 0,
+      "target_seed_range_inclusive": [
+        1,
+        99
+      ],
+      "transferred_score_min": 33.33,
+      "transferred_score_max": 83.33,
+      "transferred_score_mean": 37.2,
+      "transferred_passes": 1
+    }
+  ],
+  "method": "Проверены ответы одинаковых question IDs в seed 0..99. Донор seed 0; переносится значение ответа, только если оно есть в options получателя. Остальные ответы пропущены. HTTP и база не используются.",
+  "limitation": "Конечная внутренняя выборка. Это диагностический сигнал, не human pilot, не доказательство дискриминативности или полной устойчивости. Не проверяет перенос алгоритма решения или внешнюю помощь."
+}

@@ -1,0 +1,13 @@
+{
+  "result": "passed",
+  "source_sha256": {
+    "src/server/banks.py": "0138ea8eaac040b327ca1edd60c136b75580fbf4b247f46d82e013086e9ac127",
+    "src/server/schemas.py": "9cb27672a5794677cd64bb778db2cac30364ad701b3cd112667cdbbddb1ad002"
+  },
+  "jury_guards_verified": true,
+  "rejected_email_cases": 7,
+  "synthetic_email_accepted": true,
+  "secrets_logged": false,
+  "verified_at": "2026-10-11T14:30:28.676046+00:00",
+  "source_revision": "c2c8faf0ea456c73c8bf4d4bd980224ef05e9c30"
+}

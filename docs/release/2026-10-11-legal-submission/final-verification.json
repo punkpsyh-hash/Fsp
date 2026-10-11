@@ -1,0 +1,82 @@
+{
+  "generated_at": "2026-10-11T13:16:50.933350+03:00",
+  "result": "passed",
+  "branch": "codex/local-llm-workspace",
+  "tested_product_code_commit": "b1292084c1afde9abff8e174c20fa83126bf4258",
+  "full_suite_environment": "NAS Docker Compose tools, Python 3.12; separate verification source bind; --no-deps; actual PostgreSQL 16",
+  "full_snapshot": {
+    "archive_sha256": "0447f6cfa3d36b1a4922805575a4bf85ed22d388385229e074b91d84974eee25",
+    "file_manifest_sha256": "d642a6bf0eb47835fb1c59662c2cfe4892df65e6169e7077699ad55f7e5eb9dd",
+    "files": 530,
+    "collected_tests": 489,
+    "source_and_test_manifest": "backend-test-source.json"
+  },
+  "runs": {
+    "sqlite": {
+      "passed": 486,
+      "skipped": 3,
+      "subtests_passed": 6,
+      "terminal_summary": "486 passed, 3 skipped, 1 warning, 6 subtests passed in 2183.01s (0:36:23)",
+      "log_sha256": "fab3e600e53f69e1526d2fe3621c00bb381404a1d680fa02882c03db701fb5d5",
+      "log_bytes": 1222
+    },
+    "postgresql": {
+      "passed": 487,
+      "skipped": 2,
+      "subtests_passed": 6,
+      "terminal_summary": "487 passed, 2 skipped, 1 warning, 6 subtests passed in 3630.06s (1:00:30)",
+      "log_sha256": "ab104194850df210b99d543483b558afe0c2fe5cc7e9b0876f6271f731038b64",
+      "log_bytes": 1222
+    },
+    "relay_incremental": {
+      "passed": 4,
+      "skipped": 1,
+      "subtests_passed": 0,
+      "terminal_summary": "4 passed, 1 skipped in 0.37s",
+      "log_sha256": "5e68c54fd948b17ab0daa1bed13649b6432be7c060898ecae12a964910b18b32",
+      "log_bytes": 111
+    }
+  },
+  "source_comparison": {
+    "changed_src_or_test_files_since_snapshot": [],
+    "added_test_files_since_snapshot": [
+      "tests/test_jury_relay_configuration.py"
+    ],
+    "incremental_test_file_sha256": "1b14ec12951533b59bee7146d98f535d6b88f4b378cec8be6fecc029be8e0d76"
+  },
+  "current_collection": 494,
+  "coverage_method": "489-test complete suites on immutable snapshot plus 5 newly added relay tests on current source; counts are separate runs, not a single new 494-test full-suite claim. Focused duplicate checks are not added.",
+  "combined_unique_coverage": {
+    "sqlite": {
+      "passed": 490,
+      "skipped": 4,
+      "subtests_passed": 6
+    },
+    "postgresql": {
+      "passed": 491,
+      "skipped": 3,
+      "subtests_passed": 6
+    }
+  },
+  "skip_scope": [
+    "Node web oracle is covered by historical dedicated Node run, unavailable in Python tools",
+    "PostgreSQL concurrency case skipped only in SQLite",
+    "Docker-dependent optional Compose check skipped in source tools without a Docker CLI"
+  ],
+  "warnings": "One Starlette TestClient deprecation warning; no failing tests",
+  "public_acceptance": {
+    "http": "jury-public-http.json",
+    "browser": "jury-public-browser.json",
+    "vm": "jury-vm.json",
+    "relay": "jury-production-relay.json"
+  },
+  "artifacts": {
+    "layout": "artifacts.json",
+    "visual": "document-visual-review.json",
+    "zip": "package.json"
+  },
+  "limits": [
+    "Synthetic functional and isolation checks; no independent psychometric calibration or real hiring validation",
+    "Official FSP integration remains mock; public jury LLM provider is none"
+  ]
+}

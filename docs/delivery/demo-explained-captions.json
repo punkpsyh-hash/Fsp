@@ -1,0 +1,352 @@
+[
+  {
+    "text": "ФСП · Карьерный профиль. Студия 37. Реальная запись на синтетических данных.",
+    "startMs": 0,
+    "endMs": 6000,
+    "timestampMs": null,
+    "confidence": null
+  },
+  {
+    "text": "Профиль кандидата. Регистрация, подтверждение и заполнение анкеты",
+    "startMs": 6000,
+    "endMs": 8400,
+    "timestampMs": null,
+    "confidence": null
+  },
+  {
+    "text": "Начинаем с демонстрационного сценария на синтетических данных.",
+    "startMs": 8400,
+    "endMs": 10400,
+    "timestampMs": null,
+    "confidence": null
+  },
+  {
+    "text": "Создаём тестовый аккаунт и подтверждаем вход через локальную mock-почту.",
+    "startMs": 10400,
+    "endMs": 14400,
+    "timestampMs": null,
+    "confidence": null
+  },
+  {
+    "text": "Заполняем анкету. Заявленные технологии пока не означают подтверждённые навыки.",
+    "startMs": 14400,
+    "endMs": 20400,
+    "timestampMs": null,
+    "confidence": null
+  },
+  {
+    "text": "Оценка навыков. Версия формы, сохранение ответов и результат",
+    "startMs": 20400,
+    "endMs": 22800,
+    "timestampMs": null,
+    "confidence": null
+  },
+  {
+    "text": "Начинаем оценку: вопросы последовательно открываются в интерфейсе кандидата.",
+    "startMs": 22800,
+    "endMs": 29800,
+    "timestampMs": null,
+    "confidence": null
+  },
+  {
+    "text": "Отвечаем на задания с кодом. Сохранение позволяет продолжить текущую попытку.",
+    "startMs": 29800,
+    "endMs": 37800,
+    "timestampMs": null,
+    "confidence": null
+  },
+  {
+    "text": "Навигация по вопросам сохраняет ответы в пределах этой попытки.",
+    "startMs": 37800,
+    "endMs": 45800,
+    "timestampMs": null,
+    "confidence": null
+  },
+  {
+    "text": "Продолжаем оценку по серверной версии формы.",
+    "startMs": 45800,
+    "endMs": 53800,
+    "timestampMs": null,
+    "confidence": null
+  },
+  {
+    "text": "Завершаем все 12 вопросов и проверяем ответы перед окончательной отправкой.",
+    "startMs": 53800,
+    "endMs": 60800,
+    "timestampMs": null,
+    "confidence": null
+  },
+  {
+    "text": "После подтверждения доступен разбор результата и оценка навыков.",
+    "startMs": 60800,
+    "endMs": 67280,
+    "timestampMs": null,
+    "confidence": null
+  },
+  {
+    "text": "История хранит попытку. Видимость своего профиля кандидат настраивает в «Приватности».",
+    "startMs": 67280,
+    "endMs": 71280,
+    "timestampMs": null,
+    "confidence": null
+  },
+  {
+    "text": "Короткие задания. Практика под конкретную потребность компании",
+    "startMs": 71280,
+    "endMs": 73680,
+    "timestampMs": null,
+    "confidence": null
+  },
+  {
+    "text": "Открываем короткое задание компании и отправляем описание своего подхода.",
+    "startMs": 73680,
+    "endMs": 79680,
+    "timestampMs": null,
+    "confidence": null
+  },
+  {
+    "text": "Подбор под задачи. Потребности работодателя, поиск и сравнение",
+    "startMs": 79680,
+    "endMs": 82080,
+    "timestampMs": null,
+    "confidence": null
+  },
+  {
+    "text": "Работодатель выбирает рабочие задачи и требуемые навыки.",
+    "startMs": 82080,
+    "endMs": 83600,
+    "timestampMs": null,
+    "confidence": null
+  },
+  {
+    "text": "Ищем кандидатов и сравниваем составляющие оценки соответствия.",
+    "startMs": 83600,
+    "endMs": 88880,
+    "timestampMs": null,
+    "confidence": null
+  },
+  {
+    "text": "Формируем персональное предложение: зарплата, условия и сообщение кандидату.",
+    "startMs": 88880,
+    "endMs": 93360,
+    "timestampMs": null,
+    "confidence": null
+  },
+  {
+    "text": "Согласие на контакт. Приглашение, принятие и отзыв доступа",
+    "startMs": 93360,
+    "endMs": 95760,
+    "timestampMs": null,
+    "confidence": null
+  },
+  {
+    "text": "Предложение появляется у работодателя в разделе отправленных приглашений.",
+    "startMs": 95760,
+    "endMs": 97760,
+    "timestampMs": null,
+    "confidence": null
+  },
+  {
+    "text": "Переключаемся в синтетический аккаунт кандидата, чтобы проверить входящее предложение.",
+    "startMs": 97760,
+    "endMs": 106760,
+    "timestampMs": null,
+    "confidence": null
+  },
+  {
+    "text": "Открываем входящие. Просмотр предложения не открывает контакт; нужно отдельное согласие.",
+    "startMs": 106760,
+    "endMs": 111760,
+    "timestampMs": null,
+    "confidence": null
+  },
+  {
+    "text": "После принятия контакт разрешён только отправителю этого предложения.",
+    "startMs": 111760,
+    "endMs": 115760,
+    "timestampMs": null,
+    "confidence": null
+  },
+  {
+    "text": "В кабинете работодателя видны статус «Принято» и разрешённый контакт.",
+    "startMs": 115760,
+    "endMs": 121760,
+    "timestampMs": null,
+    "confidence": null
+  },
+  {
+    "text": "Возвращаемся к кандидату и отзываем доступ к контакту в разделе приватности.",
+    "startMs": 121760,
+    "endMs": 129080,
+    "timestampMs": null,
+    "confidence": null
+  },
+  {
+    "text": "Работодатель теперь видит отзыв согласия; контакт становится недоступен.",
+    "startMs": 129080,
+    "endMs": 136760,
+    "timestampMs": null,
+    "confidence": null
+  },
+  {
+    "text": "Отклик на вакансию. Инициатива кандидата и отзыв отклика",
+    "startMs": 136760,
+    "endMs": 139160,
+    "timestampMs": null,
+    "confidence": null
+  },
+  {
+    "text": "Кандидат открывает вакансию и отправляет отклик с разрешением доступа к контакту.",
+    "startMs": 139160,
+    "endMs": 147160,
+    "timestampMs": null,
+    "confidence": null
+  },
+  {
+    "text": "Переключаемся к работодателю: отклик и разрешённый контакт доступны в его кабинете.",
+    "startMs": 147160,
+    "endMs": 156160,
+    "timestampMs": null,
+    "confidence": null
+  },
+  {
+    "text": "Кандидат возвращается в «Мои отклики» и отзывает отправленный отклик.",
+    "startMs": 156160,
+    "endMs": 166160,
+    "timestampMs": null,
+    "confidence": null
+  },
+  {
+    "text": "Проверяем результат у работодателя: отклик отозван, контакт больше недоступен.",
+    "startMs": 166160,
+    "endMs": 174160,
+    "timestampMs": null,
+    "confidence": null
+  },
+  {
+    "text": "Конструктор и импорт. Авторские задания, предварительный просмотр и версии",
+    "startMs": 174160,
+    "endMs": 176560,
+    "timestampMs": null,
+    "confidence": null
+  },
+  {
+    "text": "Открываем конструктор и подготавливаем набор с числовым заданием.",
+    "startMs": 176560,
+    "endMs": 183560,
+    "timestampMs": null,
+    "confidence": null
+  },
+  {
+    "text": "Заполняем условие, правильный ответ и навыки; проверяем предварительный просмотр.",
+    "startMs": 183560,
+    "endMs": 191560,
+    "timestampMs": null,
+    "confidence": null
+  },
+  {
+    "text": "Импортируем набор: сначала проверка файла, затем сохранение и публикация версии.",
+    "startMs": 191560,
+    "endMs": 200560,
+    "timestampMs": null,
+    "confidence": null
+  },
+  {
+    "text": "Переключаемся к кандидату и открываем опубликованный практический набор.",
+    "startMs": 200560,
+    "endMs": 206560,
+    "timestampMs": null,
+    "confidence": null
+  },
+  {
+    "text": "Практика в VM. Python, JavaScript и SQL; результат в профиле",
+    "startMs": 206560,
+    "endMs": 208960,
+    "timestampMs": null,
+    "confidence": null
+  },
+  {
+    "text": "Пишем решение Python и запускаем пример через отдельный VM runner.",
+    "startMs": 208960,
+    "endMs": 216960,
+    "timestampMs": null,
+    "confidence": null
+  },
+  {
+    "text": "Дожидаемся проверки Python. Интерфейс показывает состояние выполнения.",
+    "startMs": 216960,
+    "endMs": 227960,
+    "timestampMs": null,
+    "confidence": null
+  },
+  {
+    "text": "Переходим к JavaScript: вводим решение и запускаем проверку примера.",
+    "startMs": 227960,
+    "endMs": 238960,
+    "timestampMs": null,
+    "confidence": null
+  },
+  {
+    "text": "Ожидаем проверку JavaScript, сохраняем ответ и переходим к SQL.",
+    "startMs": 238960,
+    "endMs": 247960,
+    "timestampMs": null,
+    "confidence": null
+  },
+  {
+    "text": "Выполняем SQL-задание в явно указанном диалекте SQLite.",
+    "startMs": 247960,
+    "endMs": 256960,
+    "timestampMs": null,
+    "confidence": null
+  },
+  {
+    "text": "Ожидаем SQL-проверку и проверяем ответы перед окончательной сдачей набора.",
+    "startMs": 256960,
+    "endMs": 264240,
+    "timestampMs": null,
+    "confidence": null
+  },
+  {
+    "text": "После сдачи доступен разбор; практика отдельно сохраняется в профиле.",
+    "startMs": 264240,
+    "endMs": 268720,
+    "timestampMs": null,
+    "confidence": null
+  },
+  {
+    "text": "Защита: версии форм, параметры задач и контроль целостности попытки. Разбор доступен после завершения.",
+    "startMs": 268720,
+    "endMs": 278720,
+    "timestampMs": null,
+    "confidence": null
+  },
+  {
+    "text": "Генератор Qwen предлагает черновик. Сервер проверяет структуру, автор решает вопрос публикации. Показана схема, не вызов модели.",
+    "startMs": 278720,
+    "endMs": 288720,
+    "timestampMs": null,
+    "confidence": null
+  },
+  {
+    "text": "Профиль → Оценка → Категория → Подбор → Согласие → Контакт.",
+    "startMs": 288720,
+    "endMs": 296720,
+    "timestampMs": null,
+    "confidence": null
+  },
+  {
+    "text": "GitHub: публичный github.com/punkpsyh-hash/Fsp, ветка main. Скачать ZIP или выполнить git clone; приглашение не требуется.",
+    "startMs": 296720,
+    "endMs": 310720,
+    "timestampMs": null,
+    "confidence": null
+  },
+  {
+    "text": "Стенд: fsptest.kolesnikovny.ru. Отдельный пароль от владельца. Полный запуск — Docker и README.",
+    "startMs": 310720,
+    "endMs": 324720,
+    "timestampMs": null,
+    "confidence": null
+  }
+]

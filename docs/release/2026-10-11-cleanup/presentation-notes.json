@@ -1,0 +1,27 @@
+{
+  "status": "passed",
+  "scope": "speaker_note_source_citations_only",
+  "before_commit": "22b4a013f4ee5ed4fb93a8d538a8571d0b50fdf0",
+  "before_sha256": "ab33df30ea1752b45c0872c5a18614ef46480d472bdb028b823eae03718453d1",
+  "after_sha256": "1567ee08046d9c6da0bc9baa73e5a46abbb3004229253a1a140521d1db2758a4",
+  "changed_notes": [
+    "ppt/notesSlides/notesSlide2.xml",
+    "ppt/notesSlides/notesSlide4.xml",
+    "ppt/notesSlides/notesSlide5.xml",
+    "ppt/notesSlides/notesSlide6.xml",
+    "ppt/notesSlides/notesSlide7.xml",
+    "ppt/notesSlides/notesSlide8.xml",
+    "ppt/notesSlides/notesSlide9.xml",
+    "ppt/notesSlides/notesSlide10.xml",
+    "ppt/notesSlides/notesSlide11.xml",
+    "ppt/notesSlides/notesSlide12.xml",
+    "ppt/notesSlides/notesSlide15.xml",
+    "ppt/notesSlides/notesSlide16.xml"
+  ],
+  "slides": 16,
+  "speaker_notes": 16,
+  "all_other_zip_payloads_identical": true,
+  "zip_valid": true,
+  "visual_content_changed": false,
+  "native_powerpoint_executed": false
+}

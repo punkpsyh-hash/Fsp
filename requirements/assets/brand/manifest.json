@@ -1,0 +1,30 @@
+[
+  {
+    "file": "requirements/assets/brand/logo_01.svg",
+    "archive_entry": "logo_01.svg",
+    "sha256": "a1e81f88a89e93324d4dcc669b345428a9fa495bfe948ce633fdd4dcdfc507da",
+    "storage_status": "local_original_and_private_history_only",
+    "public_distribution": false
+  },
+  {
+    "file": "requirements/assets/brand/logo_02.svg",
+    "archive_entry": "logo_02.svg",
+    "sha256": "2774aea7b35526445996731ff0ca90080dd9df6c541e701af13c4b671fc3d7dd",
+    "storage_status": "local_original_and_private_history_only",
+    "public_distribution": false
+  },
+  {
+    "file": "requirements/assets/brand/logo_03.svg",
+    "archive_entry": "logo_03.svg",
+    "sha256": "bc38025bc19633d5f9c49818724a12b0d4244a505e7076003c4fa7efbf18843c",
+    "storage_status": "local_original_and_private_history_only",
+    "public_distribution": false
+  },
+  {
+    "file": "requirements/assets/brand/logo_big.svg",
+    "archive_entry": "logo_big.svg",
+    "sha256": "299f7b99fd539e0dbaaeee2ec1b1f83fd8397aef9a3273acef453ba040a72c2d",
+    "storage_status": "local_original_and_private_history_only",
+    "public_distribution": false
+  }
+]

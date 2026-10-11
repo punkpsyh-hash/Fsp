@@ -1,0 +1,580 @@
+{
+  "protocol": "fsp-live-nas-api-v1",
+  "purpose": "real API path: generate, author-save, publish, candidate-submit, model-review-hint, author-review",
+  "visibility": "author-private local report; generated answer keys are intentionally retained",
+  "base_url": "http://127.0.0.1:8470",
+  "started_at": "2026-10-11T00:32:50.980413+00:00",
+  "status": "passed",
+  "phases": [
+    {
+      "name": "health",
+      "status": "passed",
+      "started_at": "2026-10-11T00:32:50.981230+00:00",
+      "requests": [
+        {
+          "method": "GET",
+          "path": "/api/health",
+          "http_status": 200,
+          "duration_seconds": 0.02
+        }
+      ],
+      "duration_seconds": 0.149
+    },
+    {
+      "name": "login.employer",
+      "status": "passed",
+      "started_at": "2026-10-11T00:32:51.131488+00:00",
+      "requests": [
+        {
+          "method": "POST",
+          "path": "/api/v1/auth/demo-login",
+          "http_status": 200,
+          "duration_seconds": 0.208
+        }
+      ],
+      "duration_seconds": 0.221
+    },
+    {
+      "name": "bank.create_draft",
+      "status": "passed",
+      "started_at": "2026-10-11T00:32:51.353215+00:00",
+      "requests": [
+        {
+          "method": "POST",
+          "path": "/api/v1/company/banks",
+          "http_status": 201,
+          "duration_seconds": 0.195
+        }
+      ],
+      "duration_seconds": 0.195
+    },
+    {
+      "name": "suggest.single_choice",
+      "status": "passed",
+      "started_at": "2026-10-11T00:32:51.551001+00:00",
+      "requests": [
+        {
+          "method": "POST",
+          "path": "/api/v1/company/banks/cf891e5f-3e55-4425-8528-d23fe835edfd/versions/572ff3ce-2c02-408d-aff0-44ee66d95947/suggest-task",
+          "http_status": 200,
+          "duration_seconds": 30.481
+        },
+        {
+          "method": "GET",
+          "path": "/api/v1/company/banks/cf891e5f-3e55-4425-8528-d23fe835edfd",
+          "http_status": 200,
+          "duration_seconds": 0.029
+        }
+      ],
+      "duration_seconds": 30.509
+    },
+    {
+      "name": "suggest.multiple_choice",
+      "status": "passed",
+      "started_at": "2026-10-11T00:33:22.062080+00:00",
+      "requests": [
+        {
+          "method": "POST",
+          "path": "/api/v1/company/banks/cf891e5f-3e55-4425-8528-d23fe835edfd/versions/572ff3ce-2c02-408d-aff0-44ee66d95947/suggest-task",
+          "http_status": 200,
+          "duration_seconds": 27.99
+        },
+        {
+          "method": "GET",
+          "path": "/api/v1/company/banks/cf891e5f-3e55-4425-8528-d23fe835edfd",
+          "http_status": 200,
+          "duration_seconds": 0.055
+        }
+      ],
+      "duration_seconds": 28.045
+    },
+    {
+      "name": "suggest.numeric",
+      "status": "passed",
+      "started_at": "2026-10-11T00:33:50.110452+00:00",
+      "requests": [
+        {
+          "method": "POST",
+          "path": "/api/v1/company/banks/cf891e5f-3e55-4425-8528-d23fe835edfd/versions/572ff3ce-2c02-408d-aff0-44ee66d95947/suggest-task",
+          "http_status": 200,
+          "duration_seconds": 14.184
+        },
+        {
+          "method": "GET",
+          "path": "/api/v1/company/banks/cf891e5f-3e55-4425-8528-d23fe835edfd",
+          "http_status": 200,
+          "duration_seconds": 0.027
+        }
+      ],
+      "duration_seconds": 14.211
+    },
+    {
+      "name": "suggest.open_response",
+      "status": "passed",
+      "started_at": "2026-10-11T00:34:04.324717+00:00",
+      "requests": [
+        {
+          "method": "POST",
+          "path": "/api/v1/company/banks/cf891e5f-3e55-4425-8528-d23fe835edfd/versions/572ff3ce-2c02-408d-aff0-44ee66d95947/suggest-task",
+          "http_status": 200,
+          "duration_seconds": 65.092
+        },
+        {
+          "method": "GET",
+          "path": "/api/v1/company/banks/cf891e5f-3e55-4425-8528-d23fe835edfd",
+          "http_status": 200,
+          "duration_seconds": 0.022
+        }
+      ],
+      "duration_seconds": 65.114
+    },
+    {
+      "name": "bank.save_generated_tasks",
+      "status": "passed",
+      "started_at": "2026-10-11T00:35:09.443416+00:00",
+      "requests": [
+        {
+          "method": "PATCH",
+          "path": "/api/v1/company/banks/cf891e5f-3e55-4425-8528-d23fe835edfd/versions/572ff3ce-2c02-408d-aff0-44ee66d95947",
+          "http_status": 200,
+          "duration_seconds": 1.052
+        }
+      ],
+      "duration_seconds": 1.052
+    },
+    {
+      "name": "bank.publish",
+      "status": "passed",
+      "started_at": "2026-10-11T00:35:10.497094+00:00",
+      "requests": [
+        {
+          "method": "POST",
+          "path": "/api/v1/company/banks/cf891e5f-3e55-4425-8528-d23fe835edfd/versions/572ff3ce-2c02-408d-aff0-44ee66d95947/publish",
+          "http_status": 200,
+          "duration_seconds": 0.554
+        }
+      ],
+      "duration_seconds": 0.555
+    },
+    {
+      "name": "login.candidate",
+      "status": "passed",
+      "started_at": "2026-10-11T00:35:11.053967+00:00",
+      "requests": [
+        {
+          "method": "POST",
+          "path": "/api/v1/auth/demo-login",
+          "http_status": 200,
+          "duration_seconds": 0.41
+        }
+      ],
+      "duration_seconds": 0.422
+    },
+    {
+      "name": "profile.before_practice",
+      "status": "passed",
+      "started_at": "2026-10-11T00:35:11.477648+00:00",
+      "requests": [
+        {
+          "method": "GET",
+          "path": "/api/v1/candidate/profile",
+          "http_status": 200,
+          "duration_seconds": 0.07
+        }
+      ],
+      "duration_seconds": 0.07
+    },
+    {
+      "name": "attempt.start",
+      "status": "passed",
+      "started_at": "2026-10-11T00:35:11.550900+00:00",
+      "requests": [
+        {
+          "method": "POST",
+          "path": "/api/v1/candidate/banks/cf891e5f-3e55-4425-8528-d23fe835edfd/attempts",
+          "http_status": 201,
+          "duration_seconds": 0.281
+        }
+      ],
+      "duration_seconds": 0.281
+    },
+    {
+      "name": "attempt.save_answers",
+      "status": "passed",
+      "started_at": "2026-10-11T00:35:11.834367+00:00",
+      "requests": [
+        {
+          "method": "PATCH",
+          "path": "/api/v1/candidate/bank-attempts/0710b130-7e09-4357-a1e0-a64c9fee2c27",
+          "http_status": 200,
+          "duration_seconds": 0.315
+        }
+      ],
+      "duration_seconds": 0.315
+    },
+    {
+      "name": "attempt.submit",
+      "status": "passed",
+      "started_at": "2026-10-11T00:35:12.151873+00:00",
+      "requests": [
+        {
+          "method": "POST",
+          "path": "/api/v1/candidate/bank-attempts/0710b130-7e09-4357-a1e0-a64c9fee2c27/submit",
+          "http_status": 200,
+          "duration_seconds": 0.586
+        }
+      ],
+      "duration_seconds": 0.586
+    },
+    {
+      "name": "review.model_suggestion",
+      "status": "passed",
+      "started_at": "2026-10-11T00:35:12.776015+00:00",
+      "requests": [
+        {
+          "method": "POST",
+          "path": "/api/v1/company/bank-attempts/0710b130-7e09-4357-a1e0-a64c9fee2c27/review-suggestion",
+          "http_status": 200,
+          "duration_seconds": 34.169
+        }
+      ],
+      "duration_seconds": 34.169
+    },
+    {
+      "name": "review.author_decision",
+      "status": "passed",
+      "started_at": "2026-10-11T00:35:46.949861+00:00",
+      "requests": [
+        {
+          "method": "POST",
+          "path": "/api/v1/company/bank-attempts/0710b130-7e09-4357-a1e0-a64c9fee2c27/review",
+          "http_status": 200,
+          "duration_seconds": 0.24
+        }
+      ],
+      "duration_seconds": 0.24
+    },
+    {
+      "name": "profile.after_practice",
+      "status": "passed",
+      "started_at": "2026-10-11T00:35:47.192698+00:00",
+      "requests": [
+        {
+          "method": "GET",
+          "path": "/api/v1/candidate/profile",
+          "http_status": 200,
+          "duration_seconds": 0.067
+        }
+      ],
+      "duration_seconds": 0.067
+    }
+  ],
+  "generation": [
+    {
+      "kind": "single_choice",
+      "brief": "Короткое задание Python про len множества с повторяющимися целыми числами. Эталон вычисли точно.",
+      "result": {
+        "task": {
+          "id": "suggestion-bc6bdd23d3814835",
+          "type": "single_choice",
+          "title": "Размер множества из повторяющихся целых чисел",
+          "prompt": "У вас есть список целых чисел: [1, 2, 2, 3, 3, 3, 4]. Какова длина множества, которое получится после преобразования этого списка в множество в Python? Какой результат вернёт запрос в Python с использованием функции len() и set() по этим данным? В ответе укажите только число, без пояснений или текста, например: 3",
+          "skills": [
+            "python"
+          ],
+          "family": "",
+          "weight": 1.0,
+          "expected_minutes": 5,
+          "options": [
+            {
+              "id": "a",
+              "text": "4"
+            },
+            {
+              "id": "b",
+              "text": "5"
+            },
+            {
+              "id": "c",
+              "text": "3"
+            },
+            {
+              "id": "d",
+              "text": "7"
+            }
+          ],
+          "answer_key": [
+            "a"
+          ],
+          "partial_credit": false,
+          "numeric_answer": null,
+          "absolute_tolerance": 0.0,
+          "relative_tolerance": 0.0,
+          "unit": "",
+          "rubric": "",
+          "answer_limit": 4000,
+          "language": null,
+          "starter_code": "",
+          "examples": [],
+          "hidden_tests": [],
+          "runtime_limits": {
+            "wall_seconds": 3,
+            "memory_mb": 512
+          }
+        },
+        "source": "llm",
+        "model": "Qwen/Qwen3-4B-Instruct-2507",
+        "checks": [
+          "json-schema",
+          "task-type",
+          "skills",
+          "publication-fields"
+        ],
+        "review_required": true
+      }
+    },
+    {
+      "kind": "multiple_choice",
+      "brief": "Короткое задание Python: какие операции изменяют список на месте. Используй append, sort, sorted, len.",
+      "result": {
+        "task": {
+          "id": "suggestion-70d2c422593a42c6",
+          "type": "multiple_choice",
+          "title": "Какие операции изменяют список на месте в Python из приведённых ниже? (append, sort, sorted, len)?",
+          "prompt": "Какие операции изменяют список на месте в Python из приведённых ниже: append, sort, sorted, len? Выберите все верные варианты",
+          "skills": [
+            "python"
+          ],
+          "family": "",
+          "weight": 1.0,
+          "expected_minutes": 5,
+          "options": [
+            {
+              "id": "a",
+              "text": "len"
+            },
+            {
+              "id": "b",
+              "text": "append"
+            },
+            {
+              "id": "c",
+              "text": "sorted"
+            },
+            {
+              "id": "d",
+              "text": "sort"
+            }
+          ],
+          "answer_key": [
+            "b",
+            "d"
+          ],
+          "partial_credit": false,
+          "numeric_answer": null,
+          "absolute_tolerance": 0.0,
+          "relative_tolerance": 0.0,
+          "unit": "",
+          "rubric": "",
+          "answer_limit": 4000,
+          "language": null,
+          "starter_code": "",
+          "examples": [],
+          "hidden_tests": [],
+          "runtime_limits": {
+            "wall_seconds": 3,
+            "memory_mb": 512
+          }
+        },
+        "source": "llm",
+        "model": "Qwen/Qwen3-4B-Instruct-2507",
+        "checks": [
+          "json-schema",
+          "task-type",
+          "skills",
+          "publication-fields"
+        ],
+        "review_required": true
+      }
+    },
+    {
+      "kind": "numeric",
+      "brief": "Короткое задание Python: сумма трёх явно указанных небольших целых чисел из списка. Единица — число.",
+      "result": {
+        "task": {
+          "id": "suggestion-932f7a4109dd472c",
+          "type": "numeric",
+          "title": "Сумма трёх чисел",
+          "prompt": "Найдите сумму чисел 4, 7 и 9 из списка целых чисел",
+          "skills": [
+            "python"
+          ],
+          "family": "",
+          "weight": 1.0,
+          "expected_minutes": 5,
+          "options": [],
+          "answer_key": [],
+          "partial_credit": false,
+          "numeric_answer": 20.0,
+          "absolute_tolerance": 0.0,
+          "relative_tolerance": 0.0,
+          "unit": "ед",
+          "rubric": "",
+          "answer_limit": 4000,
+          "language": null,
+          "starter_code": "",
+          "examples": [],
+          "hidden_tests": [],
+          "runtime_limits": {
+            "wall_seconds": 3,
+            "memory_mb": 512
+          }
+        },
+        "source": "llm",
+        "model": "Qwen/Qwen3-4B-Instruct-2507",
+        "checks": [
+          "json-schema",
+          "task-type",
+          "skills",
+          "publication-fields"
+        ],
+        "review_required": true
+      }
+    },
+    {
+      "kind": "open_response",
+      "brief": "Объяснить, как ключ идемпотентности предотвращает повторное создание платежа при повторе HTTP-запроса. Рубрика: 0/50/100.",
+      "result": {
+        "task": {
+          "id": "suggestion-198b628da64c43b7",
+          "type": "open_response",
+          "title": "Ключ идемпотентности и предотвращение повторного создания платежа",
+          "prompt": "Объясните, как ключ идемпотентности предотвращает повторное создание платежа при повторе HTTP-запроса. Опишите механизм, как он работает в контексте API-интерфейсов и как помогает избежать дублирования транзакций при повторном вызове запроса с тем же ключом. Укажите, как этот механизм обеспечивает согласованность состояния платежной системы в случае сетевых сбоев или задержек в обработке запросов",
+          "skills": [
+            "http"
+          ],
+          "family": "",
+          "weight": 1.0,
+          "expected_minutes": 5,
+          "options": [],
+          "answer_key": [],
+          "partial_credit": false,
+          "numeric_answer": null,
+          "absolute_tolerance": 0.0,
+          "relative_tolerance": 0.0,
+          "unit": "",
+          "rubric": "0: отсутствует объяснение механизма идемпотентности. 50: указано, что ключ идемрованности предотвращает дублирование, но не объяснено, как работает проверка или как избежать повторного создания. 100: объяснено, как ключ идемпотентности предотвращает повторное создание платежа, описан механизм проверки, хранения состояния и предотвращения дублирования в случае повторного запроса.",
+          "answer_limit": 4000,
+          "language": null,
+          "starter_code": "",
+          "examples": [],
+          "hidden_tests": [],
+          "runtime_limits": {
+            "wall_seconds": 3,
+            "memory_mb": 512
+          }
+        },
+        "source": "llm",
+        "model": "Qwen/Qwen3-4B-Instruct-2507",
+        "checks": [
+          "json-schema",
+          "task-type",
+          "skills",
+          "publication-fields"
+        ],
+        "review_required": true
+      }
+    }
+  ],
+  "employer": {
+    "id": "demo-employer-x",
+    "role": "employer"
+  },
+  "bank": {
+    "id": "cf891e5f-3e55-4425-8528-d23fe835edfd",
+    "external_id": "live-llm-1791678771-552b58338f7e",
+    "version_id": "572ff3ce-2c02-408d-aff0-44ee66d95947",
+    "initial_revision": 1,
+    "saved_revision": 2,
+    "published_revision": 3
+  },
+  "candidate": {
+    "id": "demo-candidate-a",
+    "role": "candidate"
+  },
+  "profile_before": {
+    "skills": [
+      "python",
+      "sql"
+    ],
+    "confirmed_grade": "junior",
+    "test_score": 90.0
+  },
+  "review_suggestion": {
+    "score": 65,
+    "feedback": "Верно объяснено, что ключ идемпотентности предотвращает дублирование при повторном запросе, но не раскрыто, как именно происходит проверка и хранение состояния. Не описан механизм в случае сетевых сбоев или задержек. Нужно уточнить, как сервер проверяет, что запрос уже обработан, и как обеспечивается согласованность при сбоях.",
+    "source": "llm",
+    "model": "Qwen/Qwen3-4B-Instruct-2507",
+    "review_required": true
+  },
+  "attempt": {
+    "id": "0710b130-7e09-4357-a1e0-a64c9fee2c27",
+    "status": "completed",
+    "result": {
+      "score": 100.0,
+      "pending_count": 0,
+      "completed": true,
+      "tasks": [
+        {
+          "task_id": "task-5a5bba53640f46b2b15cf8726d128122",
+          "type": "single_choice",
+          "score": 100.0,
+          "status": "scored",
+          "feedback": null
+        },
+        {
+          "task_id": "task-b48005570c1348c79a4d7d9aaa5db81b",
+          "type": "multiple_choice",
+          "score": 100.0,
+          "status": "scored",
+          "feedback": null
+        },
+        {
+          "task_id": "task-84a09f9b44194d66bfa5f08b51dfcb15",
+          "type": "numeric",
+          "score": 100.0,
+          "status": "scored",
+          "feedback": null
+        },
+        {
+          "task_id": "task-b57b5140ef8c4b759ed84275941b7869",
+          "type": "open_response",
+          "score": 100.0,
+          "status": "scored",
+          "feedback": "Автор проверил синтетический ответ: описаны атомарная фиксация ключа, повтор без второго эффекта и конфликт изменённого тела."
+        }
+      ],
+      "scope": "employer",
+      "grade_effect": false,
+      "scorer_version": "bank-v1"
+    },
+    "author_review_score": 100
+  },
+  "profile_after": {
+    "skills": [
+      "python",
+      "sql"
+    ],
+    "confirmed_grade": "junior",
+    "test_score": 90.0
+  },
+  "finished_at": "2026-10-11T00:35:47.263483+00:00",
+  "summary": {
+    "generated": 4,
+    "published_tasks": 4,
+    "candidate_status": "completed",
+    "model_review_was_advisory": true,
+    "author_review_was_explicit": true,
+    "profile_unchanged": true
+  }
+}

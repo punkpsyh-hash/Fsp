@@ -1,0 +1,37 @@
+{
+  "checked_at": "2026-10-11T12:31:34+03:00",
+  "scope": "Local Docker proof of nginx to restricted reverse SSH to Caddy relay",
+  "mutations": {
+    "nas": false,
+    "vps": false,
+    "dns": false,
+    "router": false
+  },
+  "components": {
+    "caddy": "2.11.7 pinned index digest",
+    "ssh_client": "OpenSSH_10.3p1 on pinned Alpine 3.24.2 index digest",
+    "nginx_test_parser": "nginx:1.28.0-alpine@sha256:30f1c0d78e0ad60901648be663a710bdadf19e4c10ac6782c235200619158284",
+    "upstream": "synthetic header-echo HTTP server"
+  },
+  "results": {
+    "compose_overlay_config_quiet": "passed",
+    "caddy_validate": "passed",
+    "ssh_client_image_build": "passed",
+    "nginx_config_test": "passed",
+    "remote_listener": "127.0.0.1:18470 only",
+    "unauthorized_listener_18471": "rejected, SSH exit 255",
+    "legal_path_without_basic_auth": 200,
+    "root_without_basic_auth": 401,
+    "internal_with_basic_auth": 404,
+    "authenticated_form_path_to_upstream": 200,
+    "spoofed_x_forwarded_for_removed": true,
+    "upstream_x_forwarded_proto": "https",
+    "tunnel_stopped_fail_closed": 502
+  },
+  "limitations": [
+    "The test used a synthetic upstream rather than the full application",
+    "Docker Desktop supplied the local client source address; production bridge and client addresses must be rechecked on NAS and ru2",
+    "No public certificate, external DNS, NAS runtime or VPS configuration was changed",
+    "Production nginx and sshd validation on ru2 remains mandatory before reload"
+  ]
+}

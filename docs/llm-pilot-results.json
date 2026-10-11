@@ -1,0 +1,214 @@
+{
+  "date": "2026-10-09",
+  "status": "trained_pilot_not_accepted_for_product",
+  "execution": "Windows Docker GPU on current PC; caches, venv, weights, splits, adapters and logs on D; offline during baseline/train/eval",
+  "model": {
+    "model_id": "Qwen/Qwen2.5-0.5B-Instruct",
+    "model_revision": "7ae557604adf67be50417f59c2c2f167def9a775",
+    "base_weights_sha256": "fdf756fa7fcbe7404d5c60e26bff1a0c8b8aa1f72ced49e7dd0210fe288fb7fe"
+  },
+  "base_license": {
+    "name": "Apache-2.0",
+    "source": "https://huggingface.co/Qwen/Qwen2.5-0.5B-Instruct",
+    "file_sha256": "832dd9e00a68dd83b3c3fb9f5588dad7dcf337a0db50f7d9483f310cd292e92e"
+  },
+  "own_code_license": "No license added, owner decision",
+  "dataset": {
+    "protocol": "author-example-lora-pilot-v1",
+    "seed": 20261009,
+    "model_id": "Qwen/Qwen2.5-0.5B-Instruct",
+    "model_revision": "7ae557604adf67be50417f59c2c2f167def9a775",
+    "sources": [
+      {
+        "path": "requirements/examples/bank-all-types.json",
+        "sha256": "b2168e45e71c99c2894fffcae3d148cdd47d56220180db1aee535c0d54712912",
+        "origin": "Авторские синтетические задания проекта; экспертная калибровка не проводилась",
+        "rights_basis": "Локальный исследовательский пилот на материалах владельца проекта"
+      },
+      {
+        "path": "requirements/examples/bank-contest.json",
+        "sha256": "0ca2b762fa2fb8173096da2cdfde00299e2da2cdbffc5138f45956d2cee003a8",
+        "origin": "Авторские синтетические задания проекта; экспертная калибровка не проводилась",
+        "rights_basis": "Локальный исследовательский пилот на материалах владельца проекта"
+      }
+    ],
+    "train_count": 4,
+    "holdout_count": 3,
+    "train_families": [
+      "all-types-http-choice",
+      "all-types-retry-open",
+      "all-types-sql-choice",
+      "all-types-time-number"
+    ],
+    "holdout_families": [
+      "atomic-read-modify-write-idempotent-reservation",
+      "http-idempotency-scope-and-replay",
+      "privacy-owner-scoped-grants-and-revocation"
+    ],
+    "review_status": "author_example_not_expert_curated",
+    "normalization": "target.id=suggestion; one open_response rubric gained explicit 0/100 anchors",
+    "limitations": "Только 4 обучающих и 3 контрольных задания; технический пилот, не оценка качества найма",
+    "train_sha256": "1b08bd7bf715ac28fa3d7be1083b8893df309a29886429c797cc449724005edc",
+    "holdout_sha256": "982adc32efff9dd4fc1555dd2dfa4cfccdd9ae3a58063d859c47b948974fc3df"
+  },
+  "training": {
+    "status": "trained_pilot_adapter",
+    "model_id": "Qwen/Qwen2.5-0.5B-Instruct",
+    "model_revision": "7ae557604adf67be50417f59c2c2f167def9a775",
+    "base_weights_sha256": "fdf756fa7fcbe7404d5c60e26bff1a0c8b8aa1f72ced49e7dd0210fe288fb7fe",
+    "train_sha256": "1b08bd7bf715ac28fa3d7be1083b8893df309a29886429c797cc449724005edc",
+    "holdout_sha256": "982adc32efff9dd4fc1555dd2dfa4cfccdd9ae3a58063d859c47b948974fc3df",
+    "seed": 20261009,
+    "steps": 20,
+    "max_length": 512,
+    "batch_size": 1,
+    "optimizer": "AdamW",
+    "learning_rate": 0.0002,
+    "lora_r": 8,
+    "lora_alpha": 16,
+    "lora_dropout": 0.05,
+    "target_modules": [
+      "q_proj",
+      "v_proj"
+    ],
+    "gpu": "NVIDIA GeForce RTX 4070 Laptop GPU",
+    "vram_total_bytes": 8585216000,
+    "peak_allocated_bytes": 1769954304,
+    "losses": [
+      1.437733,
+      1.379387,
+      1.643837,
+      2.091096,
+      1.24109,
+      1.252669,
+      1.427466,
+      1.862897,
+      1.001465,
+      0.965746,
+      1.100585,
+      1.716338,
+      0.836063,
+      0.779273,
+      0.886707,
+      1.601866,
+      0.712695,
+      0.654095,
+      0.721026,
+      1.48284
+    ],
+    "adapter_sha256": "2a8953870d4a506819dacc1b664a6fa2714df3417093db1614c23e59eaf9e574",
+    "limitations": "Только 4 обучающих и 3 контрольных задания; технический пилот, не оценка качества найма"
+  },
+  "container_resources": {
+    "cpu_limit": 8,
+    "ram_limit_gib": 12,
+    "shm_mib": 512,
+    "root_read_only": true,
+    "network_during_train": "none",
+    "gpu": "RTX 4070 Laptop",
+    "image": "hermes-dashboard-fastapi:latest"
+  },
+  "timing_receipts": {
+    "gpu-check": {
+      "started_utc": "2026-10-09T10:25:43.2219770Z",
+      "seconds": 77.1405882,
+      "step": "gpu-check",
+      "exit_code": 0,
+      "finished_utc": "2026-10-09T10:27:00.3625620Z"
+    },
+    "prepare": {
+      "started_utc": "2026-10-09T10:27:00.3772116Z",
+      "seconds": 1.8118098,
+      "step": "prepare",
+      "exit_code": 0,
+      "finished_utc": "2026-10-09T10:27:02.1890183Z"
+    },
+    "fetch": {
+      "started_utc": "2026-10-09T10:27:02.2000773Z",
+      "seconds": 160.9273719,
+      "step": "fetch",
+      "exit_code": 0,
+      "finished_utc": "2026-10-09T10:29:43.1274420Z"
+    },
+    "probe-512": {
+      "exit_code": 0,
+      "seconds": 85.3737703,
+      "finished_utc": "2026-10-09T10:33:53.0158015Z",
+      "started_utc": "2026-10-09T10:32:27.6439050Z",
+      "step": "probe-512"
+    },
+    "baseline": {
+      "seconds": 104.6475907,
+      "exit_code": 0,
+      "started_utc": "2026-10-09T10:34:03.0463275Z",
+      "step": "baseline",
+      "finished_utc": "2026-10-09T10:35:47.6922809Z"
+    },
+    "train": {
+      "finished_utc": "2026-10-09T10:37:49.1158290Z",
+      "seconds": 104.2491278,
+      "exit_code": 0,
+      "step": "train",
+      "started_utc": "2026-10-09T10:36:04.8681076Z"
+    },
+    "adapted": {
+      "seconds": 126.6033436,
+      "exit_code": 0,
+      "step": "adapted",
+      "started_utc": "2026-10-09T10:38:29.1834599Z",
+      "finished_utc": "2026-10-09T10:40:35.7845996Z"
+    }
+  },
+  "comparison": {
+    "count": 3,
+    "holdout_sha256": "982adc32efff9dd4fc1555dd2dfa4cfccdd9ae3a58063d859c47b948974fc3df",
+    "base": {
+      "valid_json": 0,
+      "task_schema": 0,
+      "publication_fields": 0,
+      "kind_and_skills": 0,
+      "key_or_rubric_consistency": 0
+    },
+    "adapter": {
+      "valid_json": 2,
+      "task_schema": 0,
+      "publication_fields": 0,
+      "kind_and_skills": 0,
+      "key_or_rubric_consistency": 0
+    },
+    "delta": {
+      "valid_json": 2,
+      "task_schema": 0,
+      "publication_fields": 0,
+      "kind_and_skills": 0,
+      "key_or_rubric_consistency": 0
+    },
+    "limitations": "Три авторских контрольных задания; без экспертной проверки нельзя заявлять качество"
+  },
+  "interpretation": "Valid JSON improved from 0/3 to 2/3. Both models passed full task schema in 0/3; no accepted generated task. Adapter remains disconnected from product. Automatic structural checks do not measure semantic correctness, difficulty or hiring quality. No hyperparameter adjustment or retraining after examining holdout.",
+  "warnings": [
+    "torch_dtype deprecated; generation defaults temperature/top_p/top_k ignored in deterministic decode",
+    "Attention mask warning: one unpadded sequence; not evaluated as proof of semantic correctness"
+  ],
+  "environment_recovery": [
+    "Secondary pip --target tried to download a newer torch, setup container stopped before installation; final isolated venv pinned torch2.7.1+cu128 and pip check passed"
+  ],
+  "evidence": {
+    "local_ignored_directory": "local-data/llm-pilot/evidence",
+    "artifact_sha256": {
+      "ml/datasets/splits/pilot-20261009/manifest.json": "f4454167bb802d0fcaffe5a93dc0d615834b19f73d731cea46dbf45cd26f9695",
+      "ml/models/qwen2.5-0.5b-instruct/pilot-model-manifest.json": "e63ceed36aef9b0f0f85ffa9a94df9afac5f661df9dc7cf5687ac38d8da67518",
+      "ml/runs/probe-512-20261009.json": "0cd01d2f06e685685156dc316356ee9aeea21692e0c53fc817b3c36e9238768b",
+      "ml/runs/base-20261009.json": "7c35b98161d5116a49004edc6910b61c29be4547b6eed46d9c1b0b469fd5847b",
+      "ml/runs/adapted-20261009.json": "6245c3a6e3fb1204839e6fbfa3c52130e646789e0f0715972ea3d9636e6adbea",
+      "ml/runs/comparison-20261009.json": "de4818c63ee89932c1fd128140593df60bea445759218a42cfdb40e4b0e96dee",
+      "ml/adapters/pilot-20261009/pilot-report.json": "5b8fe9c29dbbdc1d08cd455f990691e0c422d253b54249365cf1b0ca795acde4"
+    },
+    "source_sha256": {
+      "ml/pilot.py": "fd3bf846cd08136928e2dadd837a4e3087164f9e978d1b7559d0fd47d65c586d",
+      "ml/requirements-pilot.txt": "a4b37730bd05e6bd35a92cb89ce8e47c0b710f28fb30a236d1b5d6080e97cd01",
+      "scripts/run-llm-pilot.ps1": "96b7f49b9f426d0e610aff27a1cfd96f76f6edc4453d04f98314905dda233a2d",
+      "src/server/bank_generation.py": "74212ea15da7cafc866f955877e2ce49f412971edeb9b8d588c71254884ae848"
+    }
+  }
+}

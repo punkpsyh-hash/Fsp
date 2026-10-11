@@ -1,0 +1,30 @@
+{
+  "checked_at": "2026-10-11T12:13:42+03:00",
+  "scope": "Read-only observation of the WAN route from the NAS-side gateway",
+  "method": {
+    "target": "NAS default gateway",
+    "operation": "GetExternalIPAddress",
+    "mutations_performed": false
+  },
+  "observations": {
+    "gateway_reported_external_ipv4": "10.100.237.64",
+    "gateway_address_classification": "RFC 1918 private IPv4 (10.0.0.0/8)",
+    "observed_outbound_egress_ipv4": "46.8.231.30",
+    "addresses_match": false
+  },
+  "assessment": {
+    "direct_inbound_route_confirmed": false,
+    "current_router_only_port_forward_sufficient": false,
+    "reason": "The router-facing address is private and differs from the observed outbound egress address, so an upstream NAT or outer router exists."
+  },
+  "required_before_publication": [
+    "Obtain a provider-assigned global inbound IPv4 or configure a controlled outer router with a global address",
+    "Verify inbound TCP 80 and 443 from an independent external network",
+    "Point DNS only to the verified ingress endpoint"
+  ],
+  "limitations": [
+    "No router, DNS, NAS, firewall or VPS setting was changed",
+    "The observation does not determine whether the upstream NAT is provider-managed CGNAT or a user-controlled outer router",
+    "No public reachability or IP persistence was demonstrated"
+  ]
+}

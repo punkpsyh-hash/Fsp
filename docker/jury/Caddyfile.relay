@@ -1,0 +1,42 @@
+{
+	admin 127.0.0.1:2019
+	servers :80 {
+		trusted_proxies static 10.254.242.1
+		trusted_proxies_strict
+		client_ip_headers X-Forwarded-For
+	}
+}
+
+:80 {
+	header {
+		-Server
+		Strict-Transport-Security "max-age=31536000"
+		X-Content-Type-Options "nosniff"
+		Referrer-Policy "no-referrer"
+		X-Frame-Options "DENY"
+		Permissions-Policy "camera=(), geolocation=(), microphone=()"
+	}
+
+	encode zstd gzip
+
+	route {
+		@internal path /internal /internal/*
+		respond @internal 404
+
+		@legal path /legal/privacy /legal/recommendations
+		handle @legal {
+			reverse_proxy app:8470 {
+				header_up X-Forwarded-For {client_ip}
+				header_up X-Forwarded-Proto https
+			}
+		}
+
+		basic_auth argon2id "FSP jury preview" {
+			{env.FSP_JURY_BASIC_AUTH_USER} {env.FSP_JURY_BASIC_AUTH_HASH}
+		}
+		reverse_proxy app:8470 {
+			header_up X-Forwarded-For {client_ip}
+			header_up X-Forwarded-Proto https
+		}
+	}
+}

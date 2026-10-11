@@ -1,0 +1,13 @@
+# NAS: GPU-хост подключён отдельным SSH Unix socket, без сетевого порта модели на NAS.
+# docker compose -f compose.yaml -f compose.remote-llm.yaml up -d --build app runner
+services:
+  app:
+    environment:
+      FSP_LLM_PROVIDER: openai-compatible
+      FSP_LLM_BASE_URL: http://local-model/v1
+      FSP_LLM_MODEL: Qwen/Qwen3-4B-Instruct-2507
+      FSP_LLM_SOCKET_PATH: /model-tunnel/gpu.sock
+      FSP_LLM_GENERATION_TIMEOUT: "120"
+      FSP_LLM_TIMEOUT: "100"
+    volumes:
+      - ${FSP_MODEL_TUNNEL_DIR:-./local-data/model-tunnel}:/model-tunnel:ro

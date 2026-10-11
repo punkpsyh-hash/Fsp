@@ -1,0 +1,11 @@
+flowchart LR
+    Candidate[Кандидат: профиль, оценка, практика] --> UI[React / TypeScript]
+    Employer[Работодатель: потребность, предложение, конструктор] --> UI
+    UI -->|cookie + CSRF| API[FastAPI: роли, приватность, версии, scoring]
+    API --> DB[(PostgreSQL 16: профили, формы, наборы, attempts, queue)]
+    API --> Mock[ФСП / почта: явно обозначенный mock]
+    Worker[Worker: внутренний bearer broker] -->|lease / результат| API
+    Worker --> QEMU[QEMU: одноразовая Linux VM на тест]
+    QEMU --> Runtime[Python 3.12 / Node 22 / SQLite]
+    Oracle[Эталоны и сравнение вне VM] --> Worker
+    NoAccess[VM: без сети, дисков NAS, credentials, соседних jobs] --- QEMU

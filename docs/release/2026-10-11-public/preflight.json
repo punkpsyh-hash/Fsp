@@ -1,0 +1,60 @@
+{
+  "status": "prepared_for_publication",
+  "generated_at": "2026-10-11T15:38:41.051095+00:00",
+  "repository": "punkpsyh-hash/Fsp",
+  "release_tag": "lct-2026",
+  "publication_strategy": "Preserve original private history at Fsp-private-history; publish the same original URL from a fresh snapshot without historical refs",
+  "archive_repository_id": 1406041110,
+  "new_repository_id": 1414487009,
+  "excluded": "Raw brand archive, standalone official logo SVGs, original technical specification, original contact decks/XLSX, local data, secrets, agent instructions and workflows",
+  "runtime_changed_this_release": false,
+  "retained_original_files_locally": true,
+  "document_tests": {
+    "passed": 22,
+    "skipped": 1
+  },
+  "documents": {
+    "pdf_pages": 366,
+    "word_pages": 356,
+    "pairs": 7,
+    "sources": 19
+  },
+  "release_assets": {
+    "documentation.pdf": {
+      "source": "docs/delivery/gost/documentation.pdf",
+      "bytes": 443983,
+      "sha256": "3e5ea068a5345144543eb9d7fbeeaa8e347a699e628e9beaafbb5a41aee25003"
+    },
+    "documentation.docx": {
+      "source": "docs/delivery/gost/documentation.docx",
+      "bytes": 982786,
+      "sha256": "2ae43bdaec646521e6ad889dbf857bc1ae36393d242a898b7dba93e11ec3dbee"
+    },
+    "fsp-lct-2026.pptx": {
+      "source": "docs/delivery/fsp-lct-2026.pptx",
+      "bytes": 14022275,
+      "sha256": "1ef21d556c24bdbda4a7d0a964ccb5b31041a8b432bc64900fed6587a51435c4"
+    },
+    "demo-explained.mp4": {
+      "source": "docs/delivery/demo-explained.mp4",
+      "bytes": 17936210,
+      "sha256": "2ca3771806775409ea3e891f383f7dca77b28619b01b57a3c34af9f21a07559e"
+    },
+    "fsp-documents-gost.zip": {
+      "source": "docs/delivery/fsp-documents-gost.zip",
+      "bytes": 29009653,
+      "sha256": "0b21dad205a64757adec54fd48640cea7cf9d5ec5843c3fbae09338a24f1c325"
+    },
+    "self-deployment-guide.pdf": {
+      "source": "docs/delivery/gost/self-deployment-guide.pdf",
+      "bytes": 946959,
+      "sha256": "3093a6d0a974cb3432adfdc53febdedefd4c244800546b4d1263c6339e81b6f8"
+    },
+    "self-deployment-guide.docx": {
+      "source": "docs/delivery/gost/self-deployment-guide.docx",
+      "bytes": 718059,
+      "sha256": "c25109dc4be67639469dd6394b23b4c8aecc1f57dc6b3724351eeb03f4c21bf0"
+    }
+  },
+  "external_checks_pending": "Public visibility, anonymous fresh clone, exact public-tree hashes, release downloads and old-history isolation are checked after publication and recorded in release-verification.json"
+}

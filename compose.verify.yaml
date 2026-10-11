@@ -1,0 +1,20 @@
+# Отдельные образы, тома и сеть для приёмки рядом с работающим стендом.
+# COMPOSE_FILE=compose.yaml:compose.verify.yaml bash scripts/run.sh verify
+name: fspverify
+services:
+  db:
+    ports: !reset []
+  app:
+    image: fspverify-app
+    ports: !reset []
+    environment:
+      # Только проверки: много входов подряд с одного адреса (боевое значение по умолчанию — 30).
+      FSP_AUTH_RATE_LIMIT: "500"
+      # Быстрые автоматические UX-проходы; strict политика проверяется отдельными API-регрессиями.
+      FSP_INTEGRITY_ENFORCE: "0"
+  runner:
+    image: fspverify-runner
+  tools:
+    image: fspverify-tools
+  browser:
+    image: fspverify-browser

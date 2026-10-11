@@ -1,0 +1,220 @@
+{
+  "captured_at": "2026-10-11T07:06:39.74Z",
+  "screenshots": [
+    {
+      "id": "landing",
+      "caption": "Начальная страница и выбор демонстрационного кабинета",
+      "viewport": {
+        "width": 1440,
+        "height": 1000
+      },
+      "source": "Работающий синтетический стенд NAS, Chromium; 11 октября 2026 года",
+      "path": "docs/assets/screenshots/landing.png",
+      "sha256": "4407c3a49470234edea1856d523d1f92c68c83d15af63978dfaa8a651cb87872",
+      "sources": [
+        "docs/53-self-deployment.md",
+        "docs/57-project-report.md"
+      ]
+    },
+    {
+      "id": "employer-search",
+      "caption": "Банк кандидатов в кабинете работодателя",
+      "viewport": {
+        "width": 1440,
+        "height": 1000
+      },
+      "source": "Работающий синтетический стенд NAS, Chromium; 11 октября 2026 года",
+      "path": "docs/assets/screenshots/employer-search.png",
+      "sha256": "bc9a78c75eef1b2312f7fd1baaaa83dc857c421c97176131a1f007d01406be04",
+      "sources": [
+        "docs/34-documentation.md",
+        "docs/57-project-report.md"
+      ]
+    },
+    {
+      "id": "question-bank",
+      "caption": "Конструктор и версии практических наборов",
+      "viewport": {
+        "width": 1440,
+        "height": 1000
+      },
+      "source": "Работающий синтетический стенд NAS, Chromium; 11 октября 2026 года",
+      "path": "docs/assets/screenshots/question-bank.png",
+      "sha256": "859ea2596d89513bfe93136bd5c715302580a486a4a11a11966d50c49ec9cd30",
+      "sources": [
+        "docs/53-self-deployment.md",
+        "docs/56-technical-report.md"
+      ]
+    },
+    {
+      "id": "candidate-profile",
+      "caption": "Профиль кандидата и источники сведений о навыках",
+      "viewport": {
+        "width": 1440,
+        "height": 1000
+      },
+      "source": "Работающий синтетический стенд NAS, Chromium; 11 октября 2026 года",
+      "path": "docs/assets/screenshots/candidate-profile.png",
+      "sha256": "754c5062d8cbd535e8b836054ea98be0daca4e98e04031ca8c3557dcdaf8dcdd",
+      "sources": [
+        "docs/34-documentation.md",
+        "docs/57-project-report.md"
+      ]
+    },
+    {
+      "id": "privacy",
+      "caption": "Настройки доступности профиля и контактов",
+      "viewport": {
+        "width": 1440,
+        "height": 1000
+      },
+      "source": "Работающий синтетический стенд NAS, Chromium; 11 октября 2026 года",
+      "path": "docs/assets/screenshots/privacy.png",
+      "sha256": "c564d9ae7826ad72addb20e2ff6b637fad37e1fc4a12407d47b44985719c981c",
+      "sources": [
+        "docs/18-api-guide.md",
+        "docs/56-technical-report.md"
+      ]
+    },
+    {
+      "id": "practice",
+      "caption": "Практические наборы в кабинете кандидата",
+      "viewport": {
+        "width": 1440,
+        "height": 1000
+      },
+      "source": "Работающий синтетический стенд NAS, Chromium; 11 октября 2026 года",
+      "path": "docs/assets/screenshots/practice.png",
+      "sha256": "aec69b20f51ab622fb5ea33c071f4a75234c99dd6bd67e317a8178f05fdcf7a6",
+      "sources": [
+        "docs/56-technical-report.md"
+      ]
+    }
+  ],
+  "page_errors": [],
+  "source_commit": "04c3a1e9ba73fc396b123a4fc6c4289b5fad7d64",
+  "figures": [
+    {
+      "id": "landing",
+      "caption": "Начальная страница и выбор демонстрационного кабинета",
+      "viewport": {
+        "width": 1440,
+        "height": 1000
+      },
+      "source": "Работающий синтетический стенд NAS, Chromium; 11 октября 2026 года",
+      "path": "docs/assets/screenshots/landing.png",
+      "sha256": "4407c3a49470234edea1856d523d1f92c68c83d15af63978dfaa8a651cb87872",
+      "sources": [
+        "docs/53-self-deployment.md",
+        "docs/57-project-report.md"
+      ]
+    },
+    {
+      "id": "employer-search",
+      "caption": "Банк кандидатов в кабинете работодателя",
+      "viewport": {
+        "width": 1440,
+        "height": 1000
+      },
+      "source": "Работающий синтетический стенд NAS, Chromium; 11 октября 2026 года",
+      "path": "docs/assets/screenshots/employer-search.png",
+      "sha256": "bc9a78c75eef1b2312f7fd1baaaa83dc857c421c97176131a1f007d01406be04",
+      "sources": [
+        "docs/34-documentation.md",
+        "docs/57-project-report.md"
+      ]
+    },
+    {
+      "id": "question-bank",
+      "caption": "Конструктор и версии практических наборов",
+      "viewport": {
+        "width": 1440,
+        "height": 1000
+      },
+      "source": "Работающий синтетический стенд NAS, Chromium; 11 октября 2026 года",
+      "path": "docs/assets/screenshots/question-bank.png",
+      "sha256": "859ea2596d89513bfe93136bd5c715302580a486a4a11a11966d50c49ec9cd30",
+      "sources": [
+        "docs/53-self-deployment.md",
+        "docs/56-technical-report.md"
+      ]
+    },
+    {
+      "id": "candidate-profile",
+      "caption": "Профиль кандидата и источники сведений о навыках",
+      "viewport": {
+        "width": 1440,
+        "height": 1000
+      },
+      "source": "Работающий синтетический стенд NAS, Chromium; 11 октября 2026 года",
+      "path": "docs/assets/screenshots/candidate-profile.png",
+      "sha256": "754c5062d8cbd535e8b836054ea98be0daca4e98e04031ca8c3557dcdaf8dcdd",
+      "sources": [
+        "docs/34-documentation.md",
+        "docs/57-project-report.md"
+      ]
+    },
+    {
+      "id": "privacy",
+      "caption": "Настройки доступности профиля и контактов",
+      "viewport": {
+        "width": 1440,
+        "height": 1000
+      },
+      "source": "Работающий синтетический стенд NAS, Chromium; 11 октября 2026 года",
+      "path": "docs/assets/screenshots/privacy.png",
+      "sha256": "c564d9ae7826ad72addb20e2ff6b637fad37e1fc4a12407d47b44985719c981c",
+      "sources": [
+        "docs/18-api-guide.md",
+        "docs/56-technical-report.md"
+      ]
+    },
+    {
+      "id": "practice",
+      "caption": "Практические наборы в кабинете кандидата",
+      "viewport": {
+        "width": 1440,
+        "height": 1000
+      },
+      "source": "Работающий синтетический стенд NAS, Chromium; 11 октября 2026 года",
+      "path": "docs/assets/screenshots/practice.png",
+      "sha256": "aec69b20f51ab622fb5ea33c071f4a75234c99dd6bd67e317a8178f05fdcf7a6",
+      "sources": [
+        "docs/56-technical-report.md"
+      ]
+    },
+    {
+      "id": "diagram_components",
+      "path": "docs/assets/diagrams/diagram_components.png",
+      "caption": "Компоненты решения и направления вызовов",
+      "source": "Авторская точная схема из scripts/build_documentation.py, 11 октября 2026 года",
+      "sources": [
+        "docs/34-documentation.md"
+      ],
+      "kind": "schematic",
+      "sha256": "5b2a4c82f56bcb80e23c1d972372585494e2037db92d368c380d08db555b9599"
+    },
+    {
+      "id": "diagram_contact",
+      "path": "docs/assets/diagrams/diagram_contact.png",
+      "caption": "Контур открытия контактных данных",
+      "source": "Авторская точная схема из scripts/build_documentation.py, 11 октября 2026 года",
+      "sources": [
+        "docs/34-documentation.md"
+      ],
+      "kind": "schematic",
+      "sha256": "7153ecbe5c4dd5d3bc23a6394522c0801c238344c6dcf7d78f3e13905614d17c"
+    },
+    {
+      "id": "diagram_assessment",
+      "path": "docs/assets/diagrams/diagram_assessment.png",
+      "caption": "Порядок оценки и подтверждения уровня",
+      "source": "Авторская точная схема из scripts/build_documentation.py, 11 октября 2026 года",
+      "sources": [
+        "docs/34-documentation.md"
+      ],
+      "kind": "schematic",
+      "sha256": "b0cfcba568fc025f411f996fc8a3ada5e60e98e4c64aede699c9b54c499e41c1"
+    }
+  ]
+}

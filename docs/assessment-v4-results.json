@@ -1,0 +1,965 @@
+{
+  "type": "assessment_answer_transfer_diagnostic",
+  "blueprint_version": "families-v4",
+  "source_sha256": "984dc6d064620dafe1cd92fc05e970a23a97f8f67845d243ffe2952481ee0c79",
+  "archived_v3_report": "docs/qa-assessment-review-results.json",
+  "forms_total": 1200,
+  "transfer_pairs_total": 23880,
+  "cases": [
+    {
+      "specialization": "backend",
+      "grade": "junior",
+      "version": "families-v4",
+      "forms": 200,
+      "questions_per_form": 12,
+      "donor_seed_range_inclusive": [
+        0,
+        19
+      ],
+      "target_seed_range_inclusive": [
+        0,
+        199
+      ],
+      "constant_answer_question_ids_in_sample": [],
+      "constant_answer_questions": 0,
+      "transfer_pairs": 3980,
+      "transferred_score_min": 0.0,
+      "transferred_score_max": 33.33,
+      "transferred_score_mean": 5.48,
+      "transferred_passes": 0,
+      "passing_pairs": []
+    },
+    {
+      "specialization": "backend",
+      "grade": "middle",
+      "version": "families-v4",
+      "forms": 200,
+      "questions_per_form": 12,
+      "donor_seed_range_inclusive": [
+        0,
+        19
+      ],
+      "target_seed_range_inclusive": [
+        0,
+        199
+      ],
+      "constant_answer_question_ids_in_sample": [],
+      "constant_answer_questions": 0,
+      "transfer_pairs": 3980,
+      "transferred_score_min": 0.0,
+      "transferred_score_max": 41.67,
+      "transferred_score_mean": 6.57,
+      "transferred_passes": 0,
+      "passing_pairs": []
+    },
+    {
+      "specialization": "frontend",
+      "grade": "junior",
+      "version": "families-v4",
+      "forms": 200,
+      "questions_per_form": 12,
+      "donor_seed_range_inclusive": [
+        0,
+        19
+      ],
+      "target_seed_range_inclusive": [
+        0,
+        199
+      ],
+      "constant_answer_question_ids_in_sample": [],
+      "constant_answer_questions": 0,
+      "transfer_pairs": 3980,
+      "transferred_score_min": 0.0,
+      "transferred_score_max": 33.33,
+      "transferred_score_mean": 4.53,
+      "transferred_passes": 0,
+      "passing_pairs": []
+    },
+    {
+      "specialization": "frontend",
+      "grade": "middle",
+      "version": "families-v4",
+      "forms": 200,
+      "questions_per_form": 12,
+      "donor_seed_range_inclusive": [
+        0,
+        19
+      ],
+      "target_seed_range_inclusive": [
+        0,
+        199
+      ],
+      "constant_answer_question_ids_in_sample": [],
+      "constant_answer_questions": 0,
+      "transfer_pairs": 3980,
+      "transferred_score_min": 0.0,
+      "transferred_score_max": 41.67,
+      "transferred_score_mean": 4.45,
+      "transferred_passes": 0,
+      "passing_pairs": []
+    },
+    {
+      "specialization": "qa",
+      "grade": "junior",
+      "version": "families-v4",
+      "forms": 200,
+      "questions_per_form": 12,
+      "donor_seed_range_inclusive": [
+        0,
+        19
+      ],
+      "target_seed_range_inclusive": [
+        0,
+        199
+      ],
+      "constant_answer_question_ids_in_sample": [],
+      "constant_answer_questions": 0,
+      "transfer_pairs": 3980,
+      "transferred_score_min": 0.0,
+      "transferred_score_max": 33.33,
+      "transferred_score_mean": 3.72,
+      "transferred_passes": 0,
+      "passing_pairs": []
+    },
+    {
+      "specialization": "qa",
+      "grade": "middle",
+      "version": "families-v4",
+      "forms": 200,
+      "questions_per_form": 12,
+      "donor_seed_range_inclusive": [
+        0,
+        19
+      ],
+      "target_seed_range_inclusive": [
+        0,
+        199
+      ],
+      "constant_answer_question_ids_in_sample": [],
+      "constant_answer_questions": 0,
+      "transfer_pairs": 3980,
+      "transferred_score_min": 0.0,
+      "transferred_score_max": 41.67,
+      "transferred_score_mean": 6.49,
+      "transferred_passes": 0,
+      "passing_pairs": []
+    }
+  ],
+  "same_sample_v3_baseline": [
+    {
+      "specialization": "backend",
+      "grade": "junior",
+      "version": "families-v3",
+      "forms": 200,
+      "questions_per_form": 12,
+      "donor_seed_range_inclusive": [
+        0,
+        19
+      ],
+      "target_seed_range_inclusive": [
+        0,
+        199
+      ],
+      "constant_answer_question_ids_in_sample": [
+        "1-http-retry",
+        "2-http-retry"
+      ],
+      "constant_answer_questions": 2,
+      "transfer_pairs": 3980,
+      "transferred_score_min": 16.67,
+      "transferred_score_max": 100.0,
+      "transferred_score_mean": 27.42,
+      "transferred_passes": 21,
+      "passing_pairs": [
+        {
+          "donor_seed": 0,
+          "target_seed": 59,
+          "score": 75.0
+        },
+        {
+          "donor_seed": 0,
+          "target_seed": 114,
+          "score": 75.0
+        },
+        {
+          "donor_seed": 1,
+          "target_seed": 143,
+          "score": 75.0
+        },
+        {
+          "donor_seed": 5,
+          "target_seed": 129,
+          "score": 75.0
+        },
+        {
+          "donor_seed": 6,
+          "target_seed": 185,
+          "score": 75.0
+        },
+        {
+          "donor_seed": 8,
+          "target_seed": 22,
+          "score": 83.33
+        },
+        {
+          "donor_seed": 8,
+          "target_seed": 39,
+          "score": 75.0
+        },
+        {
+          "donor_seed": 9,
+          "target_seed": 34,
+          "score": 75.0
+        },
+        {
+          "donor_seed": 9,
+          "target_seed": 112,
+          "score": 75.0
+        },
+        {
+          "donor_seed": 9,
+          "target_seed": 133,
+          "score": 75.0
+        },
+        {
+          "donor_seed": 11,
+          "target_seed": 156,
+          "score": 75.0
+        },
+        {
+          "donor_seed": 14,
+          "target_seed": 28,
+          "score": 100.0
+        },
+        {
+          "donor_seed": 14,
+          "target_seed": 72,
+          "score": 75.0
+        },
+        {
+          "donor_seed": 14,
+          "target_seed": 91,
+          "score": 75.0
+        },
+        {
+          "donor_seed": 14,
+          "target_seed": 97,
+          "score": 75.0
+        },
+        {
+          "donor_seed": 14,
+          "target_seed": 102,
+          "score": 75.0
+        },
+        {
+          "donor_seed": 15,
+          "target_seed": 169,
+          "score": 75.0
+        },
+        {
+          "donor_seed": 15,
+          "target_seed": 179,
+          "score": 83.33
+        },
+        {
+          "donor_seed": 16,
+          "target_seed": 199,
+          "score": 100.0
+        },
+        {
+          "donor_seed": 17,
+          "target_seed": 193,
+          "score": 75.0
+        },
+        {
+          "donor_seed": 19,
+          "target_seed": 42,
+          "score": 75.0
+        }
+      ]
+    },
+    {
+      "specialization": "backend",
+      "grade": "middle",
+      "version": "families-v3",
+      "forms": 200,
+      "questions_per_form": 12,
+      "donor_seed_range_inclusive": [
+        0,
+        19
+      ],
+      "target_seed_range_inclusive": [
+        0,
+        199
+      ],
+      "constant_answer_question_ids_in_sample": [
+        "1-http-retry",
+        "1-python-state",
+        "2-http-retry",
+        "2-python-state"
+      ],
+      "constant_answer_questions": 4,
+      "transfer_pairs": 3980,
+      "transferred_score_min": 33.33,
+      "transferred_score_max": 100.0,
+      "transferred_score_mean": 39.92,
+      "transferred_passes": 16,
+      "passing_pairs": [
+        {
+          "donor_seed": 0,
+          "target_seed": 59,
+          "score": 83.33
+        },
+        {
+          "donor_seed": 0,
+          "target_seed": 114,
+          "score": 83.33
+        },
+        {
+          "donor_seed": 6,
+          "target_seed": 185,
+          "score": 83.33
+        },
+        {
+          "donor_seed": 8,
+          "target_seed": 22,
+          "score": 91.67
+        },
+        {
+          "donor_seed": 9,
+          "target_seed": 112,
+          "score": 83.33
+        },
+        {
+          "donor_seed": 9,
+          "target_seed": 133,
+          "score": 83.33
+        },
+        {
+          "donor_seed": 11,
+          "target_seed": 156,
+          "score": 83.33
+        },
+        {
+          "donor_seed": 14,
+          "target_seed": 28,
+          "score": 100.0
+        },
+        {
+          "donor_seed": 14,
+          "target_seed": 72,
+          "score": 83.33
+        },
+        {
+          "donor_seed": 14,
+          "target_seed": 91,
+          "score": 83.33
+        },
+        {
+          "donor_seed": 14,
+          "target_seed": 97,
+          "score": 83.33
+        },
+        {
+          "donor_seed": 14,
+          "target_seed": 102,
+          "score": 83.33
+        },
+        {
+          "donor_seed": 15,
+          "target_seed": 169,
+          "score": 83.33
+        },
+        {
+          "donor_seed": 15,
+          "target_seed": 179,
+          "score": 91.67
+        },
+        {
+          "donor_seed": 16,
+          "target_seed": 199,
+          "score": 100.0
+        },
+        {
+          "donor_seed": 17,
+          "target_seed": 193,
+          "score": 83.33
+        }
+      ]
+    },
+    {
+      "specialization": "frontend",
+      "grade": "junior",
+      "version": "families-v3",
+      "forms": 200,
+      "questions_per_form": 12,
+      "donor_seed_range_inclusive": [
+        0,
+        19
+      ],
+      "target_seed_range_inclusive": [
+        0,
+        199
+      ],
+      "constant_answer_question_ids_in_sample": [
+        "1-http-retry",
+        "2-http-retry"
+      ],
+      "constant_answer_questions": 2,
+      "transfer_pairs": 3980,
+      "transferred_score_min": 16.67,
+      "transferred_score_max": 100.0,
+      "transferred_score_mean": 24.47,
+      "transferred_passes": 23,
+      "passing_pairs": [
+        {
+          "donor_seed": 0,
+          "target_seed": 59,
+          "score": 83.33
+        },
+        {
+          "donor_seed": 0,
+          "target_seed": 114,
+          "score": 83.33
+        },
+        {
+          "donor_seed": 0,
+          "target_seed": 131,
+          "score": 75.0
+        },
+        {
+          "donor_seed": 2,
+          "target_seed": 137,
+          "score": 75.0
+        },
+        {
+          "donor_seed": 3,
+          "target_seed": 16,
+          "score": 75.0
+        },
+        {
+          "donor_seed": 3,
+          "target_seed": 199,
+          "score": 75.0
+        },
+        {
+          "donor_seed": 6,
+          "target_seed": 185,
+          "score": 75.0
+        },
+        {
+          "donor_seed": 8,
+          "target_seed": 22,
+          "score": 91.67
+        },
+        {
+          "donor_seed": 9,
+          "target_seed": 110,
+          "score": 75.0
+        },
+        {
+          "donor_seed": 9,
+          "target_seed": 112,
+          "score": 83.33
+        },
+        {
+          "donor_seed": 9,
+          "target_seed": 133,
+          "score": 83.33
+        },
+        {
+          "donor_seed": 11,
+          "target_seed": 156,
+          "score": 83.33
+        },
+        {
+          "donor_seed": 14,
+          "target_seed": 28,
+          "score": 100.0
+        },
+        {
+          "donor_seed": 14,
+          "target_seed": 72,
+          "score": 83.33
+        },
+        {
+          "donor_seed": 14,
+          "target_seed": 91,
+          "score": 83.33
+        },
+        {
+          "donor_seed": 14,
+          "target_seed": 97,
+          "score": 83.33
+        },
+        {
+          "donor_seed": 14,
+          "target_seed": 102,
+          "score": 83.33
+        },
+        {
+          "donor_seed": 14,
+          "target_seed": 176,
+          "score": 75.0
+        },
+        {
+          "donor_seed": 15,
+          "target_seed": 169,
+          "score": 83.33
+        },
+        {
+          "donor_seed": 15,
+          "target_seed": 179,
+          "score": 91.67
+        },
+        {
+          "donor_seed": 16,
+          "target_seed": 3,
+          "score": 75.0
+        },
+        {
+          "donor_seed": 16,
+          "target_seed": 199,
+          "score": 100.0
+        },
+        {
+          "donor_seed": 17,
+          "target_seed": 193,
+          "score": 83.33
+        }
+      ]
+    },
+    {
+      "specialization": "frontend",
+      "grade": "middle",
+      "version": "families-v3",
+      "forms": 200,
+      "questions_per_form": 12,
+      "donor_seed_range_inclusive": [
+        0,
+        19
+      ],
+      "target_seed_range_inclusive": [
+        0,
+        199
+      ],
+      "constant_answer_question_ids_in_sample": [
+        "1-http-retry",
+        "2-http-retry"
+      ],
+      "constant_answer_questions": 2,
+      "transfer_pairs": 3980,
+      "transferred_score_min": 16.67,
+      "transferred_score_max": 100.0,
+      "transferred_score_mean": 24.61,
+      "transferred_passes": 15,
+      "passing_pairs": [
+        {
+          "donor_seed": 0,
+          "target_seed": 59,
+          "score": 83.33
+        },
+        {
+          "donor_seed": 0,
+          "target_seed": 114,
+          "score": 83.33
+        },
+        {
+          "donor_seed": 8,
+          "target_seed": 22,
+          "score": 91.67
+        },
+        {
+          "donor_seed": 9,
+          "target_seed": 112,
+          "score": 83.33
+        },
+        {
+          "donor_seed": 9,
+          "target_seed": 133,
+          "score": 83.33
+        },
+        {
+          "donor_seed": 11,
+          "target_seed": 156,
+          "score": 83.33
+        },
+        {
+          "donor_seed": 14,
+          "target_seed": 28,
+          "score": 100.0
+        },
+        {
+          "donor_seed": 14,
+          "target_seed": 72,
+          "score": 83.33
+        },
+        {
+          "donor_seed": 14,
+          "target_seed": 91,
+          "score": 83.33
+        },
+        {
+          "donor_seed": 14,
+          "target_seed": 97,
+          "score": 83.33
+        },
+        {
+          "donor_seed": 14,
+          "target_seed": 102,
+          "score": 83.33
+        },
+        {
+          "donor_seed": 15,
+          "target_seed": 169,
+          "score": 83.33
+        },
+        {
+          "donor_seed": 15,
+          "target_seed": 179,
+          "score": 91.67
+        },
+        {
+          "donor_seed": 16,
+          "target_seed": 199,
+          "score": 100.0
+        },
+        {
+          "donor_seed": 17,
+          "target_seed": 193,
+          "score": 83.33
+        }
+      ]
+    },
+    {
+      "specialization": "qa",
+      "grade": "junior",
+      "version": "families-v3",
+      "forms": 200,
+      "questions_per_form": 12,
+      "donor_seed_range_inclusive": [
+        0,
+        19
+      ],
+      "target_seed_range_inclusive": [
+        0,
+        199
+      ],
+      "constant_answer_question_ids_in_sample": [
+        "1-http-retry",
+        "2-http-retry"
+      ],
+      "constant_answer_questions": 2,
+      "transfer_pairs": 3980,
+      "transferred_score_min": 16.67,
+      "transferred_score_max": 100.0,
+      "transferred_score_mean": 25.1,
+      "transferred_passes": 15,
+      "passing_pairs": [
+        {
+          "donor_seed": 0,
+          "target_seed": 59,
+          "score": 75.0
+        },
+        {
+          "donor_seed": 0,
+          "target_seed": 114,
+          "score": 75.0
+        },
+        {
+          "donor_seed": 8,
+          "target_seed": 22,
+          "score": 75.0
+        },
+        {
+          "donor_seed": 9,
+          "target_seed": 112,
+          "score": 75.0
+        },
+        {
+          "donor_seed": 9,
+          "target_seed": 133,
+          "score": 75.0
+        },
+        {
+          "donor_seed": 11,
+          "target_seed": 156,
+          "score": 75.0
+        },
+        {
+          "donor_seed": 14,
+          "target_seed": 28,
+          "score": 100.0
+        },
+        {
+          "donor_seed": 14,
+          "target_seed": 72,
+          "score": 75.0
+        },
+        {
+          "donor_seed": 14,
+          "target_seed": 91,
+          "score": 75.0
+        },
+        {
+          "donor_seed": 14,
+          "target_seed": 97,
+          "score": 75.0
+        },
+        {
+          "donor_seed": 14,
+          "target_seed": 102,
+          "score": 75.0
+        },
+        {
+          "donor_seed": 15,
+          "target_seed": 169,
+          "score": 75.0
+        },
+        {
+          "donor_seed": 15,
+          "target_seed": 179,
+          "score": 75.0
+        },
+        {
+          "donor_seed": 16,
+          "target_seed": 199,
+          "score": 100.0
+        },
+        {
+          "donor_seed": 17,
+          "target_seed": 193,
+          "score": 75.0
+        }
+      ]
+    },
+    {
+      "specialization": "qa",
+      "grade": "middle",
+      "version": "families-v3",
+      "forms": 200,
+      "questions_per_form": 12,
+      "donor_seed_range_inclusive": [
+        0,
+        19
+      ],
+      "target_seed_range_inclusive": [
+        0,
+        199
+      ],
+      "constant_answer_question_ids_in_sample": [
+        "1-http-retry",
+        "1-test-boundaries",
+        "2-http-retry",
+        "2-test-boundaries"
+      ],
+      "constant_answer_questions": 4,
+      "transfer_pairs": 3980,
+      "transferred_score_min": 33.33,
+      "transferred_score_max": 100.0,
+      "transferred_score_mean": 37.46,
+      "transferred_passes": 15,
+      "passing_pairs": [
+        {
+          "donor_seed": 0,
+          "target_seed": 59,
+          "score": 83.33
+        },
+        {
+          "donor_seed": 0,
+          "target_seed": 114,
+          "score": 83.33
+        },
+        {
+          "donor_seed": 8,
+          "target_seed": 22,
+          "score": 83.33
+        },
+        {
+          "donor_seed": 9,
+          "target_seed": 112,
+          "score": 83.33
+        },
+        {
+          "donor_seed": 9,
+          "target_seed": 133,
+          "score": 83.33
+        },
+        {
+          "donor_seed": 11,
+          "target_seed": 156,
+          "score": 83.33
+        },
+        {
+          "donor_seed": 14,
+          "target_seed": 28,
+          "score": 100.0
+        },
+        {
+          "donor_seed": 14,
+          "target_seed": 72,
+          "score": 83.33
+        },
+        {
+          "donor_seed": 14,
+          "target_seed": 91,
+          "score": 83.33
+        },
+        {
+          "donor_seed": 14,
+          "target_seed": 97,
+          "score": 83.33
+        },
+        {
+          "donor_seed": 14,
+          "target_seed": 102,
+          "score": 83.33
+        },
+        {
+          "donor_seed": 15,
+          "target_seed": 169,
+          "score": 83.33
+        },
+        {
+          "donor_seed": 15,
+          "target_seed": 179,
+          "score": 83.33
+        },
+        {
+          "donor_seed": 16,
+          "target_seed": 199,
+          "score": 100.0
+        },
+        {
+          "donor_seed": 17,
+          "target_seed": 193,
+          "score": 83.33
+        }
+      ]
+    }
+  ],
+  "v3_to_v4_transfers": [
+    {
+      "specialization": "backend",
+      "grade": "junior",
+      "donor_version": "families-v3",
+      "target_version": "families-v4",
+      "donor_seeds": [
+        0,
+        42,
+        99
+      ],
+      "target_seed_range_inclusive": [
+        0,
+        199
+      ],
+      "saved_donor_snapshots_still_score_100": true,
+      "transfer_pairs": 600,
+      "transferred_score_max": 33.33,
+      "transferred_passes": 0,
+      "passing_pairs": []
+    },
+    {
+      "specialization": "backend",
+      "grade": "middle",
+      "donor_version": "families-v3",
+      "target_version": "families-v4",
+      "donor_seeds": [
+        0,
+        42,
+        99
+      ],
+      "target_seed_range_inclusive": [
+        0,
+        199
+      ],
+      "saved_donor_snapshots_still_score_100": true,
+      "transfer_pairs": 600,
+      "transferred_score_max": 25.0,
+      "transferred_passes": 0,
+      "passing_pairs": []
+    },
+    {
+      "specialization": "frontend",
+      "grade": "junior",
+      "donor_version": "families-v3",
+      "target_version": "families-v4",
+      "donor_seeds": [
+        0,
+        42,
+        99
+      ],
+      "target_seed_range_inclusive": [
+        0,
+        199
+      ],
+      "saved_donor_snapshots_still_score_100": true,
+      "transfer_pairs": 600,
+      "transferred_score_max": 25.0,
+      "transferred_passes": 0,
+      "passing_pairs": []
+    },
+    {
+      "specialization": "frontend",
+      "grade": "middle",
+      "donor_version": "families-v3",
+      "target_version": "families-v4",
+      "donor_seeds": [
+        0,
+        42,
+        99
+      ],
+      "target_seed_range_inclusive": [
+        0,
+        199
+      ],
+      "saved_donor_snapshots_still_score_100": true,
+      "transfer_pairs": 600,
+      "transferred_score_max": 25.0,
+      "transferred_passes": 0,
+      "passing_pairs": []
+    },
+    {
+      "specialization": "qa",
+      "grade": "junior",
+      "donor_version": "families-v3",
+      "target_version": "families-v4",
+      "donor_seeds": [
+        0,
+        42,
+        99
+      ],
+      "target_seed_range_inclusive": [
+        0,
+        199
+      ],
+      "saved_donor_snapshots_still_score_100": true,
+      "transfer_pairs": 600,
+      "transferred_score_max": 25.0,
+      "transferred_passes": 0,
+      "passing_pairs": []
+    },
+    {
+      "specialization": "qa",
+      "grade": "middle",
+      "donor_version": "families-v3",
+      "target_version": "families-v4",
+      "donor_seeds": [
+        0,
+        42,
+        99
+      ],
+      "target_seed_range_inclusive": [
+        0,
+        199
+      ],
+      "saved_donor_snapshots_still_score_100": true,
+      "transfer_pairs": 600,
+      "transferred_score_max": 25.0,
+      "transferred_passes": 0,
+      "passing_pairs": []
+    }
+  ],
+  "method": "Несколько доноров, каждый переносится во все другие формы своей специализации/грейда. Значение переносится по одинаковому question ID только при наличии в options получателя; другие ответы пропущены. Сопоставимая выборка v3; отдельно snapshots v3 seed 0/42/99 в формы v4. HTTP и база не используются.",
+  "limitation": "Конечная внутренняя выборка; отсутствие проходного переноса не доказывает универсальную защиту. Не human pilot, не психометрическая валидация, не проверка переноса алгоритма решения, внешней помощи или API выдачи грейда."
+}

@@ -1,0 +1,155 @@
+{
+  "schema_version": 1,
+  "verified_at": "2026-10-11",
+  "scope": "video_and_changed_documents_only",
+  "source": {
+    "path": "docs/delivery/demo-final.mp4",
+    "sha256": "69fe96906f57f10788325e89261464f16bcc1d32066fc308757d9c62d853e4f6",
+    "unchanged": true,
+    "recorded_at": "2026-10-09",
+    "synthetic": true
+  },
+  "composition": {
+    "frames": 8118,
+    "fps": 25,
+    "duration_seconds": 324.72,
+    "captions": 50,
+    "chapters": 10,
+    "resolution": "1920x1080",
+    "audio": false
+  },
+  "checks": {
+    "caption_order_and_bounds": "passed",
+    "srt_vtt_count": "passed",
+    "typescript": "passed_in_final_docker_image",
+    "generate_regeneration": "passed; Root.tsx and chapters JSON unchanged, public GitHub sidecar captions regenerated",
+    "original_source_hash": "passed",
+    "full_mp4_decode": {
+      "status": "passed",
+      "exit_code": 0,
+      "command": "FFmpeg -v error -xerror -i demo-explained.mp4 -f null -",
+      "image": "fsp-demo-video:20261011"
+    },
+    "faststart_moov_before_mdat": "passed",
+    "mp4_metadata": "passed",
+    "sampled_encoded_layout": "passed",
+    "unchanged_sample_hashes": "passed for frames 70, 330, 2800 and 7040",
+    "public_github_copy": "passed; public repository, main branch, ZIP/clone without invitation",
+    "canonical_caption_source": "Exact official Basic Captions code after newline normalization; final CRLF was changed to LF for Git whitespace check. No code or visual change."
+  },
+  "render": {
+    "image": "fsp-demo-video:20261011",
+    "image_id": "sha256:55c7534e81d080c2964a8fafc389bbbd9370c155fd1f0dc276fc9870c41ccc57",
+    "network": "none",
+    "codec": "h264",
+    "crf": 20,
+    "pixel_format": "yuv420p",
+    "concurrency": 2,
+    "full_render": true,
+    "source_override_mount": "video/src/Graphics.tsx mounted read-only",
+    "status": "completed",
+    "exit_code": 0,
+    "caption_component_sha256_before_line_ending_normalization": "e0b1ad8c9b6bf6cc4666493067c2d8cf470c9bfd0c428c7c1d808e383a483520"
+  },
+  "source_hashes": {
+    "video/storyboard.json": "86c1cbecdc1d9edbda8594818e76c16be82c10b25cbb5e06ae4b990a7bc33eec",
+    "video/src/Root.tsx": "8e322a77cf2e1c6222a1f56f96824c40e39e326866b42fa08430b967cd0ace45",
+    "video/src/Graphics.tsx": "f15dc75079fe3cc09bd3bf301f62ca570eb490df1c071d19731bb56183205dd3",
+    "video/src/FrameVideo.tsx": "462ffde8576ad3c0a9762b1054a15fc3a2f2981694af9d7225616d2e4924dd20",
+    "video/src/basic-captions.tsx": "60bbfa9a77561bc04567ee9a221c04027571cd8c97c4a41424e470bf3e15565b",
+    "video/package-lock.json": "3b20217850e22d778a3154529215e4d3ba2cfc7745a711701b73b09b5bd58eff",
+    "video/Dockerfile": "df7c23c8feccaa8c971f31b7673201e18c45e529b32e9b65891194bf89f2ea45",
+    "video/generate.py": "99d23571f8028fcf18eef0570964ba1fc0eafd10e9847ecb6a049d9af89bd12a",
+    "video/Dockerfile.dockerignore": "aa99e35293612116022dcabfd40ca41ceca1c8c77b87ff356fe9eb6acd740cd9",
+    "docs/delivery/demo-explained-captions.json": "0e0fbfead128adc99e65b617dc4576c1eaa1a27127e0f49b96d775cb1f863019",
+    "docs/delivery/demo-explained-chapters.json": "55a588299d65509e57f6c92bf9870f63aae34b609a77f1157130dd1c6dac116e",
+    "docs/delivery/demo-explained.srt": "cb3a54cc9a15298e68c37ae542336259ccc2581dd361ae22bd4e7a1182686e48",
+    "docs/delivery/demo-explained.vtt": "28d1dea796413dd7f32c8578ae6933da4ccb4ea4417c737da99034a51b7f6cfc"
+  },
+  "limits": [
+    "Silent recording with action explanations; no voice transcript.",
+    "Qwen rules are an explanatory schema, not a recording of a model call.",
+    "Official FSP API and employer registration are not demonstrated.",
+    "Full local recording differs from restricted external jury stand.",
+    "Previous backend/product acceptance was not rerun for this media-only change."
+  ],
+  "status": "passed",
+  "artifact": {
+    "path": "docs/delivery/demo-explained.mp4",
+    "sha256": "2ca3771806775409ea3e891f383f7dca77b28619b01b57a3c34af9f21a07559e",
+    "bytes": 17936210,
+    "stream": {
+      "codec_name": "h264",
+      "profile": "High",
+      "width": 1920,
+      "height": 1080,
+      "pix_fmt": "yuvj420p",
+      "color_range": "pc",
+      "r_frame_rate": "25/1",
+      "nb_frames": "8118",
+      "duration": "324.720000"
+    },
+    "audio_streams": 0
+  },
+  "external_caption_alignment": "External SRT/VTT/JSON use integer frame boundaries; overlap caused by half-frame source rounding was removed. Rendered JSX remains byte-identical.",
+  "prior_independent_content_review": {
+    "path": "docs/release/2026-10-11-video/storyboard-review.json",
+    "scope": "Earlier source/storyboard review retained. The public GitHub ending was updated after review and verified through encoded frames and full MP4 decode."
+  },
+  "encoded_frame_evidence": [
+    {
+      "frame": 70,
+      "seconds": 2.8,
+      "path": "docs/release/2026-10-11-video/frames/frame-01.jpg",
+      "sha256": "5e8cd3886e0d4664f0c7775b0ad62238a701c8ec3b1153dd3cf4dc6175b7d385"
+    },
+    {
+      "frame": 330,
+      "seconds": 13.2,
+      "path": "docs/release/2026-10-11-video/frames/frame-02.jpg",
+      "sha256": "ca711ee856b072c3f3653e744757fa4fd92b41b0c58886eab40f635bd7c4f86c"
+    },
+    {
+      "frame": 2800,
+      "seconds": 112.0,
+      "path": "docs/release/2026-10-11-video/frames/frame-03.jpg",
+      "sha256": "2e5f054a3afb6666cec860649277660aaefc23d934460402503f6312aa5deb30"
+    },
+    {
+      "frame": 7040,
+      "seconds": 281.6,
+      "path": "docs/release/2026-10-11-video/frames/frame-04.jpg",
+      "sha256": "a077e7951e3865793eec9e3f425c451b24210e7dd46c81a7f904a101850d0c06"
+    },
+    {
+      "frame": 7700,
+      "seconds": 308.0,
+      "path": "D:/Codex/Temp/fsp-public-release-20261011/video/encoded-frame-7700.png",
+      "sha256": "ae6138778af63e7d21ecdfd34995a7709a87de8bc95184512fa574a3ce8894ed",
+      "storage": "task-local visual verification; not part of the release"
+    },
+    {
+      "frame": 8000,
+      "seconds": 320.0,
+      "path": "D:/Codex/Temp/fsp-public-release-20261011/video/encoded-frame-8000.png",
+      "sha256": "0be2eb63b2b0e0879cf2f1c8e2a18a6179b3c945edf2a8f25a10bf91329721a6",
+      "storage": "task-local visual verification; not part of the release"
+    }
+  ],
+  "executor_visual_review": {
+    "encoded_frames_viewed": [
+      330,
+      7700,
+      8000
+    ],
+    "controls": "Public GitHub/main/ZIP/clone copy fits; no invitation is required; the next screen still states that the jury stand needs a separate owner password; external-mode restrictions and the model/API caveat fit."
+  },
+  "github_access": {
+    "repository": "https://github.com/punkpsyh-hash/Fsp",
+    "visibility": "public",
+    "default_branch": "main",
+    "verified_at": "2026-10-11",
+    "public_access": "View, Download ZIP and git clone do not require an invitation or GitHub account.",
+    "private_history": "Preserved separately as Fsp-private-history and excluded from the public release."
+  }
+}

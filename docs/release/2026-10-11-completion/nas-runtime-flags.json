@@ -1,0 +1,6 @@
+{
+  "integrity_enforce": "1",
+  "model_provider": "openai-compatible",
+  "model_socket": "/model-tunnel/gpu.sock",
+  "model_key_configured": true
+}

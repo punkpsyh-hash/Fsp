@@ -1,0 +1,110 @@
+{
+  "type": "multi_account_workflow_load",
+  "at": "2026-10-06T16:47:49.928331+00:00",
+  "accounts": 30,
+  "concurrency": 30,
+  "pairs": 15,
+  "requests": 300,
+  "elapsed_seconds": 12.38,
+  "errors": 0,
+  "failed_workflows": [],
+  "operations": {
+    "accept": {
+      "requests": 15,
+      "p50_ms": 564.81,
+      "p95_ms": 758.74,
+      "max_ms": 855.33
+    },
+    "assessment_draft": {
+      "requests": 15,
+      "p50_ms": 525.2,
+      "p95_ms": 666.99,
+      "max_ms": 683.1
+    },
+    "assessment_start": {
+      "requests": 15,
+      "p50_ms": 625.22,
+      "p95_ms": 951.07,
+      "max_ms": 980.22
+    },
+    "assessment_submit": {
+      "requests": 15,
+      "p50_ms": 649.47,
+      "p95_ms": 719.49,
+      "max_ms": 728.34
+    },
+    "company": {
+      "requests": 15,
+      "p50_ms": 863.17,
+      "p95_ms": 1362.18,
+      "max_ms": 1374.23
+    },
+    "consent": {
+      "requests": 15,
+      "p50_ms": 535.0,
+      "p95_ms": 613.88,
+      "max_ms": 640.11
+    },
+    "contact": {
+      "requests": 15,
+      "p50_ms": 280.37,
+      "p95_ms": 458.27,
+      "max_ms": 479.65
+    },
+    "contact_after_revoke": {
+      "requests": 15,
+      "p50_ms": 336.9,
+      "p95_ms": 402.38,
+      "max_ms": 406.86
+    },
+    "invitation": {
+      "requests": 15,
+      "p50_ms": 710.99,
+      "p95_ms": 845.57,
+      "max_ms": 857.68
+    },
+    "invitations_list": {
+      "requests": 30,
+      "p50_ms": 589.69,
+      "p95_ms": 859.02,
+      "max_ms": 902.22
+    },
+    "login": {
+      "requests": 30,
+      "p50_ms": 1554.0,
+      "p95_ms": 2360.06,
+      "max_ms": 2565.12
+    },
+    "pdf": {
+      "requests": 15,
+      "p50_ms": 498.66,
+      "p95_ms": 580.93,
+      "max_ms": 605.99
+    },
+    "profile": {
+      "requests": 45,
+      "p50_ms": 838.56,
+      "p95_ms": 1344.81,
+      "max_ms": 1550.6
+    },
+    "restore": {
+      "requests": 15,
+      "p50_ms": 1363.21,
+      "p95_ms": 1505.67,
+      "max_ms": 1552.69
+    },
+    "revoke": {
+      "requests": 15,
+      "p50_ms": 499.97,
+      "p95_ms": 513.38,
+      "max_ms": 514.95
+    },
+    "search": {
+      "requests": 15,
+      "p50_ms": 1561.68,
+      "p95_ms": 2112.0,
+      "max_ms": 2132.48
+    }
+  },
+  "limitation": "30 новых синтетических аккаунтов; email подтверждён seed, решения эталонные. Работа от оценки до предложения/контакта/отзыва. Не human pilot, не реальные ПДн; runner нагрузка измеряется отдельно."
+}

@@ -1,0 +1,75 @@
+# Relay-вариант временного стенда: TLS на ru2, зашифрованный reverse SSH до NAS.
+# Использовать только вместе с compose.yaml и compose.jury.yaml.
+services:
+  edge:
+    ports: !override
+      - "127.0.0.1:18083:80"
+    volumes: !override
+      - ./docker/jury/Caddyfile.relay:/etc/caddy/Caddyfile:ro
+
+  tunnel:
+    image: fspjury-ssh-client
+    build:
+      context: .
+      dockerfile: docker/jury/ssh-client.Dockerfile
+    network_mode: host
+    command:
+      - -N
+      - -T
+      - -p
+      - ${FSP_JURY_VPS_SSH_PORT:-22}
+      - -i
+      - /run/secrets/id_ed25519
+      - -o
+      - BatchMode=yes
+      - -o
+      - PasswordAuthentication=no
+      - -o
+      - KbdInteractiveAuthentication=no
+      - -o
+      - IdentitiesOnly=yes
+      - -o
+      - StrictHostKeyChecking=yes
+      - -o
+      - UserKnownHostsFile=/run/secrets/known_hosts
+      - -o
+      - ExitOnForwardFailure=yes
+      - -o
+      - ServerAliveInterval=30
+      - -o
+      - ServerAliveCountMax=3
+      - -R
+      - 127.0.0.1:18470:127.0.0.1:18083
+      - ${FSP_JURY_TUNNEL_USER:?Set the dedicated VPS tunnel user}@${FSP_JURY_VPS_HOST:?Set the selected VPS IPv4}
+    volumes:
+      - type: bind
+        source: ${FSP_JURY_SSH_KEY_PATH:?Set the absolute private key path outside Git}
+        target: /run/secrets/id_ed25519
+        read_only: true
+      - type: bind
+        source: ${FSP_JURY_SSH_KNOWN_HOSTS_PATH:?Set the pinned known_hosts path outside Git}
+        target: /run/secrets/known_hosts
+        read_only: true
+    depends_on:
+      edge:
+        condition: service_healthy
+    read_only: true
+    tmpfs:
+      - /tmp:size=8m,mode=1777
+    cap_drop: [ALL]
+    security_opt: ["no-new-privileges:true"]
+    mem_limit: 64m
+    cpus: 0.25
+    pids_limit: 32
+    restart: unless-stopped
+    logging:
+      driver: json-file
+      options:
+        max-size: "1m"
+        max-file: "3"
+    healthcheck:
+      test: ["CMD", "sh", "-c", "grep -aq ssh /proc/1/cmdline"]
+      interval: 15s
+      timeout: 3s
+      retries: 4
+      start_period: 10s

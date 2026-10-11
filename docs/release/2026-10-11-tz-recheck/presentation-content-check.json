@@ -1,0 +1,17 @@
+{
+  "result": "passed",
+  "sha256": "ab33df30ea1752b45c0872c5a18614ef46480d472bdb028b823eae03718453d1",
+  "slides": 16,
+  "speaker_notes": 16,
+  "all_slide_and_notes_text_scanned": true,
+  "stale_future_domain_claims": 0,
+  "changed_slides_visually_reviewed": [
+    5,
+    11,
+    13,
+    16
+  ],
+  "native_powerpoint_executed": false,
+  "layout_findings": 0,
+  "product_code_changed": false
+}

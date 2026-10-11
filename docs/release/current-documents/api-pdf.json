@@ -1,0 +1,37 @@
+{
+  "source": "18-api-guide.md",
+  "source_sha256": "6fca4bb173e49b07a50672c38f5ec4a3cb1a7537da5597c5f161adb5775a6de9",
+  "pdf": "api-guide.pdf",
+  "pdf_sha256": "821e01510bb06db7294d7e8dc9ad2cf63dfa7fd350ae1ac430cdef244c5dbab0",
+  "pdf_bytes": 244235,
+  "pages": 31,
+  "invariant_pdf": true,
+  "source_structure": {
+    "headings": 41,
+    "code_blocks": 3,
+    "tables": 29,
+    "operation_rows": 100
+  },
+  "checks": {
+    "cyrillic_text_extractable": true,
+    "byte_reproducibility_verified": true,
+    "raw_code_fences_absent": true,
+    "operations_extractable": 100,
+    "missing_operations": [],
+    "drawn_text_blocks": 486,
+    "flowable_bounds_valid": true,
+    "overflow_blocks": 0,
+    "page_size_pt": [
+      595.276,
+      841.89
+    ],
+    "body_margins_pt": {
+      "left": 85.03937007874016,
+      "right": 42.51968503937008,
+      "top": 56.69291338582678,
+      "bottom": 56.69291338582678
+    },
+    "bounds_tolerance_pt": 0.75,
+    "scope": "Проверены реальные прямоугольники отрисованных Paragraph, включая блоки, разбитые между страницами. Это проверка геометрии ReportLab, не независимая растровая проверка каждого глифа или визуальная приёмка."
+  }
+}

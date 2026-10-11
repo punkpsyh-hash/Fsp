@@ -1,0 +1,73 @@
+{
+  "kind": "contest_bank_vm_reference_and_mutant_check",
+  "bank_external_id": "contest-backend-middle-v1",
+  "bank_sha256": "0ca2b762fa2fb8173096da2cdfde00299e2da2cdbffc5138f45956d2cee003a8",
+  "accelerator": "tcg",
+  "versions": {
+    "python": "Python 3.12.13",
+    "javascript": "Node v22.23.3",
+    "sql": "SQLite 3.46.1",
+    "kernel": "6.12.111+deb13-amd64",
+    "debian_packages": {
+      "busybox-static": "1:1.37.0-6+b9",
+      "cpio": "2.15+dfsg-2",
+      "libc6:amd64": "2.41-12+deb13u3",
+      "libsqlite3-0:amd64": "3.46.1-7+deb13u1",
+      "libstdc++6:amd64": "14.2.0-19",
+      "linux-image-amd64": "6.12.111-1"
+    },
+    "official_sources": {
+      "debian_packages": "https://www.debian.org/distrib/packages",
+      "linux": "https://tracker.debian.org/pkg/linux",
+      "qemu": "https://sources.debian.org/src/qemu/",
+      "node": "https://nodejs.org/download/release/v22.23.3/",
+      "python": "https://www.python.org/downloads/release/python-31213/"
+    }
+  },
+  "checks": {
+    "reference:event-ledger": {
+      "status": "passed",
+      "cases_passed": 4,
+      "cases_total": 4
+    },
+    "reference:journal-summary": {
+      "status": "passed",
+      "cases_passed": 4,
+      "cases_total": 4
+    },
+    "reference:customer-order-stats": {
+      "status": "passed",
+      "cases_passed": 4,
+      "cases_total": 4
+    },
+    "mutant:event-ledger": {
+      "public_examples": "passed",
+      "hidden_cases": "wrong_answer",
+      "hidden_cases_passed": 2,
+      "hidden_cases_total": 3,
+      "killed_by_hidden_cases": true
+    },
+    "mutant:journal-summary": {
+      "public_examples": "passed",
+      "hidden_cases": "wrong_answer",
+      "hidden_cases_passed": 1,
+      "hidden_cases_total": 3,
+      "killed_by_hidden_cases": true
+    },
+    "mutant:customer-order-stats": {
+      "public_examples": "passed",
+      "hidden_cases": "wrong_answer",
+      "hidden_cases_passed": 1,
+      "hidden_cases_total": 3,
+      "killed_by_hidden_cases": true
+    }
+  },
+  "summary": {
+    "reference_solutions_passed": 3,
+    "typical_mutants_killed": 3
+  },
+  "limitations": [
+    "Только программные эталоны и три заранее заданных типовых ошибки.",
+    "Это не экспертная калибровка, human pilot или подтверждение уровня Backend Middle."
+  ]
+}

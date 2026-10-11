@@ -1,0 +1,6 @@
+flowchart TD
+  Web["Web · два кабинета"] --> API["API · модульный монолит"]
+  OIDC["OIDC / Keycloak"] --> API
+  API --> DB["PostgreSQL · данные и outbox"]
+  API --> FSP["ФСП adapter · mock / future API"]
+  API --> Worker["Sandbox worker · отдельная VM"]

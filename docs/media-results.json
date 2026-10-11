@@ -1,0 +1,54 @@
+{
+  "schema_version": 1,
+  "date_utc": "2026-10-07T22:44:29.026Z",
+  "product_version": "0.4.0",
+  "status": "passed",
+  "deployment_image": "sha256:c9eadec4b5af4bf37c34c4e4df4d125979567fa079be0ab31ad319ccc28969a7",
+  "scope": "Проверка контейнеров MP4/WebM, совместимости и полного декодирования. Содержимое сценария подтверждается отдельным завершённым demo:record; синтетические данные, без озвучки.",
+  "files": [
+    {
+      "path": "docs/delivery/demo.mp4",
+      "sha256": "d4804d64732ac4edd633a02d058ca10193871e9c54615b48bf8cb7bf600e7571",
+      "bytes": 9851508,
+      "duration_seconds": 187.6,
+      "format": "mp4",
+      "codec": "h264",
+      "pixel_format": "yuv420p",
+      "width": 1280,
+      "height": 800
+    },
+    {
+      "path": "docs/delivery/demo.webm",
+      "sha256": "98f437e1092bc933626d9b3c75703263459b72cfc1902c4657cb814eb2d3aaf9",
+      "bytes": 18060822,
+      "duration_seconds": 187.6,
+      "format": "webm",
+      "codec": "vp8",
+      "pixel_format": "yuv420p",
+      "width": 1280,
+      "height": 800
+    }
+  ],
+  "faststart": {
+    "passed": true,
+    "moov_position": 32,
+    "mdat_position": 55266
+  },
+  "checks": [
+    {
+      "name": "Совместимый MP4",
+      "status": "passed",
+      "evidence": "ffprobe: H.264/yuv420p, 1280×800; moov перед mdat"
+    },
+    {
+      "name": "Полное декодирование MP4",
+      "status": "passed",
+      "evidence": "ffmpeg -v error -i docs/delivery/demo.mp4 -f null -: exit0, без ошибок"
+    }
+  ],
+  "generation_command": "./scripts/run.sh demo-check",
+  "limitations": [
+    "Без звука; внешняя интеграция ФСП и почта остаются mock/локальной демонстрацией.",
+    "Видеозапись не является независимым пилотом или подтверждением качества найма."
+  ]
+}

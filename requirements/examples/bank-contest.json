@@ -1,0 +1,173 @@
+{
+  "schema_version": "fsp-bank-v1",
+  "external_id": "contest-backend-middle-v1",
+  "scope": "employer",
+  "title": "Практика Backend: события, API и данные",
+  "specialization": "backend",
+  "grade": "middle",
+  "time_limit_minutes": 90,
+  "tasks": [
+    {
+      "id": "event-ledger",
+      "type": "code",
+      "title": "Идемпотентный журнал событий",
+      "prompt": "В stdin передан JSON-массив объектов {\"event_id\": string, \"account\": string, \"occurred_at\": UTC timestamp вида YYYY-MM-DDTHH:MM:SSZ, \"sequence\": integer, \"delta\": integer}. События с повторным event_id — повторная доставка: сохраняйте только первое вхождение в исходном массиве и игнорируйте остальные, даже если их поля отличаются. Отсортируйте оставшиеся события по occurred_at, sequence, event_id (все ключи по возрастанию). Изначальный баланс каждого счёта равен 0. Применяйте delta, только если новый баланс неотрицателен; иначе отклоните событие без изменения баланса. Выведите одну строку компактного JSON с ключами именно в этом порядке: balances — массив [account, balance] по account по возрастанию, applied — event_id применённых событий в порядке обработки, rejected — event_id отклонённых событий в порядке обработки. Все три ключа обязательны, в том числе для пустого входа. Ориентир — 20 минут, вес 20/100: проверяются дедупликация, детерминированный порядок и состояние счёта при отказе операции.",
+      "skills": ["python", "http"],
+      "family": "event-processing-idempotency-ordering",
+      "weight": 20,
+      "expected_minutes": 20,
+      "language": "python",
+      "starter_code": "import json, sys\nevents = json.loads(sys.stdin.read())\n# Сведите дубликаты, упорядочьте события и сформируйте итоговый JSON.\n",
+      "examples": [
+        {
+          "input": "[{\"event_id\":\"e1\",\"account\":\"acct-a\",\"occurred_at\":\"2026-01-01T09:00:00Z\",\"sequence\":1,\"delta\":15},{\"event_id\":\"e2\",\"account\":\"acct-a\",\"occurred_at\":\"2026-01-01T09:05:00Z\",\"sequence\":1,\"delta\":-7}]",
+          "output": "{\"balances\":[[\"acct-a\",8]],\"applied\":[\"e1\",\"e2\"],\"rejected\":[]}\n",
+          "setup": ""
+        }
+      ],
+      "hidden_tests": [
+        {
+          "input": "[{\"event_id\":\"dup-credit\",\"account\":\"acct-a\",\"occurred_at\":\"2026-01-01T10:00:00Z\",\"sequence\":1,\"delta\":5},{\"event_id\":\"dup-credit\",\"account\":\"acct-a\",\"occurred_at\":\"2026-01-01T10:01:00Z\",\"sequence\":1,\"delta\":50},{\"event_id\":\"debit\",\"account\":\"acct-a\",\"occurred_at\":\"2026-01-01T10:02:00Z\",\"sequence\":1,\"delta\":-4}]",
+          "output": "{\"balances\":[[\"acct-a\",1]],\"applied\":[\"dup-credit\",\"debit\"],\"rejected\":[]}\n",
+          "setup": ""
+        },
+        {
+          "input": "[{\"event_id\":\"late-credit\",\"account\":\"acct-b\",\"occurred_at\":\"2026-01-01T12:00:00Z\",\"sequence\":1,\"delta\":9},{\"event_id\":\"early-debit\",\"account\":\"acct-b\",\"occurred_at\":\"2026-01-01T11:00:00Z\",\"sequence\":1,\"delta\":-2},{\"event_id\":\"middle-credit\",\"account\":\"acct-b\",\"occurred_at\":\"2026-01-01T12:00:00Z\",\"sequence\":1,\"delta\":2},{\"event_id\":\"last-debit\",\"account\":\"acct-b\",\"occurred_at\":\"2026-01-01T12:00:00Z\",\"sequence\":2,\"delta\":-3}]",
+          "output": "{\"balances\":[[\"acct-b\",8]],\"applied\":[\"late-credit\",\"middle-credit\",\"last-debit\"],\"rejected\":[\"early-debit\"]}\n",
+          "setup": ""
+        },
+        {
+          "input": "[{\"event_id\":\"z-credit\",\"account\":\"acct-c\",\"occurred_at\":\"2026-01-01T13:00:00Z\",\"sequence\":4,\"delta\":2},{\"event_id\":\"a-debit\",\"account\":\"acct-c\",\"occurred_at\":\"2026-01-01T13:00:00Z\",\"sequence\":4,\"delta\":-1},{\"event_id\":\"zero\",\"account\":\"acct-a\",\"occurred_at\":\"2026-01-01T14:00:00Z\",\"sequence\":1,\"delta\":0},{\"event_id\":\"first-loss\",\"account\":\"acct-d\",\"occurred_at\":\"2026-01-01T12:00:00Z\",\"sequence\":3,\"delta\":-1}]",
+          "output": "{\"balances\":[[\"acct-a\",0],[\"acct-c\",2],[\"acct-d\",0]],\"applied\":[\"z-credit\",\"zero\"],\"rejected\":[\"first-loss\",\"a-debit\"]}\n",
+          "setup": ""
+        }
+      ],
+      "runtime_limits": {"wall_seconds": 3, "memory_mb": 512}
+    },
+    {
+      "id": "journal-summary",
+      "type": "code",
+      "title": "Нормализация журнала операций",
+      "prompt": "В stdin передан JSON-массив строк журнала с полями operation_id (строка), customer (строка), revision (целое), updated_at (UTC timestamp YYYY-MM-DDTHH:MM:SSZ), status (строка), amount_cents (целое). Для каждого operation_id выберите запись с наибольшим revision; при равной revision — с наиболее поздним updated_at; если совпали оба поля, выберите более позднюю строку исходного массива. Нормализуйте status без учёта регистра и внешних пробелов: ok/success/succeeded → succeeded, error/failed → failed, pending → pending. Сгруппируйте только выбранные записи по customer. Выведите одну строку JSON-массив объектов в порядке customer по возрастанию; у каждого объекта поля строго в порядке customer, succeeded_count, succeeded_cents, failed_count, pending_count. Считайте количество выбранных операций каждого состояния; succeeded_cents — сумму amount_cents только у succeeded, включая отрицательные суммы и нули. Клиенты только с failed/pending также должны присутствовать. Ориентир — 18 минут, вес 20/100: нужны выбор актуальной ревизии, канонизация статусов и точная сводка.",
+      "skills": ["javascript", "http"],
+      "family": "journal-normalization-latest-state-summary",
+      "weight": 20,
+      "expected_minutes": 18,
+      "language": "javascript",
+      "starter_code": "const fs = require('node:fs');\nconst rows = JSON.parse(fs.readFileSync(0, 'utf8'));\n// Нормализуйте журнал и напечатайте JSON-сводку.\n",
+      "examples": [
+        {
+          "input": "[{\"operation_id\":\"op-a\",\"customer\":\"cust-a\",\"revision\":1,\"updated_at\":\"2026-01-01T09:00:00Z\",\"status\":\"success\",\"amount_cents\":250},{\"operation_id\":\"op-b\",\"customer\":\"cust-b\",\"revision\":1,\"updated_at\":\"2026-01-01T09:01:00Z\",\"status\":\"pending\",\"amount_cents\":700}]",
+          "output": "[{\"customer\":\"cust-a\",\"succeeded_count\":1,\"succeeded_cents\":250,\"failed_count\":0,\"pending_count\":0},{\"customer\":\"cust-b\",\"succeeded_count\":0,\"succeeded_cents\":0,\"failed_count\":0,\"pending_count\":1}]\n",
+          "setup": ""
+        }
+      ],
+      "hidden_tests": [
+        {
+          "input": "[{\"operation_id\":\"op-1\",\"customer\":\"cust-b\",\"revision\":1,\"updated_at\":\"2026-01-01T09:00:00Z\",\"status\":\"OK\",\"amount_cents\":900},{\"operation_id\":\"op-1\",\"customer\":\"cust-b\",\"revision\":2,\"updated_at\":\"2026-01-01T09:02:00Z\",\"status\":\" Error \",\"amount_cents\":900},{\"operation_id\":\"op-2\",\"customer\":\"cust-a\",\"revision\":3,\"updated_at\":\"2026-01-01T09:03:00Z\",\"status\":\" SUCCESS \",\"amount_cents\":-125}]",
+          "output": "[{\"customer\":\"cust-a\",\"succeeded_count\":1,\"succeeded_cents\":-125,\"failed_count\":0,\"pending_count\":0},{\"customer\":\"cust-b\",\"succeeded_count\":0,\"succeeded_cents\":0,\"failed_count\":1,\"pending_count\":0}]\n",
+          "setup": ""
+        },
+        {
+          "input": "[{\"operation_id\":\"same-revision\",\"customer\":\"cust-c\",\"revision\":4,\"updated_at\":\"2026-01-01T10:00:00Z\",\"status\":\"success\",\"amount_cents\":100},{\"operation_id\":\"same-revision\",\"customer\":\"cust-c\",\"revision\":4,\"updated_at\":\"2026-01-01T10:00:00Z\",\"status\":\"pending\",\"amount_cents\":100},{\"operation_id\":\"negative-refund\",\"customer\":\"cust-c\",\"revision\":2,\"updated_at\":\"2026-01-01T10:01:00Z\",\"status\":\"succeeded\",\"amount_cents\":-20}]",
+          "output": "[{\"customer\":\"cust-c\",\"succeeded_count\":1,\"succeeded_cents\":-20,\"failed_count\":0,\"pending_count\":1}]\n",
+          "setup": ""
+        },
+        {
+          "input": "[{\"operation_id\":\"a-later\",\"customer\":\"cust-z\",\"revision\":1,\"updated_at\":\"2026-01-01T11:00:00Z\",\"status\":\"failed\",\"amount_cents\":50},{\"operation_id\":\"b-zero\",\"customer\":\"cust-a\",\"revision\":1,\"updated_at\":\"2026-01-01T11:01:00Z\",\"status\":\"ok\",\"amount_cents\":0},{\"operation_id\":\"c-pending\",\"customer\":\"cust-z\",\"revision\":1,\"updated_at\":\"2026-01-01T11:02:00Z\",\"status\":\"PENDING\",\"amount_cents\":75}]",
+          "output": "[{\"customer\":\"cust-a\",\"succeeded_count\":1,\"succeeded_cents\":0,\"failed_count\":0,\"pending_count\":0},{\"customer\":\"cust-z\",\"succeeded_count\":0,\"succeeded_cents\":0,\"failed_count\":1,\"pending_count\":1}]\n",
+          "setup": ""
+        }
+      ],
+      "runtime_limits": {"wall_seconds": 3, "memory_mb": 512}
+    },
+    {
+      "id": "customer-order-stats",
+      "type": "code",
+      "title": "Сводка заказов без потери клиентов",
+      "prompt": "SQLite. Таблицы customers(id INTEGER PRIMARY KEY, active INTEGER) и orders(id INTEGER PRIMARY KEY, customer_id INTEGER, status TEXT, amount_cents INTEGER). Одним SELECT верните для каждого active=1 клиента строку [customer_id, order_count, paid_count, paid_cents], отсортировав по customer_id. order_count считает существующие заказы; paid_count считает строки со status='paid', даже если amount_cents равен NULL; paid_cents суммирует amount_cents только таких paid-строк и возвращает 0, если значений нет. Клиенты без заказов должны остаться в ответе с нулями. Ожидается JSON-массив строк SQLite, например [[11,2,1,500],[12,0,0,0]]. Используйте только SELECT; SQLite — диалект задания. Ориентир — 18 минут, вес 20/100: решение должно сохранить нулевые строки и корректно различить COUNT, NULL и LEFT JOIN.",
+      "skills": ["sql"],
+      "family": "sql-left-join-null-zero-counts",
+      "weight": 20,
+      "expected_minutes": 18,
+      "language": "sql",
+      "starter_code": "-- Одним SELECT получите сводку по всем активным клиентам.\n",
+      "examples": [
+        {
+          "input": "",
+          "output": "[[1,2,1,500],[2,1,0,0]]",
+          "setup": "CREATE TABLE customers(id INTEGER PRIMARY KEY, active INTEGER); CREATE TABLE orders(id INTEGER PRIMARY KEY, customer_id INTEGER, status TEXT, amount_cents INTEGER); INSERT INTO customers VALUES (1,1),(2,1); INSERT INTO orders VALUES (10,1,'paid',500),(11,1,'failed',300),(12,2,'pending',900);"
+        }
+      ],
+      "hidden_tests": [
+        {
+          "input": "",
+          "output": "[[11,3,2,700],[12,0,0,0],[13,1,0,0]]",
+          "setup": "CREATE TABLE customers(id INTEGER PRIMARY KEY, active INTEGER); CREATE TABLE orders(id INTEGER PRIMARY KEY, customer_id INTEGER, status TEXT, amount_cents INTEGER); INSERT INTO customers VALUES (11,1),(12,1),(13,1),(14,0); INSERT INTO orders VALUES (101,11,'paid',700),(102,11,'paid',NULL),(103,11,'failed',900),(104,13,'pending',50),(105,14,'paid',1000);"
+        },
+        {
+          "input": "",
+          "output": "[[1,0,0,0],[2,2,2,0]]",
+          "setup": "CREATE TABLE customers(id INTEGER PRIMARY KEY, active INTEGER); CREATE TABLE orders(id INTEGER PRIMARY KEY, customer_id INTEGER, status TEXT, amount_cents INTEGER); INSERT INTO customers VALUES (1,1),(2,1); INSERT INTO orders VALUES (20,2,'paid',NULL),(21,2,'paid',0);"
+        },
+        {
+          "input": "",
+          "output": "[[5,2,1,-80],[6,1,1,0]]",
+          "setup": "CREATE TABLE customers(id INTEGER PRIMARY KEY, active INTEGER); CREATE TABLE orders(id INTEGER PRIMARY KEY, customer_id INTEGER, status TEXT, amount_cents INTEGER); INSERT INTO customers VALUES (5,1),(6,1),(7,0); INSERT INTO orders VALUES (30,5,'paid',-80),(31,5,'failed',400),(32,6,'paid',0),(33,7,'paid',150);"
+        }
+      ],
+      "runtime_limits": {"wall_seconds": 3, "memory_mb": 512}
+    },
+    {
+      "id": "idempotency-contract",
+      "type": "single_choice",
+      "title": "Идемпотентность приглашения при гонке",
+      "prompt": "Два параллельных запроса от компании C создают приглашение одному кандидату. В обоих одинаковые Idempotency-Key K и одинаковое тело; первый ответ может потеряться, после чего клиент повторяет запрос. Позже C отправляет K с другим телом. Компания D использует тот же K со своим телом. Какой контракт корректен? Ориентир — 8 минут, вес 10/100: выберите один вариант, соблюдающий tenant scope, атомарность, replay и конфликт изменённого тела.",
+      "skills": ["http", "sql"],
+      "family": "http-idempotency-scope-and-replay",
+      "weight": 10,
+      "expected_minutes": 8,
+      "options": [
+        {"id": "tenant-key-atomic", "text": "Уникальность пары (company_id, key) обеспечивается хранилищем; создание приглашения и сохранение replay-ответа атомарны. Тот же ключ и хеш тела у C возвращают тот же результат без второго эффекта; другой хеш у C получает конфликт; D с тем же key независима."},
+        {"id": "global-key-cache", "text": "Ключ глобален для всех компаний; любой повтор получает сохранённый ответ первой компании независимо от тела."},
+        {"id": "cache-after-commit", "text": "Сначала создать приглашение, затем отдельно записать ключ в кэш; при конкурентном повторе допустимы две записи, если обе отдали 201."},
+        {"id": "same-key-any-body", "text": "Для одной компании достаточно вернуть старый ответ на любой запрос с тем же ключом, даже если тело изменилось."},
+        {"id": "process-memory", "text": "Держать ключи в памяти одного API-процесса; межпроцессную координацию и перезапуск закрывает повтор клиента."}
+      ],
+      "answer_key": ["tenant-key-atomic"],
+      "partial_credit": false
+    },
+    {
+      "id": "contact-revoke-model",
+      "type": "multiple_choice",
+      "title": "Контакт после принятия и отзыв доступа",
+      "prompt": "Отметьте все свойства корректной модели доступа к контактам кандидата. Рассматривайте API поиска, PDF профиля, принятие приглашения, самостоятельный отклик и отзыв разрешения. Ориентир — 8 минут, вес 10/100: отметьте все правила серверной проекции, адресного grant и его отзыва.",
+      "skills": ["http"],
+      "family": "privacy-owner-scoped-grants-and-revocation",
+      "weight": 10,
+      "expected_minutes": 8,
+      "options": [
+        {"id": "search-projection", "text": "Поиск и подборка возвращают только разрешённую проекцию без контакта и свободного текста резюме."},
+        {"id": "owner-bound-grant", "text": "Принятие приглашения или активный отклик создаёт право только для конкретной компании и конкретного кандидата; правило проверяется на сервере при каждом чтении."},
+        {"id": "revoke-future-reads", "text": "Отзыв закрывает последующие API/PDF-чтения для этой компании; уже прочитанную или скопированную информацию нельзя отозвать технически."},
+        {"id": "signed-link-permanent", "text": "Достаточно однажды выдать долгоживущую ссылку на PDF: отзыв не должен проверяться после выдачи."},
+        {"id": "same-domain-share", "text": "Разрешение можно разделить между всеми работодателями с тем же email-доменом."},
+        {"id": "invite-send-grant", "text": "Отправка приглашения уже раскрывает контакт, даже до решения кандидата."}
+      ],
+      "answer_key": ["search-projection", "owner-bound-grant", "revoke-future-reads"],
+      "partial_credit": false
+    },
+    {
+      "id": "atomic-quota-reservation",
+      "type": "open_response",
+      "title": "Конкурентное резервирование последнего места",
+      "prompt": "В PostgreSQL у задания remaining=1. Два worker одновременно резервируют по одному месту; затем клиент может повторить запрос после таймаута, не зная, был ли первый ответ зафиксирован. Предложите схему транзакции/API, которая не допускает remaining<0 и двойного резервирования. Опишите поведение одинакового и изменённого повторного запроса, результат проигравшей гонки и минимум два конкурентных/повторных теста. Код не требуется. Ориентир — 16 минут, вес 20/100: повышенный вес учитывает системный дизайн, конкурентную корректность, идемпотентность и план проверок.",
+      "skills": ["sql", "http"],
+      "family": "atomic-read-modify-write-idempotent-reservation",
+      "weight": 20,
+      "expected_minutes": 16,
+      "rubric": "Оценка 0–100, по 20 баллов за каждый критерий. (1) Инвариант remaining >= 0 и явное решение ровно одной гонки: 20 — атомарное условное UPDATE ... WHERE remaining >= 1 с проверкой числа строк либо блокировка строки в транзакции с повторной проверкой; 10 — общая транзакция упомянута без атомарной проверки; 0 — обычный read-modify-write без защиты. (2) Границы транзакции и конкурентный эффект: 20 — резервирование и запись результата/события фиксируются атомарно, проигравший не меняет счётчик и получает исчерпанную ёмкость; 10 — блокировка есть, но эффект/ответ не описан; 0 — допускается потерянное обновление или отрицательный остаток. (3) Идемпотентный повтор: 20 — ключ уникален в scope клиента/worker, связан с телом/операцией, хранится результат; одинаковый повтор возвращает исходный результат без второго decrement, изменённое тело даёт conflict; 10 — ключ назван без scope или проверки тела; 0 — повтор меняет состояние повторно. (4) Проверяемые тесты: 20 — барьер запускает два запроса при remaining=1 и подтверждает одного победителя/remaining=0 плюс повтор после потерянного ответа без второго эффекта; 10 — только один из этих сценариев; 0 — нет гонки/проверки повтора. (5) Ошибки/повтор после конфликта: 20 — фиксируется безопасный статус проигравшему, транзакция откатывается при сбое, повтор после transient failure различён от бизнес-отказа; 10 — частичное описание; 0 — состояния смешаны. Частичные баллы внутри критерия допускаются только за явно названный проверяемый механизм.",
+      "answer_limit": 4000
+    }
+  ]
+}

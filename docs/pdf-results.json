@@ -1,0 +1,30 @@
+{
+  "version": "0.4.0",
+  "date_utc": "2026-10-07T22:49:06.931303+00:00",
+  "status": "passed",
+  "files": [
+    {
+      "path": "docs/delivery/presentation.pdf",
+      "pages": 17,
+      "bytes": 48997,
+      "sha256": "1e8366cb47ecc4599fd6162736342c5c97edcd48dd093035db8c861a2705acac",
+      "text_extraction": "passed"
+    },
+    {
+      "path": "docs/delivery/technical-report.pdf",
+      "pages": 39,
+      "bytes": 138731,
+      "sha256": "01298a6f03a9ec7aa4f28dde8d084d8a69a30db34430ba749b4268de295c229c",
+      "text_extraction": "passed"
+    }
+  ],
+  "generation_command": "./scripts/run.sh report",
+  "checks": [
+    "ReportLab slide content fit assertions passed",
+    "All PDF pages contain extractable text; Cyrillic cover titles passed"
+  ],
+  "limitations": [
+    "Авторская презентация: оригинальный конкурсный шаблон отсутствует.",
+    "Проверка извлечения текста не заменяет визуальную проверку каждого глифа."
+  ]
+}

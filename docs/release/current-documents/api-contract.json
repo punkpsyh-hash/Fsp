@@ -1,0 +1,16 @@
+{
+  "paths": 87,
+  "operations": 100,
+  "documented_operations": 100,
+  "live_contract_equal": true,
+  "http_examples": 71,
+  "json_bodies_validated": 34,
+  "http_examples_executed_as_requests": false,
+  "method": "Offline route/body validation with safe placeholder substitution; only public GET OpenAPI is requested.",
+  "source_sha256": {
+    "contracts/openapi.yaml": "2da98159078dc5d9d79b40c31ae6802c471c6fe1657d6d827f657f21f4aaf48a",
+    "docs/18-api-guide.md": "ec74c0b3c9b9c9b580095b13b0c41a44f72378f1bf952ed1cc880b6bae1113f4",
+    "docs/api-examples.http": "9e115f828517d3b1e41ccdec801dddb66d06215c0960c53f86b7bcb950d994b2"
+  },
+  "deployment_scope": "Ephemeral current-source API inside network-none Docker container; SQLite, seed=False; no host ports, NAS or external services."
+}

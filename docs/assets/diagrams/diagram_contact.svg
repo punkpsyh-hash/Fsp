@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE svg
+  PUBLIC '-//W3C//DTD SVG 1.0//EN'
+  'http://www.w3.org/TR/2001/REC-SVG-20010904/DTD/svg10.dtd'>
+<svg width="467.71653543307093" height="245" preserveAspectRatio="xMinYMin meet" viewBox="0 0 467 245" xmlns="http://www.w3.org/2000/svg" version="1.0" fill-rule="evenodd" xmlns:xlink="http://www.w3.org/1999/xlink">
+	<title>...</title>
+	<desc>...</desc>
+	<clipPath id="clip">
+		<rect x="0" y="0" width="467.71653543307093" height="245"/>
+	</clipPath>
+	<g id="group" transform="scale(1,-1) translate(0,-245)" style="clip-path: url(#clip)">
+		<g transform="">
+			<rect x="0.0" y="135" width="82.0" height="82" style="stroke: rgb(0%,0%,0%); stroke-linecap: butt; stroke-width: 0.8; fill: rgb(94%,94%,94%); fill-rule: evenodd;"/>
+			<text x="6.0" y="201" style="font-family: GostSerifBold; font-size: 12px;fill: rgb(0%,0%,0%); stroke:none;" transform="translate(0,402) scale(1,-1)">Кандидат</text>
+			<text x="6.0" y="186" style="font-family: GostSerif; font-size: 12px;fill: rgb(0%,0%,0%); stroke:none;" transform="translate(0,372) scale(1,-1)">Тест</text>
+			<text x="6.0" y="171" style="font-family: GostSerif; font-size: 12px;fill: rgb(0%,0%,0%); stroke:none;" transform="translate(0,342) scale(1,-1)">Категория</text>
+			<text x="6.0" y="156" style="font-family: GostSerif; font-size: 12px;fill: rgb(0%,0%,0%); stroke:none;" transform="translate(0,312) scale(1,-1)">Публикация</text>
+			<path d="M 82,176 L 96.429134,176 Z" style="stroke: rgb(0%,0%,0%); stroke-linecap: butt; stroke-width: 0.9;"/>
+			<polygon points="96.42913 176, 92.28436 177.7524, 92.28436 174.2476" style="stroke: rgb(0%,0%,0%); stroke-linecap: butt; stroke-width: 1; fill: rgb(0%,0%,0%); fill-rule: evenodd;"/>
+			<rect x="96.42913385826773" y="135" width="82.0" height="82" style="stroke: rgb(0%,0%,0%); stroke-linecap: butt; stroke-width: 0.8; fill: rgb(94%,94%,94%); fill-rule: evenodd;"/>
+			<text x="102.42913385826773" y="201" style="font-family: GostSerifBold; font-size: 12px;fill: rgb(0%,0%,0%); stroke:none;" transform="translate(0,402) scale(1,-1)">Компания</text>
+			<text x="102.42913385826773" y="186" style="font-family: GostSerif; font-size: 12px;fill: rgb(0%,0%,0%); stroke:none;" transform="translate(0,372) scale(1,-1)">Потребность</text>
+			<text x="102.42913385826773" y="171" style="font-family: GostSerif; font-size: 12px;fill: rgb(0%,0%,0%); stroke:none;" transform="translate(0,342) scale(1,-1)">Подборка</text>
+			<path d="M 178.429134,176 L 192.858268,176 Z" style="stroke: rgb(0%,0%,0%); stroke-linecap: butt; stroke-width: 0.9;"/>
+			<polygon points="192.8583 176, 188.7135 177.7524, 188.7135 174.2476" style="stroke: rgb(0%,0%,0%); stroke-linecap: butt; stroke-width: 1; fill: rgb(0%,0%,0%); fill-rule: evenodd;"/>
+			<rect x="192.85826771653547" y="135" width="82.0" height="82" style="stroke: rgb(0%,0%,0%); stroke-linecap: butt; stroke-width: 0.8; fill: rgb(94%,94%,94%); fill-rule: evenodd;"/>
+			<text x="198.85826771653547" y="201" style="font-family: GostSerifBold; font-size: 12px;fill: rgb(0%,0%,0%); stroke:none;" transform="translate(0,402) scale(1,-1)">Приглашение</text>
+			<text x="198.85826771653547" y="186" style="font-family: GostSerif; font-size: 12px;fill: rgb(0%,0%,0%); stroke:none;" transform="translate(0,372) scale(1,-1)">Зарплата</text>
+			<text x="198.85826771653547" y="171" style="font-family: GostSerif; font-size: 12px;fill: rgb(0%,0%,0%); stroke:none;" transform="translate(0,342) scale(1,-1)">Компания</text>
+			<text x="198.85826771653547" y="156" style="font-family: GostSerif; font-size: 12px;fill: rgb(0%,0%,0%); stroke:none;" transform="translate(0,312) scale(1,-1)">Связь</text>
+			<path d="M 274.858268,176 L 289.287402,176 Z" style="stroke: rgb(0%,0%,0%); stroke-linecap: butt; stroke-width: 0.9;"/>
+			<polygon points="289.2874 176, 285.1426 177.7524, 285.1426 174.2476" style="stroke: rgb(0%,0%,0%); stroke-linecap: butt; stroke-width: 1; fill: rgb(0%,0%,0%); fill-rule: evenodd;"/>
+			<rect x="289.2874015748032" y="135" width="82.0" height="82" style="stroke: rgb(0%,0%,0%); stroke-linecap: butt; stroke-width: 0.8; fill: rgb(94%,94%,94%); fill-rule: evenodd;"/>
+			<text x="295.2874015748032" y="201" style="font-family: GostSerifBold; font-size: 12px;fill: rgb(0%,0%,0%); stroke:none;" transform="translate(0,402) scale(1,-1)">Кандидат</text>
+			<text x="295.2874015748032" y="186" style="font-family: GostSerif; font-size: 12px;fill: rgb(0%,0%,0%); stroke:none;" transform="translate(0,372) scale(1,-1)">Принять</text>
+			<text x="295.2874015748032" y="171" style="font-family: GostSerif; font-size: 12px;fill: rgb(0%,0%,0%); stroke:none;" transform="translate(0,342) scale(1,-1)">Отклонить</text>
+			<path d="M 371.287402,176 L 385.716535,176 Z" style="stroke: rgb(0%,0%,0%); stroke-linecap: butt; stroke-width: 0.9;"/>
+			<polygon points="385.7165 176, 381.5718 177.7524, 381.5718 174.2476" style="stroke: rgb(0%,0%,0%); stroke-linecap: butt; stroke-width: 1; fill: rgb(0%,0%,0%); fill-rule: evenodd;"/>
+			<rect x="385.71653543307093" y="135" width="82.0" height="82" style="stroke: rgb(0%,0%,0%); stroke-linecap: butt; stroke-width: 0.8; fill: rgb(94%,94%,94%); fill-rule: evenodd;"/>
+			<text x="391.71653543307093" y="201" style="font-family: GostSerifBold; font-size: 12px;fill: rgb(0%,0%,0%); stroke:none;" transform="translate(0,402) scale(1,-1)">Контакт</text>
+			<text x="391.71653543307093" y="186" style="font-family: GostSerif; font-size: 12px;fill: rgb(0%,0%,0%); stroke:none;" transform="translate(0,372) scale(1,-1)">Только этой</text>
+			<text x="391.71653543307093" y="171" style="font-family: GostSerif; font-size: 12px;fill: rgb(0%,0%,0%); stroke:none;" transform="translate(0,342) scale(1,-1)">компании</text>
+			<text x="0" y="102" style="font-family: GostSerif; font-size: 12px;fill: rgb(0%,0%,0%); stroke:none;" transform="translate(0,204) scale(1,-1)">До принятия приглашения или отклика контакт скрыт</text>
+			<text x="0" y="84" style="font-family: GostSerif; font-size: 12px;fill: rgb(0%,0%,0%); stroke:none;" transform="translate(0,168) scale(1,-1)">в поиске, API и PDF. Самостоятельный отклик открывает контакт</text>
+			<text x="0" y="66" style="font-family: GostSerif; font-size: 12px;fill: rgb(0%,0%,0%); stroke:none;" transform="translate(0,132) scale(1,-1)">только компании — владельцу вакансии.</text>
+		</g>
+	</g>
+</svg>

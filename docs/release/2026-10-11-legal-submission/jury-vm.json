@@ -1,0 +1,200 @@
+{
+  "summary": {
+    "checks": 28,
+    "failed": 0,
+    "accelerator": "kvm",
+    "versions": {
+      "python": "Python 3.12.13",
+      "javascript": "Node v22.23.3",
+      "sql": "SQLite 3.46.1",
+      "kernel": "6.12.111+deb13-amd64",
+      "debian_packages": {
+        "busybox-static": "1:1.37.0-6+b9",
+        "cpio": "2.15+dfsg-2",
+        "libc6:amd64": "2.41-12+deb13u3",
+        "libsqlite3-0:amd64": "3.46.1-7+deb13u1",
+        "libstdc++6:amd64": "14.2.0-19",
+        "linux-image-amd64": "6.12.111-1"
+      },
+      "official_sources": {
+        "debian_packages": "https://www.debian.org/distrib/packages",
+        "linux": "https://tracker.debian.org/pkg/linux",
+        "qemu": "https://sources.debian.org/src/qemu/",
+        "node": "https://nodejs.org/download/release/v22.23.3/",
+        "python": "https://www.python.org/downloads/release/python-31213/"
+      }
+    },
+    "boot_ms_median": 3005.5,
+    "boot_ms_max": 3892,
+    "guest_memory_mib": 512,
+    "cpu_seconds": 2,
+    "output_bytes": 65536,
+    "max_pids_per_uid": 16,
+    "sha256": {
+      "vmlinuz": "6d8a7f745280cc06a6d2877c932f4dfa9079b694eb4227b61b27232642340794",
+      "initramfs.cpio.gz": "e409c55ca7a8076a586f20723ead45109795890d70b2576f273dc4484894ee90"
+    }
+  },
+  "checks": [
+    {
+      "name": "KVM/TCG real VM readiness",
+      "status": "passed",
+      "duration_ms": 3930,
+      "boot_ms": 3889
+    },
+    {
+      "name": "Python stdin",
+      "status": "passed",
+      "duration_ms": 3254,
+      "boot_ms": 3205
+    },
+    {
+      "name": "JavaScript stdin",
+      "status": "passed",
+      "duration_ms": 2845,
+      "boot_ms": 2768
+    },
+    {
+      "name": "SQLite query",
+      "status": "passed",
+      "duration_ms": 3108,
+      "boot_ms": 2961
+    },
+    {
+      "name": "Python syntax",
+      "status": "passed",
+      "duration_ms": 3936,
+      "boot_ms": 3892
+    },
+    {
+      "name": "JavaScript syntax",
+      "status": "passed",
+      "duration_ms": 3186,
+      "boot_ms": 3111
+    },
+    {
+      "name": "Python CPU timeout",
+      "status": "passed",
+      "duration_ms": 5164,
+      "boot_ms": 3132
+    },
+    {
+      "name": "JavaScript CPU timeout",
+      "status": "passed",
+      "duration_ms": 5139,
+      "boot_ms": 3069
+    },
+    {
+      "name": "SQL progress timeout",
+      "status": "passed",
+      "duration_ms": 5192,
+      "boot_ms": 3157
+    },
+    {
+      "name": "Python output limit",
+      "status": "passed",
+      "duration_ms": 3072,
+      "boot_ms": 3044
+    },
+    {
+      "name": "JavaScript output limit",
+      "status": "passed",
+      "duration_ms": 2703,
+      "boot_ms": 2616
+    },
+    {
+      "name": "Python memory limit",
+      "status": "passed",
+      "duration_ms": 3303,
+      "boot_ms": 3254
+    },
+    {
+      "name": "Guest UID/files/credentials isolation",
+      "status": "passed",
+      "duration_ms": 3106,
+      "boot_ms": 2847
+    },
+    {
+      "name": "Network isolation",
+      "status": "passed",
+      "duration_ms": 3069,
+      "boot_ms": 2953
+    },
+    {
+      "name": "Readonly runtime",
+      "status": "passed",
+      "duration_ms": 2857,
+      "boot_ms": 2820
+    },
+    {
+      "name": "Job A local write",
+      "status": "passed",
+      "duration_ms": 2930,
+      "boot_ms": 2887
+    },
+    {
+      "name": "Job B fresh VM",
+      "status": "passed",
+      "duration_ms": 3698,
+      "boot_ms": 3156
+    },
+    {
+      "name": "SQL ATTACH denied",
+      "status": "passed",
+      "duration_ms": 3207,
+      "boot_ms": 3025
+    },
+    {
+      "name": "SQL load_extension denied",
+      "status": "passed",
+      "duration_ms": 2829,
+      "boot_ms": 2654
+    },
+    {
+      "name": "SQL PRAGMA denied",
+      "status": "passed",
+      "duration_ms": 3101,
+      "boot_ms": 2919
+    },
+    {
+      "name": "SQL write denied",
+      "status": "passed",
+      "duration_ms": 3254,
+      "boot_ms": 2986
+    },
+    {
+      "name": "SQL multiple statements denied",
+      "status": "passed",
+      "duration_ms": 2878,
+      "boot_ms": 2724
+    },
+    {
+      "name": "Process budget",
+      "status": "passed",
+      "duration_ms": 4375,
+      "boot_ms": 3318
+    },
+    {
+      "name": "Recovery after hostile cases",
+      "status": "passed",
+      "duration_ms": 2956,
+      "boot_ms": 2923
+    },
+    {
+      "name": "python oracle/hidden-output redaction",
+      "status": "passed"
+    },
+    {
+      "name": "javascript oracle/hidden-output redaction",
+      "status": "passed"
+    },
+    {
+      "name": "sql oracle/hidden-output redaction",
+      "status": "passed"
+    },
+    {
+      "name": "wrong answer",
+      "status": "passed"
+    }
+  ]
+}

@@ -1,0 +1,103 @@
+{
+  "status": "passed",
+  "generated_at": "2026-10-11T13:21:11.318950+00:00",
+  "scope": "Repository structure, documentation and published media; product runtime unchanged.",
+  "before_commit": "22b4a013f4ee5ed4fb93a8d538a8571d0b50fdf0",
+  "retired_files": 191,
+  "local_only_files": [
+    "AGENTS.md",
+    "CLAUDE.md"
+  ],
+  "published_markdown_guides": 19,
+  "history_rewritten": false,
+  "authorship_and_material_provenance_preserved": true,
+  "documents": {
+    "pairs": 7,
+    "pdf_pages": 363,
+    "rendered_word_pages": 341,
+    "verification": "docs/release/current-documents/documents-verification.json",
+    "verification_sha256": "77316b39b32bd15c119780b945fbeac00ea073fb3bc7e8ea21f33363ec16149c"
+  },
+  "checks": {
+    "document_tests": {
+      "passed": 17,
+      "executed_in_docker": true
+    },
+    "test_collection": {
+      "collected": 500,
+      "exit_code": 0,
+      "tests_executed_by_collection": false
+    },
+    "api_guide": {
+      "paths": 87,
+      "operations": 100,
+      "documented_operations": 100,
+      "live_contract_equal": true,
+      "http_examples": 71,
+      "json_bodies_validated": 34,
+      "http_examples_executed_as_requests": false,
+      "method": "Offline route/body validation with safe placeholder substitution; only public GET OpenAPI is requested.",
+      "source_sha256": {
+        "contracts/openapi.yaml": "2e11c61ccfe31a372c12649dc91725cfa73c25892cf2adf096bfa646d11b90d8",
+        "docs/18-api-guide.md": "bae78fad63702b81a07dab3b48585871d592390a9255b21f5f75e7e7e06c54bf",
+        "docs/api-examples.http": "9e115f828517d3b1e41ccdec801dddb66d06215c0960c53f86b7bcb950d994b2"
+      },
+      "deployment_scope": "Ephemeral current-source API inside network-none Docker container; SQLite, seed=False; no host ports, NAS or external services."
+    },
+    "published_video": {
+      "schema_version": 2,
+      "date_utc": "2026-10-11T13:05:45.012Z",
+      "status": "passed",
+      "deployment_image": null,
+      "scope": "Проверка формата и декодирования опубликованного видео с пояснениями.",
+      "files": [
+        {
+          "path": "docs/delivery/demo-explained.mp4",
+          "sha256": "cd85930f9928e0e99b6831b34dc46cc00fd1c7d288b43d9a9d484e5fbf50f679",
+          "bytes": 17926901,
+          "duration_seconds": 324.72,
+          "format": "mp4",
+          "codec": "h264",
+          "pixel_format": "yuvj420p",
+          "width": 1920,
+          "height": 1080
+        }
+      ],
+      "faststart": {
+        "passed": true,
+        "moov_position": 32,
+        "mdat_position": 98234
+      },
+      "checks": [
+        {
+          "name": "Совместимый MP4",
+          "status": "passed",
+          "evidence": "ffprobe: H.264/yuvj420p, 1920×1080; moov перед mdat"
+        },
+        {
+          "name": "Полное декодирование MP4",
+          "status": "passed",
+          "evidence": "ffmpeg -v error -xerror -i docs/delivery/demo-explained.mp4 -f null -: exit0, без ошибок"
+        }
+      ],
+      "generation_command": "./scripts/run.sh demo-check",
+      "limitations": [
+        "Без звука; внешняя интеграция ФСП и почта остаются mock/локальной демонстрацией.",
+        "Видеозапись не является независимым пилотом или подтверждением качества найма."
+      ]
+    },
+    "shell_syntax": "passed: run.sh, sync.sh, package_submission.sh",
+    "diff_whitespace": "passed",
+    "independent_review": {
+      "status": "passed_precommit",
+      "unresolved_findings": 0,
+      "local_report_sha256": "6e263c91b13ba7d7714fcd39aa92c870ecb0836deb666a5cd8025aad0a902183"
+    }
+  },
+  "limits": [
+    "Full backend/PostgreSQL/browser acceptance was not rerun for this documentation cleanup; earlier receipts retain their versions.",
+    "Word was rendered in LibreOffice; native PowerPoint/Word was not run.",
+    "Visual review sampled pages of each guide; mechanical page-number checks covered every rendered Word page.",
+    "NAS runtime, access credentials and repo visibility were not changed."
+  ]
+}

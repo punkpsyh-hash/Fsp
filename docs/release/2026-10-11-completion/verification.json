@@ -1,0 +1,86 @@
+{
+  "contest_mutants_killed": 3,
+  "sqlite": {
+    "subtests": 6,
+    "passed": 410,
+    "exit_code": 0,
+    "skipped": 2,
+    "seconds": 648.91
+  },
+  "source_commit": "e6d025c",
+  "oracle": {
+    "cases": 4800,
+    "failed": 0,
+    "node": "22.23.3"
+  },
+  "assessment_protocol": "../../assessment-v6-results.json",
+  "log_directory": "D:/Codex/Temp/fsp-completion-audit",
+  "postgresql": {
+    "subtests": 6,
+    "passed": 411,
+    "exit_code": 0,
+    "skipped": 1,
+    "seconds": 706.38
+  },
+  "nas_live_status": "passed",
+  "date": "2026-10-11",
+  "logs": [
+    {
+      "sha256": "d7642f90afbb413c441207ea797c6f87b3b9c59de47186990d059dba00ad0d3b",
+      "bytes": 1405,
+      "name": "sqlite-final.log"
+    },
+    {
+      "sha256": "db60dd5e74fc0036161b5711f3bdfdf8acc9a8c4d05ef8a4ad4687ec54ab5592",
+      "bytes": 1221,
+      "name": "postgres-final.log"
+    },
+    {
+      "sha256": "e885f750e8f2b6e797f8c3211412b88494cc1cdd677b1dda87e18d19522d4e47",
+      "bytes": 9162,
+      "name": "browser-chromium-release.log"
+    },
+    {
+      "sha256": "c2cd16aa0cead42e4582d81f7e11ff516493b6c74d479973be49c21756a57215",
+      "bytes": 9113,
+      "name": "browser-firefox-final.log"
+    },
+    {
+      "sha256": "f13e219318b0ea64e17f5dfae5536df54b76659a017ccc07a98011732ae37886",
+      "bytes": 9066,
+      "name": "browser-webkit-release.log"
+    },
+    {
+      "sha256": "9279e08e91397702c58bf99ad97db9443eaa47cb0bf54401bd411293d08aaae9",
+      "bytes": 6137,
+      "name": "runner-final.log"
+    },
+    {
+      "sha256": "5e27ff73eff4d3cc1b5bb408a9a895863804683281ca64cdf15f4f489d09687a",
+      "bytes": 2143,
+      "name": "contest-bank-final.log"
+    }
+  ],
+  "vm_checks": 28,
+  "browsers": {
+    "failed": 0,
+    "webkit": 44,
+    "integrity_enforced": false,
+    "firefox": 44,
+    "chromium": 44,
+    "passed": 132
+  },
+  "runtime_overlay_commit": "58105a2",
+  "strict_integrity": "API tests separately enforce strict defaults; rapid browser workflows use explicit verification override",
+  "contest_references": 3,
+  "kind": "synthetic_release_verification",
+  "nas_live_protocol": "nas-live-api.json",
+  "nas_kvm_smoke": {
+    "checks": 6,
+    "accelerator": "kvm",
+    "protocol": "nas-kvm-smoke.json",
+    "failed": 0
+  },
+  "tunnel_restart_protocol": "tunnel-restart.json",
+  "nas_ui_protocol": "nas-live-ui.json"
+}

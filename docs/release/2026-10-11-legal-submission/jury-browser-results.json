@@ -1,0 +1,174 @@
+{
+  "schema_version": 1,
+  "generated_at": "2026-10-11T12:50:22+03:00",
+  "result": "passed",
+  "scope": "Independent browser verification of the temporary jury UI and a regression smoke of local-demo mode.",
+  "reviewer_independence": {
+    "product_source_authored_by_reviewer": false,
+    "product_source_modified_by_reviewer": false,
+    "test_harness_location": "D:/Codex/Temp/fsp-jury-browser",
+    "evidence_file_only_project_change": true
+  },
+  "execution_boundary": {
+    "environment": "Local Docker Desktop",
+    "jury_compose_project": "fspjury",
+    "local_regression_compose_project": "fsplocalbrowser",
+    "nas_changed": false,
+    "vps_changed": false,
+    "public_dns_or_router_changed": false,
+    "public_reachability_claimed": false,
+    "runner_started": false,
+    "credentials_in_evidence": false
+  },
+  "source": {
+    "git_head_at_test_time": "4dce5768d575bdf89c78a5ab50480218a395e908",
+    "git_branch_at_test_time": "codex/local-llm-workspace",
+    "note": "The tested jury worktree contained uncommitted integration changes. File hashes below identify the exact tested sources independently of Git HEAD.",
+    "sha256": {
+      "web/src/main.tsx": "a9fa06fea976fbba7dbcf1055b83ffd1fe995300ac310460933990eff8f979d4",
+      "src/server/jury.py": "a901ca26b6028ebb45c8203e509fec54bdd930258391010c62348333b75fd2bd",
+      "src/server/app.py": "7a4f5fe37084135dc2c3def6f9346dbd068c505c4274bf3ae05e911674946188",
+      "compose.jury.yaml": "baf712feb1f0038b08557fe15328affa611b5a76a8f4a917cd8c9506fb62415c",
+      "docker/jury/Caddyfile": "2617b8797f7968322452bb6bc9c908a41df0c9dbaa75eac83407ba329b665696",
+      "Dockerfile": "2ef81be41ef1088f8c78bbe8a22b4a8b8eba4ca826765484751dd54ef308696d",
+      "scripts/entrypoint.sh": "645cbe1783db4cabca950fe184e13ae0a5636689aa7f6752ee654f0e4f5919e1",
+      "tests/test_jury_mode.py": "33fe15c617fd4d8fae768d7daf921d2ab9fb5833a0da51537a1e084fab436463"
+    }
+  },
+  "images": {
+    "jury_runtime": "fspjury-app@sha256:df0f80d81b881ffa70d02dd79d3589a7e43730cdf7e0aa0252d5fe5bd89d6524",
+    "browser": "fsp-browser@sha256:281a8464aeb01f3b1669dd7e8384d8bb36a0177b1e1b45c340aa3ed43995d170",
+    "edge": "caddy@sha256:d8542f48d34a9cf4e4c11a478865229840e87e4c96ea3f439101f31a5d35f75f",
+    "playwright": "1.63.0"
+  },
+  "jury_browser": {
+    "test_transport": {
+      "hostname": "jury.example.invalid",
+      "edge_address": "10.254.242.10",
+      "tls": "Caddy local CA in a test-only temporary Caddyfile; browser contexts ignored this local CA trust error",
+      "basic_auth": "real Caddy Basic Auth with generated private credentials",
+      "application_mode": "jury-demo"
+    },
+    "summary": {
+      "tests": 9,
+      "passed": 9,
+      "failed": 0,
+      "duration_seconds": 11.5
+    },
+    "matrix": {
+      "chromium": {
+        "boundary": "passed",
+        "candidate": "passed",
+        "employer": "passed"
+      },
+      "firefox": {
+        "boundary": "passed",
+        "candidate": "passed",
+        "employer": "passed"
+      },
+      "webkit": {
+        "boundary": "passed",
+        "candidate": "passed",
+        "employer": "passed"
+      }
+    },
+    "observations_all_engines": {
+      "root_with_invalid_basic_auth_status": 401,
+      "legal_pages_without_valid_basic_auth": {
+        "/legal/privacy": 200,
+        "/legal/recommendations": 200,
+        "operator_name_visible": "Колесников Никита Юрьевич",
+        "operator_contact_visible": "inbox@nkolesnikov.ru"
+      },
+      "jury_banner_visible": true,
+      "candidate_password_login": "passed",
+      "employer_password_login": "passed",
+      "hidden_or_absent_entry_controls": [
+        "registration",
+        "email login",
+        "mock mail",
+        "demo account picker",
+        "FSP mock identity login"
+      ],
+      "jury_demo_accounts_background_probe_count": 0,
+      "pdf_import_input_count": 0,
+      "pdf_import_disabled_explanation_visible": true,
+      "synthetic_profile_pdf_export": {
+        "label": "Скачать тестовый профиль PDF",
+        "status": 200,
+        "content_type": "application/pdf"
+      },
+      "fsp_mock_identity_entry": {
+        "candidate_control_visible_as_disabled_explanation": true,
+        "enabled": false
+      },
+      "synthetic_fsp_product_evidence": {
+        "candidate_section_visible": true,
+        "employer_ranking_filter_visible": true,
+        "employer_ranking_filter_enabled": true,
+        "interpretation": "Existing synthetic ranking evidence remains part of the demonstrator; the external/mock identity entry path is disabled."
+      },
+      "unexpected_blocked_feature_requests": 0,
+      "page_errors": 0,
+      "failed_requests": 0,
+      "unexpected_console_errors": 0,
+      "expected_initial_unauthenticated_me_status": 401
+    }
+  },
+  "local_demo_regression": {
+    "summary": {
+      "tests": 3,
+      "passed": 3,
+      "failed": 0,
+      "duration_seconds": 6.3
+    },
+    "matrix": {
+      "chromium": "passed",
+      "firefox": "passed",
+      "webkit": "passed"
+    },
+    "observations_all_engines": {
+      "health_mode": "local-demo",
+      "demo_account_picker_visible": true,
+      "registration_visible": true,
+      "email_login_visible": true,
+      "mock_mail_visible": true,
+      "demo_candidate_login": "passed",
+      "page_errors": 0,
+      "failed_requests": 0,
+      "unexpected_console_errors": 0,
+      "expected_initial_unauthenticated_me_status": 401
+    }
+  },
+  "server_and_configuration_tests": {
+    "summary": {
+      "passed": 34,
+      "skipped": 1,
+      "failed": 0,
+      "warnings": 1,
+      "duration_seconds": 14.4
+    },
+    "files": [
+      "tests/test_jury_mode.py",
+      "tests/test_jury_configuration.py",
+      "tests/test_jury_proxy_boundary.py",
+      "tests/test_api.py::test_hosted_profile_has_no_open_mail_sink_or_passwordless_login",
+      "tests/test_product.py::test_password_registration_confirmation_login_and_rate_limit"
+    ],
+    "confirmed": [
+      "jury password must have at least 20 characters and at least 8 distinct characters",
+      "FSP_JURY_OPERATOR_CONFIRMED must equal 1",
+      "storage country must equal RU",
+      "SMTP and mock/passwordless entry paths fail closed",
+      "registration, email verification, demo login, FSP mock identity entry, and resume-preview are blocked before request-body parsing",
+      "normal local password registration and login behavior remains available"
+    ],
+    "skip_reason": "One platform-specific configuration test was skipped by its own test condition.",
+    "warning": "Starlette TestClient deprecation warning from the dependency stack."
+  },
+  "limitations": [
+    "The run verifies a local container path and test-only TLS certificate, not public DNS, VPS nginx, reverse SSH, external TLS issuance, or Internet reachability.",
+    "The runner service and VM task execution were outside this browser-authentication smoke and were not started.",
+    "The generated private credentials and their hashes are intentionally omitted."
+  ]
+}

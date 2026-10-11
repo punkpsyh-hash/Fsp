@@ -1,0 +1,84 @@
+__pycache__/
+*.pyc
+.env
+.env.*
+!.env.example
+!.env.*.example
+.venv/
+venv/
+env/
+.tox/
+.nox/
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+.cache/
+htmlcov/
+.coverage
+.coverage.*
+node_modules/
+*.db
+*.sqlite*
+*.log
+logs/
+uploads/
+secrets/
+.secrets/
+credentials/
+*.key
+*.pem
+*.p12
+*.pfx
+id_rsa*
+id_ed25519*
+*.credentials.json
+service-account*.json
+.netrc
+.git-credentials
+.npmrc
+.pypirc
+# Локальные данные будущих сервисов; исходники и диаграммы не исключаются.
+/data/
+/local-data/
+/storage/
+/volumes/
+/backups/
+/postgres-data/
+/redis-data/
+/output/
+# Метаданные внешней передачи не являются частью проекта.
+/TRANSFER-MANIFEST.json
+.DS_Store
+/web/dist/
+/web/test-results/
+/web/playwright-report/
+/docs/delivery/.demo-*.mp4
+/docs/.runner-probe-*.json
+/docs/delivery/fsp-source-*.zip
+# По указанию владельца: GitHub CI/CD остаётся только локально на NAS.
+/.github/workflows/
+# Оригиналы общей папки брендбука (352 МБ): на NAS, SHA-256 в inventory.json.
+/requirements/assets/yandex/originals/
+# Локальные веса, обучающие данные и результаты будущих ML-экспериментов.
+/ml/models/
+/ml/adapters/
+/ml/runs/
+/ml/datasets/raw/
+/ml/datasets/curated/
+/ml/datasets/splits/
+# Локальные инструкции и настройки рабочей среды.
+/AGENTS.md
+/CLAUDE.md
+/LOCAL-WINDOWS.txt
+# Сырые записи и промежуточные снимки пересоздаются командой demo.
+/docs/delivery/demo.mp4
+/docs/delivery/demo.webm
+/docs/delivery/demo-final.webm
+/docs/delivery/*.png
+/docs/delivery/final-demo/
+/docs/delivery/media-verification.json
+
+# Полный сторонний брендбук хранится локально, вне публичного выпуска.
+requirements/assets/брендбук.rar
+requirements/assets/brand/logo*.svg
+requirements/ФСП спец. трек ТЗ.pdf

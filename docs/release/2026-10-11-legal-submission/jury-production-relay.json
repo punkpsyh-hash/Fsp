@@ -1,0 +1,64 @@
+{
+  "generated_at": "2026-10-11T13:10:53.872355+03:00",
+  "result": "passed",
+  "verified_by": "release coordinator; independent public browser evidence is recorded separately",
+  "url": "https://fsptest.kolesnikovny.ru",
+  "source_commit": "b1292084c1afde9abff8e174c20fa83126bf4258",
+  "dns_a": "80.87.198.60",
+  "route": [
+    "public HTTPS nginx on Russian VPS ru2",
+    "VPS loopback 127.0.0.1:18470",
+    "restricted reverse SSH tunnel",
+    "NAS loopback edge",
+    "dedicated Caddy-to-app network"
+  ],
+  "server_country_evidence": "Russian NAS and Russian VPS selected on owner instructions; not an independent geographic certificate",
+  "checks": {
+    "public_legal_without_basic_auth": 200,
+    "public_root_without_basic_auth": 401,
+    "controlled_tunnel_stop_legal_status": 502,
+    "controlled_tunnel_stop_listener_absent": true,
+    "tunnel_restarted": true,
+    "recovered_legal_status": 200,
+    "recovered_root_without_basic_auth": 401,
+    "recovered_listener": "127.0.0.1:18470",
+    "unauthorized_remote_forward_18471": "rejected by dedicated production SSH account; one-off container exited 1",
+    "all_five_jury_containers_healthy_after_recovery": true,
+    "nas_jury_git_tree_clean": true,
+    "nginx_config_test": "passed"
+  },
+  "tls": {
+    "san": "fsptest.kolesnikovny.ru",
+    "not_before_utc": "2026-10-11T08:50:07Z",
+    "not_after_utc": "2027-01-09T08:50:06Z",
+    "public_browser_default_trust": true
+  },
+  "renewal": {
+    "webroot_host_and_container": "/var/www/fsptest-acme",
+    "certbot_reconfigure_staging_renewal": "passed",
+    "existing_certbot_timer": "enabled; preserved",
+    "manual_renew_scope": "only --cert-name fsptest.kolesnikovny.ru"
+  },
+  "runtime_image": {
+    "local_containerd_image_manifest_id": "sha256:df0f80d81b881ffa70d02dd79d3589a7e43730cdf7e0aa0252d5fe5bd89d6524",
+    "nas_classic_docker_config_id": "sha256:580d4a9566117416e4bc7f62a8c26f11131fd83cf4c4030c85b40a905b4d7548",
+    "transfer": "docker save/load of verified local runtime; registry manifest and image configuration are different digest objects"
+  },
+  "privacy": {
+    "credentials_in_evidence": false,
+    "private_key_location": "NAS only, outside Git",
+    "access_log": "disabled for this VPS vhost",
+    "application_data": "synthetic only"
+  },
+  "llm_in_public_jury_mode": "none; optional full model deployment is documented separately",
+  "references": [
+    "jury-public-http.json",
+    "jury-public-browser.json",
+    "jury-vm.json",
+    "jury-relay-local-proof.json"
+  ],
+  "limits": [
+    "No uptime guarantee or legal certification",
+    "Official FSP achievements integration remains a mock"
+  ]
+}

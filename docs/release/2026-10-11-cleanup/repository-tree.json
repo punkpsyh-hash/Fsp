@@ -1,0 +1,21 @@
+{
+  "status": "passed",
+  "before_commit": "22b4a013f4ee5ed4fb93a8d538a8571d0b50fdf0",
+  "tracked_before": 686,
+  "proposed_files": 502,
+  "retired_files": 191,
+  "local_only_files": [
+    "AGENTS.md",
+    "CLAUDE.md"
+  ],
+  "local_archive_sha256_verified": 191,
+  "protected_code_fixture_license_files_unchanged": 257,
+  "source_tz_written_qa_video_unchanged": true,
+  "markdown_links_inspected": 322,
+  "historic_links_verified_against_snapshot": 29,
+  "broken_links": [],
+  "published_numbered_guides": 19,
+  "product_runtime_changed": false,
+  "history_rewritten": false,
+  "ci_workflows_absent": true
+}

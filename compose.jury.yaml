@@ -1,0 +1,111 @@
+# Отдельный временный стенд жюри. Запускать только через scripts/jury.sh после gate.
+name: fspjury
+
+services:
+  db:
+    ports: !override []
+    volumes:
+      - jury-db:/var/lib/postgresql/data
+    mem_limit: 512m
+    cpus: 1
+    pids_limit: 128
+    logging:
+      driver: json-file
+      options:
+        max-size: "1m"
+        max-file: "3"
+
+  app:
+    image: fspjury-app
+    ports: !override []
+    environment:
+      FSP_JURY_MODE: "1"
+      FSP_JURY_PASSWORD: ${FSP_JURY_PASSWORD:?Set a private jury application password}
+      FSP_JURY_OPERATOR_NAME: ${FSP_JURY_OPERATOR_NAME:?Set the actual data operator name}
+      FSP_JURY_OPERATOR_CONTACT: ${FSP_JURY_OPERATOR_CONTACT:?Set the actual data operator contact}
+      FSP_JURY_OPERATOR_CONFIRMED: ${FSP_JURY_OPERATOR_CONFIRMED:?Confirm the actual data operator and contact}
+      FSP_JURY_STORAGE_COUNTRY: ${FSP_JURY_STORAGE_COUNTRY:?Set the verified storage country}
+      FSP_JURY_DOMAIN: ${FSP_JURY_DOMAIN:?Set the public jury hostname}
+      FSP_DEMO_MODE: "1"
+      FSP_DEMO_LOGIN: "0"
+      FSP_MOCK_MAIL: "0"
+      FSP_SMTP_ENABLED: "0"
+      FSP_SMTP_HOST: ""
+      FSP_ALLOWED_HOSTS: ${FSP_JURY_DOMAIN:?Set the public jury hostname}
+      FSP_ALLOWED_ORIGINS: https://${FSP_JURY_DOMAIN:?Set the public jury hostname}
+      FSP_COOKIE_SECURE: "1"
+      # Только фиксированный Caddy вправе задавать X-Forwarded-For/Scheme.
+      FSP_FORWARDED_ALLOW_IPS: ${FSP_JURY_EDGE_IP:-10.254.242.10}
+      FSP_LLM_PROVIDER: none
+    mem_limit: 512m
+    cpus: 1
+    pids_limit: 128
+    logging:
+      driver: json-file
+      options:
+        max-size: "1m"
+        max-file: "3"
+
+  runner:
+    image: fspjury-runner
+    logging:
+      driver: json-file
+      options:
+        max-size: "1m"
+        max-file: "3"
+
+  edge:
+    image: caddy:2.11.7-alpine@sha256:d8542f48d34a9cf4e4c11a478865229840e87e4c96ea3f439101f31a5d35f75f
+    environment:
+      FSP_JURY_DOMAIN: ${FSP_JURY_DOMAIN:?Set the public jury hostname}
+      FSP_JURY_BASIC_AUTH_USER: ${FSP_JURY_BASIC_AUTH_USER:?Set the edge username}
+      FSP_JURY_BASIC_AUTH_HASH: ${FSP_JURY_BASIC_AUTH_HASH:?Generate the edge password hash with scripts/jury.sh init}
+    ports:
+      - "${FSP_JURY_LAN_ADDRESS:?Set the NAS LAN address}:18083:80"
+      - "${FSP_JURY_LAN_ADDRESS:?Set the NAS LAN address}:18443:443"
+    volumes:
+      - ./docker/jury/Caddyfile:/etc/caddy/Caddyfile:ro
+      - jury-caddy-data:/data
+      - jury-caddy-config:/config
+    depends_on:
+      app:
+        condition: service_healthy
+    read_only: true
+    tmpfs:
+      - /tmp:size=16m
+    mem_limit: 128m
+    cpus: 0.5
+    pids_limit: 128
+    cap_drop: [ALL]
+    cap_add: [NET_BIND_SERVICE]
+    security_opt: ["no-new-privileges:true"]
+    restart: unless-stopped
+    logging:
+      driver: json-file
+      options:
+        max-size: "1m"
+        max-file: "3"
+    healthcheck:
+      test: ["CMD", "wget", "-q", "-O", "/dev/null", "http://127.0.0.1:2019/config/"]
+      interval: 10s
+      timeout: 3s
+      retries: 12
+      start_period: 10s
+    networks:
+      default:
+        ipv4_address: ${FSP_JURY_EDGE_IP:-10.254.242.10}
+
+volumes:
+  jury-db:
+  jury-caddy-data:
+  jury-caddy-config:
+
+networks:
+  default:
+    ipam:
+      config:
+        - subnet: ${FSP_JURY_SUBNET:-10.254.242.0/24}
+  runner_net:
+    ipam:
+      config:
+        - subnet: ${FSP_JURY_RUNNER_SUBNET:-10.254.243.0/24}

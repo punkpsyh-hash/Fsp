@@ -1,0 +1,457 @@
+# Локальный API 0.4.0 — только синтетические данные.
+# Запускайте отдельные запросы после подстановки ID/числовых revision из ответов.
+# Полученные cookie/CSRF/password/verification token храните локально вне Git.
+# В шаблоне нет их значений. Не отправляйте placeholders как реальные credentials.
+# Любые requests этого файла обращаются только к локальному сервису.
+@base = http://127.0.0.1:8470
+@candidate_user_id = demo-candidate-a
+@employer_user_id = demo-employer-x
+# candidate_session/employer_session: Set-Cookie fsp_session после соответствующего входа.
+# candidate_csrf/employer_csrf: поле csrf того же входа или GET /api/v1/me.
+# assessment_id/assessment_revision/question_id/option: только из выданной формы.
+# search_id/candidate_id: только из собственной подборки работодателя.
+# fsp_state/fsp_code/fsp_verifier: только из последовательности локального FSP ID mock.
+# bank_id/version_id/bank_revision/import_id/bank_attempt_id/bank_attempt_revision/job_id:
+# из ответов конструктора/import/attempt; не подменять ID чужими записями.
+# runner_bearer/lease_token: только внутренний worker, не пользовательская сессия.
+
+### 01. Состояние API; 200 HealthView
+GET {{base}}/api/health
+
+### 02. Справочник направлений/навыков; 200 CatalogView
+GET {{base}}/api/v1/catalog
+
+### 03. Доступные синтетические seed-аккаунты; 200 AccountView[]
+GET {{base}}/api/v1/auth/demo-accounts
+
+### 04. Вход кандидата; 200 SessionView + Set-Cookie
+POST {{base}}/api/v1/auth/demo-login
+Content-Type: application/json
+
+{"user_id":"{{candidate_user_id}}"}
+
+### 05. Вход работодателя — отдельная cookie; 200 SessionView + Set-Cookie
+POST {{base}}/api/v1/auth/demo-login
+Content-Type: application/json
+
+{"user_id":"{{employer_user_id}}"}
+
+### 06. Регистрация нового синтетического кандидата; 201 DeliveryView
+# password_placeholder заменяется вашим локальным паролем 12–128 символов.
+POST {{base}}/api/v1/auth/register
+Content-Type: application/json
+
+{"email":"api-example@example.invalid","role":"candidate","label":"Синтетический кандидат","consent":true,"password":"{{password_placeholder}}"}
+
+### 07. Только локальная demo-почта; 200 MailView[]
+GET {{base}}/api/v1/auth/mock-mail
+
+### 08. Подтверждение своей одноразовой ссылки; 200 SessionView
+POST {{base}}/api/v1/auth/verify
+Content-Type: application/json
+
+{"token":"{{verification_token}}"}
+
+### 09. Запрос повторной ссылки; 200 MessageView
+POST {{base}}/api/v1/auth/login
+Content-Type: application/json
+
+{"email":"api-example@example.invalid"}
+
+### 10. Вход после подтверждения; 200 SessionView
+POST {{base}}/api/v1/auth/password-login
+Content-Type: application/json
+
+{"email":"api-example@example.invalid","password":"{{password_placeholder}}"}
+
+### 11. Своя сессия/CSRF; 200 SessionView
+GET {{base}}/api/v1/me
+Cookie: fsp_session={{candidate_session}}
+
+### 12. Свой профиль; 200 CandidateSelfView
+GET {{base}}/api/v1/candidate/profile
+Cookie: fsp_session={{candidate_session}}
+
+### 13. Полная замена редактируемого профиля; 200 SavedView
+PUT {{base}}/api/v1/candidate/profile
+Cookie: fsp_session={{candidate_session}}
+X-CSRF-Token: {{candidate_csrf}}
+Content-Type: application/json
+
+{"industry":"it","specialization":"backend","claimed_grade":"junior","salary_min":100000,"formats":["remote"],"contact":"candidate-example@example.invalid","resume":{"full_name":"Синтетический кандидат","years_experience":1,"roles":["developer"],"soft_skills":["teamwork"],"education":"Учебный пример","about":"Синтетический профиль для демонстрации API.","declared_skills":["python","fastapi","docker"]}}
+
+### 14. Raw PDF preview; 200 ResumePreviewView, файл не сохраняется
+POST {{base}}/api/v1/candidate/resume-preview
+Cookie: fsp_session={{candidate_session}}
+X-CSRF-Token: {{candidate_csrf}}
+Content-Type: application/pdf
+
+< {{synthetic_pdf_path}}
+
+### 15. Создание первичной формы; 201 AttemptView
+# При действующем cooldown seed-аккаунта может быть 409 — это ожидаемое правило.
+POST {{base}}/api/v1/assessments/attempts
+Cookie: fsp_session={{candidate_session}}
+X-CSRF-Token: {{candidate_csrf}}
+Content-Type: application/json
+
+{"specialization":"backend","grade":"junior"}
+
+### 16. Восстановить активную форму; 200 AttemptView или null
+GET {{base}}/api/v1/candidate/active-assessment
+Cookie: fsp_session={{candidate_session}}
+
+### 17. Прочитать свою конкретную форму; 200 AttemptView
+GET {{base}}/api/v1/assessments/attempts/{{assessment_id}}
+Cookie: fsp_session={{candidate_session}}
+
+### 18. Сохранить весь draft; 200 AttemptView с новой revision
+PUT {{base}}/api/v1/assessments/attempts/{{assessment_id}}/draft
+Cookie: fsp_session={{candidate_session}}
+X-CSRF-Token: {{candidate_csrf}}
+Content-Type: application/json
+
+{"expected_revision":{{assessment_revision}},"answers":{"{{question_id}}":"{{option}}"}}
+
+### 19. Отправить переданные answers первичной формы; 200 AssessmentResultView
+POST {{base}}/api/v1/assessments/attempts/{{assessment_id}}/submit
+Cookie: fsp_session={{candidate_session}}
+X-CSRF-Token: {{candidate_csrf}}
+Content-Type: application/json
+
+{"answers":{"{{question_id}}":"{{option}}"}}
+
+### 19a. Передать технический сигнал активной попытки; 202 IntegrityAck
+# Это не ответ на вопрос и не внешняя прокторинговая система.
+POST {{base}}/api/v1/assessments/attempts/{{assessment_id}}/integrity
+Cookie: fsp_session={{candidate_session}}
+X-CSRF-Token: {{candidate_csrf}}
+Content-Type: application/json
+
+{"events":[{"type":"heartbeat","t":15000}]}
+
+### 20. Публикация после подтверждения; 200 PublicationView
+POST {{base}}/api/v1/candidate/consents
+Cookie: fsp_session={{candidate_session}}
+X-CSRF-Token: {{candidate_csrf}}
+Content-Type: application/json
+
+{"published":true,"text_version":"demo-consent-v1"}
+
+### 21. Локальный OIDC discovery ФСП ID mock; 200 object
+GET {{base}}/api/v1/auth/mock-fsp-id/.well-known/openid-configuration
+
+### 21a. Начать локальную привязку ФСП ID; 302 на HTML-форму mock
+GET {{base}}/api/v1/candidate/fsp-id/start
+Cookie: fsp_session={{candidate_session}}
+
+### 21b. Форма локального mock ID; 200 HTML для state из 21a
+# Не заменяйте значения state/redirect_uri/client_id: они создаются сервером.
+GET {{base}}/api/v1/auth/mock-fsp-id/authorize?state={{fsp_state}}&redirect_uri=/api/v1/candidate/fsp-id/callback&client_id=fsp-career-demo
+
+### 21c. Обмен одноразового code mock ID + PKCE; 200 FspTokenOut
+POST {{base}}/api/v1/auth/mock-fsp-id/token
+Content-Type: application/json
+
+{"grant_type":"authorization_code","client_id":"fsp-career-demo","code":"{{fsp_code}}","code_verifier":"{{fsp_verifier}}"}
+
+### 21d. Отвязать свой локальный ФСП ID mock; 200 FspLinkView
+DELETE {{base}}/api/v1/candidate/fsp-link
+Cookie: fsp_session={{candidate_session}}
+X-CSRF-Token: {{candidate_csrf}}
+
+### 22. Категории работодателя; 200 CategoryView[]
+GET {{base}}/api/v1/company/categories
+Cookie: fsp_session={{employer_session}}
+
+### 23. Сохранить компанию; 200 CompanyView
+PUT {{base}}/api/v1/company/profile
+Cookie: fsp_session={{employer_session}}
+X-CSRF-Token: {{employer_csrf}}
+Content-Type: application/json
+
+{"name":"Синтетическая команда","description":"Учебная команда для демонстрации обратного подбора.","industry":"it","contact":"company-example@example.invalid"}
+
+### 24. Сохранить потребность; 201 NeedView
+POST {{base}}/api/v1/company/needs
+Cookie: fsp_session={{employer_session}}
+X-CSRF-Token: {{employer_csrf}}
+Content-Type: application/json
+
+{"title":"Backend Junior","description":"Разработка локального API и проверка SQL-запросов.","specialization":"backend","grade":"junior","must_skills":["python"],"desired_skills":["sql"],"work_tasks":["api-development"],"salary_to":150000,"format":"remote","fsp_only":false}
+
+### 25. Новый поиск; 201 SearchResultView
+POST {{base}}/api/v1/company/searches
+Cookie: fsp_session={{employer_session}}
+X-CSRF-Token: {{employer_csrf}}
+Content-Type: application/json
+
+{"specialization":"backend","grade":"junior","must_skills":["python"],"desired_skills":["sql"],"work_tasks":["api-development"],"salary_to":150000,"format":"remote","fsp_only":false}
+
+### 26. Восстановить собственную подборку; 200 RestoredSearchView
+GET {{base}}/api/v1/company/searches/{{search_id}}
+Cookie: fsp_session={{employer_session}}
+
+### 26a. Словесное объяснение строки своей подборки; 200 ExplanationOut
+# Шаблон доступен без модели; подключённая LLM получает только обезличенные факты.
+POST {{base}}/api/v1/company/searches/{{search_id}}/candidates/{{candidate_id}}/explanation
+Cookie: fsp_session={{employer_session}}
+X-CSRF-Token: {{employer_csrf}}
+
+### Полная история подборок: следующая страница, 200 SearchHistoryPage
+GET {{base}}/api/v1/company/searches/page?offset=8&limit=8
+Cookie: fsp_session={{employer_session}}
+
+### 27. Добавить найденного кандидата в свой shortlist; 204
+PUT {{base}}/api/v1/company/shortlist/{{candidate_id}}
+Cookie: fsp_session={{employer_session}}
+X-CSRF-Token: {{employer_csrf}}
+
+### 28. Предложение без обязательной вакансии; 201 InvitationView
+# Ключ уникален для нового предложения; повтор с тем же телом идемпотентен.
+POST {{base}}/api/v1/company/invitations
+Cookie: fsp_session={{employer_session}}
+X-CSRF-Token: {{employer_csrf}}
+Idempotency-Key: {{invitation_idempotency_key}}
+Content-Type: application/json
+
+{"candidate_id":"{{candidate_id}}","description":"Синтетическое предложение: разработка API и работа с SQL.","salary_from":100000,"salary_to":150000,"salary_basis":"gross"}
+
+### 29. Приглашения текущего кандидата; 200 InvitationView[]
+GET {{base}}/api/v1/candidate/invitations
+Cookie: fsp_session={{candidate_session}}
+
+### 30. Принять своё приглашение; 200 InvitationView
+POST {{base}}/api/v1/candidate/invitations/{{offer_id}}/decision
+Cookie: fsp_session={{candidate_session}}
+X-CSRF-Token: {{candidate_csrf}}
+Content-Type: application/json
+
+{"decision":"accepted"}
+
+### 31. Проекция кандидата для текущей компании; 200 CompanyCandidateView
+# contact появится только после grant данной компании.
+GET {{base}}/api/v1/company/candidates/{{candidate_id}}
+Cookie: fsp_session={{employer_session}}
+
+### 32. Разрешённый PDF для текущей компании; 200 application/pdf
+GET {{base}}/api/v1/company/candidates/{{candidate_id}}/profile.pdf
+Cookie: fsp_session={{employer_session}}
+
+### 33. Общий отзыв контакта конкретной компании; 204
+DELETE {{base}}/api/v1/candidate/contacts/{{company_id}}
+Cookie: fsp_session={{candidate_session}}
+X-CSRF-Token: {{candidate_csrf}}
+
+### 34. Создать опубликованную собственную вакансию; 201 VacancyView
+POST {{base}}/api/v1/company/vacancies
+Cookie: fsp_session={{employer_session}}
+X-CSRF-Token: {{employer_csrf}}
+Content-Type: application/json
+
+{"title":"Backend Junior","description":"Синтетическая вакансия разработчика Python и SQL.","specialization":"backend","grade":"junior","skills":["python","sql"],"format":"remote","salary_from":100000,"salary_to":150000,"salary_basis":"gross","status":"published"}
+
+### 35. Самостоятельный отклик разрешает контакт компании вакансии; 201 ApplicationView
+POST {{base}}/api/v1/candidate/vacancies/{{vacancy_id}}/apply
+Cookie: fsp_session={{candidate_session}}
+X-CSRF-Token: {{candidate_csrf}}
+
+### 36. Отозвать свой отклик; 200 ApplicationView
+POST {{base}}/api/v1/candidate/applications/{{application_id}}/withdraw
+Cookie: fsp_session={{candidate_session}}
+X-CSRF-Token: {{candidate_csrf}}
+
+### 37. Создать отдельное короткое текстовое задание; 201 EmployerTaskView
+POST {{base}}/api/v1/company/tasks
+Cookie: fsp_session={{employer_session}}
+X-CSRF-Token: {{employer_csrf}}
+Content-Type: application/json
+
+{"title":"Проверка доступа","description":"Предложите проверки доступа к контакту после принятия приглашения.","specialization":"backend","grade":"junior","rubric":"Проверить владельца, другую компанию, отзыв и идемпотентность.","published":true}
+
+### 38. Отправить свой ответ короткого задания; 201 TaskResponseView
+POST {{base}}/api/v1/candidate/tasks/{{task_id}}/submit
+Cookie: fsp_session={{candidate_session}}
+X-CSRF-Token: {{candidate_csrf}}
+Content-Type: application/json
+
+{"answer":"Проверю принятие владельцем, отказ другой компании, отзыв и повтор принятия."}
+
+### 39. Review своего короткого задания; 200 TaskResponseView
+POST {{base}}/api/v1/company/task-responses/{{response_id}}/review
+Cookie: fsp_session={{employer_session}}
+X-CSRF-Token: {{employer_csrf}}
+Content-Type: application/json
+
+{"score":90,"feedback":"Перечислены основные проверки, включая отзыв и повторное принятие."}
+
+### 40. Создать draft конструктора со всеми пятью типами; 201 BankView
+POST {{base}}/api/v1/company/banks
+Cookie: fsp_session={{employer_session}}
+X-CSRF-Token: {{employer_csrf}}
+Content-Type: application/json
+
+{
+  "title":"Синтетический набор API", "external_id":"api-example-bank-v1", "scope":"employer",
+  "specialization":"backend", "grade":"junior", "time_limit_minutes":30,
+  "tasks":[
+    {"id":"one","type":"single_choice","title":"Успешный HTTP","prompt":"Какой статус обозначает успешный GET?","skills":["http"],"options":[{"id":"ok","text":"200"},{"id":"no","text":"404"}],"answer_key":["ok"]},
+    {"id":"many","type":"multiple_choice","title":"Методы SQL","prompt":"Выберите команды SQL.","skills":["sql"],"options":[{"id":"select","text":"SELECT"},{"id":"update","text":"UPDATE"},{"id":"other","text":"FETCH_PAGE"}],"answer_key":["select","update"],"partial_credit":true},
+    {"id":"number","type":"numeric","title":"Время","prompt":"Сколько секунд в двух минутах?","skills":["testing"],"numeric_answer":120,"unit":"с"},
+    {"id":"open","type":"open_response","title":"Идемпотентность","prompt":"Как защитить повторный запрос?","skills":["http"],"rubric":"Указать уникальный ключ, сравнение тела и возвращение прежнего результата."},
+    {"id":"code","type":"code","title":"Сумма","prompt":"Прочитайте JSON-массив целых чисел из stdin и выведите сумму.","skills":["python"],"language":"python","starter_code":"import json, sys\nvalues = json.load(sys.stdin)\n","examples":[{"input":"[1,2]","output":"3"}],"hidden_tests":[{"input":"[-2,5]","output":"3"},{"input":"[]","output":"0"}],"runtime_limits":{"wall_seconds":3,"memory_mb":512}}
+  ]
+}
+
+### 41. Получить актуальные revision и версии своего банка; 200 BankView
+GET {{base}}/api/v1/company/banks/{{bank_id}}
+Cookie: fsp_session={{employer_session}}
+
+### 42. Кандидатский preview без ключей; 200 VersionPublic
+GET {{base}}/api/v1/company/banks/{{bank_id}}/versions/{{version_id}}/preview
+Cookie: fsp_session={{employer_session}}
+
+### 43. Опубликовать готовую draft-версию; 200 VersionAuthor
+POST {{base}}/api/v1/company/banks/{{bank_id}}/versions/{{version_id}}/publish
+Cookie: fsp_session={{employer_session}}
+X-CSRF-Token: {{employer_csrf}}
+Content-Type: application/json
+
+{"revision":{{bank_revision}}}
+
+### 44. JSON export последней версии; 200 BankDocument
+GET {{base}}/api/v1/company/banks/{{bank_id}}/export?format=json
+Cookie: fsp_session={{employer_session}}
+
+### 45. ZIP export последней версии; 200 application/zip
+GET {{base}}/api/v1/company/banks/{{bank_id}}/export?format=zip
+Cookie: fsp_session={{employer_session}}
+
+### 46. Raw JSON dry-run; 200 ImportView, банк не создан
+# Наш синтетический пример формата fsp-bank-v1; Content-Type — не multipart.
+POST {{base}}/api/v1/company/bank-imports/dry-run?filename=bank-all-types.json
+Cookie: fsp_session={{employer_session}}
+X-CSRF-Token: {{employer_csrf}}
+Content-Type: application/octet-stream
+
+< ../requirements/examples/bank-all-types.json
+
+### 47. Confirm после valid=true; 200 BankView с draft
+POST {{base}}/api/v1/company/bank-imports/{{import_id}}/confirm
+Cookie: fsp_session={{employer_session}}
+X-CSRF-Token: {{employer_csrf}}
+
+### 48. Создать новую draft из своей версии; 201 VersionAuthor
+POST {{base}}/api/v1/company/banks/{{bank_id}}/versions/{{version_id}}/fork
+Cookie: fsp_session={{employer_session}}
+X-CSRF-Token: {{employer_csrf}}
+
+### 49. Кандидатские опубликованные банки; 200 VersionPublic[]
+GET {{base}}/api/v1/candidate/banks
+Cookie: fsp_session={{candidate_session}}
+
+### 50. Начать практику опубликованной версии; 201 AttemptPublic
+POST {{base}}/api/v1/candidate/banks/{{bank_id}}/attempts
+Cookie: fsp_session={{candidate_session}}
+X-CSRF-Token: {{candidate_csrf}}
+Content-Type: application/json
+
+{"version_id":"{{version_id}}"}
+
+### 51. Полное autosave своих ответов; 200 AttemptPublic
+# Task ID этого примера относится к набору запроса 40, не к импортированному файлу.
+PATCH {{base}}/api/v1/candidate/bank-attempts/{{bank_attempt_id}}
+Cookie: fsp_session={{candidate_session}}
+X-CSRF-Token: {{candidate_csrf}}
+Content-Type: application/json
+
+{"revision":{{bank_attempt_revision}},"answers":{"one":"ok","many":["select","update"],"number":"120 с","open":"Использую уникальный ключ запроса и проверяю совпадение тела.","code":"import json, sys\nprint(sum(json.load(sys.stdin)))"}}
+
+### 52. Предварительная VM-проверка исходника; 201 CodeJobView
+POST {{base}}/api/v1/candidate/bank-attempts/{{bank_attempt_id}}/code-jobs
+Cookie: fsp_session={{candidate_session}}
+X-CSRF-Token: {{candidate_csrf}}
+Content-Type: application/json
+
+{"task_id":"code","source":"import json, sys\nprint(sum(json.load(sys.stdin)))"}
+
+### 53. Состояние своей VM-проверки; 200 CodeJobView
+GET {{base}}/api/v1/candidate/bank-attempts/{{bank_attempt_id}}/code-jobs/{{job_id}}
+Cookie: fsp_session={{candidate_session}}
+
+### 54. Отправить сохранённые answers практики; 200 AttemptPublic
+# Актуальная revision после PATCH; answers здесь не передаются.
+POST {{base}}/api/v1/candidate/bank-attempts/{{bank_attempt_id}}/submit
+Cookie: fsp_session={{candidate_session}}
+X-CSRF-Token: {{candidate_csrf}}
+Content-Type: application/json
+
+{"revision":{{bank_attempt_revision}}}
+
+### 55. Автору — отправленные попытки его банка; 200 AttemptAuthor[]
+GET {{base}}/api/v1/company/banks/{{bank_id}}/attempts
+Cookie: fsp_session={{employer_session}}
+
+### 56. Review открытого ответа; 200 AttemptAuthor
+POST {{base}}/api/v1/company/bank-attempts/{{bank_attempt_id}}/review
+Cookie: fsp_session={{employer_session}}
+X-CSRF-Token: {{employer_csrf}}
+Content-Type: application/json
+
+{"task_id":"open","score":100,"feedback":"Ключ и сравнение тела названы корректно."}
+
+### 57. Итог своих answers, completed и grade_effect=false; 200 AttemptPublic
+GET {{base}}/api/v1/candidate/bank-attempts/{{bank_attempt_id}}
+Cookie: fsp_session={{candidate_session}}
+
+### 58. Снять профиль с поиска; 200 PublicationView
+POST {{base}}/api/v1/candidate/consents
+Cookie: fsp_session={{candidate_session}}
+X-CSRF-Token: {{candidate_csrf}}
+Content-Type: application/json
+
+{"published":false,"text_version":"demo-consent-v1"}
+
+### 59. Logout текущего кандидата; 204, cookie удаляется
+POST {{base}}/api/v1/auth/logout
+Cookie: fsp_session={{candidate_session}}
+X-CSRF-Token: {{candidate_csrf}}
+
+### 60. INTERNAL: claim выполняется только настроенным worker; 200 RunnerClaim
+# Не запускать из browser/candidate: cookie не заменяет отдельный Bearer.
+POST {{base}}/internal/runner/claim
+Authorization: Bearer {{runner_bearer}}
+
+### 61. INTERNAL: результат только реального leased job; 200 Saved
+# passed/total подставляются из фактического исполнения, не выдумываются.
+POST {{base}}/internal/runner/jobs/{{runner_job_id}}/result
+Authorization: Bearer {{runner_bearer}}
+Content-Type: application/json
+
+{"lease_token":"{{lease_token}}","status":"{{execution_status}}","passed":{{passed_tests}},"total":{{total_tests}},"duration_ms":{{duration_ms}},"runtime_version":"{{runtime_version}}"}
+
+### 62. Приватное предложение ИИ для своей текущей draft-версии; 200 GenerationResult
+# Без подключённой модели 503; неверный модельный ответ 502; опубликованная или старая версия 409.
+# Ответ не записывается в набор. Проверить условие/эталон, затем сохранить через отдельный PATCH.
+POST {{base}}/api/v1/company/banks/{{bank_id}}/versions/{{bank_version_id}}/suggest-task
+Cookie: fsp_session={{employer_session}}
+X-CSRF-Token: {{employer_csrf}}
+Content-Type: application/json
+
+{"revision":1,"kind":"open_response","specialization":"backend","grade":"junior","skills":["python"],"brief":"Предложить обработку повторной доставки события в очереди"}
+
+### 63. Сообщение кандидату при открытом контакте; 201 ChatMessageView
+POST {{base}}/api/v1/company/chats/{{candidate_id}}/messages
+Cookie: fsp_session={{employer_session}}
+X-CSRF-Token: {{employer_csrf}}
+Content-Type: application/json
+
+{"body":"Здравствуйте! Предлагаем созвониться по приглашению в четверг."}
+
+### 64. Подсказка ИИ для оценки открытого ответа (не сохраняется); 200 ReviewSuggestion
+POST {{base}}/api/v1/company/bank-attempts/{{attempt_id}}/review-suggestion
+Cookie: fsp_session={{employer_session}}
+X-CSRF-Token: {{employer_csrf}}
+Content-Type: application/json
+
+{"task_id":"retry-open"}

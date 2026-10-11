@@ -1,0 +1,296 @@
+{
+  "title": "Практика: пять типов и три языка",
+  "specialization": "backend",
+  "grade": "junior",
+  "time_limit_minutes": 90,
+  "tasks": [
+    {
+      "id": "http-choice",
+      "type": "single_choice",
+      "title": "Успешный HTTP-запрос",
+      "prompt": "Какой статус обозначает успешно обработанный GET-запрос?",
+      "skills": [
+        "http"
+      ],
+      "family": "",
+      "weight": 1.0,
+      "expected_minutes": 5,
+      "options": [
+        {
+          "id": "ok",
+          "text": "200"
+        },
+        {
+          "id": "absent",
+          "text": "404"
+        },
+        {
+          "id": "error",
+          "text": "500"
+        }
+      ],
+      "answer_key": [
+        "ok"
+      ],
+      "partial_credit": false,
+      "numeric_answer": null,
+      "absolute_tolerance": 0.0,
+      "relative_tolerance": 0.0,
+      "unit": "",
+      "rubric": "",
+      "answer_limit": 4000,
+      "language": null,
+      "starter_code": "",
+      "examples": [],
+      "hidden_tests": [],
+      "runtime_limits": {
+        "wall_seconds": 3,
+        "memory_mb": 512
+      }
+    },
+    {
+      "id": "sql-choice",
+      "type": "multiple_choice",
+      "title": "Выбор команд SQL",
+      "prompt": "Выберите команды SQL для чтения и изменения строк.",
+      "skills": [
+        "sql"
+      ],
+      "family": "",
+      "weight": 1.0,
+      "expected_minutes": 5,
+      "options": [
+        {
+          "id": "select",
+          "text": "SELECT"
+        },
+        {
+          "id": "update",
+          "text": "UPDATE"
+        },
+        {
+          "id": "print",
+          "text": "PRINT"
+        }
+      ],
+      "answer_key": [
+        "select",
+        "update"
+      ],
+      "partial_credit": true,
+      "numeric_answer": null,
+      "absolute_tolerance": 0.0,
+      "relative_tolerance": 0.0,
+      "unit": "",
+      "rubric": "",
+      "answer_limit": 4000,
+      "language": null,
+      "starter_code": "",
+      "examples": [],
+      "hidden_tests": [],
+      "runtime_limits": {
+        "wall_seconds": 3,
+        "memory_mb": 512
+      }
+    },
+    {
+      "id": "time-number",
+      "type": "numeric",
+      "title": "Преобразование времени",
+      "prompt": "Сколько секунд в двух минутах?",
+      "skills": [
+        "testing"
+      ],
+      "family": "",
+      "weight": 1.0,
+      "expected_minutes": 5,
+      "options": [],
+      "answer_key": [],
+      "partial_credit": false,
+      "numeric_answer": 120.0,
+      "absolute_tolerance": 0.0,
+      "relative_tolerance": 0.0,
+      "unit": "с",
+      "rubric": "",
+      "answer_limit": 4000,
+      "language": null,
+      "starter_code": "",
+      "examples": [],
+      "hidden_tests": [],
+      "runtime_limits": {
+        "wall_seconds": 3,
+        "memory_mb": 512
+      }
+    },
+    {
+      "id": "retry-open",
+      "type": "open_response",
+      "title": "Повторный запрос",
+      "prompt": "Опишите способ защиты API от повторного создания одного приглашения.",
+      "skills": [
+        "http"
+      ],
+      "family": "",
+      "weight": 1.0,
+      "expected_minutes": 5,
+      "options": [],
+      "answer_key": [],
+      "partial_credit": false,
+      "numeric_answer": null,
+      "absolute_tolerance": 0.0,
+      "relative_tolerance": 0.0,
+      "unit": "",
+      "rubric": "0: нет решения. 50: упомянут уникальный ключ. 100: ключ привязан к автору, параметры сверяются, результат повтора сохраняется.",
+      "answer_limit": 4000,
+      "language": null,
+      "starter_code": "",
+      "examples": [],
+      "hidden_tests": [],
+      "runtime_limits": {
+        "wall_seconds": 3,
+        "memory_mb": 512
+      }
+    },
+    {
+      "id": "sum-python",
+      "type": "code",
+      "title": "Сумма в Python",
+      "prompt": "В stdin поступает JSON-массив целых чисел. Напечатайте их сумму и перевод строки. Пустой массив даёт 0.",
+      "skills": [
+        "python"
+      ],
+      "family": "",
+      "weight": 1.0,
+      "expected_minutes": 5,
+      "options": [],
+      "answer_key": [],
+      "partial_credit": false,
+      "numeric_answer": null,
+      "absolute_tolerance": 0.0,
+      "relative_tolerance": 0.0,
+      "unit": "",
+      "rubric": "",
+      "answer_limit": 4000,
+      "language": "python",
+      "starter_code": "import json, sys\nvalues = json.loads(sys.stdin.read())\n# Напечатайте сумму\n",
+      "examples": [
+        {
+          "input": "[1, 2, 3]",
+          "output": "6\n",
+          "setup": ""
+        }
+      ],
+      "hidden_tests": [
+        {
+          "input": "[]",
+          "output": "0\n",
+          "setup": ""
+        },
+        {
+          "input": "[-4, 7, 11]",
+          "output": "14\n",
+          "setup": ""
+        }
+      ],
+      "runtime_limits": {
+        "wall_seconds": 3,
+        "memory_mb": 512
+      }
+    },
+    {
+      "id": "sum-js",
+      "type": "code",
+      "title": "Сумма в JavaScript",
+      "prompt": "В stdin поступает JSON-массив целых чисел. Напечатайте сумму. Пустой массив даёт 0.",
+      "skills": [
+        "javascript"
+      ],
+      "family": "",
+      "weight": 1.0,
+      "expected_minutes": 5,
+      "options": [],
+      "answer_key": [],
+      "partial_credit": false,
+      "numeric_answer": null,
+      "absolute_tolerance": 0.0,
+      "relative_tolerance": 0.0,
+      "unit": "",
+      "rubric": "",
+      "answer_limit": 4000,
+      "language": "javascript",
+      "starter_code": "const fs = require('node:fs');\nconst values = JSON.parse(fs.readFileSync(0, 'utf8'));\n// Напечатайте сумму\n",
+      "examples": [
+        {
+          "input": "[1, 2, 3]",
+          "output": "6\n",
+          "setup": ""
+        }
+      ],
+      "hidden_tests": [
+        {
+          "input": "[]",
+          "output": "0\n",
+          "setup": ""
+        },
+        {
+          "input": "[-4, 7, 11]",
+          "output": "14\n",
+          "setup": ""
+        }
+      ],
+      "runtime_limits": {
+        "wall_seconds": 3,
+        "memory_mb": 512
+      }
+    },
+    {
+      "id": "count-sql",
+      "type": "code",
+      "title": "Сумма в SQL",
+      "prompt": "SQLite: таблица items(value INTEGER). Одним SELECT верните сумму в одной строке. Для пустой таблицы верните 0. Изменение данных запрещено.",
+      "skills": [
+        "sql"
+      ],
+      "family": "",
+      "weight": 1.0,
+      "expected_minutes": 5,
+      "options": [],
+      "answer_key": [],
+      "partial_credit": false,
+      "numeric_answer": null,
+      "absolute_tolerance": 0.0,
+      "relative_tolerance": 0.0,
+      "unit": "",
+      "rubric": "",
+      "answer_limit": 4000,
+      "language": "sql",
+      "starter_code": "-- SELECT ... FROM items;\n",
+      "examples": [
+        {
+          "input": "",
+          "output": "[[6]]",
+          "setup": "CREATE TABLE items(value INTEGER); INSERT INTO items VALUES (1),(2),(3);"
+        }
+      ],
+      "hidden_tests": [
+        {
+          "input": "",
+          "output": "[[0]]",
+          "setup": "CREATE TABLE items(value INTEGER);"
+        },
+        {
+          "input": "",
+          "output": "[[14]]",
+          "setup": "CREATE TABLE items(value INTEGER); INSERT INTO items VALUES (-4),(7),(11);"
+        }
+      ],
+      "runtime_limits": {
+        "wall_seconds": 3,
+        "memory_mb": 512
+      }
+    }
+  ],
+  "schema_version": "fsp-bank-v1",
+  "external_id": "synthetic-all-types-v1",
+  "scope": "employer"
+}

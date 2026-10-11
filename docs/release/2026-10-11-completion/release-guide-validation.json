@@ -1,0 +1,822 @@
+{
+  "path": "docs/delivery/release-guide.pdf",
+  "pages": 46,
+  "sha256": "4571e8e69623e50460e58c267b33e2ae8d97b4e06518609347dbc263b7049251",
+  "bytes": 190942,
+  "all_pages_nonempty": true,
+  "all_pages_a4": true,
+  "all_pages_rotation_zero": true,
+  "reproducible": true,
+  "glyph_geometry_findings": [],
+  "source_hashes": {
+    "docs/00-status.md": "9292615a5e698d44512036b33af1a754850d810211b342ea72100b7b021e07b0",
+    "docs/05-architecture.md": "41f09e59b526aa6555ba50fdc1cdb7b73f4156478302997474c6dbec5b6e3489",
+    "docs/34-documentation.md": "a167774e2ab10297aacc7eb1c41fe195164be44a357c48001bb6ce6e41451318",
+    "docs/44-deployment-and-operations.md": "a40464ec173b2774bb7531d0dcd417d6fb92dc78f8bc8ea890841f6ecb03b3c9",
+    "docs/45-ai-answer-check-and-training-package.md": "c72fcfb8d073fce616fcf686c5e71e62c9d569a202cd71a230c7fca372391bcd",
+    "docs/46-github-publication.md": "c1d652e87937ab713b81e16101852acca54bca944d73edd54a6dafe751a7b04e",
+    "docs/47-presentation.md": "d2a59d38ac3234aa1f6269c5280b168d7eeda88b0bff63d58028814721aa6b6d",
+    "docs/48-release-acceptance.md": "e78ef7992f1859108cf81eb01ca28be1d991b2dc99292100a69584ce4a590d63",
+    "docs/49-docker-desktop-recovery.md": "760ee7f354227ee459c2628a1f91d39590a6a7324ba0166fe051679d11df2f0f",
+    "docs/50-completion-conformance.md": "159657782d4b435c1fc15a23eb59d418f3a02e68fda5f7c004130ea7dd270ee1",
+    "docs/51-nas-gpu-stand.md": "d31f1c0009a8f9278bf1f8a6eaeca8b6a9feb8aeefa809f6365f19e19f550e96",
+    "contracts/openapi.yaml": "2e11c61ccfe31a372c12649dc91725cfa73c25892cf2adf096bfa646d11b90d8",
+    "scripts/build_release_guide.py": "97948da2fdeb96f40d71ddb276d99b62ab57a2319740657d6da2d561128e091d",
+    "scripts/build_documentation.py": "900a05cea1770fac85bdfb37322ba58d8717cd38649ccb0c2c79beff75b2c19a"
+  },
+  "visual_review": {
+    "artifact": {
+      "path": "D:\\Файлы и Документы рабочие\\2026\\Fsp-LLM-20261009\\docs\\delivery\\release-guide.pdf",
+      "sha256": "4571e8e69623e50460e58c267b33e2ae8d97b4e06518609347dbc263b7049251",
+      "expected_sha256": "4571e8e69623e50460e58c267b33e2ae8d97b4e06518609347dbc263b7049251",
+      "sha256_matches_expected": true,
+      "bytes": 190942,
+      "pages": 46,
+      "expected_pages": 46,
+      "page_count_matches": true
+    },
+    "result": "pass",
+    "blocking_findings": [],
+    "visual_findings": [],
+    "observations": [
+      {
+        "severity": "info",
+        "pages": [
+          21,
+          39,
+          40,
+          42,
+          43,
+          44
+        ],
+        "note": "Длинные команды и пути API переносятся внутри ячеек или строк, но все символы видимы; обрезки и наложения не обнаружены."
+      },
+      {
+        "severity": "info",
+        "pages": [
+          6,
+          25,
+          30,
+          38,
+          41,
+          44,
+          46
+        ],
+        "note": "Свободное место соответствует завершению разделов или продолжению таблиц; одиночных заголовков без следующего содержимого не обнаружено."
+      }
+    ],
+    "method": {
+      "renderer": "pypdfium2",
+      "pypdfium2_version": "5.13.0",
+      "pillow_version": "12.3.0",
+      "pypdf_version": "6.10.0",
+      "render_scale": 2.5,
+      "nominal_dpi": 180,
+      "page_render_pixels": [
+        1489,
+        2105
+      ],
+      "preview_directory": "D:\\Codex\\Temp\\fsp-completion-audit\\release-guide-preview",
+      "all_pages_pass": "Все 46 страниц просмотрены по 12 контактным листам 2x2; ширина миниатюры каждой страницы 680 px. Просмотрщик показывал листы с уменьшением 1440x2058 до 1312x1875 px, поэтому это не проверка всех страниц в исходном размере.",
+      "full_page_pass": {
+        "pages": [
+          2,
+          3,
+          9,
+          15,
+          16,
+          21,
+          22,
+          26,
+          27,
+          31,
+          33,
+          34,
+          35,
+          36,
+          39,
+          40,
+          41,
+          42,
+          43,
+          44,
+          45,
+          46
+        ],
+        "count": 22,
+        "note": "Плотные таблицы, схемы, команды и страницы последних точечных исправлений просмотрены отдельными рендерами. Просмотрщик показывал их с уменьшением 1489x2105 до 1335x1888 px."
+      },
+      "change_control": "После последней точечной правки трёх строк SHA-256 PPTX финальный PDF с SHA-256 4571…9251 полностью перерендерен индексным доступом PDFium; страницы 3, 27 и 33 повторно просмотрены отдельно. Остальная геометрия и содержание не менялись.",
+      "renderer_note": "Промежуточная длинная итерация PDFium ошибочно дала пустые preview 37–46. Независимый индексный рендер показал нормальный контент; финальный preview всех 46 страниц создан только индексным доступом. Непустая пиксельная область подтверждена на каждой странице."
+    },
+    "checks": {
+      "all_page_text_nonempty": true,
+      "all_page_renders_nonblank": true,
+      "uniform_page_pixel_size": true,
+      "hex_strings_of_65_characters": [],
+      "geometry": "Поля, колонтитулы и номера страниц видимы; выходов за страницу, обрезки, наложения и пропавшие строки визуально не обнаружено.",
+      "tables_and_diagrams": "Строки, заливки, заголовки и границы читаемы; продолжения таблиц на страницах 35–36, 42–44 и 45–46 сохранены.",
+      "commands": "Командные блоки сохраняют порядок и визуальное отделение; длинные строки переносятся, но не обрезаются.",
+      "headings_and_pagination": "Одиноких заголовков внизу страницы и потерянных продолжений не обнаружено.",
+      "fonts_and_glyphs": "Кириллица, латиница, цифры, стрелки и спецсимволы отрисованы без tofu, подстановок или пропусков."
+    },
+    "limitations": [
+      "Проверка экранная, не полиграфическая.",
+      "Не выполнялись screen-reader/PDF-UA, интерактивные ссылки и копирование команд из PDF.",
+      "Содержательная истинность команд и чисел не перепроверялась вне визуального чтения артефакта."
+    ],
+    "pages": [
+      {
+        "page": 1,
+        "text_characters": 488,
+        "text_nonempty": true,
+        "render_pixels": [
+          1489,
+          2105
+        ],
+        "nonwhite_bbox": [
+          110,
+          289,
+          1377,
+          2049
+        ]
+      },
+      {
+        "page": 2,
+        "text_characters": 3045,
+        "text_nonempty": true,
+        "render_pixels": [
+          1489,
+          2105
+        ],
+        "nonwhite_bbox": [
+          109,
+          129,
+          1380,
+          2049
+        ]
+      },
+      {
+        "page": 3,
+        "text_characters": 3647,
+        "text_nonempty": true,
+        "render_pixels": [
+          1489,
+          2105
+        ],
+        "nonwhite_bbox": [
+          109,
+          125,
+          1380,
+          2049
+        ]
+      },
+      {
+        "page": 4,
+        "text_characters": 2311,
+        "text_nonempty": true,
+        "render_pixels": [
+          1489,
+          2105
+        ],
+        "nonwhite_bbox": [
+          109,
+          133,
+          1380,
+          2049
+        ]
+      },
+      {
+        "page": 5,
+        "text_characters": 3594,
+        "text_nonempty": true,
+        "render_pixels": [
+          1489,
+          2105
+        ],
+        "nonwhite_bbox": [
+          110,
+          130,
+          1377,
+          2049
+        ]
+      },
+      {
+        "page": 6,
+        "text_characters": 490,
+        "text_nonempty": true,
+        "render_pixels": [
+          1489,
+          2105
+        ],
+        "nonwhite_bbox": [
+          109,
+          134,
+          1380,
+          2049
+        ]
+      },
+      {
+        "page": 7,
+        "text_characters": 2595,
+        "text_nonempty": true,
+        "render_pixels": [
+          1489,
+          2105
+        ],
+        "nonwhite_bbox": [
+          109,
+          129,
+          1380,
+          2049
+        ]
+      },
+      {
+        "page": 8,
+        "text_characters": 3219,
+        "text_nonempty": true,
+        "render_pixels": [
+          1489,
+          2105
+        ],
+        "nonwhite_bbox": [
+          110,
+          134,
+          1378,
+          2049
+        ]
+      },
+      {
+        "page": 9,
+        "text_characters": 2670,
+        "text_nonempty": true,
+        "render_pixels": [
+          1489,
+          2105
+        ],
+        "nonwhite_bbox": [
+          110,
+          129,
+          1395,
+          2049
+        ]
+      },
+      {
+        "page": 10,
+        "text_characters": 2902,
+        "text_nonempty": true,
+        "render_pixels": [
+          1489,
+          2105
+        ],
+        "nonwhite_bbox": [
+          110,
+          130,
+          1395,
+          2049
+        ]
+      },
+      {
+        "page": 11,
+        "text_characters": 2985,
+        "text_nonempty": true,
+        "render_pixels": [
+          1489,
+          2105
+        ],
+        "nonwhite_bbox": [
+          110,
+          156,
+          1395,
+          2049
+        ]
+      },
+      {
+        "page": 12,
+        "text_characters": 3024,
+        "text_nonempty": true,
+        "render_pixels": [
+          1489,
+          2105
+        ],
+        "nonwhite_bbox": [
+          109,
+          134,
+          1380,
+          2049
+        ]
+      },
+      {
+        "page": 13,
+        "text_characters": 3254,
+        "text_nonempty": true,
+        "render_pixels": [
+          1489,
+          2105
+        ],
+        "nonwhite_bbox": [
+          110,
+          133,
+          1377,
+          2049
+        ]
+      },
+      {
+        "page": 14,
+        "text_characters": 2810,
+        "text_nonempty": true,
+        "render_pixels": [
+          1489,
+          2105
+        ],
+        "nonwhite_bbox": [
+          110,
+          131,
+          1378,
+          2049
+        ]
+      },
+      {
+        "page": 15,
+        "text_characters": 2172,
+        "text_nonempty": true,
+        "render_pixels": [
+          1489,
+          2105
+        ],
+        "nonwhite_bbox": [
+          109,
+          129,
+          1380,
+          2049
+        ]
+      },
+      {
+        "page": 16,
+        "text_characters": 3574,
+        "text_nonempty": true,
+        "render_pixels": [
+          1489,
+          2105
+        ],
+        "nonwhite_bbox": [
+          110,
+          130,
+          1378,
+          2049
+        ]
+      },
+      {
+        "page": 17,
+        "text_characters": 2265,
+        "text_nonempty": true,
+        "render_pixels": [
+          1489,
+          2105
+        ],
+        "nonwhite_bbox": [
+          109,
+          130,
+          1380,
+          2049
+        ]
+      },
+      {
+        "page": 18,
+        "text_characters": 3098,
+        "text_nonempty": true,
+        "render_pixels": [
+          1489,
+          2105
+        ],
+        "nonwhite_bbox": [
+          110,
+          130,
+          1378,
+          2049
+        ]
+      },
+      {
+        "page": 19,
+        "text_characters": 2482,
+        "text_nonempty": true,
+        "render_pixels": [
+          1489,
+          2105
+        ],
+        "nonwhite_bbox": [
+          109,
+          129,
+          1380,
+          2049
+        ]
+      },
+      {
+        "page": 20,
+        "text_characters": 2471,
+        "text_nonempty": true,
+        "render_pixels": [
+          1489,
+          2105
+        ],
+        "nonwhite_bbox": [
+          109,
+          132,
+          1380,
+          2049
+        ]
+      },
+      {
+        "page": 21,
+        "text_characters": 2602,
+        "text_nonempty": true,
+        "render_pixels": [
+          1489,
+          2105
+        ],
+        "nonwhite_bbox": [
+          110,
+          129,
+          1377,
+          2049
+        ]
+      },
+      {
+        "page": 22,
+        "text_characters": 2569,
+        "text_nonempty": true,
+        "render_pixels": [
+          1489,
+          2105
+        ],
+        "nonwhite_bbox": [
+          110,
+          130,
+          1377,
+          2049
+        ]
+      },
+      {
+        "page": 23,
+        "text_characters": 2682,
+        "text_nonempty": true,
+        "render_pixels": [
+          1489,
+          2105
+        ],
+        "nonwhite_bbox": [
+          110,
+          129,
+          1377,
+          2049
+        ]
+      },
+      {
+        "page": 24,
+        "text_characters": 3967,
+        "text_nonempty": true,
+        "render_pixels": [
+          1489,
+          2105
+        ],
+        "nonwhite_bbox": [
+          110,
+          130,
+          1378,
+          2049
+        ]
+      },
+      {
+        "page": 25,
+        "text_characters": 1271,
+        "text_nonempty": true,
+        "render_pixels": [
+          1489,
+          2105
+        ],
+        "nonwhite_bbox": [
+          110,
+          130,
+          1377,
+          2049
+        ]
+      },
+      {
+        "page": 26,
+        "text_characters": 2942,
+        "text_nonempty": true,
+        "render_pixels": [
+          1489,
+          2105
+        ],
+        "nonwhite_bbox": [
+          109,
+          129,
+          1380,
+          2049
+        ]
+      },
+      {
+        "page": 27,
+        "text_characters": 3630,
+        "text_nonempty": true,
+        "render_pixels": [
+          1489,
+          2105
+        ],
+        "nonwhite_bbox": [
+          109,
+          125,
+          1380,
+          2049
+        ]
+      },
+      {
+        "page": 28,
+        "text_characters": 4288,
+        "text_nonempty": true,
+        "render_pixels": [
+          1489,
+          2105
+        ],
+        "nonwhite_bbox": [
+          110,
+          133,
+          1378,
+          2049
+        ]
+      },
+      {
+        "page": 29,
+        "text_characters": 3590,
+        "text_nonempty": true,
+        "render_pixels": [
+          1489,
+          2105
+        ],
+        "nonwhite_bbox": [
+          110,
+          130,
+          1378,
+          2049
+        ]
+      },
+      {
+        "page": 30,
+        "text_characters": 1101,
+        "text_nonempty": true,
+        "render_pixels": [
+          1489,
+          2105
+        ],
+        "nonwhite_bbox": [
+          110,
+          130,
+          1378,
+          2049
+        ]
+      },
+      {
+        "page": 31,
+        "text_characters": 2877,
+        "text_nonempty": true,
+        "render_pixels": [
+          1489,
+          2105
+        ],
+        "nonwhite_bbox": [
+          110,
+          129,
+          1377,
+          2049
+        ]
+      },
+      {
+        "page": 32,
+        "text_characters": 3318,
+        "text_nonempty": true,
+        "render_pixels": [
+          1489,
+          2105
+        ],
+        "nonwhite_bbox": [
+          109,
+          129,
+          1380,
+          2049
+        ]
+      },
+      {
+        "page": 33,
+        "text_characters": 2733,
+        "text_nonempty": true,
+        "render_pixels": [
+          1489,
+          2105
+        ],
+        "nonwhite_bbox": [
+          109,
+          125,
+          1380,
+          2049
+        ]
+      },
+      {
+        "page": 34,
+        "text_characters": 2760,
+        "text_nonempty": true,
+        "render_pixels": [
+          1489,
+          2105
+        ],
+        "nonwhite_bbox": [
+          109,
+          132,
+          1380,
+          2049
+        ]
+      },
+      {
+        "page": 35,
+        "text_characters": 2779,
+        "text_nonempty": true,
+        "render_pixels": [
+          1489,
+          2105
+        ],
+        "nonwhite_bbox": [
+          109,
+          125,
+          1380,
+          2049
+        ]
+      },
+      {
+        "page": 36,
+        "text_characters": 2342,
+        "text_nonempty": true,
+        "render_pixels": [
+          1489,
+          2105
+        ],
+        "nonwhite_bbox": [
+          109,
+          125,
+          1380,
+          2049
+        ]
+      },
+      {
+        "page": 37,
+        "text_characters": 3316,
+        "text_nonempty": true,
+        "render_pixels": [
+          1489,
+          2105
+        ],
+        "nonwhite_bbox": [
+          109,
+          133,
+          1380,
+          2049
+        ]
+      },
+      {
+        "page": 38,
+        "text_characters": 795,
+        "text_nonempty": true,
+        "render_pixels": [
+          1489,
+          2105
+        ],
+        "nonwhite_bbox": [
+          110,
+          130,
+          1378,
+          2049
+        ]
+      },
+      {
+        "page": 39,
+        "text_characters": 3045,
+        "text_nonempty": true,
+        "render_pixels": [
+          1489,
+          2105
+        ],
+        "nonwhite_bbox": [
+          110,
+          129,
+          1378,
+          2049
+        ]
+      },
+      {
+        "page": 40,
+        "text_characters": 3429,
+        "text_nonempty": true,
+        "render_pixels": [
+          1489,
+          2105
+        ],
+        "nonwhite_bbox": [
+          110,
+          132,
+          1378,
+          2049
+        ]
+      },
+      {
+        "page": 41,
+        "text_characters": 2069,
+        "text_nonempty": true,
+        "render_pixels": [
+          1489,
+          2105
+        ],
+        "nonwhite_bbox": [
+          110,
+          130,
+          1377,
+          2049
+        ]
+      },
+      {
+        "page": 42,
+        "text_characters": 2315,
+        "text_nonempty": true,
+        "render_pixels": [
+          1489,
+          2105
+        ],
+        "nonwhite_bbox": [
+          109,
+          137,
+          1380,
+          2049
+        ]
+      },
+      {
+        "page": 43,
+        "text_characters": 2302,
+        "text_nonempty": true,
+        "render_pixels": [
+          1489,
+          2105
+        ],
+        "nonwhite_bbox": [
+          109,
+          125,
+          1380,
+          2049
+        ]
+      },
+      {
+        "page": 44,
+        "text_characters": 1541,
+        "text_nonempty": true,
+        "render_pixels": [
+          1489,
+          2105
+        ],
+        "nonwhite_bbox": [
+          109,
+          125,
+          1380,
+          2049
+        ]
+      },
+      {
+        "page": 45,
+        "text_characters": 798,
+        "text_nonempty": true,
+        "render_pixels": [
+          1489,
+          2105
+        ],
+        "nonwhite_bbox": [
+          109,
+          138,
+          1380,
+          2049
+        ]
+      },
+      {
+        "page": 46,
+        "text_characters": 347,
+        "text_nonempty": true,
+        "render_pixels": [
+          1489,
+          2105
+        ],
+        "nonwhite_bbox": [
+          109,
+          125,
+          1380,
+          2049
+        ]
+      }
+    ],
+    "generated_at": "2026-10-11T03:49:30.526093+03:00"
+  }
+}

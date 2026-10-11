@@ -1,0 +1,9 @@
+{
+ "adapter_id": "fsp-tasks-v1",
+ "base_model_id": "Qwen/Qwen3-4B-Instruct-2507",
+ "base_revision": "cdbee75f17c01a7cc42f958dc650907174af0554",
+ "files": {
+  "adapter_config.json": "e50507a9396bc9273ce5c53b95a3ba52dd5d934af6d34546f11f88e911a8ada9",
+  "adapter_model.safetensors": "a149f1554d0dad3d96dfdf98363a54fd761d86d40e95b6c04015142bc2a9fcaa"
+ }
+}

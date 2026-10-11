@@ -1,0 +1,15 @@
+{
+  "paths": 87,
+  "operations": 100,
+  "documented_operations": 100,
+  "live_contract_equal": true,
+  "http_examples": 71,
+  "json_bodies_validated": 34,
+  "http_examples_executed_as_requests": false,
+  "method": "Offline route/body validation with safe placeholder substitution; only public GET OpenAPI is requested.",
+  "source_sha256": {
+    "contracts/openapi.yaml": "2e11c61ccfe31a372c12649dc91725cfa73c25892cf2adf096bfa646d11b90d8",
+    "docs/18-api-guide.md": "36c2de5b05eb367da1e90aedeab7c817eba564fee37b1911d9f40e9efb345e83",
+    "docs/api-examples.http": "9e115f828517d3b1e41ccdec801dddb66d06215c0960c53f86b7bcb950d994b2"
+  }
+}
