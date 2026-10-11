@@ -1,0 +1,141 @@
+{
+  "schema": "fsp-presentation-contact-proof.v1",
+  "status": "pass",
+  "publication_authorization": {
+    "status": "confirmed_by_user",
+    "date": "2026-10-11",
+    "scope": "Publish every participant phone number and Telegram handle from the supplied PDF in the final presentation."
+  },
+  "source_pdf": {
+    "sha256": "c5d97019f9177ec138358fbdec1b204d136a67b6c24743e371bd6847c43a1bc5",
+    "byte_count": 15397455,
+    "page": 3,
+    "filename": "fsp-lct-2026-IZMENENIA.pdf",
+    "original_committed": false
+  },
+  "extraction": {
+    "method": "PDF text layer checked against rendered page user-03.png",
+    "rendered_page": "source-pdf/user-03.png",
+    "rendered_page_sha256": "f632a114f4f827e3dc76d7a789b85888e7a23842c137cb83af169dcabd4c696f",
+    "checked_at": "2026-10-11",
+    "normalization": "none; Telegram handles and phone digits retained exactly as shown in the PDF"
+  },
+  "contacts": [
+    {
+      "name": "Никита Колесников",
+      "telegram": "@iMrflashI",
+      "phone": "+79096553762"
+    },
+    {
+      "name": "Егор Кручинин",
+      "telegram": "@EgoRus26",
+      "phone": "+79055164857"
+    },
+    {
+      "name": "Лев Павлов",
+      "telegram": "@generalxaxe",
+      "phone": "+79015289961"
+    },
+    {
+      "name": "Дмитрий Висляев",
+      "telegram": "@Demetrius_777",
+      "phone": "+79169987647"
+    }
+  ],
+  "final_artifact": {
+    "path": "docs/delivery/fsp-lct-2026.pptx",
+    "sha256": "d7ac4047bf7911eca25ca1cc31669f189f3ea981f320e31b4464c1c7bbf33982",
+    "byte_count": 15761469,
+    "slide_count": 16
+  },
+  "contacts_verified_in_final": {
+    "required": [
+      "@iMrflashI",
+      "+79096553762",
+      "@EgoRus26",
+      "+79055164857",
+      "@generalxaxe",
+      "+79015289961",
+      "@Demetrius_777",
+      "+79169987647"
+    ],
+    "missing": []
+  },
+  "comparison_to_previous_editorial": {
+    "base_sha256": "736b021a6632fae1da4b6cf7aa1d6eab8412f486b6fd73d77fe036a35d09c9aa",
+    "base_part_count": 145,
+    "final_part_count": 145,
+    "changed_common_parts": [
+      "ppt/notesSlides/notesSlide2.xml",
+      "ppt/notesSlides/notesSlide3.xml",
+      "ppt/slides/_rels/slide3.xml.rels",
+      "ppt/slides/slide3.xml"
+    ],
+    "added_parts": [],
+    "removed_parts": [],
+    "unchanged_base_parts": 141
+  },
+  "comparison_to_original_template": {
+    "base_path": "source-before.pptx",
+    "base_sha256": "1ef21d556c24bdbda4a7d0a964ccb5b31041a8b432bc64900fed6587a51435c4",
+    "base_part_count": 140,
+    "final_part_count": 145,
+    "changed_common_parts": [
+      "ppt/notesSlides/notesSlide1.xml",
+      "ppt/notesSlides/notesSlide11.xml",
+      "ppt/notesSlides/notesSlide16.xml",
+      "ppt/notesSlides/notesSlide2.xml",
+      "ppt/notesSlides/notesSlide3.xml",
+      "ppt/notesSlides/notesSlide4.xml",
+      "ppt/slides/_rels/slide1.xml.rels",
+      "ppt/slides/_rels/slide11.xml.rels",
+      "ppt/slides/_rels/slide16.xml.rels",
+      "ppt/slides/_rels/slide2.xml.rels",
+      "ppt/slides/_rels/slide3.xml.rels",
+      "ppt/slides/_rels/slide4.xml.rels",
+      "ppt/slides/slide1.xml",
+      "ppt/slides/slide11.xml",
+      "ppt/slides/slide16.xml",
+      "ppt/slides/slide2.xml",
+      "ppt/slides/slide3.xml",
+      "ppt/slides/slide4.xml"
+    ],
+    "added_parts": [
+      "ppt/media/team-dmitry-vislyaev.png",
+      "ppt/media/team-egor-kruchinin.png",
+      "ppt/media/team-lev-pavlov.png",
+      "ppt/media/team-logo-studio37.png",
+      "ppt/media/team-nikita-kolesnikov.png"
+    ],
+    "removed_parts": [],
+    "unchanged_base_parts": 122
+  },
+  "visible_changed_slides_vs_previous": [
+    3
+  ],
+  "notes_changed_slides_vs_previous": [
+    2,
+    3
+  ],
+  "finalizer": {
+    "receipt": "evidence/contacts-final-validation.json",
+    "receipt_sha256": "3e808d4f386ee1344aab5bf8fa21df81e4391669ebd4b102c44171bfbaf047d9",
+    "package_integrity": "pass",
+    "first_party_import": "pass",
+    "font_policy": "pass"
+  },
+  "visual_review": {
+    "slides": [
+      2,
+      3
+    ],
+    "report": "evidence/contacts-final-visual-review.json",
+    "slide_2_pixel_equal_to_previous": true,
+    "slide_3_pixel_equal_to_previous": false,
+    "finding_count": 0
+  },
+  "boundaries": [
+    "The original user PDF remains outside Git and is referenced only by relative attachment path and hashes.",
+    "This proof is stored in the private D:/Codex/Temp workspace; public documentation may retain consent/status flags without duplicating the contact values."
+  ]
+}

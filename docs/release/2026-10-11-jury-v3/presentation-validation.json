@@ -1,7 +1,7 @@
 {
   "schemaVersion": "presentation-finalization.v1",
-  "finalSha256": "736b021a6632fae1da4b6cf7aa1d6eab8412f486b6fd73d77fe036a35d09c9aa",
-  "byteCount": 15761169,
+  "finalSha256": "d7ac4047bf7911eca25ca1cc31669f189f3ea981f320e31b4464c1c7bbf33982",
+  "byteCount": 15761469,
   "packageIntegrity": {
     "chart_count": 0,
     "claim_boundary": "Structural package checks only; no slide text, notes, formulas, chart values, or native PowerPoint execution were inspected.",
@@ -19,13 +19,13 @@
     "finding_count": 0,
     "findings": [],
     "font_policy": {
-      "checked_text_script_count": 184,
+      "checked_text_script_count": 192,
       "native_font_rendering_verified": false,
       "observed_font_families": [
         "Montserrat"
       ],
       "observed_font_use_counts": {
-        "Montserrat": 184
+        "Montserrat": 192
       },
       "passed": true,
       "performed": true
@@ -47,13 +47,13 @@
     "exitCode": 0,
     "findingCount": 0,
     "fontPolicy": {
-      "checked_text_script_count": 184,
+      "checked_text_script_count": 192,
       "native_font_rendering_verified": false,
       "observed_font_families": [
         "Montserrat"
       ],
       "observed_font_use_counts": {
-        "Montserrat": 184
+        "Montserrat": 192
       },
       "passed": true,
       "performed": true
@@ -65,15 +65,15 @@
       "Montserrat"
     ],
     "scriptFonts": {},
-    "referenceSha256": "1ef21d556c24bdbda4a7d0a964ccb5b31041a8b432bc64900fed6587a51435c4",
+    "referenceSha256": "736b021a6632fae1da4b6cf7aa1d6eab8412f486b6fd73d77fe036a35d09c9aa",
     "referenceFontsVerifiedInEncodedText": true,
-    "checked_text_script_count": 184,
+    "checked_text_script_count": 192,
     "native_font_rendering_verified": false,
     "observed_font_families": [
       "Montserrat"
     ],
     "observed_font_use_counts": {
-      "Montserrat": 184
+      "Montserrat": 192
     },
     "passed": true,
     "performed": true
@@ -82,8 +82,8 @@
     "performed": true,
     "passed": true,
     "slideCount": 16,
-    "sha256": "736b021a6632fae1da4b6cf7aa1d6eab8412f486b6fd73d77fe036a35d09c9aa",
-    "runtimeNodeModules": "C:\\Users\\Admin\\.cache\\codex-runtimes\\codex-primary-runtime\\dependencies\\node\\node_modules",
+    "sha256": "d7ac4047bf7911eca25ca1cc31669f189f3ea981f320e31b4464c1c7bbf33982",
+    "runtimeNodeModules": "C:/Users/Admin/.cache/codex-runtimes/codex-primary-runtime/dependencies/node/node_modules",
     "nodeExecutable": "C:\\Users\\Admin\\.cache\\codex-runtimes\\codex-primary-runtime\\dependencies\\node\\bin\\node.exe"
   },
   "nativeTableArithmetic": {
@@ -110,7 +110,7 @@
     "native_chart_count": 0,
     "native_powerpoint_verified": false,
     "passed": true,
-    "presentation_sha256": "736b021a6632fae1da4b6cf7aa1d6eab8412f486b6fd73d77fe036a35d09c9aa",
+    "presentation_sha256": "d7ac4047bf7911eca25ca1cc31669f189f3ea981f320e31b4464c1c7bbf33982",
     "schema_version": "presentation-native-chart-titles.v1",
     "slide_count": 16,
     "source_text_emitted": false,

@@ -1,7 +1,7 @@
 {
   "source_sha256": "1ef21d556c24bdbda4a7d0a964ccb5b31041a8b432bc64900fed6587a51435c4",
-  "final_sha256": "736b021a6632fae1da4b6cf7aa1d6eab8412f486b6fd73d77fe036a35d09c9aa",
-  "final_byte_count": 15761169,
+  "final_sha256": "d7ac4047bf7911eca25ca1cc31669f189f3ea981f320e31b4464c1c7bbf33982",
+  "final_byte_count": 15761469,
   "slide_count": 16,
   "changed_slide_xml_numbers": [
     1,
@@ -40,7 +40,6 @@
   ],
   "removed_parts": [],
   "unchanged_source_parts": 122,
-  "private_contact_tokens_found": [],
   "required_text_missing": [],
   "team_portrait_images": [
     {
@@ -114,5 +113,26 @@
     14,
     15,
     16
-  ]
+  ],
+  "contact_revision": {
+    "base_sha256": "736b021a6632fae1da4b6cf7aa1d6eab8412f486b6fd73d77fe036a35d09c9aa",
+    "visible_slide": 3,
+    "notes_slides": [
+      2,
+      3
+    ],
+    "all_eight_contact_strings_matched": true,
+    "missing_contacts": [],
+    "visual_review": {
+      "status": "pass",
+      "slides": [
+        2,
+        3
+      ],
+      "slide2_pixels_unchanged": true,
+      "findings": []
+    },
+    "publication_authorized_by_user": true
+  },
+  "visual_review_method": "All 16 slides reviewed for the editorial base; contact delta slides 2 and 3 reviewed from the final file. Other visible slide XML parts remain byte-for-byte identical to the reviewed base."
 }
